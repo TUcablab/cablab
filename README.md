@@ -1,2 +1,2 @@
 # CabLab
-Main CABLAB repository for experimental tasks, surveys, and analysis pipelines.
+Main CabLab repository for experimental tasks, surveys, and analysis pipelines.
