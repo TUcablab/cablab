@@ -1,98 +1,51 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+---
+layout: default
+---
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,maximum-scale=2">
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+<style>
+  /* Center the title and logo within the existing Slate theme */
+  header h1 {
+    text-align: center;
+  }
+  
+  header img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  header p {
+    text-align: center;
+  }
+  
+  header h3 {
+    text-align: center;
+  }
+  
+  .resources-links {
+    text-align: center;
+  }
+  
+  .resources-links p {
+    text-align: center;
+    margin-bottom: 2px;
+  }
+</style>
 
-{% seo %}
-    {% include head-custom.html %}
-    
-    <style>
-      /* Center elements while keeping Slate theme styling */
-      header h1 {
-        text-align: center;
-      }
-      
-      header img {
-        display: block;
-        margin: 0 auto 20px auto;
-      }
-      
-      header p {
-        text-align: center;
-      }
-      
-      .resources-section {
-        text-align: center;
-        margin-top: 30px;
-      }
-      
-      .resources-section h3 {
-        color: #fff;
-        margin-bottom: 15px;
-      }
-      
-      .resources-links p {
-        margin-bottom: 2px;
-      }
-    </style>
-  </head>
+{% if site.logo %}
+  <div style="text-align: center; margin-bottom: 20px;">
+    <img src="{{site.logo | relative_url}}" alt="Logo" style="max-width: 200px" />
+  </div>
+{% endif %}
 
-  <body>
+<div style="text-align: center; margin-bottom: 30px;">
+  <h3>Resources</h3>
+  <div class="resources-links">
+    <p><a href="https://www.jspsych.org/">jsPsych</a></p>
+    <p><a href="https://nivlab.github.io/nivturk/">NivTurk</a></p>
+    <p><a href="{{ site.baseurl }}/pages/tutorials.html">Tutorials</a></p>
+    <p><a href="{{ site.baseurl }}/pages/stimuli.html">Stimuli</a></p>
+    <p><a href="{{ site.baseurl }}/pages/extensions.html">Extensions</a></p>
+  </div>
+</div>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          {% if site.github.is_project_page %}
-            <a id="forkme_banner" href="{{ site.github.repository_url }}">View on GitHub</a>
-          {% endif %}
-
-          <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
-          
-          {% if site.logo %}
-            <img src="{{site.logo | relative_url}}" alt="Logo" style="max-width: 200px" />
-          {% endif %}
-          
-          <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
-
-          <div class="resources-section">
-            <h3>Resources</h3>
-            <div class="resources-links">
-              <p><a href="https://www.jspsych.org/" style="color: #ddd;">jsPsych</a></p>
-              <p><a href="https://nivlab.github.io/nivturk/" style="color: #ddd;">NivTurk</a></p>
-              <p><a href="{{ site.baseurl }}/pages/tutorials.html" style="color: #ddd;">Tutorials</a></p>
-              <p><a href="{{ site.baseurl }}/pages/stimuli.html" style="color: #ddd;">Stimuli</a></p>
-              <p><a href="{{ site.baseurl }}/pages/extensions.html" style="color: #ddd;">Extensions</a></p>
-            </div>
-          </div>
-
-          {% if site.github.is_project_page %}
-            <section id="downloads">
-              <a class="zip_download_link" href="{{ site.github.zip_url }}">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="{{ site.github.tar_url }}">Download this project as a tar.gz file</a>
-            </section>
-          {% endif %}
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        {{ content }}
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        {% if site.github.is_project_page %}
-        <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-  </body>
-</html>
+{{ content }}
