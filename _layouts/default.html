@@ -10,6 +10,33 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
+    
+    <style>
+      /* Minimal overrides to center title and logo while preserving Slate theme */
+      header h1 {
+        text-align: center;
+      }
+      
+      header img {
+        display: block;
+        margin: 0 auto;
+      }
+      
+      header p {
+        text-align: center;
+      }
+      
+      header h3 {
+        text-align: center;
+        margin-right: 0 !important;
+      }
+      
+      .resources-links p {
+        text-align: center;
+        margin-right: 0 !important;
+      }
+    </style>
+    
     {% include head-custom.html %}
   </head>
   <body>
@@ -18,18 +45,20 @@
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
         {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" / style="max-width: 200px">
+          <img src="{{site.logo | relative_url}}" alt="Logo" style="max-width: 200px" />
         {% endif %}
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
-        <h3 style="margin-right: 145px;">Resources</h3>
+        <h3>Resources</h3>
 
-        <p style="margin-right: 145px; margin-bottom: 2px;"><a href="https://www.jspsych.org/">jsPsych</a></p>
-        <p style="margin-right: 145px; margin-bottom: 2px;"><a href="https://nivlab.github.io/nivturk/">NivTurk</a></p>
-        <p style="margin-right: 140px; margin-bottom: 2px;"><a href="{{ site.baseurl }}/pages/tutorials.html">Tutorials</a></p>
-        <p style="margin-right: 151px; margin-bottom: 2px;"><a href="{{ site.baseurl }}/pages/stimuli.html">Stimuli</a></p>
-        <p style="margin-right: 127px; margin-bottom: 2px;"><a href="{{ site.baseurl }}/pages/extensions.html">Extensions</a></p>
+        <div class="resources-links">
+          <p><a href="https://www.jspsych.org/">jsPsych</a></p>
+          <p><a href="https://nivlab.github.io/nivturk/">NivTurk</a></p>
+          <p><a href="{{ site.baseurl }}/pages/tutorials.html">Tutorials</a></p>
+          <p><a href="{{ site.baseurl }}/pages/stimuli.html">Stimuli</a></p>
+          <p><a href="{{ site.baseurl }}/pages/extensions.html">Extensions</a></p>
+        </div>
 
       </header>
       <section>
@@ -38,17 +67,9 @@
 
       </section>
       <footer>
-        <p><small>View on <a href="{{ site.github.repository_url }}">GitHub</a> | Theme by <a href="https://github.com/orderedlist">orderedlist</a><br>Funding from <a href="https://ncats.nih.gov">NCATS</a> (UL1TR003017)</small></p>
+        <p><small>View on <a href="{{ site.github.repository_url }}">GitHub</a> | Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GG0RKT54J"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-8GG0RKT54J');
-    </script>
   </body>
 </html>
