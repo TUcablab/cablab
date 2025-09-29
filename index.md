@@ -12,13 +12,25 @@ TABLE OF CONTENTS
 
 <hr>
 
-## Reinforcement Learning Tasks
+## Attention
 
-### Simple 2-arm bandit
+### Brief Network Attention Test
 
 <div class="button-container">
-  <a href="https://github.com/nivlab/jspsych-demos/tree/main/tasks/bandit" class="demo-button code-button">Code</a>
-  <a href="./tasks/bandit/experiment.html" class="demo-button demo-button-style">Demo</a>
+  <a href="https://github.com/TUcablab/cablab/tree/main/tasks/brief_attention_network_test" class="demo-button code-button">Code</a>
+  <a href="./tasks/brief_attention_network_test/experiment.html" class="demo-button demo-button-style">Demo</a>
 </div>
 
-> Plugin to verify that a participant's browser window meets a minimal screen resolution.
+10-minute version of the Attention Network Test <a href="https://pubmed-ncbi-nlm-nih-gov.libproxy.temple.edu/24205860/">(Weaver et al., 2013)</a>
+
+
+## Digital Media Habits
+
+### Mobile Technology Engagement Scale
+
+<div class="button-container">
+  <a href="https://github.com/TUcablab/cablab/tree/main/surveys/MTES" class="demo-button code-button">Code</a>
+  <a href="./surveys/MTES/experiment.html" class="demo-button demo-button-style">Demo</a>
+</div>
+
+Mobile Technology Engagement Scale <a href="https://academic-oup-com.libproxy.temple.edu/scan/article/14/4/367/5479340">(Wilmer et al., 2019)</a>
