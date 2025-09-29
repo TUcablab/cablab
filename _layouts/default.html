@@ -12,15 +12,19 @@
 
     <style>
       /* Center elements while keeping Slate theme styling */
-      header h1 {
-        text-align: center;
-        /* Added to force title onto a single line */
-        white-space: nowrap;
+      
+      /* MODIFIED: Use Flexbox on the .inner container to center all header content */
+      header.inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* This centers all children (h1, img, h2) horizontally */
       }
 
-      header h2 {
-        text-align: center;
+      header h1 {
+        white-space: nowrap; /* Keeps the title on one line */
       }
+      
+      /* RULE REMOVED: header h2 {} was removed here because it was empty. */
 
       header img {
         display: block;
@@ -32,7 +36,6 @@
       }
 
       .resources-section {
-        text-align: center;
         margin-top: 30px;
       }
 
