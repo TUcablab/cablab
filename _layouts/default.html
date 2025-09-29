@@ -9,34 +9,91 @@
 
 {% seo %}
     {% include head-custom.html %}
-    
+
     <style>
       /* Center elements while keeping Slate theme styling */
       header h1 {
         text-align: center;
       }
-      
+
       header img {
         display: block;
         margin: 30px auto 20px auto;
       }
-      
+
       header p {
         text-align: center;
       }
-      
+
       .resources-section {
         text-align: center;
         margin-top: 30px;
       }
-      
+
       .resources-section h3 {
         color: #fff;
         margin-bottom: 15px;
       }
-      
+
       .resources-links p {
         margin-bottom: 2px;
+      }
+
+      /* Button styling for demo links */
+      .button-container {
+        margin: 15px 0;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .demo-button {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        cursor: pointer;
+      }
+
+      .code-button {
+        background-color: #2c3e50;
+        color: #fff;
+        border-color: #34495e;
+      }
+
+      .code-button:hover {
+        background-color: #34495e;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+
+      .demo-button-style {
+        background-color: #27ae60;
+        color: #fff;
+        border-color: #2ecc71;
+      }
+
+      .demo-button-style:hover {
+        background-color: #2ecc71;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+
+      /* Responsive design for mobile */
+      @media (max-width: 480px) {
+        .button-container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .demo-button {
+          width: 100%;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -47,11 +104,11 @@
     <div id="header_wrap" class="outer">
         <header class="inner">
           <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
-          
+
           {% if site.logo %}
             <img src="{{site.logo | relative_url}}" alt="Logo" style="max-width: 200px" />
           {% endif %}
-          
+
           <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
 
           <div class="resources-section">
