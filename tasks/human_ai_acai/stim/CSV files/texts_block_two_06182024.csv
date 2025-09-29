@@ -1,0 +1,5 @@
+source_key,category,item,text_stim,audio_stim
+AI,animals,pigeons,Pigeons are birds with grey feathers that live in cities. They can fly and often gather in parks. Pigeons peck at crumbs on the ground and make soft cooing sounds.,stim/Audio/ai_animals_pigeons.mp3
+AI,jobs,doctors,"Doctors help keep us healthy. They check if we are feeling well, give us medicine, and fix our boo-boos. Doctors are like superheroes who take care of our bodies.",stim/Audio/ai_jobs_doctors.mp3
+human,Transportation,boats,Boats are less dense than water. Their weight is spread out. This allows them to float. Boats need force to move. Sailing ships use wind to move. ,stim/Audio/human_transportation_boats.mp3
+human,Outer Space,earth,"Earth is the only planet that has water on its surface. If Earth were closer to the sun, the oceans would boil aways. If it were farther away, the oceans would freeze.",stim/Audio/human_outerspace_earth.mp3

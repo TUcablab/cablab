@@ -1,0 +1,6 @@
+﻿source_key,category,item,text_stim,audio_stim
+human,jobs,scientist,Climate scientists study Earth's weather over time. They collect and study data from around the world. Their work teaches people about weather. It also teaches about climate change. ,stim/Audio/human_jobs_scientist.mp3
+AI,Transportation,planes,"Planes soar high in the sky, like colorful birds with shiny wings. They take us on journeys to new lands, where we can look down and see fluffy clouds below. ",stim/Audio/AI_transportation_planes.mp3
+human,Seasons,summer,"Our summer months are June, July, and August. The sun rises early in the morning and sets late every evening. This makes the Days light and warm. Summer can be HOT! ",stim/Audio/human_seasons_summer.mp3
+human,Seasons,fall,Fall comes after summer. Fall is a season of change. The sun goes down earlier every day. The air turns cool and crisp. Frost covers the ground on cold mornings. ,stim/Audio/human_seasons_fall.mp3
+AI,Transportation,roads,"Roads are like paths for cars and bikes, winding through towns and countryside. We walk along them, holding hands, and sometimes ride our scooters or skateboards, feeling the breeze as we go.",stim/Audio/AI_transportation_roads.mp3

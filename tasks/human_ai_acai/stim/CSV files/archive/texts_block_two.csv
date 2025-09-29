@@ -1,0 +1,6 @@
+﻿source_key,category,item,text_stim,audio_stim
+AI,Transportation,trains,"Trains chug-chug along the tracks, carrying passengers and goods to faraway places. They whistle and toot, racing through tunnels and over bridges. All aboard for an exciting adventure! ",stim/Audio/AI_transportation_trains.mp3
+human,Seasons,snow,"Snow is a form of water that falls to the ground as white flakes. Snow forms when water turns into water vapor and rises into the sky. As the water vapor gets higher, it gets colder.",stim/Audio/human_seasons_snow.mp3
+human,jobs,builder,"Builders like putting things together. Builders are also called construction workers. They work as a team. They build houses, apartment buildings and office buildings.",stim/Audio/human_jobs_builder.mp3
+AI,Outer Space,sun,"The sun is a giant, fiery ball in the sky. It gives us light and warmth every day. It's so big that the Earth goes around it!",stim/Audio/AI_outerspace_sun.mp3
+human,animals,reef,"The shallow ocean waters look calm. But under the surface, a coral reef is a busy place. Hundreds, even thousands of different creatures swim and hide along the reef. ",stim/Audio/human_animals_reef.mp3

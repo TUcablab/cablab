@@ -1,0 +1,6 @@
+﻿source_key,category,item,text_stim,audio_stim
+human,Transportation,bicycle,"A bicycle is a two-wheeled vehicle that gets is power when the rider pushes the pedals around in a circle. The word bicycle means ""two-wheel.""",stim/Audio/human_transportation_bicycle.mp3
+AI,jobs,teachers,"Teachers help us learn new things every day. They show us how to read, write, and solve problems. They are friendly guides who make school fun!",stim/Audio/AI_jobs_teachers.mp3
+human,animals,animals that change color,"Some animals can change color, almost like magic. It can happen in an instant. Or it can take years. Sometimes the change is dramatic. Other times, it's gradual.",stim/Audio/human_animals_animalsthatcanchangecolor.mp3
+human,Outer Space,stars,"At night, the sky is full of twinkling points of light. Most of them are stars like the Sun. They look smaller than the Sun because they are further away.",stim/Audio/human_outerspace_stars.mp3
+AI,jobs,plumber,"Plumbers fix pipes and water problems in our homes. They make sure sinks, toilets, and showers work well. They are like water superheroes!",stim/Audio/AI_jobs_plumber.mp3

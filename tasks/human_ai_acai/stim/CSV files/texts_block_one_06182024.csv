@@ -1,0 +1,5 @@
+source_key,category,item,text_stim,audio_stim
+human,Transportation,bicycle,"A bicycle is a two-wheeled vehicle that gets its power when the rider pushes the pedals around in a circle. The word bicycle means ""two-wheel"". Bi means ""two"" and cycle means ""wheel or circle"".",stim/Audio/human_transportation_bicycle.mp3
+AI,Outer Space,comets,"Comets are icy rocks that zoom through space with long tails made of dust and gas. They sparkle like shooting stars when they pass by Earth, making the night sky magical.",stim/Audio/ai_outerspace_comets.mp3
+AI,jobs,teachers,"Teachers help us learn new things every day. They teach us to read, write, and solve problems. Teachers make school fun and exciting, guiding us like friendly helpers.",stim/Audio/ai_jobs_teachers.mp3
+human,animals,reef,"The shallow ocean waters look calm. But under the surface, a coral reef is a busy place. Hundreds, even thousands of different creatures swim and hide along the reef.",stim/Audio/human_animals_reef.mp3

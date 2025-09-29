@@ -1,0 +1,184 @@
+---
+title: "Randomization_script_texts_stim_06_18_2024"
+author: "Steven Martinez"
+date: "2024-06-18"
+output: html_document
+---
+
+# --- Load in libraries ---
+```{r}
+
+library(tidyverse)
+
+```
+
+# --- Read updated texts CSV in ---
+```{r}
+
+updated_texts <- read.csv("/Users/tuh20985/Desktop/Child AI Detection Study/stim/CSV files/Updated CSV Files 06_18_2024/updated_text_stim_06_18_2024.csv")
+
+```
+
+
+
+# --- Randomly select Texts Block 1 ---
+```{r}
+
+# Randomly sample 4 rows without replacement
+texts_block_one <- updated_texts[sample(nrow(updated_texts), 4, replace = FALSE),]
+
+# Remove the sampled rows from the "updated_texts" df
+updated_texts <- updated_texts[!(updated_texts$text_stim %in% texts_block_one$text_stim),]
+
+
+```
+
+
+# --- Randomly select Texts Block 2 ---
+
+```{r}
+
+# Randomly sample 4 rows without replacement
+texts_block_two <- updated_texts[sample(nrow(updated_texts), 4, replace = FALSE),]
+
+# Remove the sampled rows from the "updated_texts" df
+updated_texts <- updated_texts[!(updated_texts$text_stim %in% texts_block_two$text_stim),]
+
+
+```
+
+
+# --- Randomly select Texts Block 3 ---
+
+```{r}
+
+# Randomly sample 4 rows without replacement
+texts_block_three <- updated_texts[sample(nrow(updated_texts), 4, replace = FALSE),]
+
+# Remove the sampled rows from the "updated_texts" df
+updated_texts <- updated_texts[!(updated_texts$text_stim %in% texts_block_three$text_stim),]
+
+
+```
+
+
+
+# --- Randomly select Texts Block 4 ---
+
+```{r}
+
+# Randomly sample 4 rows without replacement
+texts_block_four <- updated_texts[sample(nrow(updated_texts), 4, replace = FALSE),]
+
+# Remove the sampled rows from the "updated_texts" df
+updated_texts <- updated_texts[!(updated_texts$text_stim %in% texts_block_four$text_stim),]
+
+
+```
+
+
+
+# --- Randomly select Texts Block 5 ---
+
+```{r}
+
+# Randomly sample 4 rows without replacement
+texts_block_five <- updated_texts[sample(nrow(updated_texts), 4, replace = FALSE),]
+
+# Remove the sampled rows from the "updated_texts" df
+updated_texts <- updated_texts[!(updated_texts$text_stim %in% texts_block_five$text_stim),]
+
+
+```
+
+
+
+# --- Randomly select Texts Block 6 ---
+
+```{r}
+
+# Randomly sample 4 rows without replacement
+texts_block_six <- updated_texts[sample(nrow(updated_texts), 4, replace = FALSE),]
+
+# Remove the sampled rows from the "updated_texts" df
+updated_texts <- updated_texts[!(updated_texts$text_stim %in% texts_block_six$text_stim),]
+
+
+```
+
+
+
+# --- Randomly select Texts Block 7 ---
+
+```{r}
+
+# Randomly sample 4 rows without replacement
+texts_block_seven <- updated_texts[sample(nrow(updated_texts), 4, replace = FALSE),]
+
+# Remove the sampled rows from the "updated_texts" df
+updated_texts <- updated_texts[!(updated_texts$text_stim %in% texts_block_seven$text_stim),]
+
+
+```
+
+
+
+# --- Randomly select Texts Block 8 ---
+
+```{r}
+
+# Randomly sample 4 rows without replacement
+texts_block_eight <- updated_texts[sample(nrow(updated_texts), 4, replace = FALSE),]
+
+# Remove the sampled rows from the "updated_texts" df
+updated_texts <- updated_texts[!(updated_texts$text_stim %in% texts_block_eight$text_stim),]
+
+
+```
+
+
+
+# --- Export CSVs ---
+```{r}
+
+#Export texts_block_one
+write.csv(texts_block_one, "/Users/tuh20985/Desktop/Child AI Detection Study/stim/randomized stim/texts_block_one_06182024.csv")
+
+#Export texts_block_two
+write.csv(texts_block_two, "/Users/tuh20985/Desktop/Child AI Detection Study/stim/randomized stim/texts_block_two_06182024.csv")
+
+#Export texts_block_three
+write.csv(texts_block_three, "/Users/tuh20985/Desktop/Child AI Detection Study/stim/randomized stim/texts_block_three_06182024.csv")
+
+#Export texts_block_four
+write.csv(texts_block_four, "/Users/tuh20985/Desktop/Child AI Detection Study/stim/randomized stim/texts_block_four_06182024.csv")
+
+#Export texts_block_five
+write.csv(texts_block_five, "/Users/tuh20985/Desktop/Child AI Detection Study/stim/randomized stim/texts_block_five_06182024.csv")
+
+#Export texts_block_six
+write.csv(texts_block_six, "/Users/tuh20985/Desktop/Child AI Detection Study/stim/randomized stim/texts_block_six_06182024.csv")
+
+#Export texts_block_seven
+write.csv(texts_block_seven, "/Users/tuh20985/Desktop/Child AI Detection Study/stim/randomized stim/texts_block_seven_06182024.csv")
+
+#Export texts_block_six
+write.csv(texts_block_eight, "/Users/tuh20985/Desktop/Child AI Detection Study/stim/randomized stim/texts_block_eight_06182024.csv")
+
+
+```
+
+
+
+```{r}
+
+#put all data frames into list
+df_list <- list(texts_block_one, texts_block_two, texts_block_three, texts_block_four, texts_block_five, texts_block_six, texts_block_seven, texts_block_eight)
+
+#merge all data frames in list
+texts_rand_updated <- df_list %>% reduce(full_join, by=c('source_key', 'category', 'item', 'text_stim'))
+
+
+t.test(DFMASTER_Sharers_acc_1$Mean_AccFakes2, DFMASTER_Sharers_acc_1$Accuracy_VeracityRN_2, alternative = c("two.sided"), mu = 0, paired = TRUE, var.equal = FALSE, conf.level = 0.95)
+
+```

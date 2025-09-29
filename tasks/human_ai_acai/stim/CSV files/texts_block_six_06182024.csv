@@ -1,0 +1,5 @@
+source_key,category,item,text_stim,audio_stim
+human,Outer Space,mars,Mars is a planet. Planets orbit stars. Planets in our solar system orbit the sun. Mars is the fourth planet from the sun. It is about 142 million miles from the sun.,stim/Audio/human_outerspace_mars.mp3
+human,Seasons,snow,Snow is a form of water that falls to the ground as white flakes. Snow forms when water turns into water vapor and rises into the sky. ,stim/Audio/human_seasons_snow.mp3
+AI,jobs,plumber,"Plumbers fix pipes and water leaks in our homes. They make sure sinks, toilets, and showers work properly. Plumbers are like water superheroes, helping us have clean water and keeping everything running smoothly.",stim/Audio/AI_jobs_plumber.mp3
+human,anmials,monkeys,Monkeys are primates. They live in tropical forests. People see monkeys at the zoo. Monkeys at the zoo live in a pen. They have trees and water. They play with toys. ,stim/Audio/human_animals_monkeys.mp3

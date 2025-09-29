@@ -1,0 +1,5 @@
+source_key,category,item,text_stim,audio_stim
+human,Seasons,spring,"Peep! Peepers chirp and duckling quack. Bunnies nibble new grass. The early morning air is cool. It smells like rain, earth, and blossoms. This is Spring! Spring follows winter.",stim/Audio/human_seasons_spring.mp3
+human,animals,baby animals,"Some baby animals are called mammals. They drink milk from their mother. Bears, cheetahs, and whales are mammals. So are humans. All baby animals have to eat to grow, just like you.",stim/Audio/human_animals_babyanimals.mp3
+AI,Transportation,roads,"Roads are like paths for cars and bikes, winding through towns and countryside. We walk along them, holding hands, and sometimes ride our scooters or skateboards, feeling the breeze as we go.",stim/Audio/ai_transportation_roads.mp3
+AI,Transportation,planes,"Planes soar high in the sky, like colorful birds with shiny wings. They take us on journeys to new lands, where we can look down and see fluffy clouds below.",stim/Audio/ai_transportation_planes.mp3

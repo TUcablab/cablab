@@ -1,0 +1,5 @@
+source_key,category,item,text_stim,audio_stim
+AI,Outer Space,moon,"The moon is a magical night friend that changes shape every night. Sometimes it's a big, round circle, other times just a tiny sliver. It lights up the sky and makes bedtime special.",stim/Audio/ai_outerspace_moon.mp3
+AI,Transportation,mail truck,"Mail trucks deliver letters and packages to our homes. They drive around the neighborhood, bringing us surprises and important messages. The mail truck is like a special delivery friend!",stim/Audio/ai_transportation_mailtruck.mp3
+human,Seasons,fall,Fall comes after summer. Fall is a season of change. The sun goes down earlier every day. The air turns cool and crisp. Frost covers the ground on cold mornings.,stim/Audio/human_seasons_fall.mp3
+human,jobs,scientist,Climate scientists study Earth's weather over time. They collect and study data from around the world. Their work teaches people about weather. It also teaches about climate change.,stim/Audio/human_jobs_scientist.mp3

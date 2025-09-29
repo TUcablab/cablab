@@ -1,0 +1,6 @@
+﻿source_key,category,item,text_stim,audio_stim
+human,Transportation,boats,Boats are less dense than water. Their weight is spread out. This allows them to float. Boats need force to move. Sailing ships use wind to move. Some boats use paddles or oars. ,stim/Audio/human_transportation_boats.mp3
+human,Seasons,spring,"Peep! Peepers chirp and duckling quack. Bunnies nibble new grass. The early morning air is cool. It smells like rain, earth, and blossoms. This is Spring! Spring follows winter. ",stim/Audio/human_seasons_spring.mp3
+human,Outer Space,mars,Mars is a planet. Planets orbit stars. Planets in our solar system orbit the sun. Mars is the fourth planet from the sun. It is about 142 million miles from the sun.,stim/Audio/human_outerspace_mars.mp3
+human,Outer Space,earth,"Earth is the only planet that has water on its surface. If Earth were closer to the sun, the oceans would boil away. If it were farther away, the oceans would freeze.",stim/Audio/human_outerspace_earth.mp3
+AI,animals,farm animals,"On the farm, you'll find cows, sheep, pigs, and more! They give us milk, wool, and yummy food. Let's visit and say hi!",stim/Audio/AI_animals_farmanimals.mp3

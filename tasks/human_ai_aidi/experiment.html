@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Human/AI AIDI</title>
+
+    <!-- Load jspsych plugins-->
+    <script src="js/jspsych.js"></script>
+    <script src="js/plugin-instructions.js"></script>
+    <script src="js/plugin-html-button-response.js"></script>
+    <script src="js/plugin-html-keyboard-response.js"></script>
+    <script src="js/plugin-preload.js"></script>
+    <script src="js/plugin-browser-check.js"></script>
+    <script src="js/plugin-fullscreen.js"></script>
+    <script src="js/plugin-html-slider-response.js"></script>
+
+    <!-- Load stimuli JS scripts -->
+    <script src="stimuli/JS stim/assessment_stim_multifeatured.js"></script>
+    <script src="stimuli/JS stim/assessment_stim_text.js"></script>
+    <script src="stimuli/JS stim/intervention_stim_multifeatured.js"></script>
+    <script src="stimuli/JS stim/intervention_stim_text.js"></script>
+
+    <!-- Load Human/AI AIDI task scripts -->
+    <script src="stim_randomization.js"></script>
+    <script src="preload_stim.js"></script>
+    <script src="human_ai_aidi.js"></script>
+
+    <!-- Load jspsych's default CSS styling script (which handles aesthetics) -->
+    <link href="js/jspsych.css" rel="stylesheet" type="text/css" />
+    
+  
+<style>
+
+/****** These are all CSS rules that will customize the aesthetics of the task *******/
+
+/* Adjust the background color */
+body {
+background-color: #FFFFFF;
+     } 
+
+/* Add CSS rule for line height */
+.instructions_line_height {
+line-height: 5em
+}
+
+/* Add CSS rule for padding for text */
+.custom_padding {
+  padding-left: 3vw;
+  padding-right: 3vw
+}
+</style>
+  </head>
+  <body></body>
+  <script>
+
+
+//------------------------------------//
+// Initialize jsPsych
+//------------------------------------//
+var jsPsych = initJsPsych({
+  on_finish: function() {
+    // Add interactions to the data variable
+    var interaction_data = jsPsych.data.getInteractionData();
+    jsPsych.data.get().addToLast({interactions: interaction_data.json()});
+    }
+})
+
+
+//------------------------------------//
+// Initialize jsPsych Timeline
+//------------------------------------//
+var timeline = [];
+
+
+//--------------------//
+// Browser Check
+//--------------------//
+timeline.push ({
+    data: {
+        trial_id: "browser_check"
+    },
+    type: jsPsychBrowserCheck
+  });
+
+
+//--------------------//
+// Full Screen
+//--------------------//
+timeline.push({
+    data: {
+        trial_id: "full_screen"
+    },
+    type: jsPsychFullscreen,
+    fullscreen_mode: true
+});
+
+
+//------------------------------------//
+// PRELOAD STIMULI
+//------------------------------------//
+timeline.push(preload_aidi_aesthetics)
+timeline.push(preload_images_icons)
+timeline.push(preload_images_assessment_stim_places)
+timeline.push(preload_images_assessment_stim_faces)
+timeline.push(preload_images_intervention_stim_places)
+timeline.push(preload_images_intervention_stim_faces)
+
+
+
+//------------------------------------//
+// Concatenate Human/AI AIDI timeline
+//------------------------------------//
+timeline = timeline.concat(human_ai_aidi_procedure);
+
+
+
+
+//------------------------------------//
+// Run the experiment
+//------------------------------------//
+  jsPsych.run(timeline);
+
+  </script>
+</html>

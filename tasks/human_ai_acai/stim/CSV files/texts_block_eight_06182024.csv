@@ -1,0 +1,5 @@
+source_key,category,item,text_stim,audio_stim
+AI,animals,butterflies,"Butterflies are colorful insects with big, beautiful wings. They start as caterpillars and change into butterflies. They love to visit flowers and sip nectar, making gardens look magical and pretty as they flutter around.",stim/Audio/ai_animals_butterflies.mp3
+human,animals,animals that change color,"Some animals can change color, almost like magic. It can happen in an instant. Or it can take years. Sometimes the change is dramatic. Other times, it's gradual.",stim/Audio/human_animals_animalsthatchangecolor.mp3
+AI,Seasons,beach,"Summer at the beach is fun! We build sandcastles, splash in the waves, and collect pretty seashells. The sun is warm, and we can play all day in the sand and water.",stim/Audio/ai_seasons_beach.mp3
+AI,Transportation,trains,"Trains chug-chug along the tracks, carrying passengers and goods to faraway places. They whistle and toot, racing through tunnels and over bridges. All aboard for an exciting adventure!",stim/Audio/ai_transportation_trains.mp3

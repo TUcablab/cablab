@@ -1,0 +1,5 @@
+source_key,category,item,text_stim,audio_stim
+AI,jobs,chefs,"Chefs cook delicious meals in restaurants and kitchens. They mix ingredients to make tasty dishes. Chefs are like artists, but with food, making sure we enjoy every bite!",stim/Audio/ai_jobs_chefs.mp3
+human,Seasons,summer,"Our summer months are June, July, and August. The sun rises early in the morning and sets late every evening. This makes the days light and warm. Summer can be HOT!",stim/Audio/human_seasons_summer.mp3
+AI,animals,farm animals,"Farm animals, like cows, chickens, and pigs, live on farms. They give us milk, eggs, and meat. These friendly animals help farmers and make the farm a lively place.",stim/Audio/ai_animals_farmanimals.mp3
+AI,Outer Space,sun,"The sun is a giant, fiery ball in the sky. It gives us light and warmth every day. It's so big that the Earth goes around it!",stim/Audio/ai_outerspace_sun.mp3

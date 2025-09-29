@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Human/AI ACAI jsPsych 7.2.1</title>
+
+    <!-- Load main jsPsych plug-in to initialize jsPsych -->
+    <script src = "js/jspsych.js"></script>
+
+
+    <!-- Load jsPsych plug-ins for Human/AI ACAI task -->
+    <script src = "js/init-jspsych.js"></script>
+    <script src = "js/plugin-survey-text.js"></script>
+    <script src = "js/plugin-instructions.js"></script>
+    <script src = "js/plugin-html-button-response.js"></script>
+    <script src = "js/plugin-html-keyboard-response.js"></script>
+    <script src = "js/plugin-video-keyboard-response.js"></script>
+    <script src = "js/plugin-survey-likert_SM.js"></script>
+    <script src = "js/plugin-audio-button-response.js"></script>
+    <script src = "js/plugin-audio-keyboard-response.js"></script>
+    <script src = "js/plugin-fullscreen.js"></script>
+    <script src = "js/plugin-browser-check.js"></script>
+    <script src = "js/plugin-survey.js"></script>
+    <script src = "js/plugin-survey-multi-choice_fontsize.js"></script>
+    <script src = "js/plugin-html-slider-response.js"></script>
+    <script src = "js/plugin-survey-text.js"></script>
+
+    <!-- Load ACAI task stim before loading the human_ai_acai.js script -->
+    <script src = "stim/JS files/objects_block_one_06242024.js"></script>
+    <script src = "stim/JS files/objects_block_two_07242024.js"></script>
+    <script src = "stim/JS files/objects_block_three_06242024.js"></script>
+
+    <script src = "stim/JS files/art_block_one_06242024.js"></script>
+    <script src = "stim/JS files/art_block_two_06242024.js"></script>
+    <script src = "stim/JS files/art_block_three_06272024.js"></script>
+
+    <script src = "stim/JS files/faces_block_one.js"></script>
+    <script src = "stim/JS files/faces_block_two.js"></script>
+    <script src = "stim/JS files/faces_block_three.js"></script>
+
+    <script src = "stim/JS files/texts_block_one_06182024.js"></script>
+    <script src = "stim/JS files/texts_block_two_06182024.js"></script>
+    <script src = "stim/JS files/texts_block_three_06182024.js"></script>
+    <script src = "stim/JS files/texts_block_four_06182024.js"></script>
+    <script src = "stim/JS files/texts_block_five_06182024.js"></script>
+    <script src = "stim/JS files/texts_block_six_06182024.js"></script>
+    <script src = "stim/JS files/texts_block_seven_06182024.js"></script>
+    <script src = "stim/JS files/texts_block_eight_06182024.js"></script>
+
+    <!-- Load ACAI script -->
+    <script src = "human_ai_acai.js"></script>
+
+    <!-- Load util.js script in order to use download CSV function -->
+    <script src = "js/utils.js"></script>
+
+    <!-- Load CSS styles -->
+    <link href="js/jspsych.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- Load Audiowide Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet"> 
+
+<style>
+
+/****** These are all CSS rules that will customize the aesthetics of the task *******/
+
+/* Make the background color 'white' */
+  body {
+background-color: #F0F0F0;
+     } 
+
+/* Apply CSS rule for all jsPsych items */
+.jspsych-display-element {
+   font-size: 30px;
+   line-height: 1.8em;
+   color: black;
+}
+/* Create CSS rule to navigate top half of screen */
+.top_half {
+    position: relative;
+    top: 5vh;
+    }
+
+/* Create CSS rule to navigate bottom half of screen */
+.bottom_half {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+/* Adjust survey-likert positioning */
+.post_task_questions_margin #jspsych-survey-likert-statement {
+  margin-bottom: 10px; 
+}
+
+/* Create container to store text in text box */
+.container{
+  display: inline-block;
+}
+
+/* These are all animations rule for ChatGPT-style text output */
+.line{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing 1.8s steps(20, end) forwards, blinking 2.4s;
+  font-size: 1.6rem;
+  width: 0;
+}
+.line2{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing 2.5s steps(20, end) forwards, blinking 2.7s;
+  font-size: 1.6rem;
+  width: 0;
+  animation-delay: 2.6s;
+}
+.line3{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing 1.9s steps(20, end) forwards, blinking 2.2s;
+  font-size: 1.6rem;
+  width: 0;
+  animation-delay: 5.7s;
+}
+.line4{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing 2.4s steps(20, end) forwards, blinking 2.7s;
+  font-size: 1.6rem;
+  width: 0;
+}
+.line5{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing 3.3s steps(20, end) forwards, blinking 3.5s;
+  font-size: 1.6rem;
+  width: 0;
+  animation-delay: 3.5s;
+}
+.line6{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing 2.6s steps(20, end) forwards, blinking 3s;
+  font-size: 1.6rem;
+  width: 0;
+}
+.line7{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing 2.6s steps(20, end) forwards, blinking 2.8s;
+  font-size: 1.6rem;
+  width: 0;
+  animation-delay: 3.6s;
+}
+.line8{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing 1.5s steps(20, end) forwards, blinking 1.8s;
+  font-size: 1.6rem;
+  width: 0;
+  animation-delay: 7s;
+}
+.ending{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing 0s steps(20, end) forwards, blinking .8s infinite;
+  font-size: 1.6rem;
+  width: 0;
+}
+.ai_image{
+  overflow: hidden;
+  border-right: .15em #f4f4f4;
+  white-space: nowrap;
+  animation: typing .6s steps(20, end) forwards, infinite;
+  font-size: 1.6rem;
+  width: 0;
+  animation-delay: 2s;
+}
+.loading{
+  overflow: hidden;
+  border-right: .15em #24E500;
+  white-space: nowrap;
+  animation: typing 1.8s steps(30, end) forwards, blinking 2.4s;
+  width: 0;
+  line-height: normal;
+}
+.loading_delay{
+  overflow: hidden;
+  border-right: .15em #24E500;
+  white-space: nowrap;
+  animation: typing 1.8s steps(30, end) forwards, blinking 2.4s;
+  width: 0;
+  line-height: normal;
+  animation-delay: 2s;
+}
+
+/*Customize CSS for survey likert*/
+.confidence_likert_images #jspsych-survey-likert-form {
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+/*Customize CSS for survey likert*/
+.confidence_likert_texts #jspsych-survey-likert-form {
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+/*Audiowide Google Font*/
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.rectangle {
+  height: 29vh;
+  width: 86vw;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 50vh;
+  left: 7vw;
+  z-index: -5;
+  display: inline-block;
+  border-radius: 15px;
+}
+.rectangle_gravity {
+  height: 29vh;
+  width: 86vw;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 52vh;
+  left: 7vw;
+  z-index: -5;
+  display: inline-block;
+  border-radius: 15px;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blinking {
+  from { border-color: transparent }
+  to { border-color: black; }
+}
+.glow {
+  width: 17vw;
+  height: 31vh;
+  border-radius: 100vmax;
+  background-color: solid #000000;
+  position: absolute;
+  top: 23.1vh;
+  left: 41.3vw;
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -10px #aef4af;
+  }
+  to {
+    box-shadow: 0 0 10px 10px #aef4af;
+  }
+}
+
+.rectangle_reminder_peanuts {
+  height: 20vh;
+  width: 25vw;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+  z-index: -5;
+  display: inline-block;
+  border-radius: 15px;
+}
+.rectangle_reminder_gravity {
+  height: 20vh;
+  width: 25vw;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 5vh;
+  left: 38vw;
+  z-index: -5;
+  display: inline-block;
+  border-radius: 15px;
+}
+.rectangle_reminder_piano {
+  height: 20vh;
+  width: 25vw;
+  background-color: #f4f4f4;
+  position: absolute;
+  top: 5vh;
+  left: 71vw;
+  z-index: -5;
+  display: inline-block;
+  border-radius: 15px;
+}
+
+</style>
+  
+</head>
+<body></body>
+<script>
+
+
+
+
+//------------------------------------//
+// Define jsPsych timeline
+//------------------------------------//
+var timeline = [];
+
+
+
+
+//------------------------------------//
+// Browser Check
+//------------------------------------//
+timeline.push ({
+    data: {
+        trial_id: "Browser_check"
+    },
+    type: jsPsychBrowserCheck
+  });
+
+
+
+//------------------------------------//
+// Full Screen
+//------------------------------------//
+timeline.push({
+    data: {
+        trial_id: "Full_screen"
+    },
+    type: jsPsychFullscreen,
+    fullscreen_mode: true
+});
+
+
+
+//------------------------------------//
+// Concatenate ACAI Procedure timeline
+//------------------------------------//
+timeline = timeline.concat(acai_procedure);
+
+
+
+/* start the experiment */
+jsPsych.run(timeline);
+
+  </script>
+</html>
