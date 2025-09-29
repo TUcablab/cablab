@@ -46,6 +46,12 @@
         margin: 0;
       }
 
+      /* Custom style for the horizontal rule to add space before the next section header */
+      hr {
+        margin-top: 30px; /* This adds space above the line, pushing the next header down */
+        border-color: #4a6278; /* Optional: improve visibility of the line */
+      }
+
       /* Button styling for demo links */
       .button-container {
         margin: 15px 0;
@@ -107,7 +113,6 @@
 
   <body>
 
-    <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
           <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
@@ -128,14 +133,12 @@
         </header>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         {{ content }}
       </section>
     </div>
 
-    <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         {% if site.github.is_project_page %}

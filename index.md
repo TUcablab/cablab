@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# CabLab Tasks / Surveys
+# CabLab Tasks/Surveys
 {:.no_toc}
 
 TABLE OF CONTENTS
