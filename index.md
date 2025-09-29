@@ -34,16 +34,6 @@ TABLE OF CONTENTS
 ADEXI survey <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mpr.1567">(Holst & Thorrel, 2017)</a>
 
 
-### Barratt Impulsiveness Scale (BIS-8)
-
-<div class="button-container">
-  <a href="https://github.com/TUcablab/cablab/tree/main/tasks/BIS_8" class="demo-button code-button">Code</a>
-  <a href="./surveys/BIS_8/experiment.html" class="demo-button demo-button-style">Demo</a>
-</div>
-
-BIS-8 survey <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/1097-4679(199511)51:6%3C768::AID-JCLP2270510607%3E3.0.CO;2-1">(Patton et al., 1995)</a>
-
-
 ## Digital Media Habits
 
 ### Mobile Technology Engagement Scale
@@ -93,3 +83,21 @@ Intolerance of Uncertainty Scale <a href="https://www.sciencedirect.com/science/
 </div>
 
 Mindful Attention Awareness Scale <a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2Ft04259-000">(Brown & Ryan, 2003)</a>
+
+### Barratt Impulsiveness Scale (BIS-8)
+
+<div class="button-container">
+  <a href="https://github.com/TUcablab/cablab/tree/main/tasks/BIS_8" class="demo-button code-button">Code</a>
+  <a href="./surveys/BIS_8/experiment.html" class="demo-button demo-button-style">Demo</a>
+</div>
+
+BIS-8 survey <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/1097-4679(199511)51:6%3C768::AID-JCLP2270510607%3E3.0.CO;2-1">(Patton et al., 1995)</a>
+
+### Zuckerman Sensation-Seeking Scale (SSS)
+
+<div class="button-container">
+  <a href="https://github.com/TUcablab/cablab/tree/main/tasks/SSS" class="demo-button code-button">Code</a>
+  <a href="./surveys/SSS/experiment.html" class="demo-button demo-button-style">Demo</a>
+</div>
+
+Zuckerman Sensation-Seeking Scale <a href="https://psycnet.apa.org/record/1965-07735-001">(Zuckerman et al., 1964)</a>
