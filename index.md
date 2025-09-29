@@ -33,6 +33,42 @@ TABLE OF CONTENTS
 
 ADEXI survey <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mpr.1567">(Holst & Thorrel, 2017)</a>
 
+
+<hr>
+
+## Decision-making
+
+### Human/AI - CHAI
+
+<div class="button-container">
+  <a href="https://github.com/TUcablab/cablab/tree/main/tasks/human_ai_chai" class="demo-button code-button">Code</a>
+  <a href="./tasks/human_ai_chai/experiment.html" class="demo-button demo-button-style">Demo</a>
+</div>
+
+Human/AI task asking participants to judge origin of human- and AI-generated texts and to rate their likelihood of sharing human/AI texts <a href="https://www.nature.com/articles/s41598-024-76218-y">(Chein et al., 2024)</a>
+
+
+### Human/AI - ACAI
+
+<div class="button-container">
+  <a href="https://github.com/TUcablab/cablab/tree/main/tasks/human_ai_acai" class="demo-button code-button">Code</a>
+  <a href="./tasks/human_ai_acai/experiment.html" class="demo-button demo-button-style">Demo</a>
+</div>
+
+Human/AI task asking children to judge origin of text and images.
+
+
+### Human/AI - AIDI
+
+<div class="button-container">
+  <a href="https://github.com/TUcablab/cablab/tree/main/tasks/human_ai_aidi" class="demo-button code-button">Code</a>
+  <a href="./tasks/human_ai_aidi/experiment.html" class="demo-button demo-button-style">Demo</a>
+</div>
+
+Human/AI task asking participants to evaluate the origin of human- and AI-generated Airbnb-style vacation rental listings.
+
+
+
 <hr>
 
 ## Digital Media Habits
