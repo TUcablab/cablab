@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MTES</title>
+
+    <!-- Load main jsPsych plug-in to initialize jsPsych -->
+    <script src="js/jspsych.js"></script>
+
+    <!-- Load jsPsych plug-ins -->
+    <script src="js/plugin-survey.js"></script> 
+    <script src="js/plugin-preload.js"></script>
+    <script src="js/plugin-instructions.js"></script>
+    <script src="js/plugin-fullscreen.js"></script>
+    <script src="js/plugin-browser-check.js"></script>
+
+    <!-- Load MTES script -->
+    <script src="MTES.js"></script>
+
+    <!-- Load default jsPsych and survey CSS styles -->
+    <link href="js/jspsych.css" rel="stylesheet" type="text/css" />
+    <link href="js/survey.css" rel="stylesheet" type="text/css" />
+
+  <style>
+  /****** These are all CSS rules that will customize the aesthetics of the task *******/
+
+/* Make the background color 'white' */
+body {
+  background-color: white;
+       } 
+
+/*Padding for text*/
+.custom_padding {
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+  </style>
+  
+  </head>
+  <body></body>
+  <script>
+
+
+//------------------------------------//
+// Initialize jsPsych
+//------------------------------------//
+var jsPsych = initJsPsych({
+    on_finish: function() {
+        jsPsych.data.displayData()
+    }
+})
+
+//------------------------------------//
+// Initialize Timeline
+//------------------------------------//
+var timeline = [];
+
+
+//--------------------------------//
+// Preload MTES image files 
+//-------------------------------//
+var mtes_images = ["mtes_images_2025/OBJ_instructions_2025.png", "mtes_images_2025/OBJ_lastweekaverage_screentime_2025.png", "mtes_images_2025/OBJ_categories_2025.png", "mtes_images_2025/OBJ_lastweekaverage_notifications_2025.png", "mtes_images_2025/OBJ_lastweekaverage_pickups_2025.png"]
+
+var preload_mtes_images = {
+    data: {
+        trial_id: 'preload_mtes_images'
+      },
+    type: jsPsychPreload,
+    images: mtes_images,
+}
+
+timeline.push(preload_mtes_images);
+
+
+//------------------------------------//
+// Collect browser information
+//------------------------------------//
+timeline.push ({
+    data: {
+        trial_id: "Browser_check"
+    },
+    type: jsPsychBrowserCheck
+  });
+
+
+//------------------------------------//
+// Make experiment Full Screen
+//------------------------------------//
+timeline.push({
+    data: {
+        trial_id: "Full_screen"
+    },
+    type: jsPsychFullscreen,
+    fullscreen_mode: true
+});
+
+
+//------------------------------------//
+// Concatenate MTES timeline
+//------------------------------------//
+timeline = timeline.concat(MTES_survey);
+
+
+// Execute timeline.
+jsPsych.run(timeline);
+
+  </script>
+</html>
