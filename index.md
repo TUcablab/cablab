@@ -122,7 +122,7 @@ Intolerance of Uncertainty Scale <a href="https://www.sciencedirect.com/science/
 
 Mindful Attention Awareness Scale <a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2Ft04259-000">(Brown & Ryan, 2003)</a>
 
-### Barratt Impulsiveness Scale (BIS-8)
+### Barratt Impulsiveness Scale
 
 <div class="button-container">
   <a href="https://github.com/TUcablab/cablab/tree/main/tasks/BIS_8" class="demo-button code-button">Code</a>
@@ -131,7 +131,7 @@ Mindful Attention Awareness Scale <a href="https://psycnet.apa.org/doiLanding?do
 
 BIS-8 survey <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/1097-4679(199511)51:6%3C768::AID-JCLP2270510607%3E3.0.CO;2-1">(Patton et al., 1995)</a>
 
-### Zuckerman Sensation-Seeking Scale (SSS)
+### Zuckerman Sensation-Seeking Scale
 
 <div class="button-container">
   <a href="https://github.com/TUcablab/cablab/tree/main/tasks/SSS" class="demo-button code-button">Code</a>
