@@ -61,7 +61,7 @@
         margin: 15px 0;
         display: flex;
         gap: 10px;
-        justify-content: center; /* ADDED: Center buttons horizontally on desktop */
+        /* REMOVED: justify-content: center; to left-align the buttons on desktop */
         flex-wrap: wrap;
       }
 
@@ -105,13 +105,11 @@
       @media (max-width: 480px) {
         .button-container {
           flex-direction: column;
-          align-items: center; /* CHANGED: Center stacked buttons horizontally */
+          align-items: center; /* Keeps buttons centered when stacked on mobile */
         }
 
         .demo-button {
-          /* REMOVED: width: 100%; to keep the button's size based on padding/content */
           text-align: center;
-          /* Optional: Set a max-width if you want them to stop growing on extremely wide mobile screens */
           max-width: 250px; 
           width: auto;
         }
