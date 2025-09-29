@@ -12,18 +12,14 @@
 
     <style>
       /* Center elements while keeping Slate theme styling */
-      
-      /* Use Flexbox on the .inner container to center all header content horizontally */
-      header.inner {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* This centers all children (h1, img, h2, .resources-section) horizontally */
+      header h1 {
+        text-align: center;
       }
 
-      header h1 {
-        white-space: nowrap; /* Default: Keeps the title on one line for wide screens */
+      header h2 {
+        text-align: center;
       }
-      
+
       header img {
         display: block;
         margin: 30px auto 20px auto;
@@ -34,7 +30,6 @@
       }
 
       .resources-section {
-        /* RE-ADDED: Ensure text inside this section (h3 and links) is centered */
         text-align: center;
         margin-top: 30px;
       }
@@ -46,7 +41,7 @@
 
       .resources-links {
         display: flex;
-        justify-content: center; /* This centers the flex items (the link <p> tags) */
+        justify-content: center;
         gap: 20px;
         flex-wrap: wrap;
       }
@@ -108,13 +103,6 @@
 
       /* Responsive design for mobile */
       @media (max-width: 480px) {
-        
-        /* Allow the title to wrap on mobile screens to prevent horizontal overflow */
-        header h1 {
-          white-space: normal;
-          text-align: center; /* Ensure the text wraps and the lines are centered */
-        }
-        
         .button-container {
           flex-direction: column;
           align-items: center; /* Keeps buttons centered when stacked on mobile */
