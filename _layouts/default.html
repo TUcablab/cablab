@@ -13,7 +13,7 @@
     <style>
       /* Center elements while keeping Slate theme styling */
       
-      /* MODIFIED: Use Flexbox on the .inner container to center all header content */
+      /* Use Flexbox on the .inner container to center all header content horizontally */
       header.inner {
         display: flex;
         flex-direction: column;
@@ -21,11 +21,9 @@
       }
 
       header h1 {
-        white-space: nowrap; /* Keeps the title on one line */
+        white-space: nowrap; /* Default: Keeps the title on one line for wide screens */
       }
       
-      /* RULE REMOVED: header h2 {} was removed here because it was empty. */
-
       header img {
         display: block;
         margin: 30px auto 20px auto;
@@ -108,6 +106,13 @@
 
       /* Responsive design for mobile */
       @media (max-width: 480px) {
+        
+        /* ADDED: Allow the title to wrap on mobile screens to prevent horizontal overflow */
+        header h1 {
+          white-space: normal;
+          text-align: center; /* Ensure the text wraps and the lines are centered */
+        }
+        
         .button-container {
           flex-direction: column;
           align-items: center; /* Keeps buttons centered when stacked on mobile */
