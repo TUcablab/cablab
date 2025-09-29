@@ -121,7 +121,7 @@
 
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
+          <h1 id="project_title">{{ site.title<br>| default: site.github.repository_name }}</h1>
 
           {% if site.logo %}
             <img src="{{site.logo | relative_url}}" alt="Logo" style="max-width: 200px" />
