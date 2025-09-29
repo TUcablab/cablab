@@ -33,6 +33,7 @@ TABLE OF CONTENTS
 
 ADEXI survey <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mpr.1567">(Holst & Thorrel, 2017)</a>
 
+<hr>
 
 ## Digital Media Habits
 
@@ -63,6 +64,7 @@ Bergen Social Media Addiction Scale <a href="https://psycnet.apa.org/record/2016
 
 Doomscrolling Scale <a href="https://psycnet.apa.org/record/2022-17934-001">(Sharma et al., 2022)</a>
 
+<hr>
 
 ## Self-regulation
 
