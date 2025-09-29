@@ -21,7 +21,7 @@
 title: TUCabLab Repository
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A collection of experimental tasks, surveys, and analysis pipelines developed by the CabLab
+  A collection of experimental tasks, surveys, and analysis pipelines developed by the CabLab.
 baseurl: "/cablab" # the subpath of your site, e.g. /blog
 url: "https://tucablab.github.io/cablab/" # the base hostname & protocol for your site, e.g. http://example.com
 
