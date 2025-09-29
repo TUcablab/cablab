@@ -45,11 +45,11 @@
       .resources-links p {
         margin: 0;
       }
-      
+
       /* Custom style for the horizontal rule to add space before the next section header */
       hr {
         margin-top: 30px; /* This adds space above the line, pushing the next header down */
-        border-color: #4a6278;
+        border-color: #4a6278; /* Optional: improve visibility of the line */
       }
 
       /* Button styling for demo links */
@@ -96,64 +96,7 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       }
 
-      /* ========================================================= */
-      /* NEW STYLES FOR TWO-COLUMN LAYOUT */
-      /* ========================================================= */
-      
-      .content-wrapper {
-        display: flex;
-        gap: 40px; /* Space between the TOC and content */
-        align-items: flex-start; /* Align content to the top */
-      }
-
-      /* Targeting the TOC container (ul.toc) */
-      .content-wrapper .toc {
-        flex: 0 0 250px; /* Set a fixed width for the TOC */
-        padding: 20px;
-        border-right: 1px solid #4a6278; /* Optional divider */
-        /* Additional styling to make the TOC stand out */
-        background-color: #2c3e50;
-        border-radius: 4px;
-        list-style-type: none; /* Remove default list style */
-      }
-
-      /* Ensure the table of contents list items are styled for the dark theme */
-      .content-wrapper .toc li a {
-          color: #ddd;
-      }
-      
-      /* The rest of the page content takes up the remaining space */
-      .content-wrapper > * {
-        flex-grow: 1;
-      }
-      
-      /* Hide the main H1 tag (CabLab Tasks/Surveys) from the body to keep it clean */
-      #main_content h1:first-child {
-        display: none;
-      }
-
-      /* Responsive design for mobile: columns stack */
-      @media (max-width: 900px) {
-        .content-wrapper {
-          flex-direction: column;
-          gap: 0;
-        }
-
-        .content-wrapper .toc {
-          width: 100%;
-          flex: none;
-          border-right: none;
-          border-bottom: 1px solid #4a6278;
-          margin-bottom: 20px;
-        }
-
-        /* Show the main H1 tag back on mobile for context */
-        #main_content h1:first-child {
-          display: block;
-        }
-      }
-      
-      /* Responsive design for mobile buttons */
+      /* Responsive design for mobile */
       @media (max-width: 480px) {
         .button-container {
           flex-direction: column;
@@ -192,9 +135,7 @@
 
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <div class="content-wrapper">
-          {{ content }}
-        </div>
+        {{ content }}
       </section>
     </div>
 
