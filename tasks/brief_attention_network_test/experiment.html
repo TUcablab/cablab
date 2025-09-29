@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Brief Attention Network Test jsPsych 8.1.0</title>
+
+  <!-- Load jspsych plugins-->
+  <script src="js/jspsych.js"></script>
+  <script src="js/plugin-preload.js"></script>
+  <script src="js/plugin-html-button-response.js"></script>
+  <script src="js/plugin-html-keyboard-response.js"></script>
+  <script src="js/plugin-image-keyboard-response.js"></script>
+  <script src="js/plugin-fullscreen.js"></script>
+  <script src="js/plugin-instructions.js"></script>
+  <script src="js/init-jspsych.js"></script>
+
+  <!-- Load Brief Attention Network Test script -->
+  <script src="brief_ant.js"></script>
+
+  <!-- Load jspsych's default CSS styling script (which handles aesthetics) -->
+  <link href="js/jspsych.css" rel="stylesheet" type="text/css">
+
+  <style>
+
+/*Padding for text*/
+.custom_padding {
+  padding-left: 4vw;
+  padding-right: 4vw
+}
+</style>
+</head>
+
+<body>
+  <script>
+
+  
+//------------------------------------//
+// Initialize jsPsych Timeline
+//------------------------------------//
+var timeline = [];
+
+
+//------------------------------------//
+// Full screen
+//------------------------------------//
+timeline.push({
+     data: {
+         trial_id: "bnat_full_screen"
+     },
+     type: jsPsychFullscreen,
+     fullscreen_mode: true
+ });
+
+
+//------------------------------------//
+// Preload Images
+//------------------------------------//
+var img_preload = [
+  'img/both-cue.jpg', 'img/bottom-congruent-l.jpg', 'img/bottom-congruent-r.jpg', 'img/bottom-cue.jpg',
+  'img/bottom-incongruent-l.jpg', 'img/bottom-incongruent-r.jpg', 'img/bottom-noflank-l.jpg',
+  'img/bottom-noflank-r.jpg', 'img/center-cue.jpg', 'img/fixation.jpg', 'img/top-congruent-l.jpg',
+  'img/top-congruent-r.jpg', 'img/top-cue.jpg', 'img/top-incongruent-l.jpg',
+  'img/top-incongruent-r.jpg', 'img/top-noflank-l.jpg', 'img/top-noflank-r.jpg'
+];
+
+var bnat_preload = {
+  type: jsPsychPreload,
+  images: img_preload
+};
+
+timeline.push(bnat_preload)
+
+
+
+//------------------------------------//
+// Concatenate timelines
+//------------------------------------//
+timeline = timeline.concat(bnat_task);
+
+
+
+//------------------------------------//
+// Run the experiment
+//------------------------------------//
+jsPsych.run(timeline);
+
+
+  </script>
+</body>
+
+</html>
