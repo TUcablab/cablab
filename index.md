@@ -45,7 +45,7 @@ ADEXI survey <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mpr.1567"
   <a href="./tasks/human_ai_chai/experiment.html" class="demo-button demo-button-style">Demo</a>
 </div>
 
-Human/AI task asking participants to judge origin of human- and AI-generated texts and to rate their likelihood of sharing human/AI texts <a href="https://www.nature.com/articles/s41598-024-76218-y">(Chein et al., 2024)</a>
+Human/AI task where participants judge the origin of human- and AI-generated texts and rate their likelihood of sharing human/AI texts <a href="https://www.nature.com/articles/s41598-024-76218-y">(Chein et al., 2024)</a>
 
 
 ### Human/AI - ACAI
@@ -55,7 +55,7 @@ Human/AI task asking participants to judge origin of human- and AI-generated tex
   <a href="./tasks/human_ai_acai/experiment.html" class="demo-button demo-button-style">Demo</a>
 </div>
 
-Human/AI task asking children to judge origin of text and images.
+Human/AI task where children judge the origin of human- and AI-generated text and images.
 
 
 ### Human/AI - AIDI
@@ -65,7 +65,7 @@ Human/AI task asking children to judge origin of text and images.
   <a href="./tasks/human_ai_aidi/experiment.html" class="demo-button demo-button-style">Demo</a>
 </div>
 
-Human/AI task asking participants to evaluate the origin of human- and AI-generated Airbnb-style vacation rental listings.
+Human/AI task where participants judge the origin of human- and AI-generated Airbnb-style vacation rental listings.
 
 
 
@@ -80,7 +80,8 @@ Human/AI task asking participants to evaluate the origin of human- and AI-genera
   <a href="./surveys/MTES/experiment.html" class="demo-button demo-button-style">Demo</a>
 </div>
 
-Mobile Technology Engagement Scale <a href="https://academic.oup.com/scan/article/14/4/367/5479340">(Wilmer et al., 2019)</a>
+Mobile Technology Engagement Scale (<a href="https://link.springer.com/article/10.3758/s13423-016-1011-z">Wilmer & Chein 2016</a>; <a href="https://academic.oup.com/scan/article/14/4/367/5479340">Wilmer et al., 2019</a>)
+
 
 ### Bergen Social Media Addiction Scale
 
