@@ -140,3 +140,14 @@ BIS-8 survey <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/1097-4679(
 </div>
 
 Zuckerman Sensation-Seeking Scale <a href="https://psycnet.apa.org/record/1965-07735-001">(Zuckerman et al., 1964)</a>
+
+
+## Reward Processing
+
+### Planet GoNoGo
+
+<div class="button-container">
+  <a href="https://github.com/TUcablab/cablab/blob/main/tasks/planetGoNoGo/PlanetGoNoGo_scan_update0613_lastrun.py" class="demo-button code-button">Code</a>
+</div>
+
+Planet GoNoGo is a task that adds performance-based reward value (stake) on top of flexible cognitive control that GoNoGo taps into <a href="https://www.nature.com/articles/s41467-017-01369-8#ref-CR1"> (Insel et al., 2017) </a>
