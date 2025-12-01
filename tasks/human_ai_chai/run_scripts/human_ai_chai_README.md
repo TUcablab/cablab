@@ -1,9 +1,7 @@
 # Human/AI CHAI Task - README
 
-**Task Overview**
+### Task Overview
 The Human/AI CHAI jsPsych experiment (Version 7) presents participants with human- and AI-generated news clips and social media comments and asks them to judge whether they were written by humans or AI.
-
-### Task Structure
 
 The experiment alternates between two trial types:
 
