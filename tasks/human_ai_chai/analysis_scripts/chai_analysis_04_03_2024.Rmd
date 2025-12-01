@@ -1,0 +1,2912 @@
+---
+title: "CHAI_SANS"
+author: "Steven Martinez"
+date: "2024-04-03"
+output: html_document
+---
+
+ORIGINAL MTES SCORE INSTRUCTIONS
+
+The MTES score is an average of 3 dimensions of the MTES questionnaire:
+
+1)	Time on social media apps 
+2)	Phone checking behaviors (original MTES score only had 3 phone checking items – “In general, how often do you check your phone for new activity?”,  “How often do you find yourself checking your phone when you have a few moments to spare (waiting in line, for an elevator, at a stoplight, etc.)?”, and “How often do you find yourself checking your phone during conversations or when hanging around with friends?”) 
+3)	Posting/re-posting behaviors (“How often do you post something new about yourself on a social media platform (Tweet, Instagram post, Facebook status update, etc.)” and “How often do you share or repost something you encountered on a social media platform (e.g., repost, reTweet, reGram, Facebook share, etc.)”
+
+
+Step 1: Make sure all the MTES columns have been z-scored
+
+Step 2: Calculate the aggregate measure for time on social media apps, phone checking behaviors, and posting/reposting behaviors
+1)	Take the sum of time spent on social media apps that were endorsed
+2)	Take the mean of the phone checking behaviors from the question items listed above
+3)	Take the mean of the 2 posting/re-posting questions
+
+Step 3: Take the average of the 3 aggregate measures to get the final MTES score
+1)	MTES_TimeOnApps_sum + MTES_PhoneChecking_mean + MTES_PublicUpdates_mean/ 3
+
+
+# --- Load packages ---
+```{r}
+
+#load packages
+
+library(tidyverse)
+library(plyr)
+library(dplyr)
+library(ggplot2)
+library(jsonlite)
+library(sjPlot)
+library(lme4)
+library(purrr)
+library(tidyjson)
+library(report)
+
+#Load in dprime libraries
+source("/Volumes/psychology/Murty_Group/studies/frightnight.02/scripts/R/Memory_SM/CHAI/chai source scripts/dprime_cat.R")
+source("/Volumes/psychology/Murty_Group/studies/frightnight.02/scripts/R/Memory_SM/CHAI/chai source scripts/dprime_lab.R")
+
+```
+
+
+
+
+# --- summarySE() ---
+```{r}
+
+## Gives count, mean, standard deviation, standard error of the mean, and confidence interval (default 95%).
+##   data: a data frame.
+##   measurevar: the name of a column that contains the variable to be summariezed
+##   groupvars: a vector containing names of columns that contain grouping variables
+##   na.rm: a boolean that indicates whether to ignore NA's
+##   conf.interval: the percent range of the confidence interval (default is 95%)
+summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
+                      conf.interval=.95, .drop=TRUE) {
+    library(plyr)
+
+    # New version of length which can handle NA's: if na.rm==T, don't count them
+    length2 <- function (x, na.rm=FALSE) {
+        if (na.rm) sum(!is.na(x))
+        else       length(x)
+    }
+
+    # This does the summary. For each group's data frame, return a vector with
+    # N, mean, and sd
+    datac <- ddply(data, groupvars, .drop=.drop,
+      .fun = function(xx, col) {
+        c(N    = length2(xx[[col]], na.rm=na.rm),
+          mean = mean   (xx[[col]], na.rm=na.rm),
+          sd   = sd     (xx[[col]], na.rm=na.rm)
+        )
+      },
+      measurevar
+    )
+
+    # Rename the "mean" column    
+    datac <- rename(datac, c("mean" = measurevar))
+
+    datac$se <- datac$sd / sqrt(datac$N)  # Calculate standard error of the mean
+
+    # Confidence interval multiplier for standard error
+    # Calculate t-statistic for confidence interval: 
+    # e.g., if conf.interval is .95, use .975 (above/below), and use df=N-1
+    ciMult <- qt(conf.interval/2 + .5, datac$N-1)
+    datac$ci <- datac$se * ciMult
+
+    return(datac)
+}
+
+
+
+
+```
+
+
+
+
+
+# --- Assign number notation ---
+```{r}
+
+options(scipen=100)
+options(digits=6)
+options(tinytex.verbose = TRUE)
+
+```
+
+
+# --- read LIWC files in ---
+```{r}
+
+liwc.news <- read.csv("/Users/tuh20985/Desktop/AI Project/LIWC_chai/LIWC results/liwc_news_clips.csv")
+liwc.comments <- read.csv("/Users/tuh20985/Desktop/AI Project/LIWC_chai/LIWC results/liwc_comments.csv")
+#liwc.human.comments <- read.csv("/Users/tuh20985/Desktop/AI Project/LIWC_chai/LIWC results/liwc_human_comments.csv")
+#liwc.ai.comments <- read.csv("/Users/tuh20985/Desktop/AI Project/LIWC_chai/LIWC results/liwc_ai_comments.csv")
+
+
+#Add _news_clips suffix to all liwc.news columns
+colnames(liwc.news)[3:121] <- paste(colnames(liwc.news)[3:121], "news_clips", sep = "_")
+
+
+```
+
+
+
+# --- Read CHAI csv in ---
+```{r}
+
+#chai1 <- read.csv("/Users/tuh20985/Desktop/AI Project/CHAI pilot/CHAI pilot data/AI_prolific_PARTICIPANT_SESSION_2023-08-14_22h33.44.929.csv")
+
+
+#Reading in files
+data_files <- "/Users/tuh20985/Desktop/AI Project/chai_data/"
+
+
+#Set working directory
+setwd(data_files)
+
+
+#Create blank list
+temp <- list()
+
+#Here, we are reading all the csv files into a list called "temp".
+#The "if" statement says that if any data frames in the temp list have more than 2 rows, subset that into a new list called clean
+#Afterwards, we are subsetting any non-null (as indicated by !=0) lists into the clean list
+#We are removing the old list "temp"
+#Then we are binding each data frame into one huge data frame using the do.call(rbind, list) command
+
+for (i in 1:length(list.files(data_files))){
+  temp[[i]] <- read.csv(list.files(data_files)[i]) # Store all files in list
+}
+{
+  chai.data <- do.call(rbind.fill, temp)                             
+}
+
+
+
+#ID check: 194 IDs
+length(unique(chai.data$subject_id))
+
+
+```
+
+
+
+
+# Collapse across NEWS CLIP category columns
+```{r}
+
+#Past Posts 2012
+#Past Posts 2013
+#Past Posts 2014
+#News Abstract
+#Current news
+
+#Science Post
+#Scientific Blog
+
+#Create new column that collapses across Past_Posts_2012, Past_Posts_2013, and Past_Posts_2014
+chai.data$updated_news_clip_category <- ifelse(chai.data$news_clip_category == "Past Post, 2012" | chai.data$news_clip_category == "Past Post, 2013" | chai.data$news_clip_category == "Past Post, 2014", "Past_Posts_all", chai.data$news_clip_category)
+
+
+#Collapse Science and News categories
+chai.data$binary_news_clip_category <- ifelse(chai.data$news_clip_category == "Science Post" | chai.data$news_clip_category == "Scientific Blog" , "Science", "General_Interest_News")
+
+#Convert category columns into a factor variable
+chai.data$news_clip_category <- as.factor(chai.data$news_clip_category)
+chai.data$binary_news_clip_category <- as.factor(chai.data$binary_news_clip_category)
+
+#test <- subset(chai.data, select=c(news_clip_category, binary_news_clip_category))
+
+################### REPEAT FOR SHARE_NEWS_CLIP_CATEGORY
+
+
+#Create new column that collapses across Past_Posts_2012, Past_Posts_2013, and Past_Posts_2014
+chai.data$updated_share_news_clip_category <- ifelse(chai.data$share_news_clip_category == "Past Post, 2012" | chai.data$share_news_clip_category == "Past Post, 2013" | chai.data$share_news_clip_category == "Past Post, 2014", "Past_Posts_all", chai.data$share_news_clip_category)
+
+
+#Collapse Science and News categories
+chai.data$binary_share_news_clip_category <- ifelse(chai.data$share_news_clip_category == "Science Post" | chai.data$share_news_clip_category == "Scientific Blog" , "Science", "General_Interest_News")
+
+
+#Convert category columns into a factor variable
+chai.data$share_news_clip_category <- as.factor(chai.data$share_news_clip_category)
+chai.data$binary_share_news_clip_category <- as.factor(chai.data$binary_share_news_clip_category)
+
+
+
+###### THE FINAL FOUR CATEGORIES
+
+
+####### SYNPOSES ######
+#Create new column called final_four_categories where all Past Posts get called "Synoposes", else, keep as NA
+chai.data$final_four_categories <- ifelse(chai.data$news_clip_category == "Past Post, 2012" | chai.data$news_clip_category == "Past Post, 2013" | chai.data$news_clip_category == "Past Post, 2014", "Synopses", NA)
+
+####### General Interest News ######
+#Create new column called final_four_categories where News Abstract or Current News get called "general_interest_news", else, keep as NA
+chai.data$final_four_categories <- ifelse(chai.data$news_clip_category == "Current news" | chai.data$news_clip_category == "News Abstract", "general_interest_news", chai.data$final_four_categories)
+
+
+####### Scientific News Headlines ######
+#Create new column called final_four_categories where News Abstract or Current News get called "scientific_news_headlines", else, keep as NA
+chai.data$final_four_categories <- ifelse(chai.data$news_clip_category == "Science Post", "scientific_news_headlines", chai.data$final_four_categories)
+
+
+####### Scientific Blogs ######
+#Create new column called final_four_categories where News Abstract or Current News get called "scientific_news_headlines", else, keep as NA
+chai.data$final_four_categories <- ifelse(chai.data$news_clip_category == "Scientific Blog", "scientific_blogs", chai.data$final_four_categories)
+
+
+```
+
+
+
+
+
+
+# --- Merge LIWC with chai dataset ---
+```{r}
+
+
+#Subset relevant news rows
+chai.news <- subset(chai.data, trial_id == "news_clip_question" | trial_id == "news_clip_question_nocomments")
+
+
+#Subset relevant news columns
+#news <- subset(news.df, select=c(news_clip_stim))
+chai.news  <- subset(chai.news, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim))
+
+
+
+###################################################################################################
+
+
+#Subset unique rows of news clips stim
+chai.news.unique <- unique(chai.news[c("news_clip_stim")])
+
+
+#Sort by ascending order
+liwc.news$Text <- liwc.news$Text[order(liwc.news$Text)]
+chai.news.unique$news_clip_stim <- chai.news.unique$news_clip_stim[order(chai.news.unique$news_clip_stim)]
+
+
+#Add another column to sort by
+liwc.news$text_code <- 1:nrow(liwc.news) 
+chai.news.unique$text_code <- 1:nrow(chai.news.unique) 
+
+
+#Relocate text_code columns
+liwc.news <- liwc.news %>% relocate(text_code, .after=Text)
+chai.news.unique <- chai.news.unique %>% relocate(text_code, .after=news_clip_stim)
+
+
+#if else statements
+chai.news.unique$match.check <- ifelse(word(liwc.news$Text, 1,3, sep = " ") == word(chai.news.unique$news_clip_stim, 1,3, sep = " "), TRUE, FALSE)
+
+
+#Merge news.unique with the news data frame
+#chai.news.clean <- left_join(liwc.news, chai.news.unique, by=c("Text"="news_clip_stim", "text_code"="text_code"))
+chai.news.clean <- left_join(chai.news.unique, liwc.news, by=c("text_code"="text_code"))
+
+
+
+############################### Merge with the original chai.data ###############################
+chai.data.clean <- left_join(chai.data, chai.news.clean, by=c("news_clip_stim"="news_clip_stim"))
+
+
+
+```
+
+
+
+
+
+# --- Merge LIWC human comments with comments df ---
+```{r}
+
+
+#Subset relevant comments rows
+comments.df <- subset(chai.data, trial_id == "comments_question")
+
+
+#Subset relevant comments columns
+#comments <- subset(comments.df, select=c(subject_id, study_id, session_id, trial_id, response, comments_response_category, left_comment, right_comment, human_comment, ai_comment, human_comment_wordcount, ai_comment_wordcount, ai_comment_prompt))
+human_comments <- subset(comments.df, select=c(subject_id, study_id, session_id, trial_id, human_comment, human_comment_wordcount))
+
+
+###################################################################################################
+
+#Subset human comments from liwc.comments df
+liwc.human.comments <- subset(liwc.comments, liwc.comments$ColumnID == "human_comments")
+
+
+#Remove Segment column
+liwc.human.comments <- subset(liwc.human.comments, select = -c(Segment))
+
+
+#Add _human_comments suffix to all liwc.human.comments columns
+colnames(liwc.human.comments)[3:120] <- paste(colnames(liwc.human.comments)[3:120], "human_comments", sep = "_")
+
+
+#Convert WC_human_comments to numeric
+liwc.human.comments$WC_human_comments <- as.numeric(liwc.human.comments$WC_human_comments)
+
+
+#Subset unique rows of human_comments stim
+human_comments.unique <- unique(human_comments[c("human_comment")])
+
+
+#Sort by ascending order
+liwc.human.comments <- liwc.human.comments %>% arrange(Text)
+human_comments.unique <- human_comments.unique %>% arrange(human_comment)
+
+
+#Add another column to sort by
+liwc.human.comments$text_code <- 1:nrow(liwc.human.comments) 
+human_comments.unique$text_code <- 1:nrow(human_comments.unique) 
+
+
+#Relocate text_code columns
+liwc.human.comments <- liwc.human.comments %>% relocate(text_code, .after=Text)
+human_comments.unique <- human_comments.unique %>% relocate(text_code, .after=human_comment)
+
+
+#Merge human_comments.unique with the news data frame
+liwc.human.comments.clean <- left_join(human_comments.unique, liwc.human.comments, by=c("text_code"="text_code"))
+
+
+###### Merge liwc.news with news.clean data frame ########
+comments.df_liwcv1 <- left_join(comments.df, liwc.human.comments.clean, by=c("human_comment"="human_comment"))
+
+
+#Remove Text, ColumnID, and text_code column
+comments.df_liwcv1 <- comments.df_liwcv1 %>% dplyr::select(!c(Text, ColumnID, text_code))
+
+
+
+```
+
+
+
+
+# --- Merge LIWC AI comments with comments df ---
+```{r}
+
+
+#Subset relevant comments rows
+comments.df <- subset(chai.data, trial_id == "comments_question")
+
+
+#Subset relevant comments columns
+#comments <- subset(comments.df, select=c(subject_id, study_id, session_id, trial_id, response, comments_response_category, left_comment, right_comment, ai_comment, ai_comment, ai_comment_wordcount, ai_comment_wordcount, ai_comment_prompt))
+ai_comments <- subset(comments.df, select=c(subject_id, study_id, session_id, trial_id, ai_comment, ai_comment_wordcount))
+
+
+###################################################################################################
+
+#Subset human comments from liwc.comments df
+liwc.ai.comments <- subset(liwc.comments, liwc.comments$ColumnID == "ai_comments")
+
+
+#Remove Segment column
+liwc.ai.comments <- subset(liwc.ai.comments, select = -c(Segment))
+
+
+#Add _human_comments suffix to all liwc.human.comments columns
+colnames(liwc.ai.comments)[3:120] <- paste(colnames(liwc.ai.comments)[3:120], "ai_comments", sep = "_")
+
+
+#Convert WC_human_comments to numeric
+liwc.ai.comments$WC_ai_comments <- as.numeric(liwc.ai.comments$WC_ai_comments)
+
+
+#Subset unique rows of human_comments stim
+ai_comments.unique <- unique(ai_comments[c("ai_comment")])
+
+
+#Sort by ascending order
+liwc.ai.comments <- liwc.ai.comments %>% arrange(Text)
+ai_comments.unique <- ai_comments.unique %>% arrange(ai_comment)
+
+
+#Add another column to sort by
+liwc.ai.comments$text_code <- 1:nrow(liwc.ai.comments) 
+ai_comments.unique$text_code <- 1:nrow(ai_comments.unique) 
+
+
+#Relocate text_code columns
+liwc.ai.comments <- liwc.ai.comments %>% relocate(text_code, .after=Text)
+ai_comments.unique <- ai_comments.unique %>% relocate(text_code, .after=ai_comment)
+
+
+
+#Merge ai_comments.unique with the news data frame
+liwc.ai.comments.clean <- left_join(ai_comments.unique, liwc.ai.comments, by=c("text_code"="text_code"))
+
+
+###### Merge liwc.news with news.clean data frame ########
+comments.df.clean <- left_join(comments.df_liwcv1, liwc.ai.comments.clean, by=c("ai_comment"="ai_comment"))
+
+
+#Remove Text, ColumnID, and text_code column
+comments.df.clean <- comments.df.clean %>% dplyr::select(!c(Text, ColumnID, text_code))
+
+
+
+
+```
+
+
+
+
+
+
+# --- Pull out complete cases only ---
+```{r}
+
+
+#Only include rows that appear more than 401 times
+chai.complete <- chai.data %>%
+   group_by(subject_id) %>%
+   filter(n() > 401) %>%
+   ungroup
+
+
+#Only include rows that appear more than 401 times
+chai.complete.feedback <- subset(chai.data, trial_id == "exp_feedback")
+
+
+#ID check: 194 IDs
+length(unique(chai.complete.feedback$subject_id))
+
+
+#Only keep rows where the response for exp_feedback is not blank since I made it required that you had to enter something!
+chai.complete.feedback <- subset(chai.complete.feedback, response != "")
+
+
+#ID check: 181 IDs
+length(unique(chai.complete.feedback$subject_id))
+
+
+
+```
+
+
+
+
+
+
+# --- Clean up news clips before calculating accuracy -- Remove participants based on whether they responded "Human" or "AI" over 90% of the time, or on more than 86/96 trials ---
+```{r}
+
+#.90 * 96 = 86.4
+#If participants systematically responded "human" OR "AI" more than 86 times (i.e., on 86/96 trials), we can remove them from the analyses
+
+
+#Subset relevant news rows
+news.df <- subset(chai.data.clean, trial_id == "news_clip_question" | trial_id == "news_clip_question_nocomments")
+
+
+#Subset relevant news columns
+news <- subset(news.df, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, updated_news_clip_category, binary_news_clip_category, final_four_categories))
+
+
+#Subject ID check: 194
+length(unique(news$subject_id))
+
+
+#Create data frame that has the count for how many times each person responded as "Human" or "AI"
+response.check <- as.data.frame(table(news$subject_id, news$news_clip_response_category)) 
+
+
+#Rename columns
+colnames(response.check) <- c("subject_id", "news_clip_response_category_count", "count")
+
+
+#Subset rows that are greater and less than 86??
+news.remove <- subset(response.check, response.check$count > 86)
+
+
+#Confirm subject id length in original news df: 194 IDs
+length(unique(news$subject_id))
+
+
+#Using the news.remove df, remove participants that are included in the news.remove df 
+#62699ca4c48ff1d410fcd8f7
+#63dd3dd2593c92be97d8dbde
+#5b53cc31c09af90001f113d4
+#5ea1aeee7bc39507649de2e7
+#6298df7da7b45df1b730d3aa
+#62f58a7129fb13cf46a08ae0
+news <- news[-which(news$subject_id %in% news.remove$subject_id),]
+
+
+#Subject ID check: 188 -- REMOVED THE 6 PPTS THAT SYSTEMATICALLY SCORED EITHER "AI" OR "HUMAN" MORE THAN 86 TIMES
+length(unique(news$subject_id))
+
+
+
+#Create new column that reflects accuracy for news clip selection. 1 for accuracy, 0 for inaccuracy
+news$news_clip_correct <- ifelse(news$news_clip_response_category == news$news_clip_type, 1, 0)
+
+
+#Relocate news_clip_correct column
+news <- news %>% relocate(news_clip_correct, .after=response)
+
+
+#Convert news_clip_correct column to numeric
+news$news_clip_correct <- as.numeric(news$news_clip_correct)
+
+
+#Calculate mean accuracy for news_clip_correct
+news$overall.news_clip.accuracy <- ave(news$news_clip_correct, news$subject_id, FUN = mean)
+#news$news_clip.sum <- ave(news$news_clip_correct, news$subject_id, FUN=sum)
+
+
+#Relocate mean accuracy column for news_clip
+news <- news %>% relocate(overall.news_clip.accuracy, .after=news_clip_type)
+news <- news %>% relocate(news_clip_correct, .after=news_clip_type)
+
+
+#Create duplicate to avoid overwriting
+news_orig <- news
+
+
+################### THIS IS WHERE THE NEWS DF STOPS ############################
+
+
+#Remove duplicate rows
+news.clean <- news[!duplicated(news$subject_id), ]
+
+
+#Subset final news.clean columns
+news.clean <- subset(news.clean, select=c(subject_id, overall.news_clip.accuracy))
+
+
+#Subject ID check
+length(unique(news.clean$subject_id))
+
+
+```
+
+
+
+
+
+### --- Organize news clips by news clip type --- ######
+```{r}
+
+
+#Subset relevant news columns
+news.type <- subset(news_orig, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, updated_news_clip_category, binary_news_clip_category, final_four_categories))
+
+
+
+#Create new column that reflects accuracy for news clip selection. 1 for accuracy, 0 for inaccuracy
+news.type$news_clip_correct <- ifelse(news.type$news_clip_response_category == news.type$news_clip_type, 1, 0)
+
+
+#Relocate news_clip_correct column
+news.type <- news.type %>% relocate(news_clip_correct, .after=response)
+
+
+#Convert news_clip_correct column to numeric
+news.type$news_clip_correct <- as.numeric(news.type$news_clip_correct)
+
+
+
+###### FINAL FOUR CATEGORIES SUMMARY STATS B#####
+######Group by final four categories
+news.type %>%                                 # Group data
+  group_by(final_four_categories) %>%
+  dplyr::summarize(final_four_categories.avg = mean(news_clip_correct)) %>% 
+  as.data.frame()
+
+
+###### BINARY CATEGORY SUMMARY STATS B#####
+news.type %>%                                 # Group data
+  group_by(binary_news_clip_category) %>%
+  dplyr::summarize(binary_news_clip_category.avg = mean(news_clip_correct)) %>% 
+  as.data.frame()
+
+######Create average for each participant reflecting their average accuracy for General Interest versus Science --- 04/18/2024
+general.interest.science_accuracy <- news.type %>%                                 # Group data
+  group_by(subject_id, binary_news_clip_category) %>%
+  dplyr::summarize(binary_news_clip_category.avg = mean(news_clip_correct)) %>% 
+  as.data.frame()
+
+
+
+############# PIVOT FROM LONGER TO WIDER #################
+general.interest.science_accuracy.wide <- general.interest.science_accuracy %>% pivot_wider(names_from = binary_news_clip_category, values_from = binary_news_clip_category.avg)
+
+
+#Rename column names
+colnames(general.interest.science_accuracy.wide) <- c("subject_id", "General_Interest_News.accuracy", "Science.accuracy")
+
+
+######Group by news clip type
+news.type <- news.type %>%                                 # Group data
+  group_by(subject_id, news_clip_type) %>%
+  dplyr::summarize(news_clip_accuracy_type = mean(news_clip_correct)) %>% 
+  as.data.frame()
+
+
+```
+
+
+
+
+
+# --- DPRIME for news clips ---
+```{r}
+
+
+#Subset relevant news columns
+news.data <- subset(news_orig, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, updated_news_clip_category, binary_news_clip_category))
+
+
+
+############################################################# MANUAL DPRIME
+
+#Rubric
+#Hits = saying a human is a human, 
+#Misses = saying a human is AI. 
+#False alarms = saying an AI is human, 
+#Correct rejections = saying  an AI is AI, 
+
+#Manually calculating Hits, Misses, False Alarms, and Correct Rejections
+news.data$Hit <- ifelse(news.data$news_clip_response_category == "Human" & news.data$news_clip_type == "Human", 1, NA)
+news.data$Miss <- ifelse(news.data$news_clip_response_category == "AI"  & news.data$news_clip_type == "Human", 1, NA)
+news.data$FalseAlarm <- ifelse(news.data$news_clip_response_category == "Human"  & news.data$news_clip_type == "AI", 1, NA)
+news.data$CorrectRej <- ifelse(news.data$news_clip_response_category == "AI"  & news.data$news_clip_type == "AI", 1, NA)
+
+
+#Convert news_clip_correct column to numeric
+news.data$Hit <- as.numeric(news.data$Hit)
+news.data$Miss <- as.numeric(news.data$Miss)
+news.data$FalseAlarm <- as.numeric(news.data$FalseAlarm)
+news.data$CorrectRej <- as.numeric(news.data$CorrectRej)
+
+
+#Relocate mean accuracy column for news_clip
+news.data <- news.data %>% relocate(Hit, .after=news_clip_type)
+news.data <- news.data %>% relocate(Miss, .after=Hit)
+news.data <- news.data %>% relocate(FalseAlarm, .after=Miss)
+news.data <- news.data %>% relocate(CorrectRej, .after=FalseAlarm)
+
+
+#Subset relevant columns for dprime
+news.dprime <- subset(news.data, select=c(subject_id, news_clip_stim, news_clip_response_category, news_clip_type, Hit, Miss, FalseAlarm, CorrectRej))
+
+
+#Summarize dprime stats
+news.dprime.cat <- dprime_cat(news.dprime, subject_id)
+
+
+# Finally, use psycho::d-prime to calculate d-prime stats
+library(psycho)
+news.dprime.stats <- psycho::dprime(news.dprime.cat$Hits, news.dprime.cat$FalseAlarms, news.dprime.cat$Misses, news.dprime.cat$CorrectRejs)
+
+# Add d-prime values into df
+news.dprime.cat$dprime <- news.dprime.stats$dprime
+
+
+#Rename dprime column
+names(news.dprime.cat)[names(news.dprime.cat) == 'dprime'] <- 'news_clip_dprime'
+
+
+
+############################### DPRIME for news clips BY NEWS CLIP TYPE ###############################
+
+#Subset relevant columns for dprime
+news.type.dprime <- subset(news.data, select=c(subject_id, news_clip_stim, news_clip_response_category, news_clip_type, Hit, Miss, FalseAlarm, CorrectRej))
+
+
+#Summarize dprime stats
+news.type.dprime.cat <- dprime_cat(news.dprime, subject_id, news_clip_type)
+
+
+# Finally, use psycho::d-prime to calculate d-prime stats
+library(psycho)
+news.type.dprime.stats <- psycho::dprime(news.type.dprime.cat$Hits, news.type.dprime.cat$FalseAlarms, news.type.dprime.cat$Misses, news.type.dprime.cat$CorrectRejs)
+
+# Add d-prime values into df
+news.type.dprime.cat$dprime <- news.type.dprime.stats$dprime
+
+
+#Rename dprime column
+names(news.type.dprime.cat)[names(news.type.dprime.cat) == 'dprime'] <- 'news_type_dprime'
+
+
+
+
+```
+
+
+
+
+
+
+# --- DPRIME for news clips BY NEWS CLIP TYPE ---
+```{r}
+
+
+#Subset relevant news columns
+news.data <- subset(news_orig, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, updated_news_clip_category, binary_news_clip_category))
+
+
+
+############################################################# MANUAL DPRIME
+
+#Rubric
+#Hits = saying a human is a human, 
+#Misses = saying a human is AI. 
+#False alarms = saying an AI is human, 
+#Correct rejections = saying  an AI is AI, 
+
+#Manually calculating Hits, Misses, False Alarms, and Correct Rejections
+news.data$Hit <- ifelse(news.data$news_clip_response_category == "Human" & news.data$news_clip_type == "Human", 1, NA)
+news.data$Miss <- ifelse(news.data$news_clip_response_category == "AI"  & news.data$news_clip_type == "Human", 1, NA)
+news.data$FalseAlarm <- ifelse(news.data$news_clip_response_category == "Human"  & news.data$news_clip_type == "AI", 1, NA)
+news.data$CorrectRej <- ifelse(news.data$news_clip_response_category == "AI"  & news.data$news_clip_type == "AI", 1, NA)
+
+
+#Convert news_clip_correct column to numeric
+news.data$Hit <- as.numeric(news.data$Hit)
+news.data$Miss <- as.numeric(news.data$Miss)
+news.data$FalseAlarm <- as.numeric(news.data$FalseAlarm)
+news.data$CorrectRej <- as.numeric(news.data$CorrectRej)
+
+
+#Relocate mean accuracy column for news_clip
+news.data <- news.data %>% relocate(Hit, .after=news_clip_type)
+news.data <- news.data %>% relocate(Miss, .after=Hit)
+news.data <- news.data %>% relocate(FalseAlarm, .after=Miss)
+news.data <- news.data %>% relocate(CorrectRej, .after=FalseAlarm)
+
+
+
+
+```
+
+
+
+
+
+
+# --- DPRIME for news clip accuracy per category ---
+```{r}
+
+
+#Subset relevant news rows
+news.category.df <- subset(chai.data.clean, trial_id == "news_clip_question" | trial_id == "news_clip_question_nocomments")
+
+
+#Subset relevant news columns
+news.category <- subset(news.category.df, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, updated_news_clip_category, binary_news_clip_category))
+
+
+#Subject ID check
+length(unique(news.category$subject_id))
+
+
+#Create new column that reflects accuracy for news clip selection. 1 for accuracy, 0 for inaccuracy
+news.category$news_clip_correct <- ifelse(news.category$news_clip_response_category == news.category$news_clip_type, 1, 0)
+
+
+#Relocate news_clip_correct column
+news.category <- news.category %>% relocate(updated_news_clip_category, .after=news_clip_category)
+
+
+#Relocate news_clip_correct column
+news.category <- news.category %>% relocate(news_clip_correct, .after=response)
+
+
+#Convert news_clip_correct column to numeric
+news.category$news_clip_correct <- as.numeric(news.category$news_clip_correct)
+
+
+#Get the mean share likelihood for AI and for Human text, respectively
+news.category.clean <- news.category %>%                                 # Group data
+  group_by(subject_id, binary_news_clip_category) %>%
+  dplyr::summarize(news_clip.category.accuracy = mean(news_clip_correct)) %>% 
+  as.data.frame()
+
+
+
+#Pivot wider
+news.category.wide <- news.category.clean %>% pivot_wider(names_from = binary_news_clip_category, values_from = news_clip.category.accuracy )
+
+
+#Rename columns
+#NewCols <- c("subject_id", "Current_news", "News_Abstract", "Past_Posts_2012", "Past_Posts_2013", "Past_Posts_2014", "Science_Post", "Scientific_Blog")
+#colnames(news.category.wide) <- NewCols
+
+
+#Collapse all the Past Post Columns and get their mean
+#news.category.wide$PastPosts_all <- rowMeans(subset(news.category.wide, select = c("Past_Posts_2012", "Past_Posts_2013", "Past_Posts_2014")), na.rm = TRUE)
+
+
+
+
+############################################################# MANUAL DPRIME
+
+#Rubric
+#Hit = saying a human is a human, 
+#Miss = saying a human is AI. 
+#FalseAlarm = saying an AI is human, 
+#CorrectRej = saying  an AI is AI, 
+#DPRIME score corresponds to the Z value of the hit-rate minus that of the false-alarm rate.
+
+#Manually calculating Hits, Misses, False Alarms, and Correct Rejections
+news.category$Hit <- ifelse(news.category$news_clip_response_category == "Human" & news.category$news_clip_type == "Human", 1, NA)
+news.category$Miss <- ifelse(news.category$news_clip_response_category == "AI"  & news.category$news_clip_type == "Human", 1, NA)
+news.category$FalseAlarm <- ifelse(news.category$news_clip_response_category == "Human"  & news.category$news_clip_type == "AI", 1, NA)
+news.category$CorrectRej <- ifelse(news.category$news_clip_response_category == "AI"  & news.category$news_clip_type == "AI", 1, NA)
+
+
+#Convert news_clip_correct column to numeric
+news.category$Hit <- as.numeric(news.category$Hit)
+news.category$Miss <- as.numeric(news.category$Miss)
+news.category$FalseAlarm <- as.numeric(news.category$FalseAlarm)
+news.category$CorrectRej <- as.numeric(news.category$CorrectRej)
+
+
+#Relocate mean accuracy column for news_clip
+news.category <- news.category %>% relocate(Hit, .after=news_clip_type)
+news.category <- news.category %>% relocate(Miss, .after=Hit)
+news.category <- news.category %>% relocate(FalseAlarm, .after=Miss)
+news.category <- news.category %>% relocate(CorrectRej, .after=FalseAlarm)
+
+
+#Subset relevant columns for dprime
+news.category <- subset(news.category, select=c(subject_id, news_clip_stim, news_clip_response_category, news_clip_type, news_clip_category, updated_news_clip_category, binary_news_clip_category, Hit, Miss, FalseAlarm, CorrectRej))
+
+
+#Summarize dprime stats
+news.category.dprime.cat <- dprime_cat(news.category, subject_id, binary_news_clip_category)
+
+
+# Finally, use psycho::d-prime to calculate d-prime stats
+library(psycho)
+news.category.dprime.stats <- psycho::dprime(news.category.dprime.cat$Hits, news.category.dprime.cat$FalseAlarms, news.category.dprime.cat$Misses, news.category.dprime.cat$CorrectRejs)
+
+# Add d-prime values into df
+news.category.dprime.cat$dprime <- news.category.dprime.stats$dprime
+
+
+#Rename dprime column
+names(news.category.dprime.cat)[names(news.category.dprime.cat) == 'dprime'] <- 'news_category_dprime'
+
+
+
+
+############ PIVOT NEWS CATEGORY DPRIME WIDER ############
+
+#Subset relevant columns
+news.category.dprime.cat <- subset(news.category.dprime.cat, select=c(subject_id, binary_news_clip_category, news_category_dprime))
+
+
+#Pivot wider
+news.category.dprime.cat.wide <- news.category.dprime.cat %>% pivot_wider(names_from = binary_news_clip_category, values_from = news_category_dprime)
+
+
+#Rename News and Science columns
+names(news.category.dprime.cat.wide)[names(news.category.dprime.cat.wide) == 'General_Interest_News'] <- 'General_Interest_News_dprime'
+names(news.category.dprime.cat.wide)[names(news.category.dprime.cat.wide) == 'Science'] <- 'Science_dprime'
+
+
+
+#Remove 6 participants from news.remove df and 1 participant for comments accuracy
+news.category.dprime.cat <- news.category.dprime.cat[-(which(news.category.dprime.cat$subject_id == "63d1b0363f9bd5a6062dfb1c")),]
+news.category.dprime.cat <- news.category.dprime.cat[-(which(news.category.dprime.cat$subject_id == "62699ca4c48ff1d410fcd8f7")),]
+news.category.dprime.cat <- news.category.dprime.cat[-(which(news.category.dprime.cat$subject_id == "63dd3dd2593c92be97d8dbde")),]
+news.category.dprime.cat <- news.category.dprime.cat[-(which(news.category.dprime.cat$subject_id == "5b53cc31c09af90001f113d4")),]
+news.category.dprime.cat <- news.category.dprime.cat[-(which(news.category.dprime.cat$subject_id == "5ea1aeee7bc39507649de2e7")),]
+news.category.dprime.cat <- news.category.dprime.cat[-(which(news.category.dprime.cat$subject_id == "6298df7da7b45df1b730d3aa")),]
+news.category.dprime.cat <- news.category.dprime.cat[-(which(news.category.dprime.cat$subject_id == "62f58a7129fb13cf46a08ae0")),]
+
+
+
+```
+
+We are especially interested in whether certain smartphone and social media habits impact the ability to differentiate human-generated and AI-generated materials.
+
+To study this, we completed an online study hosted on Prolific where we presented human-generated and ChatGPT-generated news clips, which I'll refer to as "texts" moving forward, and asked participants to determine whether the text was generated by humans or AI. After making their judgement, we also presented human-generated and AI-generated social media style comments in response to the text and asked participants to determine which social media style comment was human-generated.
+
+After making their human/AI judgments, participants completed a self-report survey assessing their smartphone and social media habits. In particular, we focus on three aspects of SSM habits: A SSM composite score that reflects the average of frequency of phone checking behaviors, the sum of time spent on social media apps, and mean of how often people post/re-post. We next considered the degree of active versus passive use by asking participants to self-report how often they consume content (like scrolling) versus actively posting or re-posting on social media. Lastly, after people made their human/AI judgments on the text, we asked them how likely they were to share this text on social media. So in this way, we have three different ways to characterize SSM usage.
+
+So the first thing we looked at was whether people could even tell the difference between human/AI content and the results showed that yes, people, on average, were 58% accurate in distinguishing human/AI texts and 78% accurate in distinguishing human/AI social media style comments.
+
+Next, we looked at whether the SSM composite score, which is perhaps our broadest measure of SSM habits, was related to the ability to distinguish between human/AI materials. And the results show that the SSM composite score was not related to human/AI judgment accuracy for texts or comments (although you can see some directionality with the SSM habits).
+
+Then, we became we especially interested in whether certain components of social media use, such as active use, which often reflects posting/re-posting, may influence human/AI judgments.
+
+
+******DPRIME EXPLANATION
+#Rubric
+#Hit = saying a human is a human, 
+#Miss = saying a human is AI. 
+#FalseAlarm = saying an AI is human, 
+#CorrectRej = saying  an AI is AI, 
+#DPRIME score corresponds to the Z value of the hit-rate minus that of the false-alarm rate.
+
+1) One way to measure accuracy is to treat each answer as binary, either they got it right or they didn't.
+2) Another more sensitive way to measure accuracy is to calculate a D' score. For example, because we showed either a human-generated text or AI-generated text, there are 4 possible outcomes.
+  -You see a human-generated text and judge it as "human" (HIT)
+  -You see a human-generated text and judge it as "AI" (MISS)
+  -You see a AI-generated text and judge it as "human" (FALSE ALARMS)
+  -You see a AI-generated text and judge it as "AI" (CORRECT REJECTION)
+  
+The DPRIME score corresponds to the Z value of the hit-rate minus that of the false-alarm rate
+
+3) False Alarms are seeing an AI-generated comment and judging it as human.
+
+# --- Determine accuracy exclusively for human news clips ---
+```{r}
+
+#Subset relevant news rows
+news.df <- subset(chai.data.clean, trial_id == "news_clip_question" | trial_id == "news_clip_question_nocomments")
+
+
+#Subset relevant news columns
+news <- subset(news.df, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, updated_news_clip_category, binary_news_clip_category))
+
+
+#Subject ID check
+length(unique(news$subject_id))
+
+
+
+#Subset only human news clips
+human.news <- subset(news, news_clip_type == "Human")
+
+
+#Create new column that reflects accuracy for news clip selection. 1 for accuracy, 0 for inaccuracy
+human.news$human.news_clip_correct <- ifelse(human.news$news_clip_response_category == human.news$news_clip_type, 1, 0)
+
+
+#Relocate news_clip_correct column
+human.news <- human.news %>% relocate(human.news_clip_correct, .after=response)
+
+
+#Convert news_clip_correct column to numeric
+human.news$human.news_clip_correct <- as.numeric(human.news$human.news_clip_correct)
+
+
+
+#Calculate mean accuracy for news_clip_correct
+human.news$human.news_clip.accuracy <- ave(human.news$human.news_clip_correct, human.news$subject_id, FUN=mean)
+#human.news$human.news_clip.sum <- ave(human.news$human.news_clip_correct, human.news$subject_id, FUN=sum)
+
+
+#Relocate mean accuracy column for news_clip
+human.news <- human.news %>% relocate(human.news_clip.accuracy, .after=human.news_clip_correct)
+#human.news <- human.news %>% relocate(human.news_clip.sum , .after=human.news_clip_correct)
+
+
+#Remove duplicate rows
+human.news.clean <- human.news[!duplicated(human.news$subject_id), ]
+
+
+
+#Subset final human.news.clean columns
+human.news.clean <- subset(human.news.clean, select=c(subject_id, human.news_clip.accuracy))
+
+
+
+
+```
+
+
+
+
+
+# --- Determine accuracy exclusively for AI news clips ---
+```{r}
+
+
+#Subset relevant news rows
+news.df <- subset(chai.data.clean, trial_id == "news_clip_question" | trial_id == "news_clip_question_nocomments")
+
+
+#Subset relevant news columns
+news <- subset(news.df, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, updated_news_clip_category, binary_news_clip_category))
+
+
+#Subject ID check
+length(unique(news$subject_id))
+
+
+
+#Subset only human news clips
+ai.news <- subset(news, news_clip_type == "AI")
+
+
+#Create new column that reflects accuracy for news clip selection. 1 for accuracy, 0 for inaccuracy
+ai.news$ai.news_clip_correct <- ifelse(ai.news$news_clip_response_category == ai.news$news_clip_type, 1, 0)
+
+
+#Relocate news_clip_correct column
+ai.news <- ai.news %>% relocate(ai.news_clip_correct, .after=response)
+
+
+#Convert news_clip_correct column to numeric
+ai.news$ai.news_clip_correct <- as.numeric(ai.news$ai.news_clip_correct)
+
+
+
+#Calculate mean accuracy for news_clip_correct
+ai.news$ai.news_clip.accuracy <- ave(ai.news$ai.news_clip_correct, ai.news$subject_id, FUN=mean)
+#ai.news$ai.news_clip.sum <- ave(ai.news$ai.news_clip_correct, ai.news$subject_id, FUN=sum)
+
+
+#Relocate mean accuracy column for news_clip
+ai.news <- ai.news %>% relocate(ai.news_clip.accuracy, .after=ai.news_clip_correct)
+#ai.news <- ai.news %>% relocate(ai.news_clip.sum , .after=ai.news_clip_correct)
+
+
+#Remove duplicate rows
+ai.news.clean <- ai.news[!duplicated(ai.news$subject_id), ]
+
+
+
+#Subset final ai.news.clean columns
+ai.news.clean <- subset(ai.news.clean, select=c(subject_id, ai.news_clip.accuracy))
+
+
+
+```
+
+
+
+
+
+
+
+
+# --- Subset comments data ---
+```{r}
+
+
+#Subset relevant comments columns
+comments <- subset(comments.df.clean, select=c(subject_id, response, comments_response_category, left_comment, right_comment, human_comment, ai_comment, human_comment_wordcount, ai_comment_wordcount, WC_human_comments, WC_ai_comments, Analytic_human_comments, Analytic_ai_comments, Clout_human_comments, Clout_ai_comments, Authentic_human_comments, Authentic_ai_comments, Tone_human_comments, Tone_ai_comments))
+
+
+#Subject ID check
+length(unique(comments$subject_id))
+
+
+
+######################## NORMAL ACCURACY SCORE ######################
+
+#Create new column that reflects accuracy for comments selection. 1 for 'Human', 0 for 'AI'
+comments$comments_correct <- ifelse(comments$comments_response_category == "Human", 1, 0)
+
+
+#Relocate comments_correct column
+comments <- comments %>% relocate(comments_correct, .after=response)
+
+
+#Convert comments_correct column to numeric
+comments$comments_correct <- as.numeric(comments$comments_correct)
+
+
+#Calculate mean accuracy for comments_correct
+accuracy_comments <- comments %>%                                 # Group data
+  group_by(subject_id) %>%
+  dplyr::summarize(comments.accuracy = mean(comments_correct)) %>% 
+  as.data.frame()
+
+
+
+```
+
+
+
+#### Remove outliers from comments df 
+```{r}
+
+
+########################## 90% THRESHOLD (I.E., 43 TRIALS) ##########################
+
+############# Removing outliers from Comments ##################
+#Create data frame that has the count for how many times each person responded as "Human" or "AI"
+response.check.comments <- as.data.frame(table(comments$subject_id, comments$response)) 
+
+#Rename columns
+colnames(response.check.comments) <- c("subject_id", "response", "count")
+
+
+#Removing participants who answered "Human" or "AI" on more than 90% of trials. .90 * 48 = 43
+#Subset rows that are greater and less than 43
+comments.remove <- subset(response.check.comments, response.check.comments$count > 43)
+
+
+#Confirm subject id length in original comments df: 194 IDs
+length(unique(comments$subject_id))
+
+
+#Confirm subject id length in comments.remove df: 1 ID
+length(unique(comments.remove$subject_id))
+
+
+#Using the comments.remove df, remove participants that are included in the comments.remove df 
+comments.outliersremoved <- comments[-which(comments$subject_id %in% comments.remove$subject_id),]
+
+
+#Subject ID check: 193 -- REMOVED THE 1 PPT THAT SYSTEMATICALLY SCORED EITHER "0" or "1" MORE THAN 43 TIMES
+length(unique(comments.outliersremoved$subject_id))
+
+
+
+#Calculate mean accuracy for comments_outliers removed df
+comments.outliersremoved.clean <- comments.outliersremoved %>%                                 # Group data
+  group_by(subject_id) %>%
+  dplyr::summarize(comments.accuracy = mean(comments_correct)) %>% 
+  as.data.frame()
+
+
+
+```
+
+
+
+
+
+# --- Subset Share data ---
+```{r}
+
+
+#Subset Pavlovia output to only extract share rows
+share.df <- subset(chai.data, trial_id == "share_question" | trial_id == "share_question_nocomments")
+
+
+#Subset relevant share columns
+share <- subset(share.df, select=c(subject_id, study_id, session_id, trial_id, response, slider_start, share_news_clip_stim, share_news_clip_type, share_news_clip_wordcount, share_news_clip_prompt, share_news_clip_category, binary_share_news_clip_category))
+
+
+#Subject ID check
+length(unique(share$subject_id))
+
+
+
+#Convert response column to numeric
+share$response <- as.numeric(share$response)
+
+
+#Get the mean share likelihood for AI and for Human text, respectively
+share.clean <- share %>%                                 # Group data
+  group_by(subject_id, share_news_clip_type) %>%
+  dplyr::summarize(share.likelihood = mean(response)) %>% 
+  as.data.frame()
+
+
+#Pivot wider
+share.wide <- share.clean %>% pivot_wider(names_from = share_news_clip_type, values_from = share.likelihood)
+
+
+#Rename columns
+share.wide <- share.wide %>% 
+       dplyr::rename("share.ai" = "AI")
+
+share.wide <- share.wide %>% 
+       dplyr::rename("share.human" = "Human")
+
+
+
+
+######################COLLECT OVERALL SHARE SCORE
+share.clean.overall <- share %>%                                 # Group data
+  group_by(subject_id) %>%
+  dplyr::summarize(share.likelihood.overall = mean(response)) %>% 
+  as.data.frame()
+
+```
+
+
+
+
+
+*First number*
+Average human share %
+Whenever they select human
+% of times that they said they would share something they judged was human
+
+*Second number*
+Average AI share %
+Whenever they selected AI
+% of times they said they would share something they judged as AI
+
+Paired t-test
+Each subject has their own % of share.human and % of share AI
+paired, 2-tailed t-test
+
+First sentence needs the t-test added to the end of it. 
+t=, DF =, p=
+t(df) = t-value, p-value
+
+
+```{r}
+
+#Make duplicate of chai.clean df
+news_sharing.df <- chai.data.clean
+
+
+#Subset relevant share columns
+news_sharing <- subset(news_sharing.df, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, slider_start, share_news_clip_stim, share_news_clip_type, share_news_clip_wordcount, share_news_clip_prompt, share_news_clip_category, updated_share_news_clip_category, binary_share_news_clip_category))
+                       
+
+#Subset Pavlovia output to only extract share and news rows
+news.data <- subset(news_sharing, trial_id == "news_clip_question" | trial_id == "news_clip_question_nocomments")
+share.data  <- subset(news_sharing, trial_id == "share_question" | trial_id == "share_question_nocomments")
+
+
+#Rename response columns so we can merge them!
+names(news.data)[names(news.data) == 'response'] <- 'news.response'
+names(share.data)[names(share.data) == 'response'] <- 'share.response'
+
+
+#Subset news columns
+news.data <- subset(news.data, select=c("subject_id", "news_clip_stim", "news.response", "news_clip_response_category", "news_clip_type", "news_clip_wordcount", "news_clip_prompt", "news_clip_category", "updated_share_news_clip_category", "binary_share_news_clip_category"))
+
+share.data <- subset(share.data, select=c("subject_id", "share.response", "slider_start", "share_news_clip_stim", "share_news_clip_type", "share_news_clip_wordcount", "share_news_clip_prompt", "share_news_clip_category"))
+
+
+################### MERGE INTO ONE DATA FRAME! ###################
+news.share.data <- left_join(news.data, share.data, by=c("subject_id"="subject_id", "news_clip_stim" = "share_news_clip_stim"))
+
+
+#Subject ID check
+length(unique(news.share.data$subject_id))
+
+
+#Create new column that reflects is participants correctly identified the news_clip_type, 1 for correct, 0 for incorrect
+news.share.data$news_clip_correct <- ifelse(news.share.data$news_clip_response_category == news.share.data$news_clip_type, 1, 0)
+
+
+#Relocate mean accuracy column for comments_correct
+news.share.data <- news.share.data %>% relocate(news_clip_correct, .after=news_clip_type)
+
+
+#Convert news_clip_correct to numeric variable
+news.share.data$news_clip_correct <- as.numeric(news.share.data$news_clip_correct)
+
+
+#Convert share.response to numeric variable
+news.share.data$share.response <- as.numeric(news.share.data$share.response)
+
+
+
+######## RE-ORGANIZE COLUMNS SO IT'S EASIER TO READ
+news.share.data <- subset(news.share.data, select=c("subject_id", "news_clip_stim", "news.response", "news_clip_response_category", "news_clip_type", "news_clip_correct", "news_clip_wordcount", "news_clip_prompt", "news_clip_category", "share.response", "slider_start", "share_news_clip_type", "share_news_clip_wordcount", "share_news_clip_prompt", "share_news_clip_category", "updated_share_news_clip_category", "binary_share_news_clip_category"))
+
+
+#Subset only the columns that we need to determine human versus average sharing
+news.share.data <- subset(news.share.data, select=c(subject_id, news_clip_stim, news_clip_response_category, share.response))
+
+
+#ID CHECK: 194 IDs
+length(unique(news.share.data$subject_id))
+
+#Remove 6 participants from D' and 1 participant from comments overall accuracy
+news.share.data <- news.share.data[-(which(news.share.data$subject_id == "63d1b0363f9bd5a6062dfb1c")),]
+news.share.data <- news.share.data[-(which(news.share.data$subject_id == "62699ca4c48ff1d410fcd8f7")),]
+news.share.data <- news.share.data[-(which(news.share.data$subject_id == "63dd3dd2593c92be97d8dbde")),]
+news.share.data <- news.share.data[-(which(news.share.data$subject_id == "5b53cc31c09af90001f113d4")),]
+news.share.data <- news.share.data[-(which(news.share.data$subject_id == "5ea1aeee7bc39507649de2e7")),]
+news.share.data <- news.share.data[-(which(news.share.data$subject_id == "6298df7da7b45df1b730d3aa")),]
+news.share.data <- news.share.data[-(which(news.share.data$subject_id == "62f58a7129fb13cf46a08ae0")),]
+
+
+#ID CHECK: 187 ids
+length(unique(news.share.data$subject_id))
+
+
+
+######Average sharing likelihood for all texts BEFORE SUBSETTING
+news.share.data.type <- news.share.data %>%                                 # Group data
+  group_by(subject_id, news_clip_response_category) %>%
+  dplyr::summarize(news_clip_response_category.share = mean(share.response)) %>% 
+  as.data.frame()
+
+
+############################# COLLECT MEAN AND SD!!
+news.share.data.type %>%
+  group_by(news_clip_response_category) %>%
+  dplyr::summarize(
+    count = n(),
+    mean = mean(news_clip_response_category.share, na.rm = TRUE),
+    sd = sd(news_clip_response_category.share, na.rm = TRUE))
+
+
+#I think we need a ttest to see if there are differences between the means of sharing human and sharing ai news clips?
+human.ai.share_ttest <- t.test(x = news.share.data.type$news_clip_response_category.share[news.share.data.type$news_clip_response_category == "Human"],
+                 y = news.share.data.type$news_clip_response_category.share[news.share.data.type$news_clip_response_category == "AI"],
+                 paired = TRUE,
+                 alternative = "two.sided")
+
+
+report(human.ai.share_ttest)
+
+
+########### PIVOT LONGER TO WIDER
+judgments.sharing <- news.share.data.type %>% pivot_wider(names_from = news_clip_response_category, values_from = news_clip_response_category.share)
+
+
+#Rename columns
+colnames(judgments.sharing) <- c("subject_id", "AI.judged_average.sharing", "Human.judged_average.sharing")
+
+```
+
+
+
+
+# --- Likelihood of sharing falsely identified news clips ---
+```{r}
+
+#Make duplicate of chai.clean df
+news_sharing.df <- chai.data
+
+
+#Subset relevant share columns
+news_sharing <- subset(news_sharing.df, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, slider_start, share_news_clip_stim, share_news_clip_type, share_news_clip_wordcount, share_news_clip_prompt, share_news_clip_category, updated_share_news_clip_category, binary_share_news_clip_category))
+                       
+                       
+#Subset Pavlovia output to only extract share rows
+news_sharing  <- subset(news_sharing , trial_id == "share_question" | trial_id == "share_question_nocomments" | trial_id == "news_clip_question" | trial_id == "news_clip_question_nocomments")
+
+
+#Subject ID check
+length(unique(news_sharing$subject_id))
+
+
+
+#Create new column that reflects is participants correctly identified the news_clip_type, 1 for correct, 0 for incorrect
+news_sharing$news_clip_correct <- ifelse(news_sharing$news_clip_response_category == news_sharing$news_clip_type, 1, 0)
+news_sharing$news_clip_correct <- ifelse(news_sharing$news_clip_response_category == "" & news_sharing$news_clip_type == "", NA, news_sharing$news_clip_correct)
+
+
+
+#Relocate mean accuracy column for comments_correct
+news_sharing <- news_sharing %>% relocate(news_clip_correct, .after=news_clip_type)
+
+
+#Convert response.check to factor variable
+news_sharing$news_clip_correct <- as.numeric(news_sharing$news_clip_correct)
+
+
+#Copy previous and next row
+news_sharing$news_clip_correct.clean <- data.table::shift(news_sharing$news_clip_correct, 1, type = "lag")
+
+
+#Convert news_clip_correct.clean to numeric variable
+news_sharing$news_clip_correct.clean <- as.numeric(news_sharing$news_clip_correct.clean)
+
+
+#Use ifelse statement where if the news_clip_correct row has an NA, then copy over the value from the news_clip_correct.clean column (which should be a duplicate of the previous news_clip_correct row, otherwise, keep the news_clip_correct row as is)
+news_sharing$news_clip_correct <- ifelse(is.na(news_sharing$news_clip_correct), news_sharing$news_clip_correct.clean, news_sharing$news_clip_correct)
+
+
+#Convert news_clip_correct column from numeric to factor
+news_sharing$news_clip_correct <- as.factor(news_sharing$news_clip_correct)
+
+
+
+
+############################################# FALSE SHARING SCORE
+
+#Subset Pavlovia output to only extract share rows
+false.news_sharing  <- subset(news_sharing , trial_id == "share_question" | trial_id == "share_question_nocomments")
+
+
+#Subset only the rows where news_clip_correct = 0, which means that participants falsely identified whether the news clip was AI or human
+false.news_sharing <- subset(false.news_sharing, false.news_sharing$news_clip_correct == 0)
+
+
+
+#Subset relevant share columns
+false.news_sharing <- subset(false.news_sharing, select=c(subject_id, study_id, session_id, trial_id, response, news_clip_correct, slider_start, share_news_clip_stim, share_news_clip_type, share_news_clip_wordcount, share_news_clip_prompt, share_news_clip_category))
+    
+
+#Convert response column from character to numeric
+false.news_sharing$response <- as.numeric(false.news_sharing$response)
+
+
+
+#Get the mean share likelihood for news clips that were incorrectly identified and correctly identified
+false.news_sharing.clean <- false.news_sharing %>%                                 # Group data
+  group_by(subject_id, share_news_clip_type) %>%
+  dplyr::summarize(false.share.score = mean(response)) %>% 
+  as.data.frame()
+
+
+#Pivot wider
+false.news_sharing.wide <- false.news_sharing.clean %>% pivot_wider(names_from = share_news_clip_type, values_from = false.share.score)
+
+
+#Rename columns
+NewCols <- c("subject_id", "false.ai.share", "false.human.share")
+
+
+#Rename columns
+colnames(false.news_sharing.wide) <- NewCols
+
+
+
+############### COLLECT OVERALL FALSE SHARING SCORE
+false.news_sharing.overall <- false.news_sharing %>%                                 # Group data
+  group_by(subject_id) %>%
+  dplyr::summarize(false.share.score.overall = mean(response)) %>% 
+  as.data.frame()
+
+
+
+
+
+
+############################################# CORRECT SHARING SCORE
+
+#Subset Pavlovia output to only extract share rows
+correct.news_sharing  <- subset(news_sharing , trial_id == "share_question" | trial_id == "share_question_nocomments")
+
+
+#Subset only the rows where news_clip_correct = 1, which means that participants correctly identified whether the news clip was AI or human
+correct.news_sharing <- subset(correct.news_sharing, correct.news_sharing$news_clip_correct == 1)
+
+
+
+#Subset relevant share columns
+correct.news_sharing <- subset(correct.news_sharing, select=c(subject_id, study_id, session_id, trial_id, response, news_clip_correct, slider_start, share_news_clip_stim, share_news_clip_type, share_news_clip_wordcount, share_news_clip_prompt, share_news_clip_category))
+    
+
+#Convert response column from character to numeric
+correct.news_sharing$response <- as.numeric(correct.news_sharing$response)
+
+
+
+#Get the mean share likelihood for news clips that were incorrectly identified and correctly identified
+correct.news_sharing.clean <- correct.news_sharing %>%                                 # Group data
+  group_by(subject_id, share_news_clip_type) %>%
+  dplyr::summarize(correct.share.score = mean(response)) %>% 
+  as.data.frame()
+
+
+#Pivot wider
+correct.news_sharing.wide <- correct.news_sharing.clean %>% pivot_wider(names_from = share_news_clip_type, values_from = correct.share.score)
+
+
+#Rename columns
+NewCols <- c("subject_id", "correct.ai.share", "correct.human.share")
+
+
+#Rename columns
+colnames(correct.news_sharing.wide) <- NewCols
+
+
+
+############### COLLECT OVERALL CORRECT SHARING SCORE
+correct.news_sharing.overall <- correct.news_sharing %>%                                 # Group data
+  group_by(subject_id) %>%
+  dplyr::summarize(correct.share.score.overall = mean(response)) %>% 
+  as.data.frame()
+
+
+
+
+```
+
+
+
+
+
+
+# --- FLANKER ACCURACY ---
+```{r}
+
+
+#Subset Pavlovia output to only extract flanker rows
+flanker.df <- subset(chai.data, trial_id == "_40_flankers_practice_response")
+
+
+#Subset relevant flanker columns
+flanker <- subset(flanker.df, select=c(subject_id, study_id, session_id, trial_id, rt, stimulus, response, congruency, direction_correct_arrow, direction_surrounding_arrows, correct_key_response, is_correct))
+
+
+#Subject ID check
+length(unique(flanker$subject_id))
+
+
+#Calculate flanker correct score ####
+flanker$flanker_correct <- ifelse(flanker$is_correct == "true", 1, 0)
+
+
+#Get the mean and 2.5SD for RT
+flanker.clean <- flanker %>%                                 # Group data
+  group_by(subject_id) %>%
+  dplyr::summarize(flanker.accuracy = mean(flanker_correct),
+                   flanker.sd = sd(flanker_correct),
+                   flanker.sd_outliers = 2.5 * sd(flanker_correct)) %>% 
+  as.data.frame()
+
+
+
+```
+
+
+
+
+
+###### ---- Examine mean RT for Congruent and Incongruent Trials --- ############################
+```{r}
+
+
+#Subset Pavlovia output to only extract flanker rows
+flanker.df <- subset(chai.data, trial_id == "_40_flankers_practice_response")
+
+
+#Subset relevant flanker columns
+flanker <- subset(flanker.df, select=c(subject_id, trial_id, rt, response, congruency, correct_key_response, is_correct))
+
+
+#Convert rt columns to numeric
+flanker$rt <- as.numeric(flanker$rt)
+
+#Subject ID check
+length(unique(flanker$subject_id))
+
+
+
+########################## GENERATE MEAN AND SD FOR FLANKER RT ######################
+#Get the mean and 2.5SD for RT
+outliers.flanker <- flanker %>%                                 # Group data
+  group_by(subject_id) %>%
+  dplyr::summarize(flanker.average_rt = mean(rt),
+                   flanker.rt.sd = sd(rt),
+                   flanker.rt.sd_threshold = 2.5 * sd(rt)) %>% 
+  as.data.frame()
+
+
+
+
+##########################################################################
+
+
+############ Merge outliers data frame with flanker data frame!
+
+#put all data frames into list
+flanker_list <- list(flanker, outliers.flanker)
+
+#merge all data frames in list
+flanker.outliers.df <- flanker_list %>% reduce(full_join, by='subject_id')
+
+##########################################################################
+
+
+
+#Create new columns that is + 2.5 SD above and below the mean
+flanker.outliers.df$flanker.average.rt.above <- flanker.outliers.df$flanker.average_rt + flanker.outliers.df$flanker.rt.sd_threshold
+flanker.outliers.df$flanker.average.rt.below <- flanker.outliers.df$flanker.average_rt - flanker.outliers.df$flanker.rt.sd_threshold
+
+
+
+################################ Store flanker outliers in a separate df
+
+#Remove any trials where the RT for that trial is above or below the rt.above or rt.below columns
+flanker.rt.trialsremoved <- subset(flanker.outliers.df, flanker.outliers.df$rt > flanker.outliers.df$flanker.average.rt.above | flanker.outliers.df$rt < flanker.outliers.df$flanker.average.rt.below)
+
+
+#outliers table of all the trials that were removed
+outliers_table <- as.data.frame(table(flanker.rt.trialsremoved$subject_id))
+
+
+#Rename columns in the outliers table
+colnames(outliers_table) <- c("subject_id", "Trials_removed")
+
+####################################
+
+
+
+
+#Keep only trials where the rt per trial is smaller than the average.rt.above OR the rt is greater than the average RT below --- This removes 216 trials
+flanker.rt.clean <- subset(flanker.outliers.df, flanker.outliers.df$rt < flanker.outliers.df$flanker.average.rt.above)
+flanker.rt.clean <- subset(flanker.rt.clean, flanker.rt.clean$rt > flanker.rt.clean$flanker.average.rt.below)
+
+
+#Subset only trials that they got correct
+flanker.correct <- subset(flanker.rt.clean, is_correct == 'true')
+
+
+#Subset relevant columns
+flanker.correct <- subset(flanker.correct, select=c(subject_id, congruency, rt, is_correct))
+
+
+
+############################################################## This is stuff we've already done #####################################
+
+
+
+#Get the mean rt for congruent and incongruent trials
+flanker.rt <- flanker.correct %>%                                 # Group data
+  group_by(subject_id, congruency) %>%
+  dplyr::summarize(average_rt = mean(rt)) %>% 
+  as.data.frame()
+
+```
+
+
+
+# -- Flanker RT difference scores ---
+```{r}
+
+#Only include participants with both rows -- this removed 4 participants that ONLY GOT CONGRUENT OR INCONGRUENT TRIALS CORRECT SINCE WE ARE SUBSETTING ONLY ACCURATE TRIALS
+#5f2bf7aa253520000bfc83b6 -- only incongruent
+#5fbd371dc57ae80a38ba00c2 -- only congruent
+#6234d77291179c1badffad36 -- only incongruent
+#62868bacaa566e62dd4a40f7 -- only incongruent
+flanker.complete <- flanker.rt %>%
+   group_by(subject_id) %>%
+   filter(n() == 2) %>%
+   ungroup
+
+#Subject ID: 190
+length(unique(flanker.complete$subject_id))
+
+#Gather participants that are missing congruent OR incongruent 
+flanker.incomplete <- flanker.rt %>%
+   group_by(subject_id) %>%
+   filter(n() < 2) %>%
+   ungroup
+
+#Subject ID: 4
+length(flanker.incomplete$subject_id)
+
+
+
+
+
+############################## CONGRUENT AND INCONGRUENT CALCULATIONS ##############################
+
+
+#Subset only congruent trials
+flanker.congruent <- subset(flanker.complete, congruency == "congruent")
+
+#Rename columns
+colnames(flanker.congruent) <- c("subject_id", "congruent_trials", "congruent_average_rt")
+  
+
+###### REPEAT FOR INCONGRUENT TRIALS
+#Subset only incongruent trials
+flanker.incongruent <- subset(flanker.complete, congruency == "incongruent")
+
+#Rename columns
+colnames(flanker.incongruent) <- c("subject_id", "incongruent_trials", "incongruent_average_rt")
+  
+
+
+
+
+#################### MERGE DATA FRAMES ####################
+#put all data frames into list
+flanker_list <- list(flanker.congruent, flanker.incongruent)
+
+#merge all data frames in list
+flanker.congruency <- flanker_list %>% reduce(full_join, by='subject_id')
+
+
+
+#Subset only the columns that we care about,
+flanker.congruency <- subset(flanker.congruency, select=c(subject_id, congruent_average_rt, incongruent_average_rt))
+                             
+
+##Calculate the flanker difference score!!!!!!!!                                                    
+flanker.rt_diff <- flanker.congruency %>%
+    group_by(subject_id) %>%
+    mutate(flanker.rt.difference.score = incongruent_average_rt - congruent_average_rt)
+
+
+
+#Calculate the average RT difference scores
+mean(flanker.rt_diff$flanker.rt.difference.score)
+2.5 * sd(flanker.rt_diff$flanker.rt.difference.score)
+
+
+#Determine which participants are outliers --- 5 PARTICIPANTS
+#We removed 5 participants who were +-2.5 SD the average reaction time difference score, which is 395
+#5f8b022ec072cf1d32d4f0bf
+#6172b88315142e4eaa555c95
+#62e02537aeee3cf7f450869e
+#63403b47287756c1978d2985
+#63d1650b103325686e22e3b7
+flanker_rt.diff_outliers <- subset(flanker.rt_diff, flanker.rt_diff$flanker.rt.difference.score > 395)
+flanker_rt.diff_outliersremoved <- subset(flanker.rt_diff, flanker.rt_diff$flanker.rt.difference.score < 395)
+
+
+```
+
+
+
+
+
+# --- Subset RPM data ---
+```{r}
+
+
+#Subset Pavlovia output to only extract rpm_task_tfb rows
+rpm.df <- subset(chai.data, trial_id == "rpm_task_tfb")
+
+
+#Subset relevant rpm columns
+rpm <- subset(rpm.df, select=c(subject_id, study_id, session_id, trial_id, choice, correct, accuracy, choice_order,  screen_resolution, minimum_resolution, all_loaded, test_form, value, question_order))
+
+
+#Subject ID check
+length(unique(rpm$subject_id))
+
+
+#Change all "nulls" in accuracy column to 0
+rpm$accuracy <- ifelse(rpm$accuracy == 'null', 0, rpm$accuracy)
+
+
+#Convert accuracy column to numeric
+rpm$accuracy <- as.numeric(rpm$accuracy)
+
+
+############ CHANGE THE ACCURACY VALUE FOR 6101f6f45269e30a22fc4526 FROM "NA" TO 0 
+rpm$accuracy[which(rpm$subject_id == "6101f6f45269e30a22fc4526" & is.na(rpm$accuracy))] <- 0
+
+
+
+#Calculate mean accuracy for RPM
+rpm$rpm.accuracy <- ave(rpm$accuracy, rpm$subject_id, FUN=mean)
+
+
+
+#Relocate mean accuracy column
+rpm <- rpm %>% relocate(rpm.accuracy, .after=accuracy)
+
+
+
+#Remove duplicate rows
+rpm.clean <- rpm[!duplicated(rpm$subject_id), ]
+
+
+
+#Subset final rpm columns
+rpm.clean <- subset(rpm.clean, select=c(subject_id, rpm.accuracy))
+
+
+```
+
+
+
+
+
+
+# --- Exp feedback check ---
+```{r}
+
+
+#Subset Pavlovia output to only extract html-slider-response rows
+feedback_check <- subset(chai.data, trial_id == "exp_feedback")
+
+
+
+```
+
+
+
+
+
+#Merge all the data frames into one larger data frame
+```{r}
+
+#put all data frames into list
+df_list <- list(news.clean, news.dprime.cat, news.category.dprime.cat.wide, human.news.clean, ai.news.clean, general.interest.science_accuracy.wide, comments.outliersremoved.clean, share.clean.overall, share.wide, judgments.sharing, correct.news_sharing.overall, false.news_sharing.overall, correct.news_sharing.wide, false.news_sharing.wide, flanker.clean, flanker_rt.diff_outliersremoved, rpm.clean)
+
+#merge all data frames in list
+chai.clean <- df_list %>% reduce(full_join, by='subject_id')
+
+
+
+
+```
+
+
+
+
+############################################ OVERALL AVERAGE SHARING % ANALYSIS #################################################
+
+
+# MANUSCRIPT ANALYSIS --- Does Average Accuracy predict overall sharing, sharing for human content, or sharing for AI content
+
+```{r}
+
+#Make duplicate of chai.clean df
+news_sharing.df <- chai.data.clean
+
+
+#Subset relevant share columns
+news_sharing <- subset(news_sharing.df, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, slider_start, share_news_clip_stim, share_news_clip_type, share_news_clip_wordcount, share_news_clip_prompt, share_news_clip_category, updated_share_news_clip_category, binary_share_news_clip_category))
+                       
+
+#Subset Pavlovia output to only extract share and news rows
+news.data <- subset(news_sharing, trial_id == "news_clip_question" | trial_id == "news_clip_question_nocomments")
+share.data  <- subset(news_sharing, trial_id == "share_question" | trial_id == "share_question_nocomments")
+
+
+#Rename response columns so we can merge them!
+names(news.data)[names(news.data) == 'response'] <- 'news.response'
+names(share.data)[names(share.data) == 'response'] <- 'share.response'
+
+
+#Subset news columns
+news.data <- subset(news.data, select=c("subject_id", "news_clip_stim", "news.response", "news_clip_response_category", "news_clip_type", "news_clip_wordcount", "news_clip_prompt", "news_clip_category", "updated_share_news_clip_category", "binary_share_news_clip_category"))
+
+share.data <- subset(share.data, select=c("subject_id", "share.response", "slider_start", "share_news_clip_stim", "share_news_clip_type", "share_news_clip_wordcount", "share_news_clip_prompt", "share_news_clip_category"))
+
+
+################### MERGE INTO ONE DATA FRAME! ###################
+news.share.data <- left_join(news.data, share.data, by=c("subject_id"="subject_id", "news_clip_stim" = "share_news_clip_stim"))
+
+
+#Subject ID check
+length(unique(news.share.data$subject_id))
+
+
+#Create new column that reflects is participants correctly identified the news_clip_type, 1 for correct, 0 for incorrect
+news.share.data$news_clip_correct <- ifelse(news.share.data$news_clip_response_category == news.share.data$news_clip_type, 1, 0)
+
+
+#Relocate mean accuracy column for comments_correct
+news.share.data <- news.share.data %>% relocate(news_clip_correct, .after=news_clip_type)
+
+
+#Convert news_clip_correct to numeric variable
+news.share.data$news_clip_correct <- as.numeric(news.share.data$news_clip_correct)
+
+
+#Convert share.response to numeric variable
+news.share.data$share.response <- as.numeric(news.share.data$share.response)
+
+
+
+######## RE-ORGANIZE COLUMNS SO IT'S EASIER TO READ
+news.share.data <- subset(news.share.data, select=c("subject_id", "news_clip_stim", "news.response", "news_clip_response_category", "news_clip_type", "news_clip_correct", "news_clip_wordcount", "news_clip_prompt", "news_clip_category", "share.response", "slider_start", "share_news_clip_type", "share_news_clip_wordcount", "share_news_clip_prompt", "share_news_clip_category", "updated_share_news_clip_category", "binary_share_news_clip_category"))
+
+
+
+#################### Average overall accuracy and average sharing likelihood for texts ###############################################
+
+
+######Average overall accuracy for texts
+news.share.data.average.accuracy <- news.share.data %>%                                 # Group data
+  group_by(subject_id) %>%
+  dplyr::summarize(news_clip_average.overall_accuracy = mean(news_clip_correct)) %>% 
+  as.data.frame()
+
+
+######Average sharing likelihood for all texts BEFORE SUBSETTING
+news.share.data.average.all <- news.share.data %>%                                 # Group data
+  group_by(subject_id, news_clip_type) %>%
+  dplyr::summarize(news_clip_average.share = mean(share.response)) %>% 
+  as.data.frame()
+
+
+######Average sharing likelihood for all texts
+news.share.data.average <- news.share.data %>%                                 # Group data
+  group_by(subject_id) %>%
+  dplyr::summarize(news_clip_average.share = mean(share.response)) %>% 
+  as.data.frame()
+
+###############################################################################
+
+############## Clean up human data ############
+
+#Subset out only rows for human
+news.share.data.average.share_human <- subset(news.share.data.average.all, news_clip_type == "Human")
+
+
+#Remove news_clip_type column because it doesn't matter
+news.share.data.average.share.human <- subset(news.share.data.average.share_human, select=c(subject_id, news_clip_average.share))
+
+#Rename response columns so we can merge them!
+names(news.share.data.average.share.human)[names(news.share.data.average.share.human) == 'news_clip_average.share'] <- 'human.news_clip_average.share'
+
+
+
+############## Clean up AI data ############
+
+#Subset out only rows for ai
+news.share.data.average.share_ai <- subset(news.share.data.average.all, news_clip_type == "AI")
+
+
+#Remove news_clip_type column because it doesn't matter
+news.share.data.average.share.ai <- subset(news.share.data.average.share_ai, select=c(subject_id, news_clip_average.share))
+
+#Rename response columns so we can merge them!
+names(news.share.data.average.share.ai)[names(news.share.data.average.share.ai) == 'news_clip_average.share'] <- 'ai.news_clip_average.share'
+
+
+
+############## Subset out D' values for each subject ##############
+#dprime.df <- subset(chai.df_revised, select=c(subject_id, news_clip_dprime, comments.accuracy, Hits, Misses, FalseAlarms))
+
+
+#Subset RPM data from chai.df_revised_sixty_outliers df
+#rpm.df_chai <- subset(chai.df_revised_sixty_outliers, select=c(subject_id, rpm.accuracy))
+
+################################################ Merge all the dfs together ############################################
+
+
+#put all data frames into list
+df_list <- list(news.share.data.average, news.share.data.average.share.human, news.share.data.average.share.ai)
+
+#merge all data frames in list
+overall_average_sharing_df <- df_list %>% reduce(full_join, by=c('subject_id'))
+
+
+#ID Check: 194
+length(unique(overall_average_sharing_df$subject_id))
+
+```
+
+
+
+
+################################### READ IN SOURCE SCRIPTS FOR MTES AND QCAE #############################
+```{r}
+
+#Read in Original MTES script
+#source("/Volumes/psychology/Murty_Group/studies/frightnight.02/scripts/R/Memory_SM/CHAI/chai source scripts/mtes_source.R")
+#Read in MTES_sixty script
+#source("/Volumes/psychology/Murty_Group/studies/frightnight.02/scripts/R/Memory_SM/CHAI/chai source scripts/mtes_sixty_source.R")
+
+#Read in QCAE script
+source("/Volumes/psychology/Murty_Group/studies/frightnight.02/scripts/R/Memory_SM/CHAI/chai source scripts/qcae_source.R")
+
+#Read in MTES_full script that correctly z-scores MTES data
+source("/Volumes/psychology/Murty_Group/studies/frightnight.02/scripts/R/Memory_SM/CHAI/chai source scripts/mtes_full_source.R")
+
+
+```
+
+
+
+# --- MERGE MTES AND QCAE WITH CHAI.CLEAN ---
+```{r}
+
+#put all data frames into list
+#chai.df_list <- list(chai.clean, mtes.revised, Objective.zscores, qcae, overall_average_sharing_df)
+chai.df_list <- list(chai.clean, mtes_full, Objective.zscores, qcae, overall_average_sharing_df)
+
+
+#merge all data frames in list
+chai.df <- chai.df_list  %>% reduce(full_join, by='subject_id')
+
+
+####Subset relevant MTES columns that are per person
+chai.df <- subset(chai.df, select=c(subject_id, overall.news_clip.accuracy, Hits, Misses, FalseAlarms, CorrectRejs, TotalTarg, TotalDis, NumRes, news_clip_dprime, General_Interest_News_dprime, Science_dprime, General_Interest_News.accuracy, Science.accuracy, human.news_clip.accuracy, ai.news_clip.accuracy, comments.accuracy, share.likelihood.overall, share.ai, share.human, AI.judged_average.sharing, Human.judged_average.sharing, correct.share.score.overall, false.share.score.overall, false.ai.share, false.human.share, correct.ai.share, correct.human.share, flanker.accuracy, congruent_average_rt, incongruent_average_rt, flanker.rt.difference.score, rpm.accuracy,  MTES_SocialMediaUse_TimeOnApp.sum.z, MTES_SocialMediaUse_CheckingApp.sum.z, MTES_PhoneChecking.mean.z, MTES_PublicUpdates.mean.z, MTES_SAS.mean.z, MTES_Total_Original.z, MTES_SMU_ConsumingContent.orig, MTES_SMU_Responding.orig, MTES_SMU_Posting.orig, MTES_SMU_Total.orig, OBJ_Usage_Hours.z, OBJ_Usage_Minutes.z, OBJ_AvgPickups.z, OBJ_AvgNotifs.z, OBJ_Usage.DailyHourlyAverage.z, OBJ_TotalUsage.z, TotalEmpathy.sum, CognitiveEmpathy.sum, AffectiveEmpathy.sum, PerpsectiveTaking.sum, OnlineSimulation.sum, EmotionContagion.sum, ProximalResponsivity.sum, PeripheralResponsivity.sum, MissingValues, MTES_PhoneChecking_DailyCheck.z, MTES_PhoneChecking_Leisure.z, MTES_PhoneChecking_MidConvo.z, MTES_PublicUpdates_NewPosts.z, MTES_PublicUpdates_Reposts.z, news_clip_average.share, human.news_clip_average.share, ai.news_clip_average.share))
+
+
+#Subject ID Check: 194 IDs
+length(unique(chai.df$subject_id))
+
+#Remove any rows that are missing news_clip_dprime OR comments.accuracy
+chai.df_revised.full <- chai.df[complete.cases(chai.df[ , c('news_clip_dprime', 'comments.accuracy')]), ] 
+
+#Subject ID Check: 187 IDs
+length(unique(chai.df_revised.full$subject_id))
+
+
+```
+
+
+
+# -------------------------- CREATE MAIN OSF DATA FRAME ---------------------------------------
+```{r}
+
+#Let's get rid of the columns that we don't necessarily need
+chai.osf <- subset(chai.df_revised.full, select=c(subject_id, overall.news_clip.accuracy, human.news_clip.accuracy, ai.news_clip.accuracy, news_clip_dprime, Hits, Misses, FalseAlarms, CorrectRejs, TotalTarg, TotalDis, NumRes, General_Interest_News_dprime, Science_dprime, General_Interest_News.accuracy, Science.accuracy, comments.accuracy, news_clip_average.share, human.news_clip_average.share, ai.news_clip_average.share, AI.judged_average.sharing, Human.judged_average.sharing, correct.share.score.overall, false.share.score.overall, false.ai.share, correct.human.share, rpm.accuracy, flanker.accuracy, congruent_average_rt, incongruent_average_rt, flanker.rt.difference.score, MTES_SocialMediaUse_TimeOnApp.sum.z, MTES_PhoneChecking.mean.z, MTES_PublicUpdates.mean.z, MTES_Total_Original.z, TotalEmpathy.sum, CognitiveEmpathy.sum, AffectiveEmpathy.sum, MissingValues))
+
+
+#ID Check: 187
+length(unique(chai.osf$subject_id))
+
+
+#EXPORT *FLANKER* FOR OSF
+#write.csv(chai.osf, "/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/main_df.csv")
+
+
+
+```
+
+
+
+# --- Corroborate avearge overall accuracy for texts and comments ---
+```{r}
+
+#####Mean of overall accuracy for new clips, #M=.574
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(overall.news_clip.accuracy, na.rm = TRUE),
+            sd = sd(overall.news_clip.accuracy, na.rm = TRUE))
+
+
+#####Mean D' for new clips, #M=.401
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(news_clip_dprime, na.rm = TRUE),
+            sd = sd(news_clip_dprime, na.rm = TRUE))
+
+
+#Histogram with density plot for mean accuracy for texts
+texts.accuracy <- ggplot(chai.osf, aes(x=overall.news_clip.accuracy)) + 
+ geom_histogram(aes(y=..density..), colour="black", fill="white")+
+ geom_density(alpha=.2, fill="#FF6666") +
+  theme(
+plot.title = element_blank(),
+axis.title.y = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_text(size=45, color="black"),
+axis.text.y = element_text(size=45, color="black"),
+axis.line=element_line(size=1.5))
+
+
+#Histogram with density plot for mean D' for texts
+texts.dprime <- ggplot(chai.osf, aes(x=news_clip_dprime)) +
+  scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, by = .25)) +
+ geom_histogram(aes(y=..density..), colour="black", fill="white")+
+ geom_density(alpha=.2, fill="#FF6666") +
+  theme(
+plot.title = element_blank(),
+axis.title.y = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_text(size=45, color="black"),
+axis.text.y = element_text(size=45, color="black"),
+axis.line=element_line(size=1.5))
+
+
+
+#####Mean of overall accuracy for comments, #M=.78
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(comments.accuracy, na.rm = TRUE),
+            sd = sd(comments.accuracy, na.rm = TRUE))
+
+
+################# GG SAVE ########################
+
+############EXPORT PLOTS
+
+setwd('/Users/tuh20985/Desktop/')
+
+ggsave("texts.accuracy.png", texts.accuracy, width=10, height=8, dpi=700)
+
+ggsave("texts.dprime.png", texts.dprime, width=10, height=8, dpi=700)
+
+
+```
+
+
+When separated by source, human texts were judged accurately (attributed to human authorship) 61% of the time on average, while AI texts were judged accurately only 53% of the time, indicating a stronger tendency to assign human authorship to AI texts than vice versa. General interest materials were also more accurately evaluated (60%)  than scientific content (54%). Overall D’ sensitivity scores indicated modest average discriminability for the texts (M = .40, SD = .56), but as shown in Fig. 3, sensitivity was significantly higher for general interest texts (M = .54, SD = .63) than for science focused texts (M = .21, SD = .60), t(186) = 8.19, p = .0001).
+```{r}
+
+#####Mean of overall accuracy for human-generated new clips, #M=.61
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(human.news_clip.accuracy, na.rm = TRUE),
+            sd = sd(human.news_clip.accuracy, na.rm = TRUE))
+
+
+#####Mean of overall accuracy for comments, #M=.53
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(ai.news_clip.accuracy, na.rm = TRUE),
+            sd = sd(ai.news_clip.accuracy, na.rm = TRUE))
+
+
+
+######################### Overall Accuracy for General Interest News versus Science texts #########################
+
+#####Mean of overall accuracy for General Interest News, #M=.60
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(General_Interest_News.accuracy, na.rm = TRUE),
+            sd = sd(General_Interest_News.accuracy, na.rm = TRUE))
+
+
+#####Mean of overall accuracy for Science, #M=.54
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(Science.accuracy, na.rm = TRUE),
+            sd = sd(Science.accuracy, na.rm = TRUE))
+
+
+
+######################### D' for General Interest News versus Science texts #########################
+
+#####Mean of D' for General Interest News, #M=.54, SD=.63
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(General_Interest_News_dprime, na.rm = TRUE),
+            sd = sd(General_Interest_News_dprime, na.rm = TRUE))
+
+
+#####Mean of D' for Science, #M=.215, SD=.60
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(Science_dprime, na.rm = TRUE),
+            sd = sd(Science_dprime, na.rm = TRUE))
+
+
+
+#Paired t-test to test differences in news clip d' for General Interest News vs Science texts
+news.category.ttest <- t.test(x = chai.osf$General_Interest_News_dprime,
+                 y = chai.osf$Science_dprime,
+                 paired = TRUE,
+                 alternative = "two.sided")
+
+library(report)
+report(news.category.ttest)
+
+
+```
+
+
+
+
+# --- Corrobroate RPM analyses with OSF data frame ---
+```{r}
+
+############# Does RPM accuracy predict Texts D'? ############# 
+news_clip_dprime_rpm <- lm(news_clip_dprime ~ rpm.accuracy, chai.osf) #b=0.8117, SD=0.000026 ***
+summary(news_clip_dprime_rpm)
+
+############# Does RPM accuracy predict comments.accuracy? ############# 
+m1 <- lm(comments.accuracy ~ rpm.accuracy, data=chai.osf) #b=0.2913, p=0.00001 ***
+summary(m1)
+
+
+```
+
+
+
+
+# -------------------------- CREATE FLANKER DATA FRAME ---------------------------------------
+```{r}
+
+#Subset Flanker df
+chai.flanker <- subset(chai.df_revised.full, select=c(subject_id, overall.news_clip.accuracy, news_clip_dprime, comments.accuracy, flanker.accuracy, congruent_average_rt, incongruent_average_rt, flanker.rt.difference.score))
+
+
+#ID check: 187
+length(unique(chai.flanker$subject_id))
+
+
+#Remove any rows that are Flanker values
+chai.flanker <- chai.flanker[complete.cases(chai.flanker[ , c('flanker.rt.difference.score', 'flanker.accuracy')]), ] 
+
+#ID check: 178
+length(unique(chai.flanker$subject_id))
+
+
+#EXPORT *FLANKER* FOR OSF
+write.csv(chai.flanker, "/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/flanker_df.csv")
+
+
+```
+
+
+
+# --- Corroborating Flanker analyses ---
+
+Overall Flanker task accuracy was high (M = 92%, SD = 16%), but inter-subject variation in accuracy was unrelated to Judgment Task text D’ (b= 0.22, p = 0.38). There was, however, a significant relationship between Flanker accuracy and overall judgement accuracy for social media comments (b= 0.18, p = 0.04). No significant relationships were found between the Flanker task congruency effect (M = 50.8 ms, SD = 53.3 ms) and either text D’ sensitivity (b = -0.0001, p = 0.88) or overall judgment accuracy for comments (b = -0.0003, p = 0.32). In summary, findings showed that Flanker congruency effects were unrelated to differentiation of human/AI texts, but that Flanker task accuracy was related to enhanced differentiation of human versus AI social media style comments.
+
+
+#Analyses that replicate 
+1) Flanker Analyses for Texts (using 187 which removes 7 problematic participants for Texts and Comments Accuracy)
+2) Flanker Accuracy mean and SD
+3) D' ~ Flanker Accuracy
+
+Analyses that don't replicate
+1) Flanker RT.difference score mean and SD (doesn't replicate but could be a typo)
+2) comments.accuracy ~ Flanker Accuracy (this replicates with 193 participants -- 1 P removed for being problematic in comments.accuracy)
+3) comments.accuracy ~ Flanker.rt.difference.score (this replicates with 193 participants -- 1 P removed for being problematic in comments.accuracy)
+
+
+#We used the data frame n=187 for texts and flanker analyses
+#We used the data frame n=193 for comments and flanker analyses
+#We need to ask is if we should use the data frame of n=178 (which reflects the analyses for flanker.rt.difference.scores) for all Flanker analyses?
+
+
+#4 participants removed
+#5f2bf7aa253520000bfc83b6 -- only incongruent
+#5fbd371dc57ae80a38ba00c2 -- only congruent
+#6234d77291179c1badffad36 -- only incongruent
+#62868bacaa566e62dd4a40f7 -- only incongruent
+
+#We removed 5 participants who were +-2.5 SD the average reaction time difference score, which is 395
+#5f8b022ec072cf1d32d4f0bf
+#6172b88315142e4eaa555c95
+#62e02537aeee3cf7f450869e
+#63403b47287756c1978d2985
+#63d1650b103325686e22e3b7
+
+
+
+*******************Jason decision: Use n=178 for all Flanker analyses, Flanker data frame.
+
+#Column that says Flanker.inclusion/exclusion, a 1 for everybody and a 0 for people who get cut out.
+
+
+
+```{r}
+
+
+################## FLANKER ACCURACY FOR TEXTS AND COMMENTS #################
+
+#Summary stats, #M=.941, SD=.109
+chai.flanker %>%
+  dplyr::summarize(
+    count = n(),
+    mean = mean(flanker.accuracy, na.rm = TRUE),
+    sd = sd(flanker.accuracy, na.rm = TRUE))
+
+
+############## CORRELATION BETWEEN Flanker Accuracy and Texts D'  ######################
+flanker_dprime <- lm(news_clip_dprime ~ flanker.accuracy, chai.flanker)
+summary(flanker_dprime) #b =.690, p = .071
+
+
+
+############## CORRELATION BETWEEN Flanker Accuracy and Comments Accuracy  ######################
+flanker_comments <- lm(comments.accuracy ~ flanker.accuracy, chai.flanker)
+summary(flanker_comments) #p = .324, p = .01
+
+
+
+
+################## FLANKER RT DIFFERENCE SCORE FOR TEXTS AND COMMENTS #################
+
+#Summary stats, M=50.5, SD=53.3
+chai.flanker %>%
+  dplyr::summarize(
+    count = n(),
+    mean = mean(flanker.rt.difference.score, na.rm = TRUE),
+    sd = sd(flanker.rt.difference.score, na.rm = TRUE))
+
+
+############## CORRELATION BETWEEN flanker.rt.difference.score and Texts D'  ######################
+flanker_dprime <- lm(news_clip_dprime ~ flanker.rt.difference.score, chai.osf)
+summary(flanker_dprime) #b= -0.0001, p=.88
+
+
+
+############## CORRELATION BETWEEN flanker.rt.difference.score and Comments Accuracy  ######################
+flanker_comments <- lm(comments.accuracy ~ flanker.rt.difference.score, chai.flanker)
+summary(flanker_comments) #b=-0.0003, p =.25
+
+
+
+```
+
+
+
+# -------------------------- CREATE QCAE EMPATHY DATA FRAME ---------------------------------------
+```{r}
+
+#Remove participants who are missing QCAE -- should be 36 participants.
+chai.df.qcae <- chai.osf[complete.cases(chai.osf[ , c('MissingValues')]), ] 
+
+#Subset QCAE df
+chai.df.qcae <- subset(chai.df.qcae, select=c(subject_id, news_clip_dprime, comments.accuracy, TotalEmpathy.sum, CognitiveEmpathy.sum, AffectiveEmpathy.sum))
+                                                      
+#ID Check: 151
+length(unique(chai.df.qcae$subject_id))
+
+
+#EXPORT *QCAE* FOR OSF
+write.csv(chai.df.qcae, "/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/empathy_df.csv")
+
+
+```
+
+
+
+# --- Corrobroate Empathy analyses with OSF data frame ---
+```{r}
+
+
+################## TEXTS #################
+
+############## CORRELATION BETWEEN CognitiveEmpathy and Texts D'  ######################
+news_clip_dprime_cognitive_empathy <- lm(news_clip_dprime ~ CognitiveEmpathy.sum, chai.df.qcae) # b=-.00334, p=.604
+summary(news_clip_dprime_cognitive_empathy)
+
+
+###################### CORRELATION BETWEEN AffectiveEmpathy and Texts D' ######################
+news_clip_dprime_affective_empathy <- lm(news_clip_dprime ~ AffectiveEmpathy.sum, chai.df.qcae) #b=0.000714, p=.93
+summary(news_clip_dprime_affective_empathy)
+
+
+###################### CORRELATION BETWEEN TotalEmpathy and Texts D' ######################
+m4 <- lm(news_clip_dprime ~ TotalEmpathy.sum, data=chai.df.qcae) #b=-.00148, p=.75 
+summary(m4)
+
+
+
+################## COMMENTS #################
+
+############## CORRELATION BETWEEN CognitiveEmpathy and Texts D'  ######################
+news_clip_dprime_cognitive_empathy <- lm(comments.accuracy ~ CognitiveEmpathy.sum, chai.df.qcae) #b=0.000185, p=.93
+summary(news_clip_dprime_cognitive_empathy)
+
+
+###################### CORRELATION BETWEEN AffectiveEmpathy and Texts D' ######################
+news_clip_dprime_affective_empathy <- lm(comments.accuracy ~ AffectiveEmpathy.sum, chai.df.qcae) #b=-0.00175, p=.51
+summary(news_clip_dprime_affective_empathy)
+
+
+###################### CORRELATION BETWEEN TotalEmpathy and Texts D' ######################
+m4 <- lm(comments.accuracy ~ TotalEmpathy.sum, data=chai.df.qcae) #b=-.000416, .77
+summary(m4)
+
+
+
+
+################## EMPATHY Summary stats ##################
+#Total Empathy #M = 89.6, SD=10.5
+chai.df.qcae %>%
+  dplyr::summarize(
+    count = n(),
+    mean = mean(TotalEmpathy.sum, na.rm = TRUE),
+    sd = sd(TotalEmpathy.sum, na.rm = TRUE))
+
+
+#Cognitive Empathy, #M=56.6, SD=7.44
+chai.df.qcae %>%
+  dplyr::summarize(
+    count = n(),
+    mean = mean(CognitiveEmpathy.sum, na.rm = TRUE),
+    sd = sd(CognitiveEmpathy.sum, na.rm = TRUE))
+
+
+#Affective Empathy, #M=33, SD=5.66
+chai.df.qcae %>%
+  dplyr::summarize(
+    count = n(),
+    mean = mean(AffectiveEmpathy.sum, na.rm = TRUE),
+    sd = sd(AffectiveEmpathy.sum, na.rm = TRUE))
+
+
+```
+
+
+
+
+
+
+# --- --- FOR PSYCH SCIENCE MANUSCRIPT: MTES TOTAL ANALYSES ---
+```{r}
+
+######################################## MTES TOTAL and TEXTS D' ########################################
+#Pearson's correlation between MTES Total and Texts D'
+# r = -.127
+# p = 0.083 
+cor.test(chai.df_revised.full$MTES_Total_Original.z, chai.df_revised.full$news_clip_dprime, method=c("pearson"))
+
+
+#Is MTES_Total predictive of news_clip_dprime?
+m1 <- lm(news_clip_dprime ~ MTES_Total_Original.z, chai.df_revised.full) #0.083 
+summary(m1)
+
+
+#plot models!
+plot_model(m1, type = "pred", terms = "MTES_Total_Original.z") # Higher MTES Total is related to lower Active ratio?
+
+
+#SCATTERPLOT TIME
+mtes_total_dprime.full <- ggplot(chai.df_revised.full, aes(x=MTES_Total_Original.z, y=news_clip_dprime)) + geom_point(color="black", size = 9) +
+  geom_smooth(method=lm, color="black") +
+    theme_classic() + ## e. g. an existing theme of choice
+    labs(x = 'MTES Total',
+         y = 'False Alarms') +
+theme(
+plot.title = element_blank(),
+axis.title.y = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_text(size=42, color="black"),
+axis.text.y = element_text(size=42, color="black"),
+axis.line=element_line(size=1.5)) 
+
+
+
+
+######################################## MTES TOTAL and COMMENTS ACCURACY ########################################
+#Pearson's correlation between MTES Total and Comments Accuracy
+# r = -.0546
+# p = 0.46
+cor.test(chai.df_revised.full$MTES_Total_Original.z, chai.df_revised.full$comments.accuracy, method=c("pearson"))
+
+
+#Is MTES_Total predictive of Comments Accuracy?
+m1 <- lm(comments.accuracy ~ MTES_Total_Original.z, chai.df_revised.full) #0.46
+summary(m1)
+
+
+#plot models!
+plot_model(m1, type = "pred", terms = "MTES_Total_Original.z") # Higher MTES Total is related to lower Active ratio?
+
+
+#SCATTERPLOT TIME
+mtes_total_commentsaccuracy.full <- ggplot(chai.df_revised.full, aes(x=MTES_Total_Original.z, y=comments.accuracy)) + geom_point(color="black", size = 9) +
+  geom_smooth(method=lm, color="black") +
+    theme_classic() + ## e. g. an existing theme of choice
+    labs(x = 'MTES Total',
+         y = 'False Alarms') +
+theme(
+plot.title = element_blank(),
+axis.title.y = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_text(size=42, color="black"),
+axis.text.y = element_text(size=42, color="black"),
+axis.line=element_line(size=1.5)) 
+
+
+######################################## MTES TOTAL and FALSE ALARMS ########################################
+#Pearson's correlation between MTES Total and Texts D'
+# r = .18
+# p = 0.014 *
+cor.test(chai.df_revised.full$MTES_Total_Original.z, chai.df_revised.full$FalseAlarms, method=c("pearson"))
+
+
+#Is MTES_Total predictive of news_clip_dprime?
+m1 <- lm(FalseAlarms ~ MTES_Total_Original.z, chai.df_revised.full) #0.014*
+summary(m1)
+
+
+#plot models!
+plot_model(m1, type = "pred", terms = "MTES_Total_Original.z") # Higher MTES Total is related to lower Active ratio?
+
+
+#SCATTERPLOT TIME
+mtes_total_falsealarms.full <- ggplot(chai.df_revised.full, aes(x=MTES_Total_Original.z, y=FalseAlarms)) + geom_point(color="black", size = 6) +
+  geom_smooth(method=lm, color="black") +
+    theme_classic() + ## e. g. an existing theme of choice
+    labs(x = 'MTES Total',
+         y = 'False Alarms') +
+theme(
+plot.title = element_blank(),
+axis.title.y = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_text(size=42, color="black"),
+axis.text.y = element_text(size=42, color="black"),
+axis.line=element_line(size=1.5)) 
+
+
+
+
+
+
+################# GG SAVE ########################
+
+############EXPORT PLOTS
+
+setwd('/Users/tuh20985/Desktop/AI Project/chai manuscript/chai plots')
+
+ggsave("mtes_total_falsealarms.full.png", mtes_total_falsealarms.full, width=10, height=8, dpi=700)
+
+
+```
+
+
+
+
+
+# --- FOR PSYCH SCIENCE MANUSCRIPT: Overall Average Sharing % analyses predicting Texts D'  ---
+```{r}
+
+#Does average D' predict average sharing likelihood for all texts?
+# r = -0.153
+# p = .036
+cor.test(chai.df_revised.full$news_clip_average.share, chai.df_revised.full$news_clip_dprime, method=c("pearson"))
+
+m1 <- lm(news_clip_average.share ~ news_clip_dprime, data=chai.df_revised.full) #p = .036
+summary(m1)
+
+##Plot time!
+plot_model(m1, type = "pred", terms = c("news_clip_average.share"))
+
+#SCATTERPLOT TIME
+overall_sharing_dprime <- ggplot(chai.df_revised.full, aes(x=news_clip_dprime, y=news_clip_average.share)) + geom_point(color="black", size = 6) +
+  geom_smooth(method=lm, color="black") +
+  scale_y_continuous(breaks=(seq(0, 100, 25)), limits = c(0, 100)) +
+    theme_classic() + ## e. g. an existing theme of choice
+    labs(x = 'MTES Total',
+         y = 'False Alarms') +
+theme(
+plot.title = element_blank(),
+axis.title.y = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_text(size=42, color="black"),
+axis.text.y = element_text(size=42, color="black"),
+axis.line=element_line(size=1.5)) 
+
+
+################# GG SAVE ########################
+
+############EXPORT PLOTS
+
+setwd('/Users/tuh20985/Desktop/AI Project/chai manuscript/chai plots')
+
+ggsave("overall_sharing_dprime.png", overall_sharing_dprime, width=10, height=8, dpi=700)
+
+
+
+```
+
+
+
+Overall, and consistent with “algorithm aversion”, participants showed a significantly stronger self-reported preference for sharing materials that they judged as having a human origin (M = 37.5 SD = 23.8) than those that were judged as having an AI origin (M = 33.3, SD = 23.8); t(186) = 5.65, p = .0001. Interestingly, the preference for sharing materials judged as human but derived from an AI source (M = 38.35, SD = 24.90) was comparable to, and even slightly stronger than, that for actual human material judged as human (M = 36.7, SD = 23.34), suggesting that the attribution, rather than the source, is the driver of sharing preference. As shown in Fig. 6, greater D’ sensitivity on the human/AI Judgment Task was also associated with overall lower average sharing rate (p=.036). This relationship was significant for AI materials (p=.013) and trended in the same direction for human texts (p=.097). This outcome suggests that the ability to detect the AI origin of a social media text can lower the likelihood that an individual will propagate that information into the world.
+
+```{r}
+
+
+######################## Sharing human-generated vs AI-generated texts #########################
+
+#####Average sharing for texts judged as AI, #M=.33.3, SD=.23.8
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(AI.judged_average.sharing, na.rm = TRUE),
+            sd = sd(AI.judged_average.sharing, na.rm = TRUE))
+
+
+
+
+#Paired t-test to test differences in news clip d' for General Interest News vs Science texts
+judgment.sharing.ttest <- t.test(x = chai.osf$Human.judged_average.sharing,
+                 y = chai.osf$AI.judged_average.sharing,
+                 paired = TRUE,
+                 alternative = "two.sided")
+
+report(judgment.sharing.ttest)
+
+
+
+
+####################### Correlation between average D' and overall average sharing likelihood for all texts? ####################### 
+m1 <- lm(news_clip_average.share ~ news_clip_dprime, data=chai.osf)
+summary(m1)
+
+
+####################### Correlation between average D' and overall average sharing likelihood for HUMAN texts? ####################### 
+m2 <- lm(human.news_clip_average.share ~ news_clip_dprime, data=chai.osf)
+summary(m2)
+
+
+####################### Correlation between average D' and overall average sharing likelihood for AI texts? ####################### 
+m3 <- lm(ai.news_clip_average.share ~ news_clip_dprime, data=chai.osf)
+summary(m3)
+
+
+
+
+
+
+##################################################### SHARING FOR FALSELY JUDGED AND CORRECTLY JUDGED TEXTS #####################################
+
+#Interestingly, the preference for sharing materials judged as human but derived from an AI source (M = 38.35, SD = 24.90) was comparable to, and even slightly stronger than, that for actual human material judged as human (M = 36.7, SD = 23.34), suggesting that the attribution, rather than the source, is the driver of sharing preference.
+
+
+#####Average sharing for falsely judged AI-generated texts, #M=.38.5, SD=.24.9
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(false.ai.share, na.rm = TRUE),
+            sd = sd(false.ai.share, na.rm = TRUE))
+
+
+#####Average sharing for correctly judged human-generated texts, #M=.36.7, SD=.23.34
+chai.osf %>%                               
+  dplyr::summarize(
+            count = n(),
+            mean = mean(correct.human.share, na.rm = TRUE),
+            sd = sd(correct.human.share, na.rm = TRUE))
+
+
+```
+
+
+
+
+### --- LIWC TEXT ANALYSES -- ###
+```{r}
+
+
+#Subset relevant news rows
+news.df <- subset(chai.data.clean, trial_id == "news_clip_question" | trial_id == "news_clip_question_nocomments")
+
+#Subset relevant columns with LIWC columns included
+news.liwc.allsubs <- subset(news.df, select=c(subject_id, study_id, session_id, trial_id, news_clip_stim, response, news_clip_response_category, news_clip_type, news_clip_wordcount, news_clip_prompt, news_clip_category, updated_news_clip_category, binary_news_clip_category, WC_news_clips, Analytic_news_clips, Clout_news_clips, Authentic_news_clips, Tone_news_clips))
+
+
+#Create new column that reflects accuracy for news clip selection. 1 for accuracy, 0 for inaccuracy
+news.liwc.allsubs$news_clip_correct <- ifelse(news.liwc.allsubs$news_clip_response_category == news.liwc.allsubs$news_clip_type, 1, 0)
+
+
+#Relocate news_clip_correct column
+news.liwc.allsubs <- news.liwc.allsubs %>% relocate(news_clip_correct, .after=response)
+news.liwc.allsubs <- news.liwc.allsubs %>% relocate(binary_news_clip_category, .after=news_clip_category)
+
+
+#Convert news_clip_correct column to numeric
+news.liwc.allsubs$news_clip_correct <- as.numeric(news.liwc.allsubs$news_clip_correct)
+
+
+######REMOVE 6 PARTICIPANTS FROM NEWS CLIP D' AND 1 PARTICIPANT FROM COMMENTS ACCURACY
+#Remove 1 participant who hit 0 46 times: 63d1b0363f9bd5a6062dfb1c
+#Remove 6 participants who hit AI/Text 86/96 times
+#Using the news.remove df, remove participants that are included in the news.remove df 
+#62699ca4c48ff1d410fcd8f7
+#63dd3dd2593c92be97d8dbde
+#5b53cc31c09af90001f113d4
+#5ea1aeee7bc39507649de2e7
+#6298df7da7b45df1b730d3aa
+#62f58a7129fb13cf46a08ae0
+
+news.liwc.allsubs <- news.liwc.allsubs[-(which(news.liwc.allsubs$subject_id == "63d1b0363f9bd5a6062dfb1c")),]
+news.liwc.allsubs <- news.liwc.allsubs[-(which(news.liwc.allsubs$subject_id == "62699ca4c48ff1d410fcd8f7")),]
+news.liwc.allsubs <- news.liwc.allsubs[-(which(news.liwc.allsubs$subject_id == "63dd3dd2593c92be97d8dbde")),]
+news.liwc.allsubs <- news.liwc.allsubs[-(which(news.liwc.allsubs$subject_id == "5b53cc31c09af90001f113d4")),]
+news.liwc.allsubs <- news.liwc.allsubs[-(which(news.liwc.allsubs$subject_id == "5ea1aeee7bc39507649de2e7")),]
+news.liwc.allsubs <- news.liwc.allsubs[-(which(news.liwc.allsubs$subject_id == "6298df7da7b45df1b730d3aa")),]
+news.liwc.allsubs <- news.liwc.allsubs[-(which(news.liwc.allsubs$subject_id == "62f58a7129fb13cf46a08ae0")),]
+
+
+
+#ID check: 
+length(unique(news.liwc.allsubs$subject_id))
+
+
+
+#################### Average accuracy for each news clip and their corresponding LIWC score ###############################################
+
+######Group News Clip stim and determine mean accuracy
+news.liwc.allsubs.average.accuracy <- news.liwc.allsubs %>%                                 # Group data
+  group_by(news_clip_stim, news_clip_type) %>%
+  dplyr::summarize(news_clip_average.accuracy = mean(news_clip_correct)) %>% 
+  as.data.frame()
+
+
+######Group News Clip stim and determine mean Word Count
+news.liwc.allsubs.average.WC <- news.liwc.allsubs %>%                                 # Group data
+  group_by(news_clip_stim, news_clip_type) %>%
+  dplyr::summarize(news_clip_average.WC = mean(WC_news_clips)) %>% 
+  as.data.frame()
+
+
+######Group News Clip stim and determine mean analytic
+news.liwc.allsubs.average.analytic <- news.liwc.allsubs %>%                                 # Group data
+  group_by(news_clip_stim, news_clip_type) %>%
+  dplyr::summarize(news_clip_average.analytic = mean(Analytic_news_clips)) %>% 
+  as.data.frame()
+
+
+######Group News Clip stim and determine mean authentic
+news.liwc.allsubs.average.authentic <- news.liwc.allsubs %>%                                 # Group data
+  group_by(news_clip_stim, news_clip_type) %>%
+  dplyr::summarize(news_clip_average.authentic = mean(Authentic_news_clips)) %>% 
+  as.data.frame()
+
+
+######Group News Clip stim and determine mean clout
+news.liwc.allsubs.average.clout <- news.liwc.allsubs %>%                                 # Group data
+  group_by(news_clip_stim, news_clip_type) %>%
+  dplyr::summarize(news_clip_average.clout = mean(Clout_news_clips)) %>% 
+  as.data.frame()
+
+######Group News Clip stim and determine mean Tone
+news.liwc.allsubs.average.tone <- news.liwc.allsubs %>%                                 # Group data
+  group_by(news_clip_stim, news_clip_type) %>%
+  dplyr::summarize(news_clip_average.tone = mean(Tone_news_clips)) %>% 
+  as.data.frame()
+
+
+
+################################################ Merge all the dfs together ############################################
+
+
+#put all data frames into list
+liwc.df_list <- list(news.liwc.allsubs.average.accuracy, news.liwc.allsubs.average.WC, news.liwc.allsubs.average.analytic, news.liwc.allsubs.average.authentic, news.liwc.allsubs.average.clout, news.liwc.allsubs.average.tone)
+
+#merge all data frames in list
+news.liwc.averages <- liwc.df_list %>% reduce(full_join, by=c('news_clip_stim', 'news_clip_type'))
+
+
+
+#################################### Human Text analyses
+human.news.liwc.averages <- subset(news.liwc.averages, news_clip_type == "Human")
+
+
+################## Word Count
+m1 <- lm(news_clip_average.accuracy ~ news_clip_average.WC, data=human.news.liwc.averages) #p = .034 *
+summary(m1)
+
+
+################## Clout
+m4 <- lm(news_clip_average.accuracy ~ news_clip_average.clout + news_clip_average.WC, data=human.news.liwc.averages) #p = .042
+summary(m4)
+
+
+################## Tone
+m5 <- lm(news_clip_average.accuracy ~ news_clip_average.tone + news_clip_average.WC, data=human.news.liwc.averages) #p=.76
+summary(m5)
+
+
+
+#################################### AI Text analyses ####################################
+ai.news.liwc.averages <- subset(news.liwc.averages, news_clip_type == "AI")
+
+
+################## Word Count
+m1 <- lm(news_clip_average.accuracy ~ news_clip_average.WC, data=ai.news.liwc.averages) #p = .0018 *
+summary(m1)
+
+
+################## Clout
+m4 <- lm(news_clip_average.accuracy ~ news_clip_average.clout + news_clip_average.WC, data=ai.news.liwc.averages) #p = .345
+summary(m4)
+
+
+################## Tone
+m5 <- lm(news_clip_average.accuracy ~ news_clip_average.tone + news_clip_average.WC, data=ai.news.liwc.averages) #p=.2131
+summary(m5)
+
+
+
+
+################################################## SUMMARY STATS FOR LIWC ##################################################
+
+#####WordCount
+news.liwc.averages %>%  
+  group_by(news_clip_type) %>% 
+  dplyr::summarize(
+            count = n(),
+            mean = mean(news_clip_average.WC, na.rm = TRUE),
+            sd = sd(news_clip_average.WC, na.rm = TRUE))
+
+
+#####Analytical Thinking
+news.liwc.averages %>%  
+  group_by(news_clip_type) %>% 
+  dplyr::summarize(
+            count = n(),
+            mean = mean(news_clip_average.analytic, na.rm = TRUE),
+            sd = sd(news_clip_average.analytic, na.rm = TRUE))
+
+
+#####Authenticity
+news.liwc.averages %>%  
+  group_by(news_clip_type) %>% 
+  dplyr::summarize(
+            count = n(),
+            mean = mean(news_clip_average.authentic, na.rm = TRUE),
+            sd = sd(news_clip_average.authentic, na.rm = TRUE))
+
+
+#####Clout
+news.liwc.averages %>%  
+  group_by(news_clip_type) %>% 
+  dplyr::summarize(
+            count = n(),
+            mean = mean(news_clip_average.clout, na.rm = TRUE),
+            sd = sd(news_clip_average.clout, na.rm = TRUE))
+
+
+#####Tone
+news.liwc.averages %>%  
+  group_by(news_clip_type) %>% 
+  dplyr::summarize(
+            count = n(),
+            mean = mean(news_clip_average.tone, na.rm = TRUE),
+            sd = sd(news_clip_average.tone, na.rm = TRUE))
+
+
+
+#Rename LIWC df ahead of exporting df
+liwc_texts <- news.liwc.averages
+
+#Rename columns
+colnames(liwc_texts) <- c("news_clip_stim", "news_clip_type", "average.accuracy", "WordCount", "Analytic", "Authentic", "Clout", "Tone") 
+
+
+#EXPORT *LIWC TEXTS DF* FOR OSF
+write.csv(liwc_texts, "/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/liwc_texts_df.csv")
+
+
+```
+
+
+
+
+# READ IN OSF dfs and replace "news" in column names with "texts"
+```{r}
+
+#MAIN DF
+chai.osf_exported <- read.csv("/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/main_df.csv")
+
+#Replace "news" with "texts"
+names(chai.osf_exported) <- gsub(x = names(chai.osf_exported), pattern = "news_clip", replacement = "texts") 
+
+#Replace specific column names in main df
+names(chai.osf_exported)[names(chai.osf_exported) == 'correct.share.score.overall'] <- 'correct_texts_avearage.share'
+names(chai.osf_exported)[names(chai.osf_exported) == 'false.share.score.overall'] <- 'false_texts_average.share'
+names(chai.osf_exported)[names(chai.osf_exported) == 'AI.judged_average.sharing'] <- 'texts.judged.AI_average.sharing'
+names(chai.osf_exported)[names(chai.osf_exported) == 'Human.judged_average.sharing'] <- 'texts.judged.human_average.sharing'
+names(chai.osf_exported)[names(chai.osf_exported) == 'false.ai.share'] <- 'false.ai_texts.share'
+names(chai.osf_exported)[names(chai.osf_exported) == 'correct.human.share'] <- 'correct.human_texts.share'
+
+
+#EXPORT *MAIN DF* FOR OSF
+write.csv(chai.osf_exported, "/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/main_df.csv")
+
+
+
+
+#############################################################
+
+#Flanker DF
+chai.flanker_exported <- read.csv("/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/flanker_df.csv")
+
+#Replace "news" with "texts"
+names(chai.flanker_exported) <- gsub(x = names(chai.flanker_exported), pattern = "news_clip", replacement = "texts") 
+
+#EXPORT *FLANKER* FOR OSF
+write.csv(chai.flanker_exported, "/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/flanker_df.csv")
+
+
+
+
+
+#############################################################
+
+#Empathy DF
+chai.qcae_exported <- read.csv("/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/empathy_df.csv")
+
+#Replace "news" with "texts"
+names(chai.qcae_exported) <- gsub(x = names(chai.qcae_exported), pattern = "news_clip", replacement = "texts") 
+
+
+#EXPORT *QCAE* FOR OSF
+write.csv(chai.qcae_exported, "/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/empathy_df.csv")
+
+
+
+
+
+#############################################################
+
+#LIWC DF
+liwc_texts_exported <- read.csv("/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/liwc_texts_df.csv")
+
+#Replace "news" with "texts"
+names(liwc_texts_exported) <- gsub(x = names(liwc_texts_exported), pattern = "news_clip", replacement = "texts") 
+
+
+#EXPORT *LIWC TEXTS DF* FOR OSF
+write.csv(liwc_texts_exported, "/Users/tuh20985/Desktop/AI Project/chai manuscript/OSF Data for CHAI/liwc_texts_df.csv")
+
+
+```
+

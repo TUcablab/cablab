@@ -41,8 +41,8 @@ ADEXI survey <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/mpr.1567"
 ### Human/AI - CHAI
 
 <div class="button-container">
-  <a href="https://github.com/TUcablab/cablab/tree/main/tasks/human_ai_chai" class="demo-button code-button">Code</a>
-  <a href="./tasks/human_ai_chai/experiment.html" class="demo-button demo-button-style">Demo</a>
+  <a href="https://github.com/TUcablab/cablab/tree/main/tasks/human_ai_chai/run_scripts" class="demo-button code-button">Code</a>
+  <a href="./tasks/human_ai_chai/run_scripts/experiment.html" class="demo-button demo-button-style">Demo</a>
 </div>
 
 Human/AI task where participants judge the origin of human- and AI-generated texts and rate their likelihood of sharing human/AI texts <a href="https://www.nature.com/articles/s41598-024-76218-y">(Chein et al., 2024)</a>
