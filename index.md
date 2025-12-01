@@ -151,3 +151,16 @@ Zuckerman Sensation-Seeking Scale <a href="https://psycnet.apa.org/record/1965-0
 </div>
 
 Planet GoNoGo is a task that adds performance-based reward value (stake) on top of flexible cognitive control that GoNoGo taps into <a href="https://www.nature.com/articles/s41467-017-01369-8#ref-CR1"> (Insel et al., 2017) </a>
+
+
+### Test task
+<div class="button-container">
+  <a href="https://github.com/TUcablab/cablab/blob/main/tasks/planetGoNoGo/run_scripts/PlanetGoNoGo_scan_update0613_lastrun.py" class="demo-button code-button">Code</a>
+</div>
+
+Planet GoNoGo is a task that adds performance-based reward value (stake) on top of flexible cognitive control that GoNoGo taps into <a href="https://www.nature.com/articles/s41467-017-01369-8#ref-CR1"> (Insel et al., 2017) </a>
+
+
+
+
+
