@@ -12,6 +12,17 @@ TABLE OF CONTENTS
 
 <hr>
 
+## Projects
+
+### Project LITe
+
+<div class="button-container">
+  <a href="./projects/project-LITe/" class="demo-button demo-button-style">View Page</a>
+</div>
+
+Project LITe examines the long term effects of technology use in ages 7-21.
+```
+
 ## Executive Functioning
 
 ### Brief Network Attention Test
