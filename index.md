@@ -21,10 +21,9 @@ TABLE OF CONTENTS
 </div>
 
 Project LITe examines the long term effects of technology use in ages 7-21.
-```
 
 ## Executive Functioning
-
+```
 ### Brief Network Attention Test
 
 <div class="button-container">
