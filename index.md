@@ -17,7 +17,7 @@ TABLE OF CONTENTS
 ### Project LITe
 
 <div class="button-container">
-  <a href="https://github.com/TUcablab/cablab/blob/main/Projects/Project-LITE/project-lite.md" class="demo-button demo-button-style">View Page</a>
+  <a href="https://github.com/TUcablab/cablab/blob/main/Projects/Project-LITE/project-lite.html" class="demo-button demo-button-style">View Page</a>
 </div>
 
 Project LITe examines the long term effects of technology use in ages 7-21.
