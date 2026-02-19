@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
-#Project LITe
+# Project LITe
 
 TABLE OF CONTENTS 
-*TOC 
+* TOC 
 {:toc}
 
 <hr>
