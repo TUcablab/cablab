@@ -318,6 +318,15 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     interval = 0
     
     
+    def set_italic(stim, value):
+        # PsychoPy versions differ slightly in how TextStim italic is updated.
+        # This keeps the selected feedback italicized without changing task logic.
+        try:
+            stim.setItalic(value, log=False)
+        except AttributeError:
+            stim.italic = value
+    
+    
     from psychopy import visual
     
     immediateText = visual.TextStim(
@@ -349,13 +358,13 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-3.0);
-    debug = visual.TextStim(win=win, name='debug',
-        text='',
-        font='Open Sans',
-        pos=(0, -0.1), height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-4.0);
+    # debug = visual.TextStim(win=win, name='debug',
+    #     text='',
+    #     font='Open Sans',
+    #     pos=(0, -0.1), height=0.05, wrapWidth=None, ori=0.0, 
+    #     color='white', colorSpace='rgb', opacity=None, 
+    #     languageStyle='LTR',
+    #     depth=-4.0);
     which_text = visual.TextStim(win=win, name='which_text',
         text='Which would you prefer?',
         font='Times New Roman',
@@ -423,9 +432,11 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         # The chosen option will briefly turn green after the participant responds.
         immediate_text.setColor('white', log=False)
         delay_text.setColor('white', log=False)
+        set_italic(immediate_text, False)
+        set_italic(delay_text, False)
 
         # keep track of which components have finished
-        trialComponents = [key_resp, immediate_text, delay_text, debug, which_text, or_text]
+        trialComponents = [key_resp, immediate_text, delay_text, which_text, or_text]
         for thisComponent in trialComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -521,23 +532,23 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             
             # *debug* updates
             
-            # if debug is starting this frame...
-            if debug.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                debug.frameNStart = frameN  # exact frame index
-                debug.tStart = t  # local t and not account for scr refresh
-                debug.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(debug, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'debug.started')
-                # update status
-                debug.status = STARTED
-                debug.setAutoDraw(True)
+            # # if debug is starting this frame...
+            # if debug.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            #     # keep track of start time/frame for later
+            #     debug.frameNStart = frameN  # exact frame index
+            #     debug.tStart = t  # local t and not account for scr refresh
+            #     debug.tStartRefresh = tThisFlipGlobal  # on global time
+            #     win.timeOnFlip(debug, 'tStartRefresh')  # time at next scr refresh
+            #     # add timestamp to datafile
+            #     thisExp.timestampOnFlip(win, 'debug.started')
+            #     # update status
+            #     debug.status = STARTED
+            #     debug.setAutoDraw(True)
             
-            # if debug is active this frame...
-            if debug.status == STARTED:
-                # update params
-                debug.setText(f"interval:{interval} val:{immediateValue1} round:{roundN}", log=False)
+            # # if debug is active this frame...
+            # if debug.status == STARTED:
+            #     # update params
+            #     debug.setText(f"interval:{interval} val:{immediateValue1} round:{roundN}", log=False)
             
             # *which_text* updates
             
@@ -636,22 +647,28 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         if key_resp.keys == '1':
             immediate_text.setColor('green', log=False)
             delay_text.setColor('white', log=False)
+            set_italic(immediate_text, True)
+            set_italic(delay_text, False)
         elif key_resp.keys == '3':
             immediate_text.setColor('white', log=False)
             delay_text.setColor('green', log=False)
+            set_italic(immediate_text, False)
+            set_italic(delay_text, True)
 
         which_text.draw()
         immediate_text.draw()
         or_text.draw()
         delay_text.draw()
-        debug.setText(f"interval:{interval} val:{immediateValue1} round:{roundN}", log=False)
-        debug.draw()
+        # debug.setText(f"interval:{interval} val:{immediateValue1} round:{roundN}", log=False)
+        # debug.draw()
         win.flip()
         core.wait(1)
 
-        # Reset colors before updating the value for the next trial.
+        # Reset colors and italics before updating the value for the next trial.
         immediate_text.setColor('white', log=False)
         delay_text.setColor('white', log=False)
+        set_italic(immediate_text, False)
+        set_italic(delay_text, False)
 
         immediateValue1 = updateAmount
         

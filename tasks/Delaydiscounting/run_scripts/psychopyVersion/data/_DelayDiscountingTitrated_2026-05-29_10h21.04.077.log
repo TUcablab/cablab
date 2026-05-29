@@ -1,0 +1,200 @@
+10.5284 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+10.5302 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f938a3cd340>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f938a3cd2e0>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1., -1., -1.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f938a3cd130>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7f938a0ebeb0>, multiSample=False, name='window1', numSamples=2, pos=(360, 225), screen=0, size=array([2880, 1800]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+10.5304 	EXP 	window1: mouseVisible = True
+10.5304 	EXP 	window1: backgroundImage = ''
+10.5304 	EXP 	window1: backgroundFit = 'none'
+10.5334 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+10.5334 	EXP 	window1: recordFrameIntervals = False
+10.6188 	EXP 	window1: recordFrameIntervals = True
+11.4582 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+11.4584 	EXP 	window1: mouseVisible = True
+12.7148 	EXP 	DelayDiscountingTitrated: status = STARTED
+13.0465 	EXP 	window1: mouseVisible = True
+13.0965 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([-0.4,  0. ]), rgb=UNKNOWN, text='0 now\n(1)', units='height', win=Window(...), wrapWidth=1)
+13.0967 	EXP 	window1: mouseVisible = True
+13.1025 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0.4, 0. ]), rgb=UNKNOWN, text='1000 in\n(3)', units='height', win=Window(...), wrapWidth=1)
+13.1026 	EXP 	window1: mouseVisible = True
+13.1041 	EXP 	Created immediate_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='immediate_text', opacity=1.0, ori=0.0, pos=array([-0.4,  0. ]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+13.1043 	EXP 	window1: mouseVisible = True
+13.1056 	EXP 	Created delay_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='delay_text', opacity=1.0, ori=0.0, pos=array([0.4, 0. ]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+13.1057 	EXP 	window1: mouseVisible = True
+13.1117 	EXP 	Created debug = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='debug', opacity=1.0, ori=0.0, pos=array([ 0. , -0.1]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+13.1118 	EXP 	window1: mouseVisible = True
+13.1240 	EXP 	Created which_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='which_text', opacity=1.0, ori=0.0, pos=array([0. , 0.2]), rgb=UNKNOWN, text='Which would you prefer?', units='height', win=Window(...), wrapWidth=1)
+13.1242 	EXP 	window1: mouseVisible = True
+13.1292 	EXP 	Created or_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='or_text', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='OR', units='height', win=Window(...), wrapWidth=1)
+0.0260 	EXP 	Created sequence: random, trialTypes=1, nReps=10, seed=None
+0.0274 	EXP 	New trial (rep=0, index=0): None
+0.0722 	WARNING 	t of last frame was 59.07ms (=1/16)
+0.0722 	EXP 	immediate_text: font = 'Times New Roman'
+0.0722 	EXP 	immediate_text: italic = False
+0.0722 	EXP 	delay_text: font = 'Times New Roman'
+0.0722 	EXP 	delay_text: italic = False
+0.0722 	EXP 	immediate_text: autoDraw = True
+0.0722 	EXP 	delay_text: autoDraw = True
+0.0722 	EXP 	debug: autoDraw = True
+0.0722 	EXP 	which_text: autoDraw = True
+0.0722 	EXP 	or_text: autoDraw = True
+0.1895 	WARNING 	t of last frame was 24.28ms (=1/41)
+0.2395 	WARNING 	t of last frame was 24.21ms (=1/41)
+0.2896 	WARNING 	t of last frame was 24.19ms (=1/41)
+0.5397 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+1.7185 	DATA 	Keypress: 1
+1.7244 	EXP 	immediate_text: autoDraw = False
+1.7244 	EXP 	delay_text: autoDraw = False
+1.7244 	EXP 	debug: autoDraw = False
+1.7244 	EXP 	which_text: autoDraw = False
+1.7244 	EXP 	or_text: autoDraw = False
+1.7244 	EXP 	immediate_text: font = 'Times New Roman'
+1.7244 	EXP 	immediate_text: italic = True
+1.7244 	EXP 	delay_text: font = 'Times New Roman'
+1.7244 	EXP 	delay_text: italic = False
+1.7244 	EXP 	immediate_text: height = 0.05
+1.7244 	EXP 	immediate_text: height = 0.05
+1.7244 	EXP 	immediate_text: height = 0.05
+1.7244 	EXP 	immediate_text: text = '$300 now\n(1)'
+1.7244 	EXP 	delay_text: height = 0.05
+1.7244 	EXP 	delay_text: height = 0.05
+1.7244 	EXP 	delay_text: height = 0.05
+1.7244 	EXP 	delay_text: text = '$1000 in\n5 years\n(3)'
+2.7256 	EXP 	New trial (rep=1, index=0): None
+2.7589 	EXP 	immediate_text: font = 'Times New Roman'
+2.7589 	EXP 	immediate_text: italic = False
+2.7589 	EXP 	delay_text: font = 'Times New Roman'
+2.7589 	EXP 	delay_text: italic = False
+2.7589 	EXP 	immediate_text: font = 'Times New Roman'
+2.7589 	EXP 	immediate_text: italic = False
+2.7589 	EXP 	delay_text: font = 'Times New Roman'
+2.7589 	EXP 	delay_text: italic = False
+2.7589 	EXP 	immediate_text: autoDraw = True
+2.7589 	EXP 	delay_text: autoDraw = True
+2.7589 	EXP 	debug: autoDraw = True
+2.7589 	EXP 	which_text: autoDraw = True
+2.7589 	EXP 	or_text: autoDraw = True
+2.7589 	EXP 	delay_text: height = 0.05
+2.7589 	EXP 	delay_text: height = 0.05
+2.7589 	EXP 	delay_text: height = 0.05
+2.7589 	EXP 	delay_text: text = '$1000 in\n5 years\n(3)'
+3.3883 	DATA 	Keypress: 1
+3.3924 	EXP 	immediate_text: autoDraw = False
+3.3924 	EXP 	delay_text: autoDraw = False
+3.3924 	EXP 	debug: autoDraw = False
+3.3924 	EXP 	which_text: autoDraw = False
+3.3924 	EXP 	or_text: autoDraw = False
+3.3924 	EXP 	immediate_text: font = 'Times New Roman'
+3.3924 	EXP 	immediate_text: italic = True
+3.3924 	EXP 	delay_text: font = 'Times New Roman'
+3.3924 	EXP 	delay_text: italic = False
+3.3924 	EXP 	immediate_text: height = 0.05
+3.3924 	EXP 	immediate_text: height = 0.05
+3.3924 	EXP 	immediate_text: height = 0.05
+3.3924 	EXP 	immediate_text: text = '$150.0 now\n(1)'
+3.3924 	EXP 	delay_text: height = 0.05
+3.3924 	EXP 	delay_text: height = 0.05
+3.3924 	EXP 	delay_text: height = 0.05
+3.3924 	EXP 	delay_text: text = '$1000 in\n5 years\n(3)'
+4.3942 	EXP 	New trial (rep=2, index=0): None
+4.4212 	EXP 	immediate_text: font = 'Times New Roman'
+4.4212 	EXP 	immediate_text: italic = False
+4.4212 	EXP 	delay_text: font = 'Times New Roman'
+4.4212 	EXP 	delay_text: italic = False
+4.4212 	EXP 	immediate_text: font = 'Times New Roman'
+4.4212 	EXP 	immediate_text: italic = False
+4.4212 	EXP 	delay_text: font = 'Times New Roman'
+4.4212 	EXP 	delay_text: italic = False
+4.4212 	EXP 	immediate_text: autoDraw = True
+4.4212 	EXP 	delay_text: autoDraw = True
+4.4212 	EXP 	debug: autoDraw = True
+4.4212 	EXP 	which_text: autoDraw = True
+4.4212 	EXP 	or_text: autoDraw = True
+4.4212 	EXP 	delay_text: height = 0.05
+4.4212 	EXP 	delay_text: height = 0.05
+4.4212 	EXP 	delay_text: height = 0.05
+4.4212 	EXP 	delay_text: text = '$1000 in\n5 years\n(3)'
+5.1826 	DATA 	Keypress: 3
+5.1872 	EXP 	immediate_text: autoDraw = False
+5.1872 	EXP 	delay_text: autoDraw = False
+5.1872 	EXP 	debug: autoDraw = False
+5.1872 	EXP 	which_text: autoDraw = False
+5.1872 	EXP 	or_text: autoDraw = False
+5.1872 	EXP 	immediate_text: font = 'Times New Roman'
+5.1872 	EXP 	immediate_text: italic = False
+5.1872 	EXP 	delay_text: font = 'Times New Roman'
+5.1872 	EXP 	delay_text: italic = True
+5.1872 	EXP 	immediate_text: height = 0.05
+5.1872 	EXP 	immediate_text: height = 0.05
+5.1872 	EXP 	immediate_text: height = 0.05
+5.1872 	EXP 	immediate_text: text = '$75.0 now\n(1)'
+5.1872 	EXP 	delay_text: height = 0.05
+5.1872 	EXP 	delay_text: height = 0.05
+5.1872 	EXP 	delay_text: height = 0.05
+5.1872 	EXP 	delay_text: text = '$1000 in\n5 years\n(3)'
+6.1882 	EXP 	New trial (rep=3, index=0): None
+6.2242 	EXP 	immediate_text: font = 'Times New Roman'
+6.2242 	EXP 	immediate_text: italic = False
+6.2242 	EXP 	delay_text: font = 'Times New Roman'
+6.2242 	EXP 	delay_text: italic = False
+6.2242 	EXP 	immediate_text: font = 'Times New Roman'
+6.2242 	EXP 	immediate_text: italic = False
+6.2242 	EXP 	delay_text: font = 'Times New Roman'
+6.2242 	EXP 	delay_text: italic = False
+6.2242 	EXP 	immediate_text: autoDraw = True
+6.2242 	EXP 	delay_text: autoDraw = True
+6.2242 	EXP 	debug: autoDraw = True
+6.2242 	EXP 	which_text: autoDraw = True
+6.2242 	EXP 	or_text: autoDraw = True
+6.2242 	EXP 	delay_text: height = 0.05
+6.2242 	EXP 	delay_text: height = 0.05
+6.2242 	EXP 	delay_text: height = 0.05
+6.2242 	EXP 	delay_text: text = '$1000 in\n5 years\n(3)'
+6.5611 	DATA 	Keypress: 1
+6.5652 	EXP 	immediate_text: autoDraw = False
+6.5652 	EXP 	delay_text: autoDraw = False
+6.5652 	EXP 	debug: autoDraw = False
+6.5652 	EXP 	which_text: autoDraw = False
+6.5652 	EXP 	or_text: autoDraw = False
+6.5652 	EXP 	immediate_text: font = 'Times New Roman'
+6.5652 	EXP 	immediate_text: italic = True
+6.5652 	EXP 	delay_text: font = 'Times New Roman'
+6.5652 	EXP 	delay_text: italic = False
+6.5652 	EXP 	immediate_text: height = 0.05
+6.5652 	EXP 	immediate_text: height = 0.05
+6.5652 	EXP 	immediate_text: height = 0.05
+6.5652 	EXP 	immediate_text: text = '$112.0 now\n(1)'
+6.5652 	EXP 	delay_text: height = 0.05
+6.5652 	EXP 	delay_text: height = 0.05
+6.5652 	EXP 	delay_text: height = 0.05
+6.5652 	EXP 	delay_text: text = '$1000 in\n5 years\n(3)'
+7.5661 	EXP 	New trial (rep=4, index=0): None
+7.5876 	EXP 	immediate_text: font = 'Times New Roman'
+7.5876 	EXP 	immediate_text: italic = False
+7.5876 	EXP 	delay_text: font = 'Times New Roman'
+7.5876 	EXP 	delay_text: italic = False
+7.5876 	EXP 	immediate_text: font = 'Times New Roman'
+7.5876 	EXP 	immediate_text: italic = False
+7.5876 	EXP 	delay_text: font = 'Times New Roman'
+7.5876 	EXP 	delay_text: italic = False
+7.5876 	EXP 	immediate_text: autoDraw = True
+7.5876 	EXP 	delay_text: autoDraw = True
+7.5876 	EXP 	debug: autoDraw = True
+7.5876 	EXP 	which_text: autoDraw = True
+7.5876 	EXP 	or_text: autoDraw = True
+7.5876 	EXP 	delay_text: height = 0.05
+7.5876 	EXP 	delay_text: height = 0.05
+7.5876 	EXP 	delay_text: height = 0.05
+7.5876 	EXP 	delay_text: text = '$1000 in\n5 years\n(3)'
+51.0166 	DATA 	Keypress: escape
+51.0274 	EXP 	DelayDiscountingTitrated: status = STOPPED
+51.0328 	EXP 	immediate_text: autoDraw = False
+51.0328 	EXP 	delay_text: autoDraw = False
+51.0328 	EXP 	debug: autoDraw = False
+51.0328 	EXP 	which_text: autoDraw = False
+51.0328 	EXP 	or_text: autoDraw = False
+51.0330 	EXP 	DelayDiscountingTitrated: status = STOPPED
+51.1865 	EXP 	window1: mouseVisible = True
