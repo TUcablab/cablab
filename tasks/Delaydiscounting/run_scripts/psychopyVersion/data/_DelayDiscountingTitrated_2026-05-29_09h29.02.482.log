@@ -1,0 +1,96 @@
+7.0287 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fc5546f4370>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fc5546f4310>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1., -1., -1.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fc5546f4160>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7fc561407ee0>, multiSample=False, name='window1', numSamples=2, pos=(360, 225), screen=0, size=array([2880, 1800]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+7.0291 	EXP 	window1: mouseVisible = True
+7.0292 	EXP 	window1: backgroundImage = ''
+7.0292 	EXP 	window1: backgroundFit = 'none'
+7.0311 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+7.0312 	EXP 	window1: recordFrameIntervals = False
+7.1264 	EXP 	window1: recordFrameIntervals = True
+7.2178 	EXP 	Screen (0) actual frame rate measured at 122.12Hz
+7.2179 	EXP 	window1: recordFrameIntervals = False
+7.2181 	EXP 	window1: mouseVisible = True
+8.1945 	EXP 	DelayDiscountingTitrated: status = STARTED
+8.4128 	EXP 	window1: mouseVisible = True
+8.4504 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([-0.4,  0. ]), rgb=UNKNOWN, text='0 now\n(1)', units='height', win=Window(...), wrapWidth=1)
+8.4505 	EXP 	window1: mouseVisible = True
+8.4544 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0.4, 0. ]), rgb=UNKNOWN, text='1000 in\n(3)', units='height', win=Window(...), wrapWidth=1)
+8.4545 	EXP 	window1: mouseVisible = True
+8.4589 	EXP 	Created debug = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='debug', opacity=1.0, ori=0.0, pos=array([ 0. , -0.1]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+8.4590 	EXP 	window1: mouseVisible = True
+8.4670 	EXP 	Created which_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='which_text', opacity=1.0, ori=0.0, pos=array([0. , 0.2]), rgb=UNKNOWN, text='Which would you prefer?', units='height', win=Window(...), wrapWidth=1)
+8.4671 	EXP 	window1: mouseVisible = True
+8.4699 	EXP 	Created or_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='or_text', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='OR', units='height', win=Window(...), wrapWidth=1)
+0.0240 	EXP 	Created sequence: random, trialTypes=1, nReps=10, seed=None
+0.0245 	EXP 	New trial (rep=0, index=0): None
+0.0494 	EXP 	debug: autoDraw = True
+0.0494 	EXP 	which_text: autoDraw = True
+0.0494 	EXP 	or_text: autoDraw = True
+1.2673 	DATA 	Mouse: Left button down, pos=(544,627)
+1.3668 	DATA 	Mouse:  Left button up, pos=(544,626)
+6.9264 	DATA 	Mouse: Left button down, pos=(597,637)
+7.0272 	DATA 	Mouse:  Left button up, pos=(597,637)
+7.5986 	DATA 	Keypress: 1
+7.7701 	DATA 	Keypress: 1
+7.9435 	DATA 	Keypress: 1
+8.1240 	DATA 	Keypress: 1
+8.3476 	DATA 	Keypress: 1
+8.5518 	DATA 	Keypress: 1
+8.5753 	EXP 	New trial (rep=1, index=0): None
+8.5897 	EXP 	debug: autoDraw = False
+8.5897 	EXP 	which_text: autoDraw = False
+8.5897 	EXP 	or_text: autoDraw = False
+8.5897 	EXP 	debug: autoDraw = True
+8.5897 	EXP 	which_text: autoDraw = True
+8.5897 	EXP 	or_text: autoDraw = True
+8.7865 	DATA 	Keypress: 1
+9.0432 	DATA 	Keypress: 3
+9.2391 	DATA 	Keypress: 3
+9.3982 	DATA 	Keypress: 1
+9.7287 	DATA 	Keypress: 1
+9.7743 	EXP 	New trial (rep=2, index=0): None
+9.7837 	EXP 	debug: autoDraw = False
+9.7837 	EXP 	which_text: autoDraw = False
+9.7837 	EXP 	or_text: autoDraw = False
+9.7837 	EXP 	debug: autoDraw = True
+9.7837 	EXP 	which_text: autoDraw = True
+9.7837 	EXP 	or_text: autoDraw = True
+9.9272 	DATA 	Keypress: 1
+10.0766 	DATA 	Keypress: 1
+10.2696 	DATA 	Keypress: 1
+10.4439 	DATA 	Keypress: 1
+10.6283 	DATA 	Keypress: 1
+10.8058 	DATA 	Keypress: 1
+10.9152 	EXP 	New trial (rep=3, index=0): None
+10.9250 	EXP 	debug: autoDraw = False
+10.9250 	EXP 	which_text: autoDraw = False
+10.9250 	EXP 	or_text: autoDraw = False
+10.9250 	EXP 	debug: autoDraw = True
+10.9250 	EXP 	which_text: autoDraw = True
+10.9250 	EXP 	or_text: autoDraw = True
+10.9695 	DATA 	Keypress: 1
+11.1669 	DATA 	Keypress: 1
+11.3709 	DATA 	Keypress: 1
+11.5754 	DATA 	Keypress: 1
+11.7606 	DATA 	Keypress: 1
+11.9484 	DATA 	Keypress: 1
+11.9918 	EXP 	New trial (rep=4, index=0): None
+12.0026 	EXP 	debug: autoDraw = False
+12.0026 	EXP 	which_text: autoDraw = False
+12.0026 	EXP 	or_text: autoDraw = False
+12.0026 	EXP 	debug: autoDraw = True
+12.0026 	EXP 	which_text: autoDraw = True
+12.0026 	EXP 	or_text: autoDraw = True
+12.1546 	DATA 	Keypress: 1
+12.5762 	DATA 	Keypress: escape
+13.1423 	EXP 	New trial (rep=5, index=0): None
+13.1463 	EXP 	DelayDiscountingTitrated: status = STOPPED
+13.1503 	EXP 	debug: autoDraw = False
+13.1503 	EXP 	which_text: autoDraw = False
+13.1503 	EXP 	or_text: autoDraw = False
+13.1503 	EXP 	debug: autoDraw = True
+13.1503 	EXP 	which_text: autoDraw = True
+13.1503 	EXP 	or_text: autoDraw = True
+13.1503 	EXP 	debug: autoDraw = False
+13.1503 	EXP 	which_text: autoDraw = False
+13.1503 	EXP 	or_text: autoDraw = False
+13.1504 	EXP 	DelayDiscountingTitrated: status = STOPPED
+13.1910 	EXP 	window1: mouseVisible = True
