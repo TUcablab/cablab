@@ -418,6 +418,12 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         key_resp.keys = []
         key_resp.rt = []
         _key_resp_allKeys = []
+
+        # Reset both options to white at the start of each new trial/round.
+        # The chosen option will briefly turn green after the participant responds.
+        immediate_text.setColor('white', log=False)
+        delay_text.setColor('white', log=False)
+
         # keep track of which components have finished
         trialComponents = [key_resp, immediate_text, delay_text, debug, which_text, or_text]
         for thisComponent in trialComponents:
@@ -622,9 +628,31 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         elif key_resp.keys == '3':
             updateAmount = round(immediateValue1 + interval,0)
         
-        ## Wait one second now that the selected text is green
+        # Show feedback: turn the selected option green before advancing.
+        # This preserves the current trial text on screen for 1 second.
+        immediate_text.setText(f"${immediateValue1} now\n(1)", log=False)
+        delay_text.setText(f"${maxvalue} in\n{delay}\n(3)", log=False)
+
+        if key_resp.keys == '1':
+            immediate_text.setColor('green', log=False)
+            delay_text.setColor('white', log=False)
+        elif key_resp.keys == '3':
+            immediate_text.setColor('white', log=False)
+            delay_text.setColor('green', log=False)
+
+        which_text.draw()
+        immediate_text.draw()
+        or_text.draw()
+        delay_text.draw()
+        debug.setText(f"interval:{interval} val:{immediateValue1} round:{roundN}", log=False)
+        debug.draw()
+        win.flip()
         core.wait(1)
-        
+
+        # Reset colors before updating the value for the next trial.
+        immediate_text.setColor('white', log=False)
+        delay_text.setColor('white', log=False)
+
         immediateValue1 = updateAmount
         
         
