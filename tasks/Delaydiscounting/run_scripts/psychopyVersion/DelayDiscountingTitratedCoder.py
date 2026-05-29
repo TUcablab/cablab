@@ -315,12 +315,12 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     minvalue = 0
     immediate_start_values = [200, 500, 800]
     delay_blocks = [
-        {"label": "1 day", "days": 1},
         {"label": "1 week", "days": 7},
         {"label": "1 month", "days": 30},
-        {"label": "3 months", "days": 90},
         {"label": "6 months", "days": 180},
         {"label": "1 year", "days": 365},
+        {"label": "5 years", "days": 1825},
+        {"label": "15 years", "days": 5475},
     ]
     py_random.shuffle(delay_blocks)
 
@@ -466,7 +466,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             return
 
         # set up handler to look after randomisation of conditions etc
-        trials = data.TrialHandler(nReps=10.0, method='random', 
+        trials = data.TrialHandler(nReps=9.0, method='random', 
             extraInfo=expInfo, originPath=-1,
             trialList=[None],
             seed=None, name=f'trials_block_{blockN}')
