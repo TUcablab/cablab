@@ -29,6 +29,7 @@ from numpy import (sin, cos, tan, log, log10, pi, average,
 from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
+import random as py_random  # for randomized block order and starting values
 
 from psychopy.hardware import keyboard
 
@@ -310,12 +311,27 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "trial" ---
     key_resp = keyboard.Keyboard()
     # Run 'Begin Experiment' code from code
-    immediateValue1 = 300
-    delay = "5 years"
     maxvalue = 1000
     minvalue = 0
+    immediate_start_values = [200, 500, 800]
+    delay_blocks = [
+        {"label": "1 day", "days": 1},
+        {"label": "1 week", "days": 7},
+        {"label": "1 month", "days": 30},
+        {"label": "3 months", "days": 90},
+        {"label": "6 months", "days": 180},
+        {"label": "1 year", "days": 365},
+    ]
+    py_random.shuffle(delay_blocks)
+
+    # These are reset at the start of each block.
+    immediateValue1 = None
+    delay = ""
+    delay_days = None
     roundN = 1
     interval = 0
+    blockN = 0
+    starting_immediate_reward = None
     
     
     def set_italic(stim, value):
@@ -391,294 +407,357 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # store the exact time the global clock started
     expInfo['expStart'] = data.getDateStr(format='%Y-%m-%d %Hh%M.%S.%f %z', fractionalSecondDigits=6)
     
-    # set up handler to look after randomisation of conditions etc
-    trials = data.TrialHandler(nReps=10.0, method='random', 
-        extraInfo=expInfo, originPath=-1,
-        trialList=[None],
-        seed=None, name='trials')
-    thisExp.addLoop(trials)  # add the loop to the experiment
-    thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
-    # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
-    if thisTrial != None:
-        for paramName in thisTrial:
-            globals()[paramName] = thisTrial[paramName]
+    # --- Instruction screen before the task begins ---
+    instruction_text = visual.TextStim(
+        win=win,
+        name='instruction_text',
+        text=(
+            "In this task, you will choose between money now and money later.\n\n"
+            "Press 1 if you would prefer the amount shown now.\n"
+            "Press 3 if you would prefer the delayed amount.\n\n"
+            "Press ENTER or SPACEBAR to begin."
+        ),
+        font='Times New Roman',
+        pos=(0, 0),
+        height=0.05,
+        wrapWidth=1.2,
+        color='white',
+        colorSpace='rgb',
+        languageStyle='LTR'
+    )
+    instruction_text.draw()
+    win.flip()
+    start_keys = event.waitKeys(keyList=['return', 'space', 'escape'])
+    if start_keys and start_keys[0] == 'escape':
+        endExperiment(thisExp, inputs=inputs, win=win)
+        return
     
-    for thisTrial in trials:
-        currentLoop = trials
-        thisExp.timestampOnFlip(win, 'thisRow.t')
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                inputs=inputs, 
-                win=win, 
-                timers=[routineTimer], 
-                playbackComponents=[]
+    # --- Six randomized delay blocks ---
+    for blockN, delay_info in enumerate(delay_blocks, start=1):
+        delay = delay_info["label"]
+        delay_days = delay_info["days"]
+        starting_immediate_reward = py_random.choice(immediate_start_values)
+        immediateValue1 = starting_immediate_reward
+        roundN = 1
+        interval = 0
+
+        # Block start screen: wait for ENTER or SPACEBAR before each delay block.
+        block_text = visual.TextStim(
+            win=win,
+            name='block_text',
+            text=(
+                f"Set {blockN} of {len(delay_blocks)}\n\n"
+                "For each choice, press 1 for the money now or 3 for the money later.\n\n"
+                "Press ENTER or SPACEBAR to begin."
+            ),
+            font='Times New Roman',
+            pos=(0, 0),
+            height=0.05,
+            wrapWidth=1.2,
+            color='white',
+            colorSpace='rgb',
+            languageStyle='LTR'
         )
+        block_text.draw()
+        win.flip()
+        start_keys = event.waitKeys(keyList=['return', 'space', 'escape'])
+        if start_keys and start_keys[0] == 'escape':
+            endExperiment(thisExp, inputs=inputs, win=win)
+            return
+
+        # set up handler to look after randomisation of conditions etc
+        trials = data.TrialHandler(nReps=10.0, method='random', 
+            extraInfo=expInfo, originPath=-1,
+            trialList=[None],
+            seed=None, name=f'trials_block_{blockN}')
+        thisExp.addLoop(trials)  # add the loop to the experiment
+        thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
         # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
         if thisTrial != None:
             for paramName in thisTrial:
                 globals()[paramName] = thisTrial[paramName]
+    
+        for thisTrial in trials:
+            currentLoop = trials
+            thisExp.timestampOnFlip(win, 'thisRow.t')
+            # pause experiment here if requested
+            if thisExp.status == PAUSED:
+                pauseExperiment(
+                    thisExp=thisExp, 
+                    inputs=inputs, 
+                    win=win, 
+                    timers=[routineTimer], 
+                    playbackComponents=[]
+            )
+            # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
+            if thisTrial != None:
+                for paramName in thisTrial:
+                    globals()[paramName] = thisTrial[paramName]
         
-        # --- Prepare to start Routine "trial" ---
-        continueRoutine = True
-        # update component parameters for each repeat
-        thisExp.addData('trial.started', globalClock.getTime())
-        key_resp.keys = []
-        key_resp.rt = []
-        _key_resp_allKeys = []
+            # --- Prepare to start Routine "trial" ---
+            continueRoutine = True
+            # update component parameters for each repeat
+            thisExp.addData('trial.started', globalClock.getTime())
+            trials.addData('block_num', blockN)
+            trials.addData('delay_label', delay)
+            trials.addData('delay_days', delay_days)
+            trials.addData('starting_immediate_reward', starting_immediate_reward)
+            trials.addData('roundN', roundN)
+            key_resp.keys = []
+            key_resp.rt = []
+            _key_resp_allKeys = []
 
-        # Reset both options to white at the start of each new trial/round.
-        # The chosen option will briefly turn green after the participant responds.
-        immediate_text.setColor('white', log=False)
-        delay_text.setColor('white', log=False)
-        set_italic(immediate_text, False)
-        set_italic(delay_text, False)
-
-        # keep track of which components have finished
-        trialComponents = [key_resp, immediate_text, delay_text, which_text, or_text]
-        for thisComponent in trialComponents:
-            thisComponent.tStart = None
-            thisComponent.tStop = None
-            thisComponent.tStartRefresh = None
-            thisComponent.tStopRefresh = None
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        # reset timers
-        t = 0
-        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        frameN = -1
-        
-        # --- Run Routine "trial" ---
-        routineForceEnded = not continueRoutine
-        while continueRoutine:
-            # get current time
-            t = routineTimer.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-            # update/draw components on each frame
-            
-            # *key_resp* updates
-            waitOnFlip = False
-            
-            # if key_resp is starting this frame...
-            if key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                key_resp.frameNStart = frameN  # exact frame index
-                key_resp.tStart = t  # local t and not account for scr refresh
-                key_resp.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'key_resp.started')
-                # update status
-                key_resp.status = STARTED
-                # keyboard checking is just starting
-                waitOnFlip = True
-                win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
-                win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
-            if key_resp.status == STARTED and not waitOnFlip:
-                theseKeys = key_resp.getKeys(keyList=['1', '3'], ignoreKeys=["escape"], waitRelease=False)
-                _key_resp_allKeys.extend(theseKeys)
-                if len(_key_resp_allKeys):
-                    key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
-                    key_resp.rt = _key_resp_allKeys[-1].rt
-                    key_resp.duration = _key_resp_allKeys[-1].duration
-                    # a response ends the routine
-                    continueRoutine = False
-            # Run 'Each Frame' code from code
-            immediateText.draw()
-            delayText.draw()
-            
-            # *immediate_text* updates
-            
-            # if immediate_text is starting this frame...
-            if immediate_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                immediate_text.frameNStart = frameN  # exact frame index
-                immediate_text.tStart = t  # local t and not account for scr refresh
-                immediate_text.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(immediate_text, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'immediate_text.started')
-                # update status
-                immediate_text.status = STARTED
-                immediate_text.setAutoDraw(True)
-            
-            # if immediate_text is active this frame...
-            if immediate_text.status == STARTED:
-                # update params
-                immediate_text.setText(f"${immediateValue1} now\n(1)", log=False)
-            
-            # *delay_text* updates
-            
-            # if delay_text is starting this frame...
-            if delay_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                delay_text.frameNStart = frameN  # exact frame index
-                delay_text.tStart = t  # local t and not account for scr refresh
-                delay_text.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(delay_text, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'delay_text.started')
-                # update status
-                delay_text.status = STARTED
-                delay_text.setAutoDraw(True)
-            
-            # if delay_text is active this frame...
-            if delay_text.status == STARTED:
-                # update params
-                delay_text.setText(f"${maxvalue} in\n{delay}\n(3)", log=False)
-            
-            # *debug* updates
-            
-            # # if debug is starting this frame...
-            # if debug.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            #     # keep track of start time/frame for later
-            #     debug.frameNStart = frameN  # exact frame index
-            #     debug.tStart = t  # local t and not account for scr refresh
-            #     debug.tStartRefresh = tThisFlipGlobal  # on global time
-            #     win.timeOnFlip(debug, 'tStartRefresh')  # time at next scr refresh
-            #     # add timestamp to datafile
-            #     thisExp.timestampOnFlip(win, 'debug.started')
-            #     # update status
-            #     debug.status = STARTED
-            #     debug.setAutoDraw(True)
-            
-            # # if debug is active this frame...
-            # if debug.status == STARTED:
-            #     # update params
-            #     debug.setText(f"interval:{interval} val:{immediateValue1} round:{roundN}", log=False)
-            
-            # *which_text* updates
-            
-            # if which_text is starting this frame...
-            if which_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                which_text.frameNStart = frameN  # exact frame index
-                which_text.tStart = t  # local t and not account for scr refresh
-                which_text.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(which_text, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'which_text.started')
-                # update status
-                which_text.status = STARTED
-                which_text.setAutoDraw(True)
-            
-            # if which_text is active this frame...
-            if which_text.status == STARTED:
-                # update params
-                pass
-            
-            # *or_text* updates
-            
-            # if or_text is starting this frame...
-            if or_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                or_text.frameNStart = frameN  # exact frame index
-                or_text.tStart = t  # local t and not account for scr refresh
-                or_text.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(or_text, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'or_text.started')
-                # update status
-                or_text.status = STARTED
-                or_text.setAutoDraw(True)
-            
-            # if or_text is active this frame...
-            if or_text.status == STARTED:
-                # update params
-                pass
-            
-            # check for quit (typically the Esc key)
-            if defaultKeyboard.getKeys(keyList=["escape"]):
-                thisExp.status = FINISHED
-            if thisExp.status == FINISHED or endExpNow:
-                endExperiment(thisExp, inputs=inputs, win=win)
-                return
-            
-            # check if all components have finished
-            if not continueRoutine:  # a component has requested a forced-end of Routine
-                routineForceEnded = True
-                break
-            continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in trialComponents:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break  # at least one component has not yet finished
-            
-            # refresh the screen
-            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()
-        
-        # --- Ending Routine "trial" ---
-        for thisComponent in trialComponents:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        thisExp.addData('trial.stopped', globalClock.getTime())
-        # check responses
-        if key_resp.keys in ['', [], None]:  # No response was made
-            key_resp.keys = None
-        trials.addData('key_resp.keys',key_resp.keys)
-        if key_resp.keys != None:  # we had a response
-            trials.addData('key_resp.rt', key_resp.rt)
-            trials.addData('key_resp.duration', key_resp.duration)
-        # Run 'End Routine' code from code
-        if roundN == 1:
-            if key_resp.keys[0] == '1':
-                interval = immediateValue1 - minvalue
-            elif key_resp.keys[0] == '3':
-                interval = maxvalue - immediateValue1
-        interval = interval/2
-        
-        
-        ## If they choose the immediate option, subtract the 
-        if key_resp.keys == '1':
-            updateAmount = round(immediateValue1 - interval,0)
-        
-        elif key_resp.keys == '3':
-            updateAmount = round(immediateValue1 + interval,0)
-        
-        # Show feedback: turn the selected option green before advancing.
-        # This preserves the current trial text on screen for 1 second.
-        immediate_text.setText(f"${immediateValue1} now\n(1)", log=False)
-        delay_text.setText(f"${maxvalue} in\n{delay}\n(3)", log=False)
-
-        if key_resp.keys == '1':
-            immediate_text.setColor('green', log=False)
-            delay_text.setColor('white', log=False)
-            set_italic(immediate_text, True)
-            set_italic(delay_text, False)
-        elif key_resp.keys == '3':
+            # Reset both options to white at the start of each new trial/round.
+            # The chosen option will briefly turn green after the participant responds.
             immediate_text.setColor('white', log=False)
-            delay_text.setColor('green', log=False)
+            delay_text.setColor('white', log=False)
             set_italic(immediate_text, False)
-            set_italic(delay_text, True)
+            set_italic(delay_text, False)
 
-        which_text.draw()
-        immediate_text.draw()
-        or_text.draw()
-        delay_text.draw()
-        # debug.setText(f"interval:{interval} val:{immediateValue1} round:{roundN}", log=False)
-        # debug.draw()
-        win.flip()
-        core.wait(1)
-
-        # Reset colors and italics before updating the value for the next trial.
-        immediate_text.setColor('white', log=False)
-        delay_text.setColor('white', log=False)
-        set_italic(immediate_text, False)
-        set_italic(delay_text, False)
-
-        immediateValue1 = updateAmount
+            # keep track of which components have finished
+            trialComponents = [key_resp, immediate_text, delay_text, which_text, or_text]
+            for thisComponent in trialComponents:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            frameN = -1
+        
+            # --- Run Routine "trial" ---
+            routineForceEnded = not continueRoutine
+            while continueRoutine:
+                # get current time
+                t = routineTimer.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+            
+                # *key_resp* updates
+                waitOnFlip = False
+            
+                # if key_resp is starting this frame...
+                if key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    key_resp.frameNStart = frameN  # exact frame index
+                    key_resp.tStart = t  # local t and not account for scr refresh
+                    key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'key_resp.started')
+                    # update status
+                    key_resp.status = STARTED
+                    # keyboard checking is just starting
+                    waitOnFlip = True
+                    win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
+                    win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+                if key_resp.status == STARTED and not waitOnFlip:
+                    theseKeys = key_resp.getKeys(keyList=['1', '3'], ignoreKeys=["escape"], waitRelease=False)
+                    _key_resp_allKeys.extend(theseKeys)
+                    if len(_key_resp_allKeys):
+                        key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+                        key_resp.rt = _key_resp_allKeys[-1].rt
+                        key_resp.duration = _key_resp_allKeys[-1].duration
+                        # a response ends the routine
+                        continueRoutine = False
+                # Run 'Each Frame' code from code
+                immediateText.draw()
+                delayText.draw()
+            
+                # *immediate_text* updates
+            
+                # if immediate_text is starting this frame...
+                if immediate_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    immediate_text.frameNStart = frameN  # exact frame index
+                    immediate_text.tStart = t  # local t and not account for scr refresh
+                    immediate_text.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(immediate_text, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'immediate_text.started')
+                    # update status
+                    immediate_text.status = STARTED
+                    immediate_text.setAutoDraw(True)
+            
+                # if immediate_text is active this frame...
+                if immediate_text.status == STARTED:
+                    # update params
+                    immediate_text.setText(f"${immediateValue1} now\n(1)", log=False)
+            
+                # *delay_text* updates
+            
+                # if delay_text is starting this frame...
+                if delay_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    delay_text.frameNStart = frameN  # exact frame index
+                    delay_text.tStart = t  # local t and not account for scr refresh
+                    delay_text.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(delay_text, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'delay_text.started')
+                    # update status
+                    delay_text.status = STARTED
+                    delay_text.setAutoDraw(True)
+            
+                # if delay_text is active this frame...
+                if delay_text.status == STARTED:
+                    # update params
+                    delay_text.setText(f"${maxvalue} in\n{delay}\n(3)", log=False)
+            
+                # *debug* updates
+            
+                # # if debug is starting this frame...
+                # if debug.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                #     # keep track of start time/frame for later
+                #     debug.frameNStart = frameN  # exact frame index
+                #     debug.tStart = t  # local t and not account for scr refresh
+                #     debug.tStartRefresh = tThisFlipGlobal  # on global time
+                #     win.timeOnFlip(debug, 'tStartRefresh')  # time at next scr refresh
+                #     # add timestamp to datafile
+                #     thisExp.timestampOnFlip(win, 'debug.started')
+                #     # update status
+                #     debug.status = STARTED
+                #     debug.setAutoDraw(True)
+            
+                # # if debug is active this frame...
+                # if debug.status == STARTED:
+                #     # update params
+                #     debug.setText(f"interval:{interval} val:{immediateValue1} round:{roundN}", log=False)
+            
+                # *which_text* updates
+            
+                # if which_text is starting this frame...
+                if which_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    which_text.frameNStart = frameN  # exact frame index
+                    which_text.tStart = t  # local t and not account for scr refresh
+                    which_text.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(which_text, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'which_text.started')
+                    # update status
+                    which_text.status = STARTED
+                    which_text.setAutoDraw(True)
+            
+                # if which_text is active this frame...
+                if which_text.status == STARTED:
+                    # update params
+                    pass
+            
+                # *or_text* updates
+            
+                # if or_text is starting this frame...
+                if or_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    or_text.frameNStart = frameN  # exact frame index
+                    or_text.tStart = t  # local t and not account for scr refresh
+                    or_text.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(or_text, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'or_text.started')
+                    # update status
+                    or_text.status = STARTED
+                    or_text.setAutoDraw(True)
+            
+                # if or_text is active this frame...
+                if or_text.status == STARTED:
+                    # update params
+                    pass
+            
+                # check for quit (typically the Esc key)
+                if defaultKeyboard.getKeys(keyList=["escape"]):
+                    thisExp.status = FINISHED
+                if thisExp.status == FINISHED or endExpNow:
+                    endExperiment(thisExp, inputs=inputs, win=win)
+                    return
+            
+                # check if all components have finished
+                if not continueRoutine:  # a component has requested a forced-end of Routine
+                    routineForceEnded = True
+                    break
+                continueRoutine = False  # will revert to True if at least one component still running
+                for thisComponent in trialComponents:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+            
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+        
+            # --- Ending Routine "trial" ---
+            for thisComponent in trialComponents:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            thisExp.addData('trial.stopped', globalClock.getTime())
+            # check responses
+            if key_resp.keys in ['', [], None]:  # No response was made
+                key_resp.keys = None
+            trials.addData('key_resp.keys',key_resp.keys)
+            if key_resp.keys != None:  # we had a response
+                trials.addData('key_resp.rt', key_resp.rt)
+                trials.addData('key_resp.duration', key_resp.duration)
+            # Run 'End Routine' code from code
+            if roundN == 1:
+                if key_resp.keys[0] == '1':
+                    interval = immediateValue1 - minvalue
+                elif key_resp.keys[0] == '3':
+                    interval = maxvalue - immediateValue1
+            interval = interval/2
         
         
-        roundN += 1
+            ## If they choose the immediate option, subtract the 
+            if key_resp.keys == '1':
+                updateAmount = round(immediateValue1 - interval,0)
+        
+            elif key_resp.keys == '3':
+                updateAmount = round(immediateValue1 + interval,0)
+        
+            # Show feedback: turn the selected option green before advancing.
+            # This preserves the current trial text on screen for 1 second.
+            immediate_text.setText(f"${immediateValue1} now\n(1)", log=False)
+            delay_text.setText(f"${maxvalue} in\n{delay}\n(3)", log=False)
+
+            if key_resp.keys == '1':
+                immediate_text.setColor('green', log=False)
+                delay_text.setColor('white', log=False)
+                set_italic(immediate_text, True)
+                set_italic(delay_text, False)
+            elif key_resp.keys == '3':
+                immediate_text.setColor('white', log=False)
+                delay_text.setColor('green', log=False)
+                set_italic(immediate_text, False)
+                set_italic(delay_text, True)
+
+            which_text.draw()
+            immediate_text.draw()
+            or_text.draw()
+            delay_text.draw()
+            # debug.setText(f"interval:{interval} val:{immediateValue1} round:{roundN}", log=False)
+            # debug.draw()
+            win.flip()
+            core.wait(1)
+
+            # Reset colors and italics before updating the value for the next trial.
+            immediate_text.setColor('white', log=False)
+            delay_text.setColor('white', log=False)
+            set_italic(immediate_text, False)
+            set_italic(delay_text, False)
+
+            immediateValue1 = updateAmount
+        
+        
+            roundN += 1
             
         
-        # the Routine "trial" was not non-slip safe, so reset the non-slip timer
-        routineTimer.reset()
-    # completed 10.0 repeats of 'trials'
+            # the Routine "trial" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
+        # completed 10.0 repeats of current block's 'trials'
     
     
     # mark experiment as finished
