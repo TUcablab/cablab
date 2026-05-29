@@ -587,7 +587,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 # if immediate_text is active this frame...
                 if immediate_text.status == STARTED:
                     # update params
-                    immediate_text.setText(f"${immediateValue1} now\n(1)", log=False)
+                    immediate_text.setText(f"${immediateValue1:.0f} now\n(1)", log=False)
             
                 # *delay_text* updates
             
@@ -720,7 +720,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         
             # Show feedback: turn the selected option green before advancing.
             # This preserves the current trial text on screen for 1 second.
-            immediate_text.setText(f"${immediateValue1} now\n(1)", log=False)
+            immediate_text.setText(f"${immediateValue1:.0f} now\n(1)", log=False)
             delay_text.setText(f"${maxvalue} in\n{delay}\n(3)", log=False)
 
             if key_resp.keys == '1':
