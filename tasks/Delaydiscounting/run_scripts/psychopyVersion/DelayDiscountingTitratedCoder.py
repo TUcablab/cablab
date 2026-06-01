@@ -28,6 +28,7 @@ from numpy import (sin, cos, tan, log, log10, pi, average,
                    sqrt, std, deg2rad, rad2deg, linspace, asarray)
 from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
+import csv  # write trial-by-trial output immediately
 import sys  # to get file system encoding
 import random as py_random  # for randomized block order and starting values
 
@@ -298,6 +299,34 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     os.chdir(_thisDir)
     # get filename from ExperimentHandler for convenience
     filename = thisExp.dataFileName
+
+    # --- Live trial-by-trial CSV output ---
+    # This file is updated and flushed after every completed choice trial,
+    # so completed rows remain saved even if the task closes before the end.
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    live_csv_filename = filename + '_trial_by_trial.csv'
+    live_csv_file = open(live_csv_filename, mode='w', newline='', encoding='utf-8')
+    live_csv_columns = [
+        'participant',
+        'age',
+        'date',
+        'block_num',
+        'delay_label',
+        'delay_days',
+        'round_num',
+        'starting_immediate_reward',
+        'immediate_amount_shown',
+        'delayed_amount',
+        'button_press',
+        'rt',
+        'interval_used',
+        'next_immediate_amount'
+    ]
+    live_csv_writer = csv.DictWriter(live_csv_file, fieldnames=live_csv_columns)
+    live_csv_writer.writeheader()
+    live_csv_file.flush()
+    os.fsync(live_csv_file.fileno())
+
     frameTolerance = 0.001  # how close to onset before 'same' frame
     endExpNow = False  # flag for 'escape' or other condition => quit the exp
     # get frame duration from frame rate in expInfo
@@ -429,6 +458,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     win.flip()
     start_keys = event.waitKeys(keyList=['return', 'space', 'escape'])
     if start_keys and start_keys[0] == 'escape':
+        live_csv_file.close()
         endExperiment(thisExp, inputs=inputs, win=win)
         return
     
@@ -462,6 +492,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         win.flip()
         start_keys = event.waitKeys(keyList=['return', 'space', 'escape'])
         if start_keys and start_keys[0] == 'escape':
+            live_csv_file.close()
             endExperiment(thisExp, inputs=inputs, win=win)
             return
 
@@ -713,10 +744,31 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         
             ## If they choose the immediate option, subtract the 
             if key_resp.keys == '1':
-                updateAmount = round(immediateValue1 - interval,0)
+                updateAmount = int(round(immediateValue1 - interval, 0))
         
             elif key_resp.keys == '3':
-                updateAmount = round(immediateValue1 + interval,0)
+                updateAmount = int(round(immediateValue1 + interval, 0))
+
+            # Save this trial immediately to a separate trial-by-trial CSV.
+            # This gives you one row per completed choice trial and writes it to disk right away.
+            live_csv_writer.writerow({
+                'participant': expInfo.get('participant', ''),
+                'age': expInfo.get('age', ''),
+                'date': expInfo.get('date', ''),
+                'block_num': blockN,
+                'delay_label': delay,
+                'delay_days': delay_days,
+                'round_num': roundN,
+                'starting_immediate_reward': starting_immediate_reward,
+                'immediate_amount_shown': int(round(immediateValue1, 0)),
+                'delayed_amount': maxvalue,
+                'button_press': key_resp.keys,
+                'rt': key_resp.rt if key_resp.keys is not None else '',
+                'interval_used': interval,
+                'next_immediate_amount': updateAmount
+            })
+            live_csv_file.flush()
+            os.fsync(live_csv_file.fileno())
         
             # Show feedback: turn the selected option green before advancing.
             # This preserves the current trial text on screen for 1 second.
@@ -760,6 +812,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         # completed 10.0 repeats of current block's 'trials'
     
     
+    # Close the live CSV after all blocks finish.
+    live_csv_file.close()
+
     # mark experiment as finished
     endExperiment(thisExp, win=win, inputs=inputs)
 
