@@ -111,7 +111,7 @@ def setupData(expInfo, dataDir=None):
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
         originPath='/Users/avidachs/Documents/GitHub/cablab/tasks/Delaydiscounting/run_scripts/psychopyVersion/DelayDiscountingTitratedBuilder_lastrun.py',
-        savePickle=True, saveWideText=True,
+        savePickle=False, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
     thisExp.setPriority('thisRow.t', priority.CRITICAL)
@@ -345,9 +345,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         'immediate_amount_shown',
         'delayed_amount',
         'button_press',
+        'selection',
         'rt',
-        'interval_used',
-        'next_immediate_amount'
     ]
     live_csv_writer = csv.DictWriter(live_csv_file, fieldnames=live_csv_columns)
     live_csv_writer.writeheader()
@@ -789,6 +788,14 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             elif key_resp.keys == '3':
                 updateAmount = int(round(immediateValue1 + interval, 0))
 
+            # Translate their button press into a selection label for easier analysis later.
+            if key_resp.keys == '1':
+                selection = 'immediate'
+            elif key_resp.keys == '3':
+                selection = 'delayed'
+            else:
+                selection = ''
+
             # Save this trial immediately to a separate trial-by-trial CSV.
             # This gives you one row per completed choice trial and writes it to disk right away.
             live_csv_writer.writerow({
@@ -803,9 +810,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 'immediate_amount_shown': int(round(immediateValue1, 0)),
                 'delayed_amount': maxvalue,
                 'button_press': key_resp.keys,
+                'selection': selection,
                 'rt': key_resp.rt if key_resp.keys is not None else '',
-                'interval_used': interval,
-                'next_immediate_amount': updateAmount
             })
             live_csv_file.flush()
             os.fsync(live_csv_file.fileno())
@@ -875,8 +881,8 @@ def saveData(thisExp):
     """
     filename = thisExp.dataFileName
     # these shouldn't be strictly necessary (should auto-save)
-    thisExp.saveAsWideText(filename + '.csv', delim='auto')
-    thisExp.saveAsPickle(filename)
+    #thisExp.saveAsWideText(filename + '.csv', delim='auto')
+    #thisExp.saveAsPickle(filename)
 
 
 def endExperiment(thisExp, inputs=None, win=None):
@@ -945,7 +951,7 @@ if __name__ == '__main__':
     # call all functions in order
     expInfo = showExpInfoDlg(expInfo=expInfo)
     thisExp = setupData(expInfo=expInfo)
-    logFile = setupLogging(filename=thisExp.dataFileName)
+    #logFile = setupLogging(filename=thisExp.dataFileName)
     win = setupWindow(expInfo=expInfo)
     inputs = setupInputs(expInfo=expInfo, thisExp=thisExp, win=win)
     run(
