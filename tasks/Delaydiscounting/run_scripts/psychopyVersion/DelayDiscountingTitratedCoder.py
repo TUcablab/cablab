@@ -151,18 +151,27 @@ def setupWindow(expInfo=None, win=None):
 
     if win is None:
 
-        # Try to detect number of monitors
+        # Detect monitors using pyglet, which PsychoPy already uses
         try:
-            from screeninfo import get_monitors
-            monitors = get_monitors()
-            n_monitors = len(monitors)
+            import pyglet
+
+            try:
+                # Most PsychoPy / pyglet versions
+                display = pyglet.canvas.get_display()
+            except AttributeError:
+                # Newer pyglet fallback
+                display = pyglet.display.get_display()
+
+            screens = display.get_screens()
+            n_monitors = len(screens)
+
         except Exception:
-            # If screeninfo is not available, assume one monitor
+            # If detection fails, safely default to monitor 1
             n_monitors = 1
 
         # PsychoPy screen numbering starts at 0
-        # screen=0 is monitor 1
-        # screen=1 is monitor 2
+        # screen=0 means monitor 1
+        # screen=1 means monitor 2
         if n_monitors >= 2:
             screen_num = 1
         else:
