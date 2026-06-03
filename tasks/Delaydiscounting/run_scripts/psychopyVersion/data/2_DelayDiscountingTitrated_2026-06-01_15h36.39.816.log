@@ -1,0 +1,38 @@
+17.7210 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+17.7229 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f8930c095e0>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f8930c09580>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1., -1., -1.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f8930c09400>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7f8930c27190>, multiSample=False, name='window1', numSamples=2, pos=(360, 225), screen=0, size=array([2880, 1800]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+17.7231 	EXP 	window1: mouseVisible = True
+17.7231 	EXP 	window1: backgroundImage = ''
+17.7231 	EXP 	window1: backgroundFit = 'none'
+17.7260 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+17.7260 	EXP 	window1: recordFrameIntervals = False
+17.8113 	EXP 	window1: recordFrameIntervals = True
+18.5812 	WARNING 	t of last frame was 20.82ms (=1/48)
+18.6772 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+18.6774 	EXP 	window1: mouseVisible = True
+19.7324 	EXP 	DelayDiscountingTitrated: status = STARTED
+19.9421 	EXP 	window1: mouseVisible = True
+20.0087 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([-0.4,  0. ]), rgb=UNKNOWN, text='0 now\n(1)', units='height', win=Window(...), wrapWidth=1)
+20.0088 	EXP 	window1: mouseVisible = True
+20.0127 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0.4, 0. ]), rgb=UNKNOWN, text='1000 in\n(3)', units='height', win=Window(...), wrapWidth=1)
+20.0128 	EXP 	window1: mouseVisible = True
+20.0138 	EXP 	Created immediate_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='immediate_text', opacity=1.0, ori=0.0, pos=array([-0.4,  0. ]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+20.0139 	EXP 	window1: mouseVisible = True
+20.0147 	EXP 	Created delay_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='delay_text', opacity=1.0, ori=0.0, pos=array([0.4, 0. ]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+20.0148 	EXP 	window1: mouseVisible = True
+20.0230 	EXP 	Created which_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='which_text', opacity=1.0, ori=0.0, pos=array([0. , 0.2]), rgb=UNKNOWN, text='Which would you prefer?', units='height', win=Window(...), wrapWidth=1)
+20.0231 	EXP 	window1: mouseVisible = True
+20.0257 	EXP 	Created or_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='or_text', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='OR', units='height', win=Window(...), wrapWidth=1)
+0.0737 	EXP 	window1: mouseVisible = True
+0.0885 	EXP 	Created instruction_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0, draggable=False, flipHoriz=False, flipVert=False, font='Times New Roman', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='instruction_text', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1.2)
+0.0966 	WARNING 	t of last frame was 24.21ms (=1/41)
+9.3111 	DATA 	Keypress: escape
+9.3597 	WARNING 	t of last frame was 9263.11ms (=1/0)
+9.3619 	EXP 	DelayDiscountingTitrated: status = STOPPED
+9.3926 	WARNING 	t of last frame was 32.85ms (=1/30)
+9.4188 	EXP 	window1: mouseVisible = True

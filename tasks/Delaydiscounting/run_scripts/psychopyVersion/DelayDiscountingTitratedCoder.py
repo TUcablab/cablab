@@ -161,7 +161,7 @@ def setupWindow(expInfo=None, win=None):
     if win is None:
         # if not given a window to setup, make one
         win = visual.Window(
-            size=[1440, 900], fullscr=False, screen=0,
+            size=[1920, 1080], fullscr=False, screen=0,
             winType='pyglet', allowStencil=False,
             monitor='testMonitor', color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb',
             backgroundImage='', backgroundFit='none',
@@ -441,18 +441,36 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         win=win,
         name='instruction_text',
         text=(
-            "In this task, you will choose between money now and money later.\n\n"
-            "Press 1 if you would prefer the amount shown now.\n"
-            "Press 3 if you would prefer the delayed amount.\n\n"
-            "Press ENTER or SPACEBAR to begin."
+            "For this task, you will be asked to make choices about money.\n\n"
+
+            "You will be given two options and you should choose one.\n\n"
+
+            "On the left side of the screen, there will be an amount of money you can get right\n"
+            "now.\n\n"
+
+            "On the right side of the screen, there will be another ammount of money, but\n"
+            "you would not be able to get the money right away. Insted, you would have\n"
+            "to wait some amount of time.\n\n"
+
+            "For example, the computer might ask you if you would like $5 now or $100\n"
+            "in 2 weeks\n\n"
+
+            "Press the 1 key to choose the option on the left.\n\n"
+
+            "Press the 3 key to choose the option on the right.\n\n"
+
+            "We don't expect you to choose anything in particular, just choose the ever options\n"
+            "you would prefer"
         ),
         font='Times New Roman',
-        pos=(0, 0),
+        pos=(-.3, 0),
         height=0.05,
-        wrapWidth=1.2,
+        wrapWidth=1.5,
         color='white',
         colorSpace='rgb',
-        languageStyle='LTR'
+        languageStyle='LTR',
+        alignText='left'
+
     )
     instruction_text.draw()
     win.flip()
@@ -477,8 +495,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             name='block_text',
             text=(
                 f"Set {blockN} of {len(delay_blocks)}\n\n"
-                "For each choice, press 1 for the money now or 3 for the money later.\n\n"
-                "Press ENTER or SPACEBAR to begin."
+                "Hit Enter to continue"
             ),
             font='Times New Roman',
             pos=(0, 0),
