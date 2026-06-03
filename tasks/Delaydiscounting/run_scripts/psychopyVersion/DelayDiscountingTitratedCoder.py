@@ -472,15 +472,11 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
 
             "You will be given two options and you should choose one.\n\n"
 
-            "On the left side of the screen, there will be an amount of money you can get right\n"
-            "now.\n\n"
+            "On the left side of the screen, there will be an amount of money you can get right now.\n\n"
 
-            "On the right side of the screen, there will be another ammount of money, but\n"
-            "you would not be able to get the money right away. Insted, you would have\n"
-            "to wait some amount of time.\n\n"
+            "On the right side of the screen, there will be another ammount of money, but you would not be able to get the money right away. Insted, you would have to wait some amount of time.\n\n"
 
-            "For example, the computer might ask you if you would like $5 now or $100\n"
-            "in 2 weeks\n\n"
+            "For example, the computer might ask you if you would like $5 now or $100 in 2 weeks.\n\n"
 
             "Press the 1 key to choose the option on the left.\n\n"
 
@@ -490,9 +486,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             "you would prefer"
         ),
         font='Times New Roman',
-        pos=(-.3, 0),
-        height=0.05,
-        wrapWidth=1.5,
+        pos=(0, 0),
+        height=0.045,
+        wrapWidth=1.6,
         color='white',
         colorSpace='rgb',
         languageStyle='LTR',
@@ -819,14 +815,18 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             immediate_text.setText(f"${immediateValue1:.0f} now\n(1)", log=False)
             delay_text.setText(f"${maxvalue} in\n{delay}\n(3)", log=False)
 
+            selected_green = [-0.55, 0.75, -0.45]  # bright green for selected option
+            normal_white = [1.0, 1.0, 1.0]
+
             if key_resp.keys == '1':
-                immediate_text.setColor('green', log=False)
-                delay_text.setColor('white', log=False)
+                immediate_text.setColor(selected_green, colorSpace='rgb', log=False)
+                delay_text.setColor(normal_white, colorSpace='rgb', log=False)
                 set_italic(immediate_text, True)
                 set_italic(delay_text, False)
+
             elif key_resp.keys == '3':
-                immediate_text.setColor('white', log=False)
-                delay_text.setColor('green', log=False)
+                immediate_text.setColor(normal_white, colorSpace='rgb', log=False)
+                delay_text.setColor(selected_green, colorSpace='rgb', log=False)
                 set_italic(immediate_text, False)
                 set_italic(delay_text, True)
 
