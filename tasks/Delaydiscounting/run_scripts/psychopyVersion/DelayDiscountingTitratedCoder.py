@@ -144,40 +144,58 @@ def setupLogging(filename):
 
 def setupWindow(expInfo=None, win=None):
     """
-    Setup the Window
-    
-    Parameters
-    ==========
-    expInfo : dict
-        Information about this experiment, created by the `setupExpInfo` function.
-    win : psychopy.visual.Window
-        Window to setup - leave as None to create a new window.
-    
-    Returns
-    ==========
-    psychopy.visual.Window
-        Window in which to run this experiment.
+    Setup the Window.
+    If a second monitor is detected, run fullscreen on monitor 2.
+    Otherwise, run fullscreen on monitor 1.
     """
+
     if win is None:
-        # if not given a window to setup, make one
+
+        # Try to detect number of monitors
+        try:
+            from screeninfo import get_monitors
+            monitors = get_monitors()
+            n_monitors = len(monitors)
+        except Exception:
+            # If screeninfo is not available, assume one monitor
+            n_monitors = 1
+
+        # PsychoPy screen numbering starts at 0
+        # screen=0 is monitor 1
+        # screen=1 is monitor 2
+        if n_monitors >= 2:
+            screen_num = 1
+        else:
+            screen_num = 0
+
         win = visual.Window(
-            size=[1915, 1075], fullscr=False, screen=0,
-            winType='pyglet', allowStencil=False,
-            monitor='testMonitor', color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb',
-            backgroundImage='', backgroundFit='none',
-            blendMode='avg', useFBO=True,
+            size=[1920, 1080],
+            fullscr=True,
+            screen=screen_num,
+            winType='pyglet',
+            allowStencil=False,
+            monitor='testMonitor',
+            color=[-1.0000, -1.0000, -1.0000],
+            colorSpace='rgb',
+            backgroundImage='',
+            backgroundFit='none',
+            blendMode='avg',
+            useFBO=True,
             units='height'
         )
+
         if expInfo is not None:
-            # store frame rate of monitor if we can measure it
             expInfo['frameRate'] = win.getActualFrameRate()
+            expInfo['n_monitors_detected'] = n_monitors
+            expInfo['screen_used'] = screen_num
+
     else:
-        # if we have a window, just set the attributes which are safe to set
         win.color = [-1.0000, -1.0000, -1.0000]
         win.colorSpace = 'rgb'
         win.backgroundImage = ''
         win.backgroundFit = 'none'
         win.units = 'height'
+
     win.mouseVisible = True
     win.hideMessage()
     return win
