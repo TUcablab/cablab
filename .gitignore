@@ -1,0 +1,21 @@
+
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.mat
+*.sav               # SPSS
+*.dta               # Stata
+*.rds
+*.RData
+
+# Exceptions - always allow documentation
+!*dictionary*
