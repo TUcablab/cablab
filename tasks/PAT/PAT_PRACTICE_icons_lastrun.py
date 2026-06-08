@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on June 05, 2026, at 14:04
+    on June 08, 2026, at 09:56
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -452,7 +452,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-16.0);
-    choicekey = keyboard.Keyboard()
+    key_resp = keyboard.Keyboard()
     
     # --- Initialize components for Routine "Player_1" ---
     Player1 = visual.ImageStim(
@@ -779,7 +779,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=-6.0);
     p1_4 = visual.TextStim(win=win, name='p1_4',
-        text='Player-1\n',
+        text='Player-2\n\n',
         font='Consolas',
         pos=(0.0,0.45), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -990,7 +990,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-15.0);
-    key_resp_5 = keyboard.Keyboard()
+    friendChoice = keyboard.Keyboard()
     text_24 = visual.TextStim(win=win, name='text_24',
         text='beach',
         font='Open Sans',
@@ -1275,19 +1275,12 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-8.0)
-    text_21 = visual.TextStim(win=win, name='text_21',
-        text='knitting',
-        font='Open Sans',
-        pos=(-0.30, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
-        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-9.0);
     
     # --- Initialize components for Routine "topnop2" ---
     Player1_6 = visual.ImageStim(
         win=win,
         name='Player1_6', 
-        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player1.jpg', mask=None, anchor='center',
+        image='C:/Users/tuu20869/Desktop/stimuli/practice/player2.jpg', mask=None, anchor='center',
         ori=0.0, pos=(0.0,0.3), size=(0.2, 0.25),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
@@ -1338,7 +1331,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=-6.0);
     p1_6 = visual.TextStim(win=win, name='p1_6',
-        text='Player-1\n',
+        text='Player-2\n',
         font='Consolas',
         pos=(0.0,0.45), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -1427,6 +1420,543 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[1.0000, 1.0000, 1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-1.0);
+    
+    # --- Initialize components for Routine "trial3" ---
+    Who_3 = visual.TextStim(win=win, name='Who_3',
+        text='Who do you want to be friends with? \n\n',
+        font='Courier New',
+        pos=(0, 0.38), height=0.04, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    text_21 = visual.TextStim(win=win, name='text_21',
+        text='Player-1\n',
+        font='Consolas',
+        pos=(-0.4,0.3), height=0.03, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-1.0);
+    text_39 = visual.TextStim(win=win, name='text_39',
+        text='Player-2\n',
+        font='Consolas',
+        pos=(0.4,0.3), height=0.03, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-2.0);
+    Player1demo_3 = visual.ImageStim(
+        win=win,
+        name='Player1demo_3', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player1.jpg', mask=None, anchor='center',
+        ori=0.0, pos=(-0.4,0.13), size=(0.2, 0.25),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-3.0)
+    Player2demo_3 = visual.ImageStim(
+        win=win,
+        name='Player2demo_3', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player2.jpg', mask=None, anchor='center',
+        ori=0.0, pos=(0.4,0.13), size=(0.2, 0.25),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-4.0)
+    writingpic_3 = visual.ImageStim(
+        win=win,
+        name='writingpic_3', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/writing.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.5, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-5.0)
+    text_40 = visual.TextStim(win=win, name='text_40',
+        text='writing\n\n',
+        font='Open Sans',
+        pos=(-0.5, -0.08), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-6.0);
+    instruments_3 = visual.ImageStim(
+        win=win,
+        name='instruments_3', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/instruments.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.40, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-7.0)
+    text_41 = visual.TextStim(win=win, name='text_41',
+        text='instruments',
+        font='Open Sans',
+        pos=(-0.40, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-8.0);
+    knitting_3 = visual.ImageStim(
+        win=win,
+        name='knitting_3', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/knitting.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.30, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-9.0)
+    text_42 = visual.TextStim(win=win, name='text_42',
+        text='knitting',
+        font='Open Sans',
+        pos=(-0.30, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-10.0);
+    beachpic_3 = visual.ImageStim(
+        win=win,
+        name='beachpic_3', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/beach.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.3, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-11.0)
+    writingpic2_3 = visual.ImageStim(
+        win=win,
+        name='writingpic2_3', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/writing.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.4, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-12.0)
+    text_43 = visual.TextStim(win=win, name='text_43',
+        text='writing\n',
+        font='Open Sans',
+        pos=(0.4, -0.08), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-13.0);
+    cycling_3 = visual.ImageStim(
+        win=win,
+        name='cycling_3', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/cycling.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.5, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-14.0)
+    text_44 = visual.TextStim(win=win, name='text_44',
+        text='cycling',
+        font='Open Sans',
+        pos=(0.5, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-15.0);
+    friendChoice_2 = keyboard.Keyboard()
+    text_45 = visual.TextStim(win=win, name='text_45',
+        text='beach',
+        font='Open Sans',
+        pos=(0.30, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-17.0);
+    
+    # --- Initialize components for Routine "player1_3" ---
+    p1_9 = visual.TextStim(win=win, name='p1_9',
+        text='Player-1\n',
+        font='Consolas',
+        pos=(-0.4,0.3), height=0.03, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    Player1_4 = visual.ImageStim(
+        win=win,
+        name='Player1_4', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player1.jpg', mask=None, anchor='center',
+        ori=0.0, pos=(-0.4,0.13), size=(0.2, 0.25),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-1.0)
+    writingpic_4 = visual.ImageStim(
+        win=win,
+        name='writingpic_4', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/writing.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.5, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-2.0)
+    text_46 = visual.TextStim(win=win, name='text_46',
+        text='writing\n\n',
+        font='Open Sans',
+        pos=(-0.5, -0.08), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-3.0);
+    instruments_4 = visual.ImageStim(
+        win=win,
+        name='instruments_4', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/instruments.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.40, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-4.0)
+    text_47 = visual.TextStim(win=win, name='text_47',
+        text='instruments',
+        font='Open Sans',
+        pos=(-0.40, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-5.0);
+    knitting_4 = visual.ImageStim(
+        win=win,
+        name='knitting_4', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/knitting.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.30, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-6.0)
+    yes1_5 = visual.ImageStim(
+        win=win,
+        name='yes1_5', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/feedback/Thumbs_up.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.4,0.13), size=(0.3, 0.3),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-7.0)
+    text_48 = visual.TextStim(win=win, name='text_48',
+        text='movies',
+        font='Open Sans',
+        pos=(-0.40, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-8.0);
+    text_49 = visual.TextStim(win=win, name='text_49',
+        text='knitting',
+        font='Open Sans',
+        pos=(-0.30, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-9.0);
+    
+    # --- Initialize components for Routine "topnsp1" ---
+    Player1_7 = visual.ImageStim(
+        win=win,
+        name='Player1_7', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player1.jpg', mask=None, anchor='center',
+        ori=0.0, pos=(0.0,0.3), size=(0.2, 0.25),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=0.0)
+    cook_6 = visual.ImageStim(
+        win=win,
+        name='cook_6', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/cooking.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.13, 0.14), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-1.0)
+    var_11 = visual.TextStim(win=win, name='var_11',
+        text='cooking\n\n',
+        font='Open Sans',
+        pos=(-0.13, 0.095), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-2.0);
+    movie_8 = visual.ImageStim(
+        win=win,
+        name='movie_8', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/movies.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.0, 0.14), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-3.0)
+    var_12 = visual.TextStim(win=win, name='var_12',
+        text='dancing',
+        font='Open Sans',
+        pos=(0.13, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-4.0);
+    dance_6 = visual.ImageStim(
+        win=win,
+        name='dance_6', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/dancing.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.13, 0.14), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-5.0)
+    text_34 = visual.TextStim(win=win, name='text_34',
+        text='movies',
+        font='Open Sans',
+        pos=(0.0, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-6.0);
+    p1_7 = visual.TextStim(win=win, name='p1_7',
+        text='Player-1\n',
+        font='Consolas',
+        pos=(0.0,0.45), height=0.03, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-7.0);
+    you_5 = visual.TextStim(win=win, name='you_5',
+        text='You',
+        font='Consolas',
+        pos=(0.0,0.07), height=0.03, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-8.0);
+    chatting_5 = visual.ImageStim(
+        win=win,
+        name='chatting_5', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/chatting.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.13, -0.2), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-9.0)
+    chat_5 = visual.TextStim(win=win, name='chat_5',
+        text='chatting',
+        font='Open Sans',
+        pos=(-0.13, -0.23), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-10.0);
+    sports_5 = visual.ImageStim(
+        win=win,
+        name='sports_5', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/sports.png', mask=None, anchor='center',
+        ori=0.0, pos=(0, -0.2), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-11.0)
+    sport_5 = visual.TextStim(win=win, name='sport_5',
+        text='sports',
+        font='Open Sans',
+        pos=(0, -0.23), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-12.0);
+    beach_5 = visual.ImageStim(
+        win=win,
+        name='beach_5', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/beach.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.13, -0.2), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-13.0)
+    beach_txt_5 = visual.TextStim(win=win, name='beach_txt_5',
+        text='beach',
+        font='Open Sans',
+        pos=(0.13, -0.23), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-14.0);
+    participantpic_3 = visual.ImageStim(
+        win=win,
+        name='participantpic_3', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player1.jpg', mask=None, anchor='center',
+        ori=0.0, pos=(0.0,-0.073), size=(0.15, 0.20),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-15.0)
+    notseen = visual.ImageStim(
+        win=win,
+        name='notseen', 
+        image='C:/Users/tuu20869/Desktop/stimuli/feedback/grey_box.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.0,-0.073), size=(0.2, 0.3),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-16.0)
+    
+    # --- Initialize components for Routine "player2_3" ---
+    text_50 = visual.TextStim(win=win, name='text_50',
+        text='Player-2\n',
+        font='Consolas',
+        pos=(0.4,0.3), height=0.03, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=0.0);
+    player_4 = visual.ImageStim(
+        win=win,
+        name='player_4', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player2.jpg', mask=None, anchor='center',
+        ori=0.0, pos=(0.4,0.13), size=(0.2, 0.25),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-1.0)
+    beachpic_4 = visual.ImageStim(
+        win=win,
+        name='beachpic_4', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/beach.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.3, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-2.0)
+    text_51 = visual.TextStim(win=win, name='text_51',
+        text='beach',
+        font='Open Sans',
+        pos=(0.30, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-3.0);
+    writingpic2_4 = visual.ImageStim(
+        win=win,
+        name='writingpic2_4', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/writing.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.4, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-4.0)
+    text_52 = visual.TextStim(win=win, name='text_52',
+        text='writing\n',
+        font='Open Sans',
+        pos=(0.4, -0.08), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-5.0);
+    cycling_4 = visual.ImageStim(
+        win=win,
+        name='cycling_4', 
+        image='C:/Users/tuu20869/Desktop/stimuli/icons/cycling.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.5, -0.03), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-6.0)
+    text_53 = visual.TextStim(win=win, name='text_53',
+        text='cycling',
+        font='Open Sans',
+        pos=(0.5, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-7.0);
+    yes1_6 = visual.ImageStim(
+        win=win,
+        name='yes1_6', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/feedback/Thumbs_up.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.4,0.13), size=(0.3, 0.3),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-8.0)
+    
+    # --- Initialize components for Routine "topnsp2" ---
+    Player1_8 = visual.ImageStim(
+        win=win,
+        name='Player1_8', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player1.jpg', mask=None, anchor='center',
+        ori=0.0, pos=(0.0,0.3), size=(0.2, 0.25),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=0.0)
+    cook_7 = visual.ImageStim(
+        win=win,
+        name='cook_7', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/cooking.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.13, 0.14), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-1.0)
+    var_13 = visual.TextStim(win=win, name='var_13',
+        text='cooking\n\n',
+        font='Open Sans',
+        pos=(-0.13, 0.095), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-2.0);
+    movie_9 = visual.ImageStim(
+        win=win,
+        name='movie_9', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/movies.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.0, 0.14), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-3.0)
+    var_14 = visual.TextStim(win=win, name='var_14',
+        text='dancing',
+        font='Open Sans',
+        pos=(0.13, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-4.0);
+    dance_7 = visual.ImageStim(
+        win=win,
+        name='dance_7', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/dancing.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.13, 0.14), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-5.0)
+    text_35 = visual.TextStim(win=win, name='text_35',
+        text='movies',
+        font='Open Sans',
+        pos=(0.0, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-6.0);
+    p1_8 = visual.TextStim(win=win, name='p1_8',
+        text='Player-1\n',
+        font='Consolas',
+        pos=(0.0,0.45), height=0.03, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-7.0);
+    you_6 = visual.TextStim(win=win, name='you_6',
+        text='You',
+        font='Consolas',
+        pos=(0.0,0.07), height=0.03, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-8.0);
+    chatting_6 = visual.ImageStim(
+        win=win,
+        name='chatting_6', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/chatting.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.13, -0.2), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-9.0)
+    chat_6 = visual.TextStim(win=win, name='chat_6',
+        text='chatting',
+        font='Open Sans',
+        pos=(-0.13, -0.23), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-10.0);
+    sports_6 = visual.ImageStim(
+        win=win,
+        name='sports_6', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/sports.png', mask=None, anchor='center',
+        ori=0.0, pos=(0, -0.2), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-11.0)
+    sport_6 = visual.TextStim(win=win, name='sport_6',
+        text='sports',
+        font='Open Sans',
+        pos=(0, -0.23), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-12.0);
+    beach_6 = visual.ImageStim(
+        win=win,
+        name='beach_6', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/icons/beach.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.13, -0.2), size=(0.04, 0.04),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-13.0)
+    beach_txt_6 = visual.TextStim(win=win, name='beach_txt_6',
+        text='beach',
+        font='Open Sans',
+        pos=(0.13, -0.23), height=0.01, wrapWidth=None, ori=0.0, 
+        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-14.0);
+    participantpic_4 = visual.ImageStim(
+        win=win,
+        name='participantpic_4', 
+        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player1.jpg', mask=None, anchor='center',
+        ori=0.0, pos=(0.0,-0.073), size=(0.15, 0.20),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-15.0)
+    notseen2 = visual.ImageStim(
+        win=win,
+        name='notseen2', 
+        image='C:/Users/tuu20869/Desktop/stimuli/feedback/grey_box.png', mask=None, anchor='center',
+        ori=0.0, pos=(0.0,-0.073), size=(0.2, 0.3),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-16.0)
     
     # create some handy timers
     if globalClock is None:
@@ -1559,13 +2089,11 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('ChoiceRoutine.started', globalClock.getTime())
-    # Run 'Begin Routine' code from code_6
-    print("Routine started")
-    choicekey.keys = []
-    choicekey.rt = []
-    _choicekey_allKeys = []
+    key_resp.keys = []
+    key_resp.rt = []
+    _key_resp_allKeys = []
     # keep track of which components have finished
-    ChoiceRoutineComponents = [Who, text_2, text_3, Player1demo, Player2demo, cooking, text_4, movies, text_5, dancing, text_6, fashion, text_7, movie, text_8, writing, text_9, choicekey]
+    ChoiceRoutineComponents = [Who, text_2, text_3, Player1demo, Player2demo, cooking, text_4, movies, text_5, dancing, text_6, fashion, text_7, movie, text_8, writing, text_9, key_resp]
     for thisComponent in ChoiceRoutineComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1928,31 +2456,31 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update params
             pass
         
-        # *choicekey* updates
+        # *key_resp* updates
         waitOnFlip = False
         
-        # if choicekey is starting this frame...
-        if choicekey.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # if key_resp is starting this frame...
+        if key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            choicekey.frameNStart = frameN  # exact frame index
-            choicekey.tStart = t  # local t and not account for scr refresh
-            choicekey.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(choicekey, 'tStartRefresh')  # time at next scr refresh
+            key_resp.frameNStart = frameN  # exact frame index
+            key_resp.tStart = t  # local t and not account for scr refresh
+            key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'choicekey.started')
+            thisExp.timestampOnFlip(win, 'key_resp.started')
             # update status
-            choicekey.status = STARTED
+            key_resp.status = STARTED
             # keyboard checking is just starting
             waitOnFlip = True
-            win.callOnFlip(choicekey.clock.reset)  # t=0 on next screen flip
-            win.callOnFlip(choicekey.clearEvents, eventType='keyboard')  # clear events on next screen flip
-        if choicekey.status == STARTED and not waitOnFlip:
-            theseKeys = choicekey.getKeys(keyList=[y,n], ignoreKeys=["escape"], waitRelease=False)
-            _choicekey_allKeys.extend(theseKeys)
-            if len(_choicekey_allKeys):
-                choicekey.keys = _choicekey_allKeys[-1].name  # just the last key pressed
-                choicekey.rt = _choicekey_allKeys[-1].rt
-                choicekey.duration = _choicekey_allKeys[-1].duration
+            win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if key_resp.status == STARTED and not waitOnFlip:
+            theseKeys = key_resp.getKeys(keyList=['y','n','left','right','space'], ignoreKeys=["escape"], waitRelease=False)
+            _key_resp_allKeys.extend(theseKeys)
+            if len(_key_resp_allKeys):
+                key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+                key_resp.rt = _key_resp_allKeys[-1].rt
+                key_resp.duration = _key_resp_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
         
@@ -1982,20 +2510,13 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     thisExp.addData('ChoiceRoutine.stopped', globalClock.getTime())
-    # Run 'End Routine' code from code_5
-    if choicekey.keys == 'y':
-        choice = y
-    elif choicekey.keys == 'n':
-        choice = n
-    # Run 'End Routine' code from code_6
-    print("Key =", choicekey.keys)
     # check responses
-    if choicekey.keys in ['', [], None]:  # No response was made
-        choicekey.keys = None
-    thisExp.addData('choicekey.keys',choicekey.keys)
-    if choicekey.keys != None:  # we had a response
-        thisExp.addData('choicekey.rt', choicekey.rt)
-        thisExp.addData('choicekey.duration', choicekey.duration)
+    if key_resp.keys in ['', [], None]:  # No response was made
+        key_resp.keys = None
+    thisExp.addData('key_resp.keys',key_resp.keys)
+    if key_resp.keys != None:  # we had a response
+        thisExp.addData('key_resp.rt', key_resp.rt)
+        thisExp.addData('key_resp.duration', key_resp.duration)
     thisExp.nextEntry()
     # the Routine "ChoiceRoutine" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2005,7 +2526,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # update component parameters for each repeat
     thisExp.addData('Player_1.started', globalClock.getTime())
     # Run 'Begin Routine' code from code
-    if choice != y:
+    if key_resp.keys != 'n':
         continueRoutine = False
     # keep track of which components have finished
     Player_1Components = [Player1, cook, var_4, movie_2, var_5, dance, text, p1, yes1]
@@ -2248,7 +2769,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # update component parameters for each repeat
     thisExp.addData('topyesp1.started', globalClock.getTime())
     # Run 'Begin Routine' code from code_2
-    if choice != y:
+    if key_resp.keys != 'n':
         continueRoutine = False
     # keep track of which components have finished
     topyesp1Components = [Player1_2, cook_2, var, movie_4, var_6, dance_2, text_13, p1_2, you, chatting, chat, sports, sport, beach, beach_txt, participantpic, yess]
@@ -2651,7 +3172,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # update component parameters for each repeat
     thisExp.addData('Player_2.started', globalClock.getTime())
     # Run 'Begin Routine' code from code_3
-    if choice != n:
+    if key_resp.keys != 'y':
         continueRoutine = False
     # keep track of which components have finished
     Player_2Components = [player, fashion_2, text_10, movie_3, text_11, writing_2, text_12, yes1_2, text_14]
@@ -2894,7 +3415,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # update component parameters for each repeat
     thisExp.addData('topyesp2.started', globalClock.getTime())
     # Run 'Begin Routine' code from code_4
-    if choice != n:
+    if key_resp.keys != 'y':
         continueRoutine = False
     # keep track of which components have finished
     topyesp2Components = [Player2_4, fashion_3, var_2, movie_5, var_7, writ, text_31, p1_4, you_2, chatting_2, chat_2, sports_2, sport_2, beach_2, participantpic_5, beach_txt_2, yes]
@@ -3396,11 +3917,11 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('trial2.started', globalClock.getTime())
-    key_resp_5.keys = []
-    key_resp_5.rt = []
-    _key_resp_5_allKeys = []
+    friendChoice.keys = []
+    friendChoice.rt = []
+    _friendChoice_allKeys = []
     # keep track of which components have finished
-    trial2Components = [Who_2, text_15, text_17, Player1demo_2, Player2demo_2, writingpic, text_18, instruments, text_20, knitting, text_19, beachpic, writingpic2, text_22, cycling, text_23, key_resp_5, text_24]
+    trial2Components = [Who_2, text_15, text_17, Player1demo_2, Player2demo_2, writingpic, text_18, instruments, text_20, knitting, text_19, beachpic, writingpic2, text_22, cycling, text_23, friendChoice, text_24]
     for thisComponent in trial2Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -3743,31 +4264,31 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update params
             pass
         
-        # *key_resp_5* updates
+        # *friendChoice* updates
         waitOnFlip = False
         
-        # if key_resp_5 is starting this frame...
-        if key_resp_5.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # if friendChoice is starting this frame...
+        if friendChoice.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            key_resp_5.frameNStart = frameN  # exact frame index
-            key_resp_5.tStart = t  # local t and not account for scr refresh
-            key_resp_5.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(key_resp_5, 'tStartRefresh')  # time at next scr refresh
+            friendChoice.frameNStart = frameN  # exact frame index
+            friendChoice.tStart = t  # local t and not account for scr refresh
+            friendChoice.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(friendChoice, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'key_resp_5.started')
+            thisExp.timestampOnFlip(win, 'friendChoice.started')
             # update status
-            key_resp_5.status = STARTED
+            friendChoice.status = STARTED
             # keyboard checking is just starting
             waitOnFlip = True
-            win.callOnFlip(key_resp_5.clock.reset)  # t=0 on next screen flip
-            win.callOnFlip(key_resp_5.clearEvents, eventType='keyboard')  # clear events on next screen flip
-        if key_resp_5.status == STARTED and not waitOnFlip:
-            theseKeys = key_resp_5.getKeys(keyList=['y','n','left','right','space'], ignoreKeys=["escape"], waitRelease=False)
-            _key_resp_5_allKeys.extend(theseKeys)
-            if len(_key_resp_5_allKeys):
-                key_resp_5.keys = _key_resp_5_allKeys[-1].name  # just the last key pressed
-                key_resp_5.rt = _key_resp_5_allKeys[-1].rt
-                key_resp_5.duration = _key_resp_5_allKeys[-1].duration
+            win.callOnFlip(friendChoice.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(friendChoice.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if friendChoice.status == STARTED and not waitOnFlip:
+            theseKeys = friendChoice.getKeys(keyList=['y','n','left','right','space'], ignoreKeys=["escape"], waitRelease=False)
+            _friendChoice_allKeys.extend(theseKeys)
+            if len(_friendChoice_allKeys):
+                friendChoice.keys = _friendChoice_allKeys[-1].name  # just the last key pressed
+                friendChoice.rt = _friendChoice_allKeys[-1].rt
+                friendChoice.duration = _friendChoice_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
         
@@ -3818,12 +4339,12 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             thisComponent.setAutoDraw(False)
     thisExp.addData('trial2.stopped', globalClock.getTime())
     # check responses
-    if key_resp_5.keys in ['', [], None]:  # No response was made
-        key_resp_5.keys = None
-    thisExp.addData('key_resp_5.keys',key_resp_5.keys)
-    if key_resp_5.keys != None:  # we had a response
-        thisExp.addData('key_resp_5.rt', key_resp_5.rt)
-        thisExp.addData('key_resp_5.duration', key_resp_5.duration)
+    if friendChoice.keys in ['', [], None]:  # No response was made
+        friendChoice.keys = None
+    thisExp.addData('friendChoice.keys',friendChoice.keys)
+    if friendChoice.keys != None:  # we had a response
+        thisExp.addData('friendChoice.rt', friendChoice.rt)
+        thisExp.addData('friendChoice.duration', friendChoice.duration)
     thisExp.nextEntry()
     # the Routine "trial2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -3832,6 +4353,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('Play1_2.started', globalClock.getTime())
+    # Run 'Begin Routine' code from code_5
+    if friendChoice.keys != 'n':
+        continueRoutine = False
     # keep track of which components have finished
     Play1_2Components = [p1_3, Player1_3, writingpic_2, text_28, instruments_2, text_29, knitting_2, yes1_4, text_37, text_38]
     for thisComponent in Play1_2Components:
@@ -4092,6 +4616,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('topnop1.started', globalClock.getTime())
+    # Run 'Begin Routine' code from code_6
+    if friendChoice.keys != 'n':
+        continueRoutine = False
     # keep track of which components have finished
     topnop1Components = [Player1_5, writt, var_3, piano, var_8, knittingg, text_32, p1_5, you_3, chatting_3, chat_3, sports_3, sport_3, beach_3, beach_txt_3, participantpic_6, no_3]
     for thisComponent in topnop1Components:
@@ -4492,8 +5019,11 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('play2_2.started', globalClock.getTime())
+    # Run 'Begin Routine' code from code_7
+    if friendChoice.keys != 'y':
+        continueRoutine = False
     # keep track of which components have finished
-    play2_2Components = [text_27, player_3, beachpic_2, text_25, writingpic2_2, text_26, cycling_2, text_30, yes1_3, text_21]
+    play2_2Components = [text_27, player_3, beachpic_2, text_25, writingpic2_2, text_26, cycling_2, text_30, yes1_3]
     for thisComponent in play2_2Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -4699,26 +5229,6 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update params
             pass
         
-        # *text_21* updates
-        
-        # if text_21 is starting this frame...
-        if text_21.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_21.frameNStart = frameN  # exact frame index
-            text_21.tStart = t  # local t and not account for scr refresh
-            text_21.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_21, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'text_21.started')
-            # update status
-            text_21.status = STARTED
-            text_21.setAutoDraw(True)
-        
-        # if text_21 is active this frame...
-        if text_21.status == STARTED:
-            # update params
-            pass
-        
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
             thisExp.status = FINISHED
@@ -4752,6 +5262,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('topnop2.started', globalClock.getTime())
+    # Run 'Begin Routine' code from code_8
+    if friendChoice.keys != 'y':
+        continueRoutine = False
     # keep track of which components have finished
     topnop2Components = [Player1_6, cook_5, var_9, movie_7, var_10, dance_5, text_33, p1_6, you_4, chatting_4, chat_4, sports_4, sport_4, beach_4, beach_txt_4, participantpic_2, no_4]
     for thisComponent in topnop2Components:
@@ -5246,6 +5759,1754 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             thisComponent.setAutoDraw(False)
     thisExp.addData('wait_2.stopped', globalClock.getTime())
     # the Routine "wait_2" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "trial3" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('trial3.started', globalClock.getTime())
+    friendChoice_2.keys = []
+    friendChoice_2.rt = []
+    _friendChoice_2_allKeys = []
+    # keep track of which components have finished
+    trial3Components = [Who_3, text_21, text_39, Player1demo_3, Player2demo_3, writingpic_3, text_40, instruments_3, text_41, knitting_3, text_42, beachpic_3, writingpic2_3, text_43, cycling_3, text_44, friendChoice_2, text_45]
+    for thisComponent in trial3Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "trial3" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *Who_3* updates
+        
+        # if Who_3 is starting this frame...
+        if Who_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Who_3.frameNStart = frameN  # exact frame index
+            Who_3.tStart = t  # local t and not account for scr refresh
+            Who_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Who_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Who_3.started')
+            # update status
+            Who_3.status = STARTED
+            Who_3.setAutoDraw(True)
+        
+        # if Who_3 is active this frame...
+        if Who_3.status == STARTED:
+            # update params
+            pass
+        
+        # *text_21* updates
+        
+        # if text_21 is starting this frame...
+        if text_21.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_21.frameNStart = frameN  # exact frame index
+            text_21.tStart = t  # local t and not account for scr refresh
+            text_21.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_21, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_21.started')
+            # update status
+            text_21.status = STARTED
+            text_21.setAutoDraw(True)
+        
+        # if text_21 is active this frame...
+        if text_21.status == STARTED:
+            # update params
+            pass
+        
+        # *text_39* updates
+        
+        # if text_39 is starting this frame...
+        if text_39.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_39.frameNStart = frameN  # exact frame index
+            text_39.tStart = t  # local t and not account for scr refresh
+            text_39.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_39, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_39.started')
+            # update status
+            text_39.status = STARTED
+            text_39.setAutoDraw(True)
+        
+        # if text_39 is active this frame...
+        if text_39.status == STARTED:
+            # update params
+            pass
+        
+        # *Player1demo_3* updates
+        
+        # if Player1demo_3 is starting this frame...
+        if Player1demo_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Player1demo_3.frameNStart = frameN  # exact frame index
+            Player1demo_3.tStart = t  # local t and not account for scr refresh
+            Player1demo_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Player1demo_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Player1demo_3.started')
+            # update status
+            Player1demo_3.status = STARTED
+            Player1demo_3.setAutoDraw(True)
+        
+        # if Player1demo_3 is active this frame...
+        if Player1demo_3.status == STARTED:
+            # update params
+            pass
+        
+        # *Player2demo_3* updates
+        
+        # if Player2demo_3 is starting this frame...
+        if Player2demo_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Player2demo_3.frameNStart = frameN  # exact frame index
+            Player2demo_3.tStart = t  # local t and not account for scr refresh
+            Player2demo_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Player2demo_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Player2demo_3.started')
+            # update status
+            Player2demo_3.status = STARTED
+            Player2demo_3.setAutoDraw(True)
+        
+        # if Player2demo_3 is active this frame...
+        if Player2demo_3.status == STARTED:
+            # update params
+            pass
+        
+        # *writingpic_3* updates
+        
+        # if writingpic_3 is starting this frame...
+        if writingpic_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            writingpic_3.frameNStart = frameN  # exact frame index
+            writingpic_3.tStart = t  # local t and not account for scr refresh
+            writingpic_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(writingpic_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'writingpic_3.started')
+            # update status
+            writingpic_3.status = STARTED
+            writingpic_3.setAutoDraw(True)
+        
+        # if writingpic_3 is active this frame...
+        if writingpic_3.status == STARTED:
+            # update params
+            pass
+        
+        # *text_40* updates
+        
+        # if text_40 is starting this frame...
+        if text_40.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_40.frameNStart = frameN  # exact frame index
+            text_40.tStart = t  # local t and not account for scr refresh
+            text_40.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_40, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_40.started')
+            # update status
+            text_40.status = STARTED
+            text_40.setAutoDraw(True)
+        
+        # if text_40 is active this frame...
+        if text_40.status == STARTED:
+            # update params
+            pass
+        
+        # *instruments_3* updates
+        
+        # if instruments_3 is starting this frame...
+        if instruments_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            instruments_3.frameNStart = frameN  # exact frame index
+            instruments_3.tStart = t  # local t and not account for scr refresh
+            instruments_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(instruments_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'instruments_3.started')
+            # update status
+            instruments_3.status = STARTED
+            instruments_3.setAutoDraw(True)
+        
+        # if instruments_3 is active this frame...
+        if instruments_3.status == STARTED:
+            # update params
+            pass
+        
+        # *text_41* updates
+        
+        # if text_41 is starting this frame...
+        if text_41.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_41.frameNStart = frameN  # exact frame index
+            text_41.tStart = t  # local t and not account for scr refresh
+            text_41.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_41, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_41.started')
+            # update status
+            text_41.status = STARTED
+            text_41.setAutoDraw(True)
+        
+        # if text_41 is active this frame...
+        if text_41.status == STARTED:
+            # update params
+            pass
+        
+        # *knitting_3* updates
+        
+        # if knitting_3 is starting this frame...
+        if knitting_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            knitting_3.frameNStart = frameN  # exact frame index
+            knitting_3.tStart = t  # local t and not account for scr refresh
+            knitting_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(knitting_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'knitting_3.started')
+            # update status
+            knitting_3.status = STARTED
+            knitting_3.setAutoDraw(True)
+        
+        # if knitting_3 is active this frame...
+        if knitting_3.status == STARTED:
+            # update params
+            pass
+        
+        # *text_42* updates
+        
+        # if text_42 is starting this frame...
+        if text_42.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_42.frameNStart = frameN  # exact frame index
+            text_42.tStart = t  # local t and not account for scr refresh
+            text_42.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_42, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_42.started')
+            # update status
+            text_42.status = STARTED
+            text_42.setAutoDraw(True)
+        
+        # if text_42 is active this frame...
+        if text_42.status == STARTED:
+            # update params
+            pass
+        
+        # *beachpic_3* updates
+        
+        # if beachpic_3 is starting this frame...
+        if beachpic_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            beachpic_3.frameNStart = frameN  # exact frame index
+            beachpic_3.tStart = t  # local t and not account for scr refresh
+            beachpic_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(beachpic_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'beachpic_3.started')
+            # update status
+            beachpic_3.status = STARTED
+            beachpic_3.setAutoDraw(True)
+        
+        # if beachpic_3 is active this frame...
+        if beachpic_3.status == STARTED:
+            # update params
+            pass
+        
+        # *writingpic2_3* updates
+        
+        # if writingpic2_3 is starting this frame...
+        if writingpic2_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            writingpic2_3.frameNStart = frameN  # exact frame index
+            writingpic2_3.tStart = t  # local t and not account for scr refresh
+            writingpic2_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(writingpic2_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'writingpic2_3.started')
+            # update status
+            writingpic2_3.status = STARTED
+            writingpic2_3.setAutoDraw(True)
+        
+        # if writingpic2_3 is active this frame...
+        if writingpic2_3.status == STARTED:
+            # update params
+            pass
+        
+        # *text_43* updates
+        
+        # if text_43 is starting this frame...
+        if text_43.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_43.frameNStart = frameN  # exact frame index
+            text_43.tStart = t  # local t and not account for scr refresh
+            text_43.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_43, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_43.started')
+            # update status
+            text_43.status = STARTED
+            text_43.setAutoDraw(True)
+        
+        # if text_43 is active this frame...
+        if text_43.status == STARTED:
+            # update params
+            pass
+        
+        # *cycling_3* updates
+        
+        # if cycling_3 is starting this frame...
+        if cycling_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            cycling_3.frameNStart = frameN  # exact frame index
+            cycling_3.tStart = t  # local t and not account for scr refresh
+            cycling_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(cycling_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'cycling_3.started')
+            # update status
+            cycling_3.status = STARTED
+            cycling_3.setAutoDraw(True)
+        
+        # if cycling_3 is active this frame...
+        if cycling_3.status == STARTED:
+            # update params
+            pass
+        
+        # *text_44* updates
+        
+        # if text_44 is starting this frame...
+        if text_44.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_44.frameNStart = frameN  # exact frame index
+            text_44.tStart = t  # local t and not account for scr refresh
+            text_44.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_44, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_44.started')
+            # update status
+            text_44.status = STARTED
+            text_44.setAutoDraw(True)
+        
+        # if text_44 is active this frame...
+        if text_44.status == STARTED:
+            # update params
+            pass
+        
+        # *friendChoice_2* updates
+        waitOnFlip = False
+        
+        # if friendChoice_2 is starting this frame...
+        if friendChoice_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            friendChoice_2.frameNStart = frameN  # exact frame index
+            friendChoice_2.tStart = t  # local t and not account for scr refresh
+            friendChoice_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(friendChoice_2, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'friendChoice_2.started')
+            # update status
+            friendChoice_2.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(friendChoice_2.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(friendChoice_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if friendChoice_2.status == STARTED and not waitOnFlip:
+            theseKeys = friendChoice_2.getKeys(keyList=['y','n','left','right','space'], ignoreKeys=["escape"], waitRelease=False)
+            _friendChoice_2_allKeys.extend(theseKeys)
+            if len(_friendChoice_2_allKeys):
+                friendChoice_2.keys = _friendChoice_2_allKeys[-1].name  # just the last key pressed
+                friendChoice_2.rt = _friendChoice_2_allKeys[-1].rt
+                friendChoice_2.duration = _friendChoice_2_allKeys[-1].duration
+                # a response ends the routine
+                continueRoutine = False
+        
+        # *text_45* updates
+        
+        # if text_45 is starting this frame...
+        if text_45.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_45.frameNStart = frameN  # exact frame index
+            text_45.tStart = t  # local t and not account for scr refresh
+            text_45.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_45, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_45.started')
+            # update status
+            text_45.status = STARTED
+            text_45.setAutoDraw(True)
+        
+        # if text_45 is active this frame...
+        if text_45.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, inputs=inputs, win=win)
+            return
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in trial3Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "trial3" ---
+    for thisComponent in trial3Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('trial3.stopped', globalClock.getTime())
+    # check responses
+    if friendChoice_2.keys in ['', [], None]:  # No response was made
+        friendChoice_2.keys = None
+    thisExp.addData('friendChoice_2.keys',friendChoice_2.keys)
+    if friendChoice_2.keys != None:  # we had a response
+        thisExp.addData('friendChoice_2.rt', friendChoice_2.rt)
+        thisExp.addData('friendChoice_2.duration', friendChoice_2.duration)
+    thisExp.nextEntry()
+    # the Routine "trial3" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "player1_3" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('player1_3.started', globalClock.getTime())
+    # Run 'Begin Routine' code from code_9
+    if friendChoice_2.keys != 'n':
+        continueRoutine = False
+    # keep track of which components have finished
+    player1_3Components = [p1_9, Player1_4, writingpic_4, text_46, instruments_4, text_47, knitting_4, yes1_5, text_48, text_49]
+    for thisComponent in player1_3Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "player1_3" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        # is it time to end the Routine? (based on local clock)
+        if tThisFlip > 1.5-frameTolerance:
+            continueRoutine = False
+        
+        # *p1_9* updates
+        
+        # if p1_9 is starting this frame...
+        if p1_9.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            p1_9.frameNStart = frameN  # exact frame index
+            p1_9.tStart = t  # local t and not account for scr refresh
+            p1_9.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(p1_9, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'p1_9.started')
+            # update status
+            p1_9.status = STARTED
+            p1_9.setAutoDraw(True)
+        
+        # if p1_9 is active this frame...
+        if p1_9.status == STARTED:
+            # update params
+            pass
+        
+        # *Player1_4* updates
+        
+        # if Player1_4 is starting this frame...
+        if Player1_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Player1_4.frameNStart = frameN  # exact frame index
+            Player1_4.tStart = t  # local t and not account for scr refresh
+            Player1_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Player1_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Player1_4.started')
+            # update status
+            Player1_4.status = STARTED
+            Player1_4.setAutoDraw(True)
+        
+        # if Player1_4 is active this frame...
+        if Player1_4.status == STARTED:
+            # update params
+            pass
+        
+        # *writingpic_4* updates
+        
+        # if writingpic_4 is starting this frame...
+        if writingpic_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            writingpic_4.frameNStart = frameN  # exact frame index
+            writingpic_4.tStart = t  # local t and not account for scr refresh
+            writingpic_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(writingpic_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'writingpic_4.started')
+            # update status
+            writingpic_4.status = STARTED
+            writingpic_4.setAutoDraw(True)
+        
+        # if writingpic_4 is active this frame...
+        if writingpic_4.status == STARTED:
+            # update params
+            pass
+        
+        # *text_46* updates
+        
+        # if text_46 is starting this frame...
+        if text_46.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_46.frameNStart = frameN  # exact frame index
+            text_46.tStart = t  # local t and not account for scr refresh
+            text_46.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_46, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_46.started')
+            # update status
+            text_46.status = STARTED
+            text_46.setAutoDraw(True)
+        
+        # if text_46 is active this frame...
+        if text_46.status == STARTED:
+            # update params
+            pass
+        
+        # *instruments_4* updates
+        
+        # if instruments_4 is starting this frame...
+        if instruments_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            instruments_4.frameNStart = frameN  # exact frame index
+            instruments_4.tStart = t  # local t and not account for scr refresh
+            instruments_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(instruments_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'instruments_4.started')
+            # update status
+            instruments_4.status = STARTED
+            instruments_4.setAutoDraw(True)
+        
+        # if instruments_4 is active this frame...
+        if instruments_4.status == STARTED:
+            # update params
+            pass
+        
+        # *text_47* updates
+        
+        # if text_47 is starting this frame...
+        if text_47.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_47.frameNStart = frameN  # exact frame index
+            text_47.tStart = t  # local t and not account for scr refresh
+            text_47.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_47, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_47.started')
+            # update status
+            text_47.status = STARTED
+            text_47.setAutoDraw(True)
+        
+        # if text_47 is active this frame...
+        if text_47.status == STARTED:
+            # update params
+            pass
+        
+        # *knitting_4* updates
+        
+        # if knitting_4 is starting this frame...
+        if knitting_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            knitting_4.frameNStart = frameN  # exact frame index
+            knitting_4.tStart = t  # local t and not account for scr refresh
+            knitting_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(knitting_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'knitting_4.started')
+            # update status
+            knitting_4.status = STARTED
+            knitting_4.setAutoDraw(True)
+        
+        # if knitting_4 is active this frame...
+        if knitting_4.status == STARTED:
+            # update params
+            pass
+        
+        # *yes1_5* updates
+        
+        # if yes1_5 is starting this frame...
+        if yes1_5.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            yes1_5.frameNStart = frameN  # exact frame index
+            yes1_5.tStart = t  # local t and not account for scr refresh
+            yes1_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(yes1_5, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'yes1_5.started')
+            # update status
+            yes1_5.status = STARTED
+            yes1_5.setAutoDraw(True)
+        
+        # if yes1_5 is active this frame...
+        if yes1_5.status == STARTED:
+            # update params
+            pass
+        
+        # *text_48* updates
+        
+        # if text_48 is starting this frame...
+        if text_48.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_48.frameNStart = frameN  # exact frame index
+            text_48.tStart = t  # local t and not account for scr refresh
+            text_48.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_48, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_48.started')
+            # update status
+            text_48.status = STARTED
+            text_48.setAutoDraw(True)
+        
+        # if text_48 is active this frame...
+        if text_48.status == STARTED:
+            # update params
+            pass
+        
+        # *text_49* updates
+        
+        # if text_49 is starting this frame...
+        if text_49.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_49.frameNStart = frameN  # exact frame index
+            text_49.tStart = t  # local t and not account for scr refresh
+            text_49.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_49, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_49.started')
+            # update status
+            text_49.status = STARTED
+            text_49.setAutoDraw(True)
+        
+        # if text_49 is active this frame...
+        if text_49.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, inputs=inputs, win=win)
+            return
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in player1_3Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "player1_3" ---
+    for thisComponent in player1_3Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('player1_3.stopped', globalClock.getTime())
+    # the Routine "player1_3" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "topnsp1" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('topnsp1.started', globalClock.getTime())
+    # Run 'Begin Routine' code from code_11
+    if friendChoice_2.keys != 'n':
+        continueRoutine = False
+    # keep track of which components have finished
+    topnsp1Components = [Player1_7, cook_6, var_11, movie_8, var_12, dance_6, text_34, p1_7, you_5, chatting_5, chat_5, sports_5, sport_5, beach_5, beach_txt_5, participantpic_3, notseen]
+    for thisComponent in topnsp1Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "topnsp1" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        # is it time to end the Routine? (based on local clock)
+        if tThisFlip > 4.5-frameTolerance:
+            continueRoutine = False
+        
+        # *Player1_7* updates
+        
+        # if Player1_7 is starting this frame...
+        if Player1_7.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Player1_7.frameNStart = frameN  # exact frame index
+            Player1_7.tStart = t  # local t and not account for scr refresh
+            Player1_7.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Player1_7, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Player1_7.started')
+            # update status
+            Player1_7.status = STARTED
+            Player1_7.setAutoDraw(True)
+        
+        # if Player1_7 is active this frame...
+        if Player1_7.status == STARTED:
+            # update params
+            pass
+        
+        # *cook_6* updates
+        
+        # if cook_6 is starting this frame...
+        if cook_6.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            cook_6.frameNStart = frameN  # exact frame index
+            cook_6.tStart = t  # local t and not account for scr refresh
+            cook_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(cook_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'cook_6.started')
+            # update status
+            cook_6.status = STARTED
+            cook_6.setAutoDraw(True)
+        
+        # if cook_6 is active this frame...
+        if cook_6.status == STARTED:
+            # update params
+            pass
+        
+        # *var_11* updates
+        
+        # if var_11 is starting this frame...
+        if var_11.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            var_11.frameNStart = frameN  # exact frame index
+            var_11.tStart = t  # local t and not account for scr refresh
+            var_11.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(var_11, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'var_11.started')
+            # update status
+            var_11.status = STARTED
+            var_11.setAutoDraw(True)
+        
+        # if var_11 is active this frame...
+        if var_11.status == STARTED:
+            # update params
+            pass
+        
+        # *movie_8* updates
+        
+        # if movie_8 is starting this frame...
+        if movie_8.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            movie_8.frameNStart = frameN  # exact frame index
+            movie_8.tStart = t  # local t and not account for scr refresh
+            movie_8.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(movie_8, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'movie_8.started')
+            # update status
+            movie_8.status = STARTED
+            movie_8.setAutoDraw(True)
+        
+        # if movie_8 is active this frame...
+        if movie_8.status == STARTED:
+            # update params
+            pass
+        
+        # *var_12* updates
+        
+        # if var_12 is starting this frame...
+        if var_12.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            var_12.frameNStart = frameN  # exact frame index
+            var_12.tStart = t  # local t and not account for scr refresh
+            var_12.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(var_12, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'var_12.started')
+            # update status
+            var_12.status = STARTED
+            var_12.setAutoDraw(True)
+        
+        # if var_12 is active this frame...
+        if var_12.status == STARTED:
+            # update params
+            pass
+        
+        # *dance_6* updates
+        
+        # if dance_6 is starting this frame...
+        if dance_6.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            dance_6.frameNStart = frameN  # exact frame index
+            dance_6.tStart = t  # local t and not account for scr refresh
+            dance_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(dance_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'dance_6.started')
+            # update status
+            dance_6.status = STARTED
+            dance_6.setAutoDraw(True)
+        
+        # if dance_6 is active this frame...
+        if dance_6.status == STARTED:
+            # update params
+            pass
+        
+        # *text_34* updates
+        
+        # if text_34 is starting this frame...
+        if text_34.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_34.frameNStart = frameN  # exact frame index
+            text_34.tStart = t  # local t and not account for scr refresh
+            text_34.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_34, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_34.started')
+            # update status
+            text_34.status = STARTED
+            text_34.setAutoDraw(True)
+        
+        # if text_34 is active this frame...
+        if text_34.status == STARTED:
+            # update params
+            pass
+        
+        # *p1_7* updates
+        
+        # if p1_7 is starting this frame...
+        if p1_7.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            p1_7.frameNStart = frameN  # exact frame index
+            p1_7.tStart = t  # local t and not account for scr refresh
+            p1_7.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(p1_7, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'p1_7.started')
+            # update status
+            p1_7.status = STARTED
+            p1_7.setAutoDraw(True)
+        
+        # if p1_7 is active this frame...
+        if p1_7.status == STARTED:
+            # update params
+            pass
+        
+        # *you_5* updates
+        
+        # if you_5 is starting this frame...
+        if you_5.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            you_5.frameNStart = frameN  # exact frame index
+            you_5.tStart = t  # local t and not account for scr refresh
+            you_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(you_5, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'you_5.started')
+            # update status
+            you_5.status = STARTED
+            you_5.setAutoDraw(True)
+        
+        # if you_5 is active this frame...
+        if you_5.status == STARTED:
+            # update params
+            pass
+        
+        # *chatting_5* updates
+        
+        # if chatting_5 is starting this frame...
+        if chatting_5.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            chatting_5.frameNStart = frameN  # exact frame index
+            chatting_5.tStart = t  # local t and not account for scr refresh
+            chatting_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(chatting_5, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'chatting_5.started')
+            # update status
+            chatting_5.status = STARTED
+            chatting_5.setAutoDraw(True)
+        
+        # if chatting_5 is active this frame...
+        if chatting_5.status == STARTED:
+            # update params
+            pass
+        
+        # *chat_5* updates
+        
+        # if chat_5 is starting this frame...
+        if chat_5.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            chat_5.frameNStart = frameN  # exact frame index
+            chat_5.tStart = t  # local t and not account for scr refresh
+            chat_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(chat_5, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'chat_5.started')
+            # update status
+            chat_5.status = STARTED
+            chat_5.setAutoDraw(True)
+        
+        # if chat_5 is active this frame...
+        if chat_5.status == STARTED:
+            # update params
+            pass
+        
+        # *sports_5* updates
+        
+        # if sports_5 is starting this frame...
+        if sports_5.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            sports_5.frameNStart = frameN  # exact frame index
+            sports_5.tStart = t  # local t and not account for scr refresh
+            sports_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(sports_5, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'sports_5.started')
+            # update status
+            sports_5.status = STARTED
+            sports_5.setAutoDraw(True)
+        
+        # if sports_5 is active this frame...
+        if sports_5.status == STARTED:
+            # update params
+            pass
+        
+        # *sport_5* updates
+        
+        # if sport_5 is starting this frame...
+        if sport_5.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            sport_5.frameNStart = frameN  # exact frame index
+            sport_5.tStart = t  # local t and not account for scr refresh
+            sport_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(sport_5, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'sport_5.started')
+            # update status
+            sport_5.status = STARTED
+            sport_5.setAutoDraw(True)
+        
+        # if sport_5 is active this frame...
+        if sport_5.status == STARTED:
+            # update params
+            pass
+        
+        # *beach_5* updates
+        
+        # if beach_5 is starting this frame...
+        if beach_5.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            beach_5.frameNStart = frameN  # exact frame index
+            beach_5.tStart = t  # local t and not account for scr refresh
+            beach_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(beach_5, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'beach_5.started')
+            # update status
+            beach_5.status = STARTED
+            beach_5.setAutoDraw(True)
+        
+        # if beach_5 is active this frame...
+        if beach_5.status == STARTED:
+            # update params
+            pass
+        
+        # *beach_txt_5* updates
+        
+        # if beach_txt_5 is starting this frame...
+        if beach_txt_5.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            beach_txt_5.frameNStart = frameN  # exact frame index
+            beach_txt_5.tStart = t  # local t and not account for scr refresh
+            beach_txt_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(beach_txt_5, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'beach_txt_5.started')
+            # update status
+            beach_txt_5.status = STARTED
+            beach_txt_5.setAutoDraw(True)
+        
+        # if beach_txt_5 is active this frame...
+        if beach_txt_5.status == STARTED:
+            # update params
+            pass
+        
+        # *participantpic_3* updates
+        
+        # if participantpic_3 is starting this frame...
+        if participantpic_3.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            participantpic_3.frameNStart = frameN  # exact frame index
+            participantpic_3.tStart = t  # local t and not account for scr refresh
+            participantpic_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(participantpic_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'participantpic_3.started')
+            # update status
+            participantpic_3.status = STARTED
+            participantpic_3.setAutoDraw(True)
+        
+        # if participantpic_3 is active this frame...
+        if participantpic_3.status == STARTED:
+            # update params
+            pass
+        
+        # *notseen* updates
+        
+        # if notseen is starting this frame...
+        if notseen.status == NOT_STARTED and tThisFlip >= 2.5-frameTolerance:
+            # keep track of start time/frame for later
+            notseen.frameNStart = frameN  # exact frame index
+            notseen.tStart = t  # local t and not account for scr refresh
+            notseen.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(notseen, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'notseen.started')
+            # update status
+            notseen.status = STARTED
+            notseen.setAutoDraw(True)
+        
+        # if notseen is active this frame...
+        if notseen.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, inputs=inputs, win=win)
+            return
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in topnsp1Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "topnsp1" ---
+    for thisComponent in topnsp1Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('topnsp1.stopped', globalClock.getTime())
+    # the Routine "topnsp1" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "player2_3" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('player2_3.started', globalClock.getTime())
+    # Run 'Begin Routine' code from code_10
+    if friendChoice_2.keys != 'y':
+        continueRoutine = False
+    # keep track of which components have finished
+    player2_3Components = [text_50, player_4, beachpic_4, text_51, writingpic2_4, text_52, cycling_4, text_53, yes1_6]
+    for thisComponent in player2_3Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "player2_3" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        # is it time to end the Routine? (based on local clock)
+        if tThisFlip > 1.5-frameTolerance:
+            continueRoutine = False
+        
+        # *text_50* updates
+        
+        # if text_50 is starting this frame...
+        if text_50.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_50.frameNStart = frameN  # exact frame index
+            text_50.tStart = t  # local t and not account for scr refresh
+            text_50.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_50, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_50.started')
+            # update status
+            text_50.status = STARTED
+            text_50.setAutoDraw(True)
+        
+        # if text_50 is active this frame...
+        if text_50.status == STARTED:
+            # update params
+            pass
+        
+        # *player_4* updates
+        
+        # if player_4 is starting this frame...
+        if player_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            player_4.frameNStart = frameN  # exact frame index
+            player_4.tStart = t  # local t and not account for scr refresh
+            player_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(player_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'player_4.started')
+            # update status
+            player_4.status = STARTED
+            player_4.setAutoDraw(True)
+        
+        # if player_4 is active this frame...
+        if player_4.status == STARTED:
+            # update params
+            pass
+        
+        # *beachpic_4* updates
+        
+        # if beachpic_4 is starting this frame...
+        if beachpic_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            beachpic_4.frameNStart = frameN  # exact frame index
+            beachpic_4.tStart = t  # local t and not account for scr refresh
+            beachpic_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(beachpic_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'beachpic_4.started')
+            # update status
+            beachpic_4.status = STARTED
+            beachpic_4.setAutoDraw(True)
+        
+        # if beachpic_4 is active this frame...
+        if beachpic_4.status == STARTED:
+            # update params
+            pass
+        
+        # *text_51* updates
+        
+        # if text_51 is starting this frame...
+        if text_51.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_51.frameNStart = frameN  # exact frame index
+            text_51.tStart = t  # local t and not account for scr refresh
+            text_51.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_51, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_51.started')
+            # update status
+            text_51.status = STARTED
+            text_51.setAutoDraw(True)
+        
+        # if text_51 is active this frame...
+        if text_51.status == STARTED:
+            # update params
+            pass
+        
+        # *writingpic2_4* updates
+        
+        # if writingpic2_4 is starting this frame...
+        if writingpic2_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            writingpic2_4.frameNStart = frameN  # exact frame index
+            writingpic2_4.tStart = t  # local t and not account for scr refresh
+            writingpic2_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(writingpic2_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'writingpic2_4.started')
+            # update status
+            writingpic2_4.status = STARTED
+            writingpic2_4.setAutoDraw(True)
+        
+        # if writingpic2_4 is active this frame...
+        if writingpic2_4.status == STARTED:
+            # update params
+            pass
+        
+        # *text_52* updates
+        
+        # if text_52 is starting this frame...
+        if text_52.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_52.frameNStart = frameN  # exact frame index
+            text_52.tStart = t  # local t and not account for scr refresh
+            text_52.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_52, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_52.started')
+            # update status
+            text_52.status = STARTED
+            text_52.setAutoDraw(True)
+        
+        # if text_52 is active this frame...
+        if text_52.status == STARTED:
+            # update params
+            pass
+        
+        # *cycling_4* updates
+        
+        # if cycling_4 is starting this frame...
+        if cycling_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            cycling_4.frameNStart = frameN  # exact frame index
+            cycling_4.tStart = t  # local t and not account for scr refresh
+            cycling_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(cycling_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'cycling_4.started')
+            # update status
+            cycling_4.status = STARTED
+            cycling_4.setAutoDraw(True)
+        
+        # if cycling_4 is active this frame...
+        if cycling_4.status == STARTED:
+            # update params
+            pass
+        
+        # *text_53* updates
+        
+        # if text_53 is starting this frame...
+        if text_53.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_53.frameNStart = frameN  # exact frame index
+            text_53.tStart = t  # local t and not account for scr refresh
+            text_53.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_53, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_53.started')
+            # update status
+            text_53.status = STARTED
+            text_53.setAutoDraw(True)
+        
+        # if text_53 is active this frame...
+        if text_53.status == STARTED:
+            # update params
+            pass
+        
+        # *yes1_6* updates
+        
+        # if yes1_6 is starting this frame...
+        if yes1_6.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            yes1_6.frameNStart = frameN  # exact frame index
+            yes1_6.tStart = t  # local t and not account for scr refresh
+            yes1_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(yes1_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'yes1_6.started')
+            # update status
+            yes1_6.status = STARTED
+            yes1_6.setAutoDraw(True)
+        
+        # if yes1_6 is active this frame...
+        if yes1_6.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, inputs=inputs, win=win)
+            return
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in player2_3Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "player2_3" ---
+    for thisComponent in player2_3Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('player2_3.stopped', globalClock.getTime())
+    # the Routine "player2_3" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "topnsp2" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('topnsp2.started', globalClock.getTime())
+    # Run 'Begin Routine' code from code_12
+    if friendChoice_2.keys != 'y':
+        continueRoutine = False
+    # keep track of which components have finished
+    topnsp2Components = [Player1_8, cook_7, var_13, movie_9, var_14, dance_7, text_35, p1_8, you_6, chatting_6, chat_6, sports_6, sport_6, beach_6, beach_txt_6, participantpic_4, notseen2]
+    for thisComponent in topnsp2Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "topnsp2" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        # is it time to end the Routine? (based on local clock)
+        if tThisFlip > 4.5-frameTolerance:
+            continueRoutine = False
+        
+        # *Player1_8* updates
+        
+        # if Player1_8 is starting this frame...
+        if Player1_8.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Player1_8.frameNStart = frameN  # exact frame index
+            Player1_8.tStart = t  # local t and not account for scr refresh
+            Player1_8.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Player1_8, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Player1_8.started')
+            # update status
+            Player1_8.status = STARTED
+            Player1_8.setAutoDraw(True)
+        
+        # if Player1_8 is active this frame...
+        if Player1_8.status == STARTED:
+            # update params
+            pass
+        
+        # *cook_7* updates
+        
+        # if cook_7 is starting this frame...
+        if cook_7.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            cook_7.frameNStart = frameN  # exact frame index
+            cook_7.tStart = t  # local t and not account for scr refresh
+            cook_7.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(cook_7, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'cook_7.started')
+            # update status
+            cook_7.status = STARTED
+            cook_7.setAutoDraw(True)
+        
+        # if cook_7 is active this frame...
+        if cook_7.status == STARTED:
+            # update params
+            pass
+        
+        # *var_13* updates
+        
+        # if var_13 is starting this frame...
+        if var_13.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            var_13.frameNStart = frameN  # exact frame index
+            var_13.tStart = t  # local t and not account for scr refresh
+            var_13.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(var_13, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'var_13.started')
+            # update status
+            var_13.status = STARTED
+            var_13.setAutoDraw(True)
+        
+        # if var_13 is active this frame...
+        if var_13.status == STARTED:
+            # update params
+            pass
+        
+        # *movie_9* updates
+        
+        # if movie_9 is starting this frame...
+        if movie_9.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            movie_9.frameNStart = frameN  # exact frame index
+            movie_9.tStart = t  # local t and not account for scr refresh
+            movie_9.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(movie_9, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'movie_9.started')
+            # update status
+            movie_9.status = STARTED
+            movie_9.setAutoDraw(True)
+        
+        # if movie_9 is active this frame...
+        if movie_9.status == STARTED:
+            # update params
+            pass
+        
+        # *var_14* updates
+        
+        # if var_14 is starting this frame...
+        if var_14.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            var_14.frameNStart = frameN  # exact frame index
+            var_14.tStart = t  # local t and not account for scr refresh
+            var_14.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(var_14, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'var_14.started')
+            # update status
+            var_14.status = STARTED
+            var_14.setAutoDraw(True)
+        
+        # if var_14 is active this frame...
+        if var_14.status == STARTED:
+            # update params
+            pass
+        
+        # *dance_7* updates
+        
+        # if dance_7 is starting this frame...
+        if dance_7.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            dance_7.frameNStart = frameN  # exact frame index
+            dance_7.tStart = t  # local t and not account for scr refresh
+            dance_7.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(dance_7, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'dance_7.started')
+            # update status
+            dance_7.status = STARTED
+            dance_7.setAutoDraw(True)
+        
+        # if dance_7 is active this frame...
+        if dance_7.status == STARTED:
+            # update params
+            pass
+        
+        # *text_35* updates
+        
+        # if text_35 is starting this frame...
+        if text_35.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_35.frameNStart = frameN  # exact frame index
+            text_35.tStart = t  # local t and not account for scr refresh
+            text_35.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_35, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_35.started')
+            # update status
+            text_35.status = STARTED
+            text_35.setAutoDraw(True)
+        
+        # if text_35 is active this frame...
+        if text_35.status == STARTED:
+            # update params
+            pass
+        
+        # *p1_8* updates
+        
+        # if p1_8 is starting this frame...
+        if p1_8.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            p1_8.frameNStart = frameN  # exact frame index
+            p1_8.tStart = t  # local t and not account for scr refresh
+            p1_8.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(p1_8, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'p1_8.started')
+            # update status
+            p1_8.status = STARTED
+            p1_8.setAutoDraw(True)
+        
+        # if p1_8 is active this frame...
+        if p1_8.status == STARTED:
+            # update params
+            pass
+        
+        # *you_6* updates
+        
+        # if you_6 is starting this frame...
+        if you_6.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            you_6.frameNStart = frameN  # exact frame index
+            you_6.tStart = t  # local t and not account for scr refresh
+            you_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(you_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'you_6.started')
+            # update status
+            you_6.status = STARTED
+            you_6.setAutoDraw(True)
+        
+        # if you_6 is active this frame...
+        if you_6.status == STARTED:
+            # update params
+            pass
+        
+        # *chatting_6* updates
+        
+        # if chatting_6 is starting this frame...
+        if chatting_6.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            chatting_6.frameNStart = frameN  # exact frame index
+            chatting_6.tStart = t  # local t and not account for scr refresh
+            chatting_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(chatting_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'chatting_6.started')
+            # update status
+            chatting_6.status = STARTED
+            chatting_6.setAutoDraw(True)
+        
+        # if chatting_6 is active this frame...
+        if chatting_6.status == STARTED:
+            # update params
+            pass
+        
+        # *chat_6* updates
+        
+        # if chat_6 is starting this frame...
+        if chat_6.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            chat_6.frameNStart = frameN  # exact frame index
+            chat_6.tStart = t  # local t and not account for scr refresh
+            chat_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(chat_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'chat_6.started')
+            # update status
+            chat_6.status = STARTED
+            chat_6.setAutoDraw(True)
+        
+        # if chat_6 is active this frame...
+        if chat_6.status == STARTED:
+            # update params
+            pass
+        
+        # *sports_6* updates
+        
+        # if sports_6 is starting this frame...
+        if sports_6.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            sports_6.frameNStart = frameN  # exact frame index
+            sports_6.tStart = t  # local t and not account for scr refresh
+            sports_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(sports_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'sports_6.started')
+            # update status
+            sports_6.status = STARTED
+            sports_6.setAutoDraw(True)
+        
+        # if sports_6 is active this frame...
+        if sports_6.status == STARTED:
+            # update params
+            pass
+        
+        # *sport_6* updates
+        
+        # if sport_6 is starting this frame...
+        if sport_6.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            sport_6.frameNStart = frameN  # exact frame index
+            sport_6.tStart = t  # local t and not account for scr refresh
+            sport_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(sport_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'sport_6.started')
+            # update status
+            sport_6.status = STARTED
+            sport_6.setAutoDraw(True)
+        
+        # if sport_6 is active this frame...
+        if sport_6.status == STARTED:
+            # update params
+            pass
+        
+        # *beach_6* updates
+        
+        # if beach_6 is starting this frame...
+        if beach_6.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            beach_6.frameNStart = frameN  # exact frame index
+            beach_6.tStart = t  # local t and not account for scr refresh
+            beach_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(beach_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'beach_6.started')
+            # update status
+            beach_6.status = STARTED
+            beach_6.setAutoDraw(True)
+        
+        # if beach_6 is active this frame...
+        if beach_6.status == STARTED:
+            # update params
+            pass
+        
+        # *beach_txt_6* updates
+        
+        # if beach_txt_6 is starting this frame...
+        if beach_txt_6.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            beach_txt_6.frameNStart = frameN  # exact frame index
+            beach_txt_6.tStart = t  # local t and not account for scr refresh
+            beach_txt_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(beach_txt_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'beach_txt_6.started')
+            # update status
+            beach_txt_6.status = STARTED
+            beach_txt_6.setAutoDraw(True)
+        
+        # if beach_txt_6 is active this frame...
+        if beach_txt_6.status == STARTED:
+            # update params
+            pass
+        
+        # *participantpic_4* updates
+        
+        # if participantpic_4 is starting this frame...
+        if participantpic_4.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
+            # keep track of start time/frame for later
+            participantpic_4.frameNStart = frameN  # exact frame index
+            participantpic_4.tStart = t  # local t and not account for scr refresh
+            participantpic_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(participantpic_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'participantpic_4.started')
+            # update status
+            participantpic_4.status = STARTED
+            participantpic_4.setAutoDraw(True)
+        
+        # if participantpic_4 is active this frame...
+        if participantpic_4.status == STARTED:
+            # update params
+            pass
+        
+        # *notseen2* updates
+        
+        # if notseen2 is starting this frame...
+        if notseen2.status == NOT_STARTED and tThisFlip >= 2.5-frameTolerance:
+            # keep track of start time/frame for later
+            notseen2.frameNStart = frameN  # exact frame index
+            notseen2.tStart = t  # local t and not account for scr refresh
+            notseen2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(notseen2, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'notseen2.started')
+            # update status
+            notseen2.status = STARTED
+            notseen2.setAutoDraw(True)
+        
+        # if notseen2 is active this frame...
+        if notseen2.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, inputs=inputs, win=win)
+            return
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in topnsp2Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "topnsp2" ---
+    for thisComponent in topnsp2Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('topnsp2.stopped', globalClock.getTime())
+    # the Routine "topnsp2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
     # mark experiment as finished

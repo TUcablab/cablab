@@ -1,0 +1,497 @@
+7.1975 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x000002C9F5DDA2E0>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x000002C9F5DDA280>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000002C9F5DDA0D0>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000002C9F6162DC0>, multiSample=False, name='window1', numSamples=2, pos=(0, 0), screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+7.1976 	EXP 	window1: mouseVisible = True
+7.1976 	EXP 	window1: backgroundImage = ''
+7.1976 	EXP 	window1: backgroundFit = 'none'
+7.1990 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+7.1990 	EXP 	window1: recordFrameIntervals = False
+7.3635 	EXP 	window1: recordFrameIntervals = True
+7.5473 	EXP 	Screen (0) actual frame rate measured at 59.86Hz
+7.5474 	EXP 	window1: recordFrameIntervals = False
+7.5474 	EXP 	window1: mouseVisible = False
+9.2464 	EXP 	PAT_PRACTICE_icons: status = STARTED
+9.2468 	EXP 	window1: mouseVisible = True
+9.3044 	EXP 	Created wel = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='wel', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=2.0)
+9.3045 	EXP 	window1: mouseVisible = True
+9.3128 	EXP 	Created Who = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Courier New', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='Who', opacity=1.0, ori=0.0, pos=array([0.  , 0.38]), rgb=UNKNOWN, text='Who do you want to be friends with? \n\n', units='height', win=Window(...), wrapWidth=1)
+9.3129 	EXP 	window1: mouseVisible = True
+9.3202 	EXP 	Created text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='text_2', opacity=1.0, ori=0.0, pos=array([-0.4,  0.3]), rgb=UNKNOWN, text='Player-1\n', units='height', win=Window(...), wrapWidth=1)
+9.3203 	EXP 	window1: mouseVisible = True
+9.3229 	EXP 	Created text_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='text_3', opacity=1.0, ori=0.0, pos=array([0.4, 0.3]), rgb=UNKNOWN, text='Player-2\n', units='height', win=Window(...), wrapWidth=1)
+9.3230 	EXP 	window1: mouseVisible = True
+9.4053 	EXP 	Created Player1demo = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player1demo', opacity=1.0, ori=0.0, pos=array([-0.4 ,  0.13]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+9.4058 	EXP 	window1: mouseVisible = True
+9.4508 	EXP 	Created Player2demo = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player2demo', opacity=1.0, ori=0.0, pos=array([0.4 , 0.13]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+9.4509 	EXP 	window1: mouseVisible = True
+9.4765 	EXP 	Created cooking = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='cooking', opacity=1.0, ori=0.0, pos=array([-0.5 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.4767 	EXP 	window1: mouseVisible = True
+9.4880 	EXP 	Created text_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_4', opacity=1.0, ori=0.0, pos=array([-0.5 , -0.08]), rgb=UNKNOWN, text='cooking\n\n', units='height', win=Window(...), wrapWidth=1)
+9.4881 	EXP 	window1: mouseVisible = True
+9.5072 	EXP 	Created movies = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='movies', opacity=1.0, ori=0.0, pos=array([-0.4 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.5073 	EXP 	window1: mouseVisible = True
+9.5111 	EXP 	Created text_5 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_5', opacity=1.0, ori=0.0, pos=array([-0.3 , -0.07]), rgb=UNKNOWN, text='dancing', units='height', win=Window(...), wrapWidth=1)
+9.5112 	EXP 	window1: mouseVisible = True
+9.5290 	EXP 	Created dancing = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='dancing', opacity=1.0, ori=0.0, pos=array([-0.3 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.5291 	EXP 	window1: mouseVisible = True
+9.5335 	EXP 	Created text_6 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-10.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_6', opacity=1.0, ori=0.0, pos=array([-0.4 , -0.07]), rgb=UNKNOWN, text='movies', units='height', win=Window(...), wrapWidth=1)
+9.5336 	EXP 	window1: mouseVisible = True
+9.5520 	EXP 	Created fashion = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-11.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='fashion', opacity=1.0, ori=0.0, pos=array([ 0.3 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.5522 	EXP 	window1: mouseVisible = True
+9.5561 	EXP 	Created text_7 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_7', opacity=1.0, ori=0.0, pos=array([ 0.3 , -0.07]), rgb=UNKNOWN, text='fashion', units='height', win=Window(...), wrapWidth=1)
+9.5562 	EXP 	window1: mouseVisible = True
+9.5748 	EXP 	Created movie = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-13.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='movie', opacity=1.0, ori=0.0, pos=array([ 0.4 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.5749 	EXP 	window1: mouseVisible = True
+9.5768 	EXP 	Created text_8 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_8', opacity=1.0, ori=0.0, pos=array([ 0.4 , -0.07]), rgb=UNKNOWN, text='movies', units='height', win=Window(...), wrapWidth=1)
+9.5769 	EXP 	window1: mouseVisible = True
+9.6017 	EXP 	Created writing = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='writing', opacity=1.0, ori=0.0, pos=array([ 0.5 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.6018 	EXP 	window1: mouseVisible = True
+9.6068 	EXP 	Created text_9 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-16.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_9', opacity=1.0, ori=0.0, pos=array([ 0.5 , -0.07]), rgb=UNKNOWN, text='writing', units='height', win=Window(...), wrapWidth=1)
+9.6069 	EXP 	window1: mouseVisible = True
+9.6430 	EXP 	Created Player1 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player1', opacity=1.0, ori=0.0, pos=array([-0.4 ,  0.13]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+9.6431 	EXP 	window1: mouseVisible = True
+9.6620 	EXP 	Created cook = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='cook', opacity=1.0, ori=0.0, pos=array([-0.5 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.6621 	EXP 	window1: mouseVisible = True
+9.6642 	EXP 	Created var_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var_4', opacity=1.0, ori=0.0, pos=array([-0.5 , -0.08]), rgb=UNKNOWN, text='cooking\n\n', units='height', win=Window(...), wrapWidth=1)
+9.6643 	EXP 	window1: mouseVisible = True
+9.6844 	EXP 	Created movie_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='movie_2', opacity=1.0, ori=0.0, pos=array([-0.4 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.6845 	EXP 	window1: mouseVisible = True
+9.6865 	EXP 	Created var_5 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var_5', opacity=1.0, ori=0.0, pos=array([-0.3 , -0.07]), rgb=UNKNOWN, text='dancing', units='height', win=Window(...), wrapWidth=1)
+9.6866 	EXP 	window1: mouseVisible = True
+9.7113 	EXP 	Created dance = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='dance', opacity=1.0, ori=0.0, pos=array([-0.3 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.7115 	EXP 	window1: mouseVisible = True
+9.7136 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text', opacity=1.0, ori=0.0, pos=array([-0.4 , -0.07]), rgb=UNKNOWN, text='movies', units='height', win=Window(...), wrapWidth=1)
+9.7137 	EXP 	window1: mouseVisible = True
+9.7157 	EXP 	Created p1 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='p1', opacity=1.0, ori=0.0, pos=array([-0.4,  0.3]), rgb=UNKNOWN, text='Player-1\n', units='height', win=Window(...), wrapWidth=1)
+9.7158 	EXP 	window1: mouseVisible = True
+9.7276 	EXP 	Created yes1 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='yes1', opacity=1.0, ori=0.0, pos=array([-0.4 ,  0.13]), size=array([0.3, 0.3]), texRes=128.0, units='height', win=Window(...))
+9.7277 	EXP 	window1: mouseVisible = True
+9.7995 	EXP 	Created Player1_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player1_2', opacity=1.0, ori=0.0, pos=array([0. , 0.3]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+9.7996 	EXP 	window1: mouseVisible = True
+9.8263 	EXP 	Created cook_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='cook_2', opacity=1.0, ori=0.0, pos=array([-0.13,  0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.8264 	EXP 	window1: mouseVisible = True
+9.8288 	EXP 	Created var = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var', opacity=1.0, ori=0.0, pos=array([-0.13 ,  0.095]), rgb=UNKNOWN, text='cooking\n\n', units='height', win=Window(...), wrapWidth=1)
+9.8289 	EXP 	window1: mouseVisible = True
+9.8562 	EXP 	Created movie_4 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='movie_4', opacity=1.0, ori=0.0, pos=array([0.  , 0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.8563 	EXP 	window1: mouseVisible = True
+9.8583 	EXP 	Created var_6 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var_6', opacity=1.0, ori=0.0, pos=array([0.13, 0.11]), rgb=UNKNOWN, text='dancing', units='height', win=Window(...), wrapWidth=1)
+9.8584 	EXP 	window1: mouseVisible = True
+9.8864 	EXP 	Created dance_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='dance_2', opacity=1.0, ori=0.0, pos=array([0.13, 0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.8865 	EXP 	window1: mouseVisible = True
+9.8886 	EXP 	Created text_13 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_13', opacity=1.0, ori=0.0, pos=array([0.  , 0.11]), rgb=UNKNOWN, text='movies', units='height', win=Window(...), wrapWidth=1)
+9.8887 	EXP 	window1: mouseVisible = True
+9.8909 	EXP 	Created p1_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='p1_2', opacity=1.0, ori=0.0, pos=array([0.  , 0.45]), rgb=UNKNOWN, text='Player-1\n', units='height', win=Window(...), wrapWidth=1)
+9.8909 	EXP 	window1: mouseVisible = True
+9.9009 	EXP 	Created you = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='you', opacity=1.0, ori=0.0, pos=array([0.  , 0.07]), rgb=UNKNOWN, text='You', units='height', win=Window(...), wrapWidth=1)
+9.9012 	EXP 	window1: mouseVisible = True
+9.9378 	EXP 	Created chatting = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='chatting', opacity=1.0, ori=0.0, pos=array([-0.13, -0.2 ]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+9.9379 	EXP 	window1: mouseVisible = True
+9.9856 	EXP 	Created chat = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-10.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='chat', opacity=1.0, ori=0.0, pos=array([-0.13, -0.23]), rgb=UNKNOWN, text='chatting', units='height', win=Window(...), wrapWidth=1)
+9.9856 	EXP 	window1: mouseVisible = True
+10.0007 	EXP 	Created sports = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-11.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='sports', opacity=1.0, ori=0.0, pos=array([ 0. , -0.2]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.0008 	EXP 	window1: mouseVisible = True
+10.0049 	EXP 	Created sport = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='sport', opacity=1.0, ori=0.0, pos=array([ 0.  , -0.23]), rgb=UNKNOWN, text='sports', units='height', win=Window(...), wrapWidth=1)
+10.0050 	EXP 	window1: mouseVisible = True
+10.0230 	EXP 	Created beach = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-13.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='beach', opacity=1.0, ori=0.0, pos=array([ 0.13, -0.2 ]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.0232 	EXP 	window1: mouseVisible = True
+10.0267 	EXP 	Created beach_txt = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='beach_txt', opacity=1.0, ori=0.0, pos=array([ 0.13, -0.23]), rgb=UNKNOWN, text='beach', units='height', win=Window(...), wrapWidth=1)
+10.0268 	EXP 	window1: mouseVisible = True
+10.0610 	EXP 	Created participantpic = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='participantpic', opacity=1.0, ori=0.0, pos=array([ 0.   , -0.073]), size=array([0.15, 0.2 ]), texRes=128.0, units='height', win=Window(...))
+10.0611 	EXP 	window1: mouseVisible = True
+10.0687 	EXP 	Created yess = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-16.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='yess', opacity=1.0, ori=0.0, pos=array([ 0.   , -0.073]), size=array([0.2, 0.3]), texRes=128.0, units='height', win=Window(...))
+10.0688 	EXP 	window1: mouseVisible = True
+10.0981 	EXP 	Created player = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='player', opacity=1.0, ori=0.0, pos=array([0.4 , 0.13]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+10.0982 	EXP 	window1: mouseVisible = True
+10.1163 	EXP 	Created fashion_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='fashion_2', opacity=1.0, ori=0.0, pos=array([ 0.3 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.1164 	EXP 	window1: mouseVisible = True
+10.1185 	EXP 	Created text_10 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_10', opacity=1.0, ori=0.0, pos=array([ 0.3 , -0.07]), rgb=UNKNOWN, text='fashion', units='height', win=Window(...), wrapWidth=1)
+10.1185 	EXP 	window1: mouseVisible = True
+10.1360 	EXP 	Created movie_3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='movie_3', opacity=1.0, ori=0.0, pos=array([ 0.4 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.1361 	EXP 	window1: mouseVisible = True
+10.1385 	EXP 	Created text_11 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_11', opacity=1.0, ori=0.0, pos=array([ 0.4 , -0.07]), rgb=UNKNOWN, text='movies', units='height', win=Window(...), wrapWidth=1)
+10.1386 	EXP 	window1: mouseVisible = True
+10.1560 	EXP 	Created writing_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='writing_2', opacity=1.0, ori=0.0, pos=array([ 0.5 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.1561 	EXP 	window1: mouseVisible = True
+10.1581 	EXP 	Created text_12 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_12', opacity=1.0, ori=0.0, pos=array([ 0.5 , -0.07]), rgb=UNKNOWN, text='writing', units='height', win=Window(...), wrapWidth=1)
+10.1582 	EXP 	window1: mouseVisible = True
+10.1702 	EXP 	Created yes1_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='yes1_2', opacity=1.0, ori=0.0, pos=array([0.4 , 0.13]), size=array([0.3, 0.3]), texRes=128.0, units='height', win=Window(...))
+10.1703 	EXP 	window1: mouseVisible = True
+10.1723 	EXP 	Created text_14 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='text_14', opacity=1.0, ori=0.0, pos=array([0.4, 0.3]), rgb=UNKNOWN, text='Player-2\n', units='height', win=Window(...), wrapWidth=1)
+10.1724 	EXP 	window1: mouseVisible = True
+10.2176 	EXP 	Created Player2_4 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player2_4', opacity=1.0, ori=0.0, pos=array([0. , 0.3]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+10.2177 	EXP 	window1: mouseVisible = True
+10.2368 	EXP 	Created fashion_3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='fashion_3', opacity=1.0, ori=0.0, pos=array([-0.13,  0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.2369 	EXP 	window1: mouseVisible = True
+10.2392 	EXP 	Created var_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var_2', opacity=1.0, ori=0.0, pos=array([-0.13 ,  0.095]), rgb=UNKNOWN, text='fashion\n\n\n', units='height', win=Window(...), wrapWidth=1)
+10.2393 	EXP 	window1: mouseVisible = True
+10.2577 	EXP 	Created movie_5 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='movie_5', opacity=1.0, ori=0.0, pos=array([0.  , 0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.2578 	EXP 	window1: mouseVisible = True
+10.2598 	EXP 	Created var_7 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var_7', opacity=1.0, ori=0.0, pos=array([0.13, 0.11]), rgb=UNKNOWN, text='dancing', units='height', win=Window(...), wrapWidth=1)
+10.2599 	EXP 	window1: mouseVisible = True
+10.2807 	EXP 	Created writ = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='writ', opacity=1.0, ori=0.0, pos=array([0.13, 0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.2808 	EXP 	window1: mouseVisible = True
+10.2829 	EXP 	Created text_31 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_31', opacity=1.0, ori=0.0, pos=array([0.  , 0.11]), rgb=UNKNOWN, text='writing', units='height', win=Window(...), wrapWidth=1)
+10.2830 	EXP 	window1: mouseVisible = True
+10.2852 	EXP 	Created p1_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='p1_4', opacity=1.0, ori=0.0, pos=array([0.  , 0.45]), rgb=UNKNOWN, text='Player-1\n', units='height', win=Window(...), wrapWidth=1)
+10.2853 	EXP 	window1: mouseVisible = True
+10.2871 	EXP 	Created you_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='you_2', opacity=1.0, ori=0.0, pos=array([0.  , 0.07]), rgb=UNKNOWN, text='You', units='height', win=Window(...), wrapWidth=1)
+10.2872 	EXP 	window1: mouseVisible = True
+10.3077 	EXP 	Created chatting_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='chatting_2', opacity=1.0, ori=0.0, pos=array([-0.13, -0.2 ]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.3078 	EXP 	window1: mouseVisible = True
+10.3099 	EXP 	Created chat_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-10.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='chat_2', opacity=1.0, ori=0.0, pos=array([-0.13, -0.23]), rgb=UNKNOWN, text='chatting', units='height', win=Window(...), wrapWidth=1)
+10.3100 	EXP 	window1: mouseVisible = True
+10.3205 	EXP 	Created sports_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-11.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='sports_2', opacity=1.0, ori=0.0, pos=array([ 0. , -0.2]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.3206 	EXP 	window1: mouseVisible = True
+10.3226 	EXP 	Created sport_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='sport_2', opacity=1.0, ori=0.0, pos=array([ 0.  , -0.23]), rgb=UNKNOWN, text='sports', units='height', win=Window(...), wrapWidth=1)
+10.3227 	EXP 	window1: mouseVisible = True
+10.3497 	EXP 	Created beach_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-13.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='beach_2', opacity=1.0, ori=0.0, pos=array([ 0.13, -0.2 ]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.3498 	EXP 	window1: mouseVisible = True
+10.3904 	EXP 	Created participantpic_5 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='participantpic_5', opacity=1.0, ori=0.0, pos=array([ 0.   , -0.073]), size=array([0.15, 0.2 ]), texRes=128.0, units='height', win=Window(...))
+10.3905 	EXP 	window1: mouseVisible = True
+10.3924 	EXP 	Created beach_txt_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='beach_txt_2', opacity=1.0, ori=0.0, pos=array([ 0.13, -0.23]), rgb=UNKNOWN, text='beach', units='height', win=Window(...), wrapWidth=1)
+10.3925 	EXP 	window1: mouseVisible = True
+10.4046 	EXP 	Created yes = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-16.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='yes', opacity=1.0, ori=0.0, pos=array([ 0.   , -0.073]), size=array([0.2, 0.3]), texRes=128.0, units='height', win=Window(...))
+10.4048 	EXP 	window1: mouseVisible = True
+10.4058 	EXP 	Created polygon = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0.0, draggable=False, fillColor=array([-1., -1., -1.]), fillColorSpace='rgb', fillRGB=array([-1., -1., -1.]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1., -1., -1.]), lineWidth=1.0, name='polygon', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([4., 4.]), units='height', vertices=ndarray(...), win=Window(...))
+10.4059 	EXP 	window1: mouseVisible = True
+10.4183 	EXP 	Created text_16 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.06, italic=False, languageStyle='LTR', name='text_16', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+10.4184 	EXP 	window1: mouseVisible = True
+10.4491 	EXP 	Created Who_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Courier New', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='Who_2', opacity=1.0, ori=0.0, pos=array([0.  , 0.38]), rgb=UNKNOWN, text='Who do you want to be friends with? \n\n', units='height', win=Window(...), wrapWidth=1)
+10.4493 	EXP 	window1: mouseVisible = True
+10.4542 	EXP 	Created text_15 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='text_15', opacity=1.0, ori=0.0, pos=array([-0.4,  0.3]), rgb=UNKNOWN, text='Player-1\n', units='height', win=Window(...), wrapWidth=1)
+10.4543 	EXP 	window1: mouseVisible = True
+10.4570 	EXP 	Created text_17 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='text_17', opacity=1.0, ori=0.0, pos=array([0.4, 0.3]), rgb=UNKNOWN, text='Player-2\n', units='height', win=Window(...), wrapWidth=1)
+10.4571 	EXP 	window1: mouseVisible = True
+10.5022 	EXP 	Created Player1demo_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player1demo_2', opacity=1.0, ori=0.0, pos=array([-0.4 ,  0.13]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+10.5023 	EXP 	window1: mouseVisible = True
+10.5386 	EXP 	Created Player2demo_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player2demo_2', opacity=1.0, ori=0.0, pos=array([0.4 , 0.13]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+10.5387 	EXP 	window1: mouseVisible = True
+10.5601 	EXP 	Created writingpic = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='writingpic', opacity=1.0, ori=0.0, pos=array([-0.5 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.5602 	EXP 	window1: mouseVisible = True
+10.5753 	EXP 	Created text_18 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_18', opacity=1.0, ori=0.0, pos=array([-0.5 , -0.08]), rgb=UNKNOWN, text='writing\n\n', units='height', win=Window(...), wrapWidth=1)
+10.5754 	EXP 	window1: mouseVisible = True
+10.5940 	EXP 	Created instruments = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='instruments', opacity=1.0, ori=0.0, pos=array([-0.4 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.5941 	EXP 	window1: mouseVisible = True
+10.5998 	EXP 	Created text_20 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_20', opacity=1.0, ori=0.0, pos=array([-0.4 , -0.07]), rgb=UNKNOWN, text='instruments', units='height', win=Window(...), wrapWidth=1)
+10.5999 	EXP 	window1: mouseVisible = True
+10.6169 	EXP 	Created knitting = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='knitting', opacity=1.0, ori=0.0, pos=array([-0.3 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.6170 	EXP 	window1: mouseVisible = True
+10.6206 	EXP 	Created text_19 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-10.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_19', opacity=1.0, ori=0.0, pos=array([-0.3 , -0.07]), rgb=UNKNOWN, text='knitting', units='height', win=Window(...), wrapWidth=1)
+10.6207 	EXP 	window1: mouseVisible = True
+10.6386 	EXP 	Created beachpic = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-11.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='beachpic', opacity=1.0, ori=0.0, pos=array([ 0.3 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.6387 	EXP 	window1: mouseVisible = True
+10.6561 	EXP 	Created writingpic2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='writingpic2', opacity=1.0, ori=0.0, pos=array([ 0.4 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.6562 	EXP 	window1: mouseVisible = True
+10.6597 	EXP 	Created text_22 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-13.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_22', opacity=1.0, ori=0.0, pos=array([ 0.4 , -0.08]), rgb=UNKNOWN, text='writing\n', units='height', win=Window(...), wrapWidth=1)
+10.6598 	EXP 	window1: mouseVisible = True
+10.6784 	EXP 	Created cycling = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='cycling', opacity=1.0, ori=0.0, pos=array([ 0.5 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.6786 	EXP 	window1: mouseVisible = True
+10.6827 	EXP 	Created text_23 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_23', opacity=1.0, ori=0.0, pos=array([ 0.5 , -0.07]), rgb=UNKNOWN, text='cycling', units='height', win=Window(...), wrapWidth=1)
+10.6829 	EXP 	window1: mouseVisible = True
+10.6859 	EXP 	Created text_24 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-17.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_24', opacity=1.0, ori=0.0, pos=array([ 0.3 , -0.07]), rgb=UNKNOWN, text='beach', units='height', win=Window(...), wrapWidth=1)
+10.6860 	EXP 	window1: mouseVisible = True
+10.6884 	EXP 	Created p1_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='p1_3', opacity=1.0, ori=0.0, pos=array([-0.4,  0.3]), rgb=UNKNOWN, text='Player-1\n', units='height', win=Window(...), wrapWidth=1)
+10.6885 	EXP 	window1: mouseVisible = True
+10.7238 	EXP 	Created Player1_3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player1_3', opacity=1.0, ori=0.0, pos=array([-0.4 ,  0.13]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+10.7239 	EXP 	window1: mouseVisible = True
+10.7418 	EXP 	Created writingpic_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='writingpic_2', opacity=1.0, ori=0.0, pos=array([-0.5 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.7420 	EXP 	window1: mouseVisible = True
+10.7440 	EXP 	Created text_28 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_28', opacity=1.0, ori=0.0, pos=array([-0.5 , -0.08]), rgb=UNKNOWN, text='writing\n\n', units='height', win=Window(...), wrapWidth=1)
+10.7441 	EXP 	window1: mouseVisible = True
+10.7619 	EXP 	Created instruments_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='instruments_2', opacity=1.0, ori=0.0, pos=array([-0.4 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.7621 	EXP 	window1: mouseVisible = True
+10.7640 	EXP 	Created text_29 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_29', opacity=1.0, ori=0.0, pos=array([-0.4 , -0.07]), rgb=UNKNOWN, text='instruments', units='height', win=Window(...), wrapWidth=1)
+10.7641 	EXP 	window1: mouseVisible = True
+10.7805 	EXP 	Created knitting_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='knitting_2', opacity=1.0, ori=0.0, pos=array([-0.3 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.7806 	EXP 	window1: mouseVisible = True
+10.7877 	EXP 	Created yes1_4 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='yes1_4', opacity=1.0, ori=0.0, pos=array([-0.4 ,  0.13]), size=array([0.3, 0.3]), texRes=128.0, units='height', win=Window(...))
+10.7878 	EXP 	window1: mouseVisible = True
+10.7935 	EXP 	Created text_37 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_37', opacity=1.0, ori=0.0, pos=array([-0.4 , -0.07]), rgb=UNKNOWN, text='movies', units='height', win=Window(...), wrapWidth=1)
+10.7941 	EXP 	window1: mouseVisible = True
+10.8020 	EXP 	Created text_38 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_38', opacity=1.0, ori=0.0, pos=array([-0.3 , -0.07]), rgb=UNKNOWN, text='knitting', units='height', win=Window(...), wrapWidth=1)
+10.8022 	EXP 	window1: mouseVisible = True
+10.8460 	EXP 	Created Player1_5 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player1_5', opacity=1.0, ori=0.0, pos=array([0. , 0.3]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+10.8461 	EXP 	window1: mouseVisible = True
+10.8641 	EXP 	Created writt = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='writt', opacity=1.0, ori=0.0, pos=array([-0.13,  0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.8643 	EXP 	window1: mouseVisible = True
+10.8662 	EXP 	Created var_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var_3', opacity=1.0, ori=0.0, pos=array([-0.13 ,  0.095]), rgb=UNKNOWN, text='writing\n', units='height', win=Window(...), wrapWidth=1)
+10.8663 	EXP 	window1: mouseVisible = True
+10.8849 	EXP 	Created piano = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='piano', opacity=1.0, ori=0.0, pos=array([0.  , 0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.8850 	EXP 	window1: mouseVisible = True
+10.8870 	EXP 	Created var_8 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var_8', opacity=1.0, ori=0.0, pos=array([0.13, 0.11]), rgb=UNKNOWN, text='instruments\n', units='height', win=Window(...), wrapWidth=1)
+10.8871 	EXP 	window1: mouseVisible = True
+10.9076 	EXP 	Created knittingg = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='knittingg', opacity=1.0, ori=0.0, pos=array([0.13, 0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.9077 	EXP 	window1: mouseVisible = True
+10.9098 	EXP 	Created text_32 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_32', opacity=1.0, ori=0.0, pos=array([0.  , 0.11]), rgb=UNKNOWN, text='knitting', units='height', win=Window(...), wrapWidth=1)
+10.9098 	EXP 	window1: mouseVisible = True
+10.9117 	EXP 	Created p1_5 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='p1_5', opacity=1.0, ori=0.0, pos=array([0.  , 0.45]), rgb=UNKNOWN, text='Player-1\n', units='height', win=Window(...), wrapWidth=1)
+10.9118 	EXP 	window1: mouseVisible = True
+10.9165 	EXP 	Created you_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='you_3', opacity=1.0, ori=0.0, pos=array([0.  , 0.07]), rgb=UNKNOWN, text='You', units='height', win=Window(...), wrapWidth=1)
+10.9166 	EXP 	window1: mouseVisible = True
+10.9408 	EXP 	Created chatting_3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='chatting_3', opacity=1.0, ori=0.0, pos=array([-0.13, -0.2 ]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.9409 	EXP 	window1: mouseVisible = True
+10.9429 	EXP 	Created chat_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-10.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='chat_3', opacity=1.0, ori=0.0, pos=array([-0.13, -0.23]), rgb=UNKNOWN, text='chatting', units='height', win=Window(...), wrapWidth=1)
+10.9429 	EXP 	window1: mouseVisible = True
+10.9546 	EXP 	Created sports_3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-11.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='sports_3', opacity=1.0, ori=0.0, pos=array([ 0. , -0.2]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.9547 	EXP 	window1: mouseVisible = True
+10.9584 	EXP 	Created sport_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='sport_3', opacity=1.0, ori=0.0, pos=array([ 0.  , -0.23]), rgb=UNKNOWN, text='sports', units='height', win=Window(...), wrapWidth=1)
+10.9585 	EXP 	window1: mouseVisible = True
+10.9767 	EXP 	Created beach_3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-13.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='beach_3', opacity=1.0, ori=0.0, pos=array([ 0.13, -0.2 ]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+10.9768 	EXP 	window1: mouseVisible = True
+10.9790 	EXP 	Created beach_txt_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='beach_txt_3', opacity=1.0, ori=0.0, pos=array([ 0.13, -0.23]), rgb=UNKNOWN, text='beach', units='height', win=Window(...), wrapWidth=1)
+10.9791 	EXP 	window1: mouseVisible = True
+11.0133 	EXP 	Created participantpic_6 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='participantpic_6', opacity=1.0, ori=0.0, pos=array([ 0.   , -0.073]), size=array([0.15, 0.2 ]), texRes=128.0, units='height', win=Window(...))
+11.0134 	EXP 	window1: mouseVisible = True
+11.0291 	EXP 	Created no_3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-16.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='no_3', opacity=1.0, ori=0.0, pos=array([ 0.   , -0.073]), size=array([0.2, 0.3]), texRes=128.0, units='height', win=Window(...))
+11.0292 	EXP 	window1: mouseVisible = True
+11.0337 	EXP 	Created text_27 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='text_27', opacity=1.0, ori=0.0, pos=array([0.4, 0.3]), rgb=UNKNOWN, text='Player-2\n', units='height', win=Window(...), wrapWidth=1)
+11.0339 	EXP 	window1: mouseVisible = True
+11.0688 	EXP 	Created player_3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='player_3', opacity=1.0, ori=0.0, pos=array([0.4 , 0.13]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+11.0689 	EXP 	window1: mouseVisible = True
+11.0865 	EXP 	Created beachpic_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='beachpic_2', opacity=1.0, ori=0.0, pos=array([ 0.3 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+11.0867 	EXP 	window1: mouseVisible = True
+11.0886 	EXP 	Created text_25 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_25', opacity=1.0, ori=0.0, pos=array([ 0.3 , -0.07]), rgb=UNKNOWN, text='beach', units='height', win=Window(...), wrapWidth=1)
+11.0887 	EXP 	window1: mouseVisible = True
+11.1060 	EXP 	Created writingpic2_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='writingpic2_2', opacity=1.0, ori=0.0, pos=array([ 0.4 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+11.1061 	EXP 	window1: mouseVisible = True
+11.1085 	EXP 	Created text_26 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_26', opacity=1.0, ori=0.0, pos=array([ 0.4 , -0.08]), rgb=UNKNOWN, text='writing\n', units='height', win=Window(...), wrapWidth=1)
+11.1086 	EXP 	window1: mouseVisible = True
+11.1267 	EXP 	Created cycling_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='cycling_2', opacity=1.0, ori=0.0, pos=array([ 0.5 , -0.03]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+11.1268 	EXP 	window1: mouseVisible = True
+11.1290 	EXP 	Created text_30 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_30', opacity=1.0, ori=0.0, pos=array([ 0.5 , -0.07]), rgb=UNKNOWN, text='cycling', units='height', win=Window(...), wrapWidth=1)
+11.1290 	EXP 	window1: mouseVisible = True
+11.1361 	EXP 	Created yes1_3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='yes1_3', opacity=1.0, ori=0.0, pos=array([0.4 , 0.13]), size=array([0.3, 0.3]), texRes=128.0, units='height', win=Window(...))
+11.1362 	EXP 	window1: mouseVisible = True
+11.1381 	EXP 	Created text_21 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_21', opacity=1.0, ori=0.0, pos=array([-0.3 , -0.07]), rgb=UNKNOWN, text='knitting', units='height', win=Window(...), wrapWidth=1)
+11.1382 	EXP 	window1: mouseVisible = True
+11.1720 	EXP 	Created Player1_6 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Player1_6', opacity=1.0, ori=0.0, pos=array([0. , 0.3]), size=array([0.2 , 0.25]), texRes=128.0, units='height', win=Window(...))
+11.1721 	EXP 	window1: mouseVisible = True
+11.1946 	EXP 	Created cook_5 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='cook_5', opacity=1.0, ori=0.0, pos=array([-0.13,  0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+11.1947 	EXP 	window1: mouseVisible = True
+11.1969 	EXP 	Created var_9 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var_9', opacity=1.0, ori=0.0, pos=array([-0.13 ,  0.095]), rgb=UNKNOWN, text='cooking\n\n', units='height', win=Window(...), wrapWidth=1)
+11.1970 	EXP 	window1: mouseVisible = True
+11.2186 	EXP 	Created movie_7 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='movie_7', opacity=1.0, ori=0.0, pos=array([0.  , 0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+11.2187 	EXP 	window1: mouseVisible = True
+11.2235 	EXP 	Created var_10 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='var_10', opacity=1.0, ori=0.0, pos=array([0.13, 0.11]), rgb=UNKNOWN, text='dancing', units='height', win=Window(...), wrapWidth=1)
+11.2236 	EXP 	window1: mouseVisible = True
+11.2463 	EXP 	Created dance_5 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='dance_5', opacity=1.0, ori=0.0, pos=array([0.13, 0.14]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+11.2464 	EXP 	window1: mouseVisible = True
+11.2484 	EXP 	Created text_33 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='text_33', opacity=1.0, ori=0.0, pos=array([0.  , 0.11]), rgb=UNKNOWN, text='movies', units='height', win=Window(...), wrapWidth=1)
+11.2485 	EXP 	window1: mouseVisible = True
+11.2505 	EXP 	Created p1_6 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='p1_6', opacity=1.0, ori=0.0, pos=array([0.  , 0.45]), rgb=UNKNOWN, text='Player-2\n', units='height', win=Window(...), wrapWidth=1)
+11.2506 	EXP 	window1: mouseVisible = True
+11.2522 	EXP 	Created you_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='you_4', opacity=1.0, ori=0.0, pos=array([0.  , 0.07]), rgb=UNKNOWN, text='You', units='height', win=Window(...), wrapWidth=1)
+11.2523 	EXP 	window1: mouseVisible = True
+11.2727 	EXP 	Created chatting_4 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='chatting_4', opacity=1.0, ori=0.0, pos=array([-0.13, -0.2 ]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+11.2728 	EXP 	window1: mouseVisible = True
+11.2748 	EXP 	Created chat_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-10.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='chat_4', opacity=1.0, ori=0.0, pos=array([-0.13, -0.23]), rgb=UNKNOWN, text='chatting', units='height', win=Window(...), wrapWidth=1)
+11.2748 	EXP 	window1: mouseVisible = True
+11.2842 	EXP 	Created sports_4 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-11.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='sports_4', opacity=1.0, ori=0.0, pos=array([ 0. , -0.2]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+11.2843 	EXP 	window1: mouseVisible = True
+11.2863 	EXP 	Created sport_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='sport_4', opacity=1.0, ori=0.0, pos=array([ 0.  , -0.23]), rgb=UNKNOWN, text='sports', units='height', win=Window(...), wrapWidth=1)
+11.2864 	EXP 	window1: mouseVisible = True
+11.3062 	EXP 	Created beach_4 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-13.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='beach_4', opacity=1.0, ori=0.0, pos=array([ 0.13, -0.2 ]), size=array([0.04, 0.04]), texRes=128.0, units='height', win=Window(...))
+11.3063 	EXP 	window1: mouseVisible = True
+11.3085 	EXP 	Created beach_txt_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.01, italic=False, languageStyle='LTR', name='beach_txt_4', opacity=1.0, ori=0.0, pos=array([ 0.13, -0.23]), rgb=UNKNOWN, text='beach', units='height', win=Window(...), wrapWidth=1)
+11.3085 	EXP 	window1: mouseVisible = True
+11.3432 	EXP 	Created participantpic_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='participantpic_2', opacity=1.0, ori=0.0, pos=array([ 0.   , -0.073]), size=array([0.15, 0.2 ]), texRes=128.0, units='height', win=Window(...))
+11.3433 	EXP 	window1: mouseVisible = True
+11.3522 	EXP 	Created no_4 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-16.0, draggable=False, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='no_4', opacity=1.0, ori=0.0, pos=array([ 0.   , -0.073]), size=array([0.2, 0.3]), texRes=128.0, units='height', win=Window(...))
+11.3523 	EXP 	window1: mouseVisible = True
+11.3534 	EXP 	Created polygon_2 = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, anchor=('center', 'center'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0.0, draggable=False, fillColor=array([-1., -1., -1.]), fillColorSpace='rgb', fillRGB=array([-1., -1., -1.]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1., -1., -1.]), lineWidth=1.0, name='polygon_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([4., 4.]), units='height', vertices=ndarray(...), win=Window(...))
+11.3535 	EXP 	window1: mouseVisible = True
+11.3604 	EXP 	Created text_36 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.06, italic=False, languageStyle='LTR', name='text_36', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+0.0144 	EXP 	wel: autoDraw = True
+0.6573 	DATA 	Keypress: space
+0.6650 	EXP 	wel: autoDraw = False
+0.6650 	EXP 	Who: autoDraw = True
+0.6650 	EXP 	text_2: autoDraw = True
+0.6650 	EXP 	text_3: autoDraw = True
+0.6650 	EXP 	Player1demo: autoDraw = True
+0.6650 	EXP 	Player2demo: autoDraw = True
+0.6650 	EXP 	cooking: autoDraw = True
+0.6650 	EXP 	text_4: autoDraw = True
+0.6650 	EXP 	movies: autoDraw = True
+0.6650 	EXP 	text_5: autoDraw = True
+0.6650 	EXP 	dancing: autoDraw = True
+0.6650 	EXP 	text_6: autoDraw = True
+0.6650 	EXP 	fashion: autoDraw = True
+0.6650 	EXP 	text_7: autoDraw = True
+0.6650 	EXP 	movie: autoDraw = True
+0.6650 	EXP 	text_8: autoDraw = True
+0.6650 	EXP 	writing: autoDraw = True
+0.6650 	EXP 	text_9: autoDraw = True
+2.3969 	DATA 	Keypress: n
+2.4073 	EXP 	Who: autoDraw = False
+2.4073 	EXP 	text_2: autoDraw = False
+2.4073 	EXP 	text_3: autoDraw = False
+2.4073 	EXP 	Player1demo: autoDraw = False
+2.4073 	EXP 	Player2demo: autoDraw = False
+2.4073 	EXP 	cooking: autoDraw = False
+2.4073 	EXP 	text_4: autoDraw = False
+2.4073 	EXP 	movies: autoDraw = False
+2.4073 	EXP 	text_5: autoDraw = False
+2.4073 	EXP 	dancing: autoDraw = False
+2.4073 	EXP 	text_6: autoDraw = False
+2.4073 	EXP 	fashion: autoDraw = False
+2.4073 	EXP 	text_7: autoDraw = False
+2.4073 	EXP 	movie: autoDraw = False
+2.4073 	EXP 	text_8: autoDraw = False
+2.4073 	EXP 	writing: autoDraw = False
+2.4073 	EXP 	text_9: autoDraw = False
+2.4073 	EXP 	Player1: autoDraw = True
+2.4073 	EXP 	cook: autoDraw = True
+2.4073 	EXP 	var_4: autoDraw = True
+2.4073 	EXP 	movie_2: autoDraw = True
+2.4073 	EXP 	var_5: autoDraw = True
+2.4073 	EXP 	dance: autoDraw = True
+2.4073 	EXP 	text: autoDraw = True
+2.4073 	EXP 	p1: autoDraw = True
+2.4073 	EXP 	yes1: autoDraw = True
+3.9068 	EXP 	Player1: autoDraw = False
+3.9068 	EXP 	cook: autoDraw = False
+3.9068 	EXP 	var_4: autoDraw = False
+3.9068 	EXP 	movie_2: autoDraw = False
+3.9068 	EXP 	var_5: autoDraw = False
+3.9068 	EXP 	dance: autoDraw = False
+3.9068 	EXP 	text: autoDraw = False
+3.9068 	EXP 	p1: autoDraw = False
+3.9068 	EXP 	yes1: autoDraw = False
+3.9068 	EXP 	Player1_2: autoDraw = True
+3.9068 	EXP 	cook_2: autoDraw = True
+3.9068 	EXP 	var: autoDraw = True
+3.9068 	EXP 	movie_4: autoDraw = True
+3.9068 	EXP 	var_6: autoDraw = True
+3.9068 	EXP 	dance_2: autoDraw = True
+3.9068 	EXP 	text_13: autoDraw = True
+3.9068 	EXP 	p1_2: autoDraw = True
+4.8905 	EXP 	you: autoDraw = True
+4.8905 	EXP 	chatting: autoDraw = True
+4.8905 	EXP 	chat: autoDraw = True
+4.8905 	EXP 	sports: autoDraw = True
+4.8905 	EXP 	sport: autoDraw = True
+4.8905 	EXP 	beach: autoDraw = True
+4.8905 	EXP 	beach_txt: autoDraw = True
+4.8905 	EXP 	participantpic: autoDraw = True
+6.3879 	EXP 	yess: autoDraw = True
+8.3904 	EXP 	Player1_2: autoDraw = False
+8.3904 	EXP 	cook_2: autoDraw = False
+8.3904 	EXP 	var: autoDraw = False
+8.3904 	EXP 	movie_4: autoDraw = False
+8.3904 	EXP 	var_6: autoDraw = False
+8.3904 	EXP 	dance_2: autoDraw = False
+8.3904 	EXP 	text_13: autoDraw = False
+8.3904 	EXP 	p1_2: autoDraw = False
+8.3904 	EXP 	you: autoDraw = False
+8.3904 	EXP 	chatting: autoDraw = False
+8.3904 	EXP 	chat: autoDraw = False
+8.3904 	EXP 	sports: autoDraw = False
+8.3904 	EXP 	sport: autoDraw = False
+8.3904 	EXP 	beach: autoDraw = False
+8.3904 	EXP 	beach_txt: autoDraw = False
+8.3904 	EXP 	participantpic: autoDraw = False
+8.3904 	EXP 	yess: autoDraw = False
+8.3904 	EXP 	player: autoDraw = False
+8.3904 	EXP 	fashion_2: autoDraw = False
+8.3904 	EXP 	text_10: autoDraw = False
+8.3904 	EXP 	movie_3: autoDraw = False
+8.3904 	EXP 	text_11: autoDraw = False
+8.3904 	EXP 	writing_2: autoDraw = False
+8.3904 	EXP 	text_12: autoDraw = False
+8.3904 	EXP 	yes1_2: autoDraw = False
+8.3904 	EXP 	text_14: autoDraw = False
+8.3904 	EXP 	Player2_4: autoDraw = False
+8.3904 	EXP 	fashion_3: autoDraw = False
+8.3904 	EXP 	var_2: autoDraw = False
+8.3904 	EXP 	movie_5: autoDraw = False
+8.3904 	EXP 	var_7: autoDraw = False
+8.3904 	EXP 	writ: autoDraw = False
+8.3904 	EXP 	text_31: autoDraw = False
+8.3904 	EXP 	p1_4: autoDraw = False
+8.3904 	EXP 	you_2: autoDraw = False
+8.3904 	EXP 	chatting_2: autoDraw = False
+8.3904 	EXP 	chat_2: autoDraw = False
+8.3904 	EXP 	sports_2: autoDraw = False
+8.3904 	EXP 	sport_2: autoDraw = False
+8.3904 	EXP 	beach_2: autoDraw = False
+8.3904 	EXP 	participantpic_5: autoDraw = False
+8.3904 	EXP 	beach_txt_2: autoDraw = False
+8.3904 	EXP 	yes: autoDraw = False
+8.3904 	EXP 	polygon: autoDraw = True
+8.3904 	EXP 	text_16: autoDraw = True
+11.3748 	EXP 	polygon: autoDraw = False
+11.3748 	EXP 	text_16: autoDraw = False
+11.3748 	EXP 	Who_2: autoDraw = True
+11.3748 	EXP 	text_15: autoDraw = True
+11.3748 	EXP 	text_17: autoDraw = True
+11.3748 	EXP 	Player1demo_2: autoDraw = True
+11.3748 	EXP 	Player2demo_2: autoDraw = True
+11.3748 	EXP 	writingpic: autoDraw = True
+11.3748 	EXP 	text_18: autoDraw = True
+11.3748 	EXP 	instruments: autoDraw = True
+11.3748 	EXP 	text_20: autoDraw = True
+11.3748 	EXP 	knitting: autoDraw = True
+11.3748 	EXP 	text_19: autoDraw = True
+11.3748 	EXP 	beachpic: autoDraw = True
+11.3748 	EXP 	writingpic2: autoDraw = True
+11.3748 	EXP 	text_22: autoDraw = True
+11.3748 	EXP 	cycling: autoDraw = True
+11.3748 	EXP 	text_23: autoDraw = True
+11.3748 	EXP 	text_24: autoDraw = True
+14.8416 	DATA 	Keypress: space
+14.8743 	EXP 	Who_2: autoDraw = False
+14.8743 	EXP 	text_15: autoDraw = False
+14.8743 	EXP 	text_17: autoDraw = False
+14.8743 	EXP 	Player1demo_2: autoDraw = False
+14.8743 	EXP 	Player2demo_2: autoDraw = False
+14.8743 	EXP 	writingpic: autoDraw = False
+14.8743 	EXP 	text_18: autoDraw = False
+14.8743 	EXP 	instruments: autoDraw = False
+14.8743 	EXP 	text_20: autoDraw = False
+14.8743 	EXP 	knitting: autoDraw = False
+14.8743 	EXP 	text_19: autoDraw = False
+14.8743 	EXP 	beachpic: autoDraw = False
+14.8743 	EXP 	writingpic2: autoDraw = False
+14.8743 	EXP 	text_22: autoDraw = False
+14.8743 	EXP 	cycling: autoDraw = False
+14.8743 	EXP 	text_23: autoDraw = False
+14.8743 	EXP 	text_24: autoDraw = False
+14.8743 	EXP 	p1_3: autoDraw = True
+14.8743 	EXP 	Player1_3: autoDraw = True
+14.8743 	EXP 	writingpic_2: autoDraw = True
+14.8743 	EXP 	text_28: autoDraw = True
+14.8743 	EXP 	instruments_2: autoDraw = True
+14.8743 	EXP 	text_29: autoDraw = True
+14.8743 	EXP 	knitting_2: autoDraw = True
+14.8743 	EXP 	yes1_4: autoDraw = True
+14.8743 	EXP 	text_37: autoDraw = True
+14.8743 	EXP 	text_38: autoDraw = True
+15.3064 	DATA 	Keypress: space
+16.3566 	EXP 	p1_3: autoDraw = False
+16.3566 	EXP 	Player1_3: autoDraw = False
+16.3566 	EXP 	writingpic_2: autoDraw = False
+16.3566 	EXP 	text_28: autoDraw = False
+16.3566 	EXP 	instruments_2: autoDraw = False
+16.3566 	EXP 	text_29: autoDraw = False
+16.3566 	EXP 	knitting_2: autoDraw = False
+16.3566 	EXP 	yes1_4: autoDraw = False
+16.3566 	EXP 	text_37: autoDraw = False
+16.3566 	EXP 	text_38: autoDraw = False
+16.3566 	EXP 	Player1_5: autoDraw = True
+16.3566 	EXP 	writt: autoDraw = True
+16.3566 	EXP 	var_3: autoDraw = True
+16.3566 	EXP 	piano: autoDraw = True
+16.3566 	EXP 	var_8: autoDraw = True
+16.3566 	EXP 	knittingg: autoDraw = True
+16.3566 	EXP 	text_32: autoDraw = True
+16.3566 	EXP 	p1_5: autoDraw = True
+17.0563 	DATA 	Keypress: escape
+17.1540 	EXP 	PAT_PRACTICE_icons: status = STOPPED
+17.1699 	EXP 	Player1_5: autoDraw = False
+17.1699 	EXP 	writt: autoDraw = False
+17.1699 	EXP 	var_3: autoDraw = False
+17.1699 	EXP 	piano: autoDraw = False
+17.1699 	EXP 	var_8: autoDraw = False
+17.1699 	EXP 	knittingg: autoDraw = False
+17.1699 	EXP 	text_32: autoDraw = False
+17.1699 	EXP 	p1_5: autoDraw = False
+17.1700 	EXP 	PAT_PRACTICE_icons: status = STOPPED
+17.3825 	EXP 	window1: mouseVisible = True
