@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on June 08, 2026, at 09:56
+    on June 08, 2026, at 10:28
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1061,20 +1061,13 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-7.0)
-    text_37 = visual.TextStim(win=win, name='text_37',
-        text='movies',
-        font='Open Sans',
-        pos=(-0.40, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
-        color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-8.0);
     text_38 = visual.TextStim(win=win, name='text_38',
         text='knitting',
         font='Open Sans',
         pos=(-0.30, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-9.0);
+        depth=-8.0);
     
     # --- Initialize components for Routine "topnop1" ---
     Player1_5 = visual.ImageStim(
@@ -1109,22 +1102,22 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-3.0)
     var_8 = visual.TextStim(win=win, name='var_8',
-        text='instruments\n',
+        text='dancing',
         font='Open Sans',
         pos=(0.13, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-4.0);
-    knittingg = visual.ImageStim(
+    dancin = visual.ImageStim(
         win=win,
-        name='knittingg', 
+        name='dancin', 
         image='C:/Users/tur31606/Desktop/pat/stimuli/icons/dancing.png', mask=None, anchor='center',
         ori=0.0, pos=(0.13, 0.14), size=(0.04, 0.04),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-5.0)
     text_32 = visual.TextStim(win=win, name='text_32',
-        text='knitting',
+        text='instruments',
         font='Open Sans',
         pos=(0.0, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -4357,7 +4350,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     if friendChoice.keys != 'n':
         continueRoutine = False
     # keep track of which components have finished
-    Play1_2Components = [p1_3, Player1_3, writingpic_2, text_28, instruments_2, text_29, knitting_2, yes1_4, text_37, text_38]
+    Play1_2Components = [p1_3, Player1_3, writingpic_2, text_28, instruments_2, text_29, knitting_2, yes1_4, text_38]
     for thisComponent in Play1_2Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -4543,26 +4536,6 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update params
             pass
         
-        # *text_37* updates
-        
-        # if text_37 is starting this frame...
-        if text_37.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_37.frameNStart = frameN  # exact frame index
-            text_37.tStart = t  # local t and not account for scr refresh
-            text_37.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_37, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'text_37.started')
-            # update status
-            text_37.status = STARTED
-            text_37.setAutoDraw(True)
-        
-        # if text_37 is active this frame...
-        if text_37.status == STARTED:
-            # update params
-            pass
-        
         # *text_38* updates
         
         # if text_38 is starting this frame...
@@ -4620,7 +4593,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     if friendChoice.keys != 'n':
         continueRoutine = False
     # keep track of which components have finished
-    topnop1Components = [Player1_5, writt, var_3, piano, var_8, knittingg, text_32, p1_5, you_3, chatting_3, chat_3, sports_3, sport_3, beach_3, beach_txt_3, participantpic_6, no_3]
+    topnop1Components = [Player1_5, writt, var_3, piano, var_8, dancin, text_32, p1_5, you_3, chatting_3, chat_3, sports_3, sport_3, beach_3, beach_txt_3, participantpic_6, no_3]
     for thisComponent in topnop1Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -4746,23 +4719,23 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update params
             pass
         
-        # *knittingg* updates
+        # *dancin* updates
         
-        # if knittingg is starting this frame...
-        if knittingg.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # if dancin is starting this frame...
+        if dancin.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            knittingg.frameNStart = frameN  # exact frame index
-            knittingg.tStart = t  # local t and not account for scr refresh
-            knittingg.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(knittingg, 'tStartRefresh')  # time at next scr refresh
+            dancin.frameNStart = frameN  # exact frame index
+            dancin.tStart = t  # local t and not account for scr refresh
+            dancin.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(dancin, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'knittingg.started')
+            thisExp.timestampOnFlip(win, 'dancin.started')
             # update status
-            knittingg.status = STARTED
-            knittingg.setAutoDraw(True)
+            dancin.status = STARTED
+            dancin.setAutoDraw(True)
         
-        # if knittingg is active this frame...
-        if knittingg.status == STARTED:
+        # if dancin is active this frame...
+        if dancin.status == STARTED:
             # update params
             pass
         
