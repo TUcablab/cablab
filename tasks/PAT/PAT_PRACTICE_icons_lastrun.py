@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on June 11, 2026, at 10:17
+    on June 11, 2026, at 15:37
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -328,7 +328,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     Who = visual.TextStim(win=win, name='Who',
         text='Who do you want to be friends with? \n\n',
         font='Arial Bold',
-        pos=(0, 0.38), height=0.04, wrapWidth=None, ori=0.0, 
+        pos=(0 ,0.38), height=0.04, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
@@ -373,7 +373,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_4 = visual.TextStim(win=win, name='text_4',
         text='cooking\n\n',
         font='Open Sans',
-        pos=(-0.5, -0.08), height=0.0112, wrapWidth=None, ori=0.0, 
+        pos=(-0.5, -0.08), height=0.0113, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-6.0);
@@ -388,7 +388,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_5 = visual.TextStim(win=win, name='text_5',
         text='dancing',
         font='Open Sans',
-        pos=(-0.30, -0.07), height=0.0112, wrapWidth=None, ori=0.0, 
+        pos=(-0.30, -0.07), height=0.0113, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-8.0);
@@ -403,7 +403,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_6 = visual.TextStim(win=win, name='text_6',
         text='movies',
         font='Open Sans',
-        pos=(-0.40, -0.07), height=0.0112, wrapWidth=None, ori=0.0, 
+        pos=(-0.40, -0.07), height=0.0113, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-10.0);
@@ -1130,7 +1130,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     var_3 = visual.TextStim(win=win, name='var_3',
         text='writing\n',
         font='Open Sans',
-        pos=(-0.13, 0.095), height=0.01, wrapWidth=None, ori=0.0, 
+        pos=(-0.13, 0.09), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-3.0);
@@ -1519,7 +1519,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_40 = visual.TextStim(win=win, name='text_40',
         text='writing\n\n',
         font='Open Sans',
-        pos=(-0.5, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        pos=(-0.5, -0.08), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-6.0);
@@ -1572,7 +1572,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_43 = visual.TextStim(win=win, name='text_43',
         text='writing\n',
         font='Open Sans',
-        pos=(0.4, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        pos=(0.4, -0.08), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-13.0);
@@ -1898,18 +1898,24 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     key_resp_10 = keyboard.Keyboard()
     
     # --- Initialize components for Routine "topnsp2" ---
+    polygon_36 = visual.Rect(
+        win=win, name='polygon_36',
+        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
+        ori=0.0, pos=(0.0,-0.073), anchor='center',
+        lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4039, -0.3725, -0.3569], fillColor=[0.0000, 0.0000, 0.0000],
+        opacity=None, depth=0.0, interpolate=True)
     polygon_34 = visual.Rect(
         win=win, name='polygon_34',
         width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4902, -0.5373, -0.5059], fillColor=[0.0000, 0.0000, 0.0000],
-        opacity=None, depth=0.0, interpolate=True)
+        opacity=None, depth=-1.0, interpolate=True)
     polygon_15 = visual.Rect(
         win=win, name='polygon_15',
         width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
-        lineWidth=5.0,     colorSpace='rgb',  lineColor=[0.0039, 0.0039, 0.0039], fillColor=[0.0000, 0.0000, 0.0000],
-        opacity=None, depth=-1.0, interpolate=True)
+        lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4039, -0.3725, -0.3569], fillColor=[0.0000, 0.0000, 0.0000],
+        opacity=None, depth=-2.0, interpolate=True)
     Player1_8 = visual.ImageStim(
         win=win,
         name='Player1_8', 
@@ -1917,7 +1923,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.0,0.3), size=(0.2, 0.25),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-2.0)
+        texRes=128.0, interpolate=True, depth=-3.0)
     beachh = visual.ImageStim(
         win=win,
         name='beachh', 
@@ -1925,14 +1931,14 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         ori=0.0, pos=(-0.13, 0.14), size=(0.04, 0.04),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-3.0)
+        texRes=128.0, interpolate=True, depth=-4.0)
     var_13 = visual.TextStim(win=win, name='var_13',
         text='beach\n',
         font='Open Sans',
         pos=(-0.13, 0.095), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-4.0);
+        depth=-5.0);
     wrightt = visual.ImageStim(
         win=win,
         name='wrightt', 
@@ -1940,14 +1946,14 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.0, 0.14), size=(0.04, 0.04),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-5.0)
+        texRes=128.0, interpolate=True, depth=-6.0)
     var_14 = visual.TextStim(win=win, name='var_14',
         text='writing',
         font='Open Sans',
         pos=(0.13, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-6.0);
+        depth=-7.0);
     cyc = visual.ImageStim(
         win=win,
         name='cyc', 
@@ -1955,28 +1961,28 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.13, 0.14), size=(0.04, 0.04),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-7.0)
+        texRes=128.0, interpolate=True, depth=-8.0)
     text_35 = visual.TextStim(win=win, name='text_35',
         text='cycling',
         font='Open Sans',
         pos=(0.0, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-8.0);
+        depth=-9.0);
     p1_8 = visual.TextStim(win=win, name='p1_8',
         text='Player-1\n',
         font='Consolas',
         pos=(0.0,0.45), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-9.0);
+        depth=-10.0);
     you_6 = visual.TextStim(win=win, name='you_6',
         text='You',
         font='Consolas',
         pos=(0.0,0.07), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-10.0);
+        depth=-11.0);
     chatting_6 = visual.ImageStim(
         win=win,
         name='chatting_6', 
@@ -1984,14 +1990,14 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         ori=0.0, pos=(-0.13, -0.2), size=(0.04, 0.04),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-11.0)
+        texRes=128.0, interpolate=True, depth=-12.0)
     chat_6 = visual.TextStim(win=win, name='chat_6',
         text='chatting',
         font='Open Sans',
         pos=(-0.13, -0.23), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-12.0);
+        depth=-13.0);
     sports_6 = visual.ImageStim(
         win=win,
         name='sports_6', 
@@ -1999,14 +2005,14 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, -0.2), size=(0.04, 0.04),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-13.0)
+        texRes=128.0, interpolate=True, depth=-14.0)
     sport_6 = visual.TextStim(win=win, name='sport_6',
         text='sports',
         font='Open Sans',
         pos=(0, -0.23), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-14.0);
+        depth=-15.0);
     beach_6 = visual.ImageStim(
         win=win,
         name='beach_6', 
@@ -2014,14 +2020,14 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.13, -0.2), size=(0.04, 0.04),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-15.0)
+        texRes=128.0, interpolate=True, depth=-16.0)
     beach_txt_6 = visual.TextStim(win=win, name='beach_txt_6',
         text='beach',
         font='Open Sans',
         pos=(0.13, -0.23), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-16.0);
+        depth=-17.0);
     participantpic_4 = visual.ImageStim(
         win=win,
         name='participantpic_4', 
@@ -2029,7 +2035,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.0,-0.073), size=(0.15, 0.20),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-17.0)
+        texRes=128.0, interpolate=True, depth=-18.0)
     notseen2 = visual.ImageStim(
         win=win,
         name='notseen2', 
@@ -2037,8 +2043,23 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         ori=0.0, pos=(0.0,-0.080), size=(0.1, 0.1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-18.0)
+        texRes=128.0, interpolate=True, depth=-19.0)
     key_resp_13 = keyboard.Keyboard()
+    
+    # --- Initialize components for Routine "wait_3" ---
+    polygon_3 = visual.Rect(
+        win=win, name='polygon_3',
+        width=(4, 4)[0], height=(4, 4)[1],
+        ori=0.0, pos=(0, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[-1.0000, -1.0000, -1.0000], fillColor=[-1.0000, -1.0000, -1.0000],
+        opacity=None, depth=0.0, interpolate=True)
+    text_67 = visual.TextStim(win=win, name='text_67',
+        text='+',
+        font='Open Sans',
+        pos=(0, 0), height=0.06, wrapWidth=None, ori=0.0, 
+        color=[1.0000, 1.0000, 1.0000], colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-1.0);
     
     # --- Initialize components for Routine "ChoiceRoutine_4" ---
     Who_4 = visual.TextStim(win=win, name='Who_4',
@@ -2089,7 +2110,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_54 = visual.TextStim(win=win, name='text_54',
         text='cooking\n\n',
         font='Open Sans',
-        pos=(-0.5, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        pos=(-0.5, -0.08), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-6.0);
@@ -2662,7 +2683,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_70 = visual.TextStim(win=win, name='text_70',
         text='writing\n\n',
         font='Open Sans',
-        pos=(-0.5, -0.07), height=0.01, wrapWidth=None, ori=0.0, 
+        pos=(-0.5, -0.086), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-6.0);
@@ -2846,7 +2867,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     var_20 = visual.TextStim(win=win, name='var_20',
         text='writing\n',
         font='Open Sans',
-        pos=(-0.13, 0.095), height=0.01, wrapWidth=None, ori=0.0, 
+        pos=(-0.13, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-3.0);
@@ -3075,7 +3096,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     var_23 = visual.TextStim(win=win, name='var_23',
         text='writing\n',
         font='Open Sans',
-        pos=(0.13, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
+        pos=(-0.13, 0.095), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-5.0);
@@ -3090,7 +3111,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_84 = visual.TextStim(win=win, name='text_84',
         text='cycling',
         font='Open Sans',
-        pos=(0.0, 0.11), height=0.01, wrapWidth=None, ori=0.0, 
+        pos=(-0.13, 0.095), height=0.01, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-7.0);
@@ -3394,11 +3415,11 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     key_resp_26 = keyboard.Keyboard()
     
     # --- Initialize components for Routine "topnsp1_2" ---
-    polygon_31 = visual.Rect(
-        win=win, name='polygon_31',
+    polygon_37 = visual.Rect(
+        win=win, name='polygon_37',
         width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
-        lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4902, -0.5373, -0.5059], fillColor=[0.0000, 0.0000, 0.0000],
+        lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4039, -0.3725, -0.3569], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
     Player1_14 = visual.ImageStim(
         win=win,
@@ -3612,7 +3633,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         win=win, name='polygon_32',
         width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
-        lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4902, -0.5373, -0.5059], fillColor=[0.0000, 0.0000, 0.0000],
+        lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4039, -0.3725, -0.3569], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
     Player1_15 = visual.ImageStim(
         win=win,
@@ -9514,7 +9535,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     key_resp_13.rt = []
     _key_resp_13_allKeys = []
     # keep track of which components have finished
-    topnsp2Components = [polygon_34, polygon_15, Player1_8, beachh, var_13, wrightt, var_14, cyc, text_35, p1_8, you_6, chatting_6, chat_6, sports_6, sport_6, beach_6, beach_txt_6, participantpic_4, notseen2, key_resp_13]
+    topnsp2Components = [polygon_36, polygon_34, polygon_15, Player1_8, beachh, var_13, wrightt, var_14, cyc, text_35, p1_8, you_6, chatting_6, chat_6, sports_6, sport_6, beach_6, beach_txt_6, participantpic_4, notseen2, key_resp_13]
     for thisComponent in topnsp2Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -9536,6 +9557,26 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        
+        # *polygon_36* updates
+        
+        # if polygon_36 is starting this frame...
+        if polygon_36.status == NOT_STARTED and tThisFlip >= 2.5-frameTolerance:
+            # keep track of start time/frame for later
+            polygon_36.frameNStart = frameN  # exact frame index
+            polygon_36.tStart = t  # local t and not account for scr refresh
+            polygon_36.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(polygon_36, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'polygon_36.started')
+            # update status
+            polygon_36.status = STARTED
+            polygon_36.setAutoDraw(True)
+        
+        # if polygon_36 is active this frame...
+        if polygon_36.status == STARTED:
+            # update params
+            pass
         
         # *polygon_34* updates
         
@@ -9980,6 +10021,106 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         thisExp.addData('key_resp_13.duration', key_resp_13.duration)
     thisExp.nextEntry()
     # the Routine "topnsp2" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "wait_3" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('wait_3.started', globalClock.getTime())
+    # keep track of which components have finished
+    wait_3Components = [polygon_3, text_67]
+    for thisComponent in wait_3Components:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "wait_3" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        # is it time to end the Routine? (based on local clock)
+        if tThisFlip > 3-frameTolerance:
+            continueRoutine = False
+        
+        # *polygon_3* updates
+        
+        # if polygon_3 is starting this frame...
+        if polygon_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            polygon_3.frameNStart = frameN  # exact frame index
+            polygon_3.tStart = t  # local t and not account for scr refresh
+            polygon_3.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(polygon_3, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'polygon_3.started')
+            # update status
+            polygon_3.status = STARTED
+            polygon_3.setAutoDraw(True)
+        
+        # if polygon_3 is active this frame...
+        if polygon_3.status == STARTED:
+            # update params
+            pass
+        
+        # *text_67* updates
+        
+        # if text_67 is starting this frame...
+        if text_67.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_67.frameNStart = frameN  # exact frame index
+            text_67.tStart = t  # local t and not account for scr refresh
+            text_67.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_67, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text_67.started')
+            # update status
+            text_67.status = STARTED
+            text_67.setAutoDraw(True)
+        
+        # if text_67 is active this frame...
+        if text_67.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, inputs=inputs, win=win)
+            return
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in wait_3Components:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "wait_3" ---
+    for thisComponent in wait_3Components:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('wait_3.stopped', globalClock.getTime())
+    # the Routine "wait_3" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
     # --- Prepare to start Routine "ChoiceRoutine_4" ---
@@ -14832,7 +14973,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     key_resp_24.rt = []
     _key_resp_24_allKeys = []
     # keep track of which components have finished
-    topnsp1_2Components = [polygon_31, Player1_14, draw_2, wright_2, pianoo_2, var_24, knit_2, text_94, p1_16, you_11, chatting_11, chat_11, sports_11, sport_11, beach_11, beach_txt_11, participantpic_11, notseen_2, key_resp_24]
+    topnsp1_2Components = [polygon_37, Player1_14, draw_2, wright_2, pianoo_2, var_24, knit_2, text_94, p1_16, you_11, chatting_11, chat_11, sports_11, sport_11, beach_11, beach_txt_11, participantpic_11, notseen_2, key_resp_24]
     for thisComponent in topnsp1_2Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -14855,23 +14996,23 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
-        # *polygon_31* updates
+        # *polygon_37* updates
         
-        # if polygon_31 is starting this frame...
-        if polygon_31.status == NOT_STARTED and tThisFlip >= 2.5-frameTolerance:
+        # if polygon_37 is starting this frame...
+        if polygon_37.status == NOT_STARTED and tThisFlip >= 2.5-frameTolerance:
             # keep track of start time/frame for later
-            polygon_31.frameNStart = frameN  # exact frame index
-            polygon_31.tStart = t  # local t and not account for scr refresh
-            polygon_31.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(polygon_31, 'tStartRefresh')  # time at next scr refresh
+            polygon_37.frameNStart = frameN  # exact frame index
+            polygon_37.tStart = t  # local t and not account for scr refresh
+            polygon_37.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(polygon_37, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'polygon_31.started')
+            thisExp.timestampOnFlip(win, 'polygon_37.started')
             # update status
-            polygon_31.status = STARTED
-            polygon_31.setAutoDraw(True)
+            polygon_37.status = STARTED
+            polygon_37.setAutoDraw(True)
         
-        # if polygon_31 is active this frame...
-        if polygon_31.status == STARTED:
+        # if polygon_37 is active this frame...
+        if polygon_37.status == STARTED:
             # update params
             pass
         
