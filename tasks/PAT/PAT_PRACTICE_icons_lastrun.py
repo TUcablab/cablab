@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on June 12, 2026, at 15:55
+    on June 15, 2026, at 09:33
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1608,7 +1608,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
     p1_9 = visual.TextStim(win=win, name='p1_9',
-        text='Player-1\n',
+        text='Player-2\n\n',
         font='Consolas',
         pos=(-0.4,0.3), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -1617,7 +1617,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     Player1_4 = visual.ImageStim(
         win=win,
         name='Player1_4', 
-        image='C:/Users/tur31606/Desktop/pat/stimuli/practice/player1.jpg', mask=None, anchor='center',
+        image='C:/Users/tuu20869/Desktop/stimuli/practice/player2.jpg', mask=None, anchor='center',
         ori=0.0, pos=(-0.4,0.13), size=(0.2, 0.25),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
@@ -1633,7 +1633,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_46 = visual.TextStim(win=win, name='text_46',
         text='writing\n\n',
         font='Open Sans',
-        pos=(-0.5, -0.086), height=0.015, wrapWidth=None, ori=0.0, 
+        pos=(-0.5, -0.087), height=0.015, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-4.0);
@@ -3063,7 +3063,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     var_22 = visual.TextStim(win=win, name='var_22',
         text='beach\n',
         font='Open Sans',
-        pos=(-0.13, 0.086), height=0.015, wrapWidth=None, ori=0.0, 
+        pos=(-0.13, 0.087), height=0.015, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-3.0);
@@ -3291,7 +3291,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_91 = visual.TextStim(win=win, name='text_91',
         text='writing\n',
         font='Open Sans',
-        pos=(0.4, -0.086), height=0.015, wrapWidth=None, ori=0.0, 
+        pos=(0.4, -0.08), height=0.015, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-13.0);
@@ -3314,7 +3314,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     text_93 = visual.TextStim(win=win, name='text_93',
         text='beach',
         font='Open Sans',
-        pos=(0.3, -0.07), height=0.015, wrapWidth=None, ori=0.0, 
+        pos=(0.30, -0.07), height=0.015, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-17.0);
