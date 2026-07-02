@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on June 23, 2026, at 09:16
+    on July 01, 2026, at 13:41
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -40,7 +40,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 psychopyVersion = '2023.2.3'
 expName = 'PAT_PRACTICE_icons'  # from the Builder filename that created this script
 expInfo = {
-    'participant': f"{randint(0, 999999):06.0f}",
+    '': '',
     'session': '001',
     'date': data.getDateStr(),  # add a simple timestamp
     'expName': expName,
@@ -1617,7 +1617,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     Player1_4 = visual.ImageStim(
         win=win,
         name='Player1_4', 
-        image='C:/Users/tuu20869/Desktop/stimuli/practice/player2.jpg', mask=None, anchor='center',
+        image='C:/Users/tuu20869/Desktop/stimuli/practice/player1.jpg', mask=None, anchor='center',
         ori=0.0, pos=(-0.4,0.13), size=(0.2, 0.25),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
