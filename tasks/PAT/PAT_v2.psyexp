@@ -234,7 +234,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="C:/Users/tur31606/Desktop/pat/stimuli/practice/player1.jpg" valType="file" updates="constant" name="image"/>
+        <Param val="$face" valType="file" updates="set every repeat" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="Player1demo" valType="code" updates="None" name="name"/>
@@ -288,7 +288,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="C:/Users/tur31606/Desktop/pat/stimuli/icons/cooking.png" valType="file" updates="constant" name="image"/>
+        <Param val="" valType="file" updates="set every repeat" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="cooking" valType="code" updates="None" name="name"/>
@@ -327,7 +327,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="cooking&amp;#10;&amp;#10;" valType="str" updates="constant" name="text"/>
+        <Param val="cooking&amp;#10;&amp;#10;" valType="str" updates="set every repeat" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -340,7 +340,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="C:/Users/tur31606/Desktop/pat/stimuli/icons/movies.png" valType="file" updates="constant" name="image"/>
+        <Param val="" valType="file" updates="set every repeat" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="movies" valType="code" updates="None" name="name"/>
@@ -379,7 +379,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="dancing" valType="str" updates="constant" name="text"/>
+        <Param val="dancing" valType="str" updates="set every repeat" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -392,7 +392,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="C:/Users/tur31606/Desktop/pat/stimuli/icons/dancing.png" valType="file" updates="constant" name="image"/>
+        <Param val="" valType="file" updates="set every repeat" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="dancing" valType="code" updates="None" name="name"/>
@@ -431,7 +431,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="movies" valType="str" updates="constant" name="text"/>
+        <Param val="movies" valType="str" updates="set every repeat" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -444,7 +444,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="C:/Users/tur31606/Desktop/pat/stimuli/icons/fashion.png" valType="file" updates="constant" name="image"/>
+        <Param val="C:/Users/tur31606/Desktop/pat/stimuli/icons/fashion.png" valType="file" updates="set every repeat" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="fashion" valType="code" updates="None" name="name"/>
@@ -2359,11 +2359,23 @@
   </Routines>
   <Flow>
     <Routine name="trial"/>
+    <LoopInitiator loopType="TrialHandler" name="trials">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'face': 'children/F01.png', 'name': 'Amanda', 'interest1': 'writing', 'interest1_img': 'icons/writing.png', 'interest2': 'music', 'interest2_img': 'icons/music.png', 'interest3': 'knitting', 'interest3_img': 'icons/knitting.png'}, {'face': 'children/F02.png', 'name': 'Bailey', 'interest1': 'animals', 'interest1_img': 'icons/animals.png', 'interest2': 'yoga', 'interest2_img': 'icons/yoga.png', 'interest3': 'photography', 'interest3_img': 'icons/photograph.png'}, {'face': 'children/F03.png', 'name': 'Natalie', 'interest1': 'art', 'interest1_img': 'icons/art.png', 'interest2': 'travel', 'interest2_img': 'icons/travel.png', 'interest3': 'movies', 'interest3_img': 'icons/movies.png'}, {'face': 'children/F04.png', 'name': 'Haley', 'interest1': 'beach', 'interest1_img': 'icons/beach.png', 'interest2': 'theater', 'interest2_img': 'icons/theater.png', 'interest3': 'martialarts', 'interest3_img': 'icons/martialarts.png'}, {'face': 'children/F05.png', 'name': 'Jessica', 'interest1': 'camping', 'interest1_img': 'icons/camping.png', 'interest2': 'sports', 'interest2_img': 'icons/sports.png', 'interest3': 'instruments', 'interest3_img': 'icons/insturments.png'}, {'face': 'children/F06.png', 'name': 'Emma', 'interest1': 'chatting', 'interest1_img': 'icons/chatting.png', 'interest2': 'singing', 'interest2_img': 'icons/singing.png', 'interest3': 'hiking', 'interest3_img': 'icons/hiking.png'}, {'face': 'children/F07.png', 'name': 'Emily', 'interest1': 'chess', 'interest1_img': 'icons/chess.png', 'interest2': 'shopping', 'interest2_img': 'icons/shopping.png', 'interest3': 'gardening', 'interest3_img': 'icons/gardening.png'}, {'face': 'children/F08.png', 'name': 'Isabella', 'interest1': 'computers', 'interest1_img': 'icons/computer.png', 'interest2': 'reading', 'interest2_img': 'icons/reading.png', 'interest3': 'gaming', 'interest3_img': 'icons/gaming.png'}, {'face': 'children/F09.png', 'name': 'Savannah', 'interest1': 'cooking', 'interest1_img': 'icons/cooking.png', 'interest2': 'photography', 'interest2_img': 'icons/photograph.png', 'interest3': 'fashion', 'interest3_img': 'icons/fashion.png'}, {'face': 'children/F10.png', 'name': 'Avery', 'interest1': 'cycling', 'interest1_img': 'icons/cycling.png', 'interest2': 'movies', 'interest2_img': 'icons/movies.png', 'interest3': 'dancing', 'interest3_img': 'icons/dancing.png'}, {'face': 'children/F11.png', 'name': 'Elena', 'interest1': 'dancing', 'interest1_img': 'icons/dancing.png', 'interest2': 'martialarts', 'interest2_img': 'icons/martialarts.png', 'interest3': 'cycling', 'interest3_img': 'icons/cycling.png'}, {'face': 'children/F12.png', 'name': 'Angelina', 'interest1': 'fashsion', 'interest1_img': 'icons/fashion.png', 'interest2': 'knitting', 'interest2_img': 'icons/knitting.png', 'interest3': 'reading', 'interest3_img': 'icons/reading.png'}, {'face': 'children/F13.png', 'name': 'Eva', 'interest1': 'gaming', 'interest1_img': 'icons/gaming.png', 'interest2': 'instruments', 'interest2_img': 'icons/insturments.png', 'interest3': 'shopping', 'interest3_img': 'icons/shopping.png'}, {'face': 'children/F14.png', 'name': 'Mia', 'interest1': 'gardening', 'interest1_img': 'icons/gardening.png', 'interest2': 'hiking', 'interest2_img': 'icons/hiking.png', 'interest3': 'singing', 'interest3_img': 'icons/singing.png'}, {'face': 'children/F16.png', 'name': 'Hannah', 'interest1': 'hiking', 'interest1_img': 'icons/hiking.png', 'interest2': 'gardening', 'interest2_img': 'icons/gardening.png', 'interest3': 'sports', 'interest3_img': 'icons/sports.png'}, {'face': 'children/F17.png', 'name': 'Riley', 'interest1': 'instruments', 'interest1_img': 'icons/insturments.png', 'interest2': 'gaming', 'interest2_img': 'icons/gaming.png', 'interest3': 'theater', 'interest3_img': 'icons/theater.png'}, {'face': 'children/F18.png', 'name': 'Arianna', 'interest1': 'knitting', 'interest1_img': 'icons/knitting.png', 'interest2': 'fashion', 'interest2_img': 'icons/fashion.png', 'interest3': 'travel', 'interest3_img': 'icons/travel.png'}, {'face': 'children/F19.png', 'name': 'Amelia', 'interest1': 'martialarts', 'interest1_img': 'icons/martialarts.png', 'interest2': 'dancing', 'interest2_img': 'icons/dancing.png', 'interest3': 'yoga', 'interest3_img': 'icons/yoga.png'}, {'face': 'children/F20.png', 'name': 'Madison', 'interest1': 'movies', 'interest1_img': 'icons/movies.png', 'interest2': 'cycling', 'interest2_img': 'icons/cycling.png', 'interest3': 'cooking', 'interest3_img': 'icons/cooking.png'}, {'face': 'children/F21.png', 'name': 'Madeline', 'interest1': 'music', 'interest1_img': 'icons/music.png', 'interest2': 'cooking', 'interest2_img': 'icons/cooking.png', 'interest3': 'computers', 'interest3_img': 'icons/computer.png'}, {'face': 'children/F22.png', 'name': 'Abby', 'interest1': 'photography', 'interest1_img': 'icons/photograph.png', 'interest2': 'computers', 'interest2_img': 'icons/computer.png', 'interest3': 'chess', 'interest3_img': 'icons/chess.png'}, {'face': 'children/F23.png', 'name': 'Ava', 'interest1': 'reading', 'interest1_img': 'icons/reading.png', 'interest2': 'chess', 'interest2_img': 'icons/chess.png', 'interest3': 'chatting', 'interest3_img': 'icons/chatting.png'}, {'face': 'children/F24.png', 'name': 'Sophia', 'interest1': 'shopping', 'interest1_img': 'icons/shopping.png', 'interest2': 'chatting', 'interest2_img': 'icons/chatting.png', 'interest3': 'camping', 'interest3_img': 'icons/camping.png'}, {'face': 'children/F25.png', 'name': 'Kaitlyn', 'interest1': 'singing', 'interest1_img': 'icons/singing.png', 'interest2': 'camping', 'interest2_img': 'icons/camping.png', 'interest3': 'beach', 'interest3_img': 'icons/beach.png'}, {'face': 'children/F26.png', 'name': 'Michelle', 'interest1': 'sports', 'interest1_img': 'icons/sports.png', 'interest2': 'beach', 'interest2_img': 'icons/beach.png', 'interest3': 'art', 'interest3_img': 'icons/art.png'}, {'face': 'children/F27.png', 'name': 'Olivia', 'interest1': 'theater', 'interest1_img': 'icons/theater.png', 'interest2': 'art', 'interest2_img': 'icons/art.png', 'interest3': 'animals', 'interest3_img': 'icons/animals.png'}, {'face': 'children/F28.png', 'name': 'Ashley', 'interest1': 'travel', 'interest1_img': 'icons/travel.png', 'interest2': 'animals', 'interest2_img': 'icons/animals.png', 'interest3': 'writing', 'interest3_img': 'icons/writing.png'}, {'face': 'children/F29.png', 'name': 'Sarah', 'interest1': 'yoga', 'interest1_img': 'icons/yoga.png', 'interest2': 'writing', 'interest2_img': 'icons/writing.png', 'interest3': 'music', 'interest3_img': 'icons/music.png'}, {'face': 'children/F30.png', 'name': 'Grace', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F31.png', 'name': 'Taylor', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F32.png', 'name': 'Laura', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F33.png', 'name': 'Susan', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F34.png', 'name': 'Rebecca', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F35.png', 'name': 'Jillian', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F36.png', 'name': 'Julia', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F37.png', 'name': 'Makenzie', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F38.png', 'name': 'Gabby', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F39.png', 'name': 'Elizabeth', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F40.png', 'name': 'Chelsea', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F41.png', 'name': 'Makayla', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F42.png', 'name': 'Alex', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F43.png', 'name': 'Jackie', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F44.png', 'name': 'Paige', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F45.png', 'name': 'Molly', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F46.png', 'name': 'Maggie', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F47.png', 'name': 'Megan', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F48.png', 'name': 'Caroline', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F49.png', 'name': 'Kirstin', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F50.png', 'name': 'Crystal', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F51.png', 'name': 'Ella', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F52.png', 'name': 'Gianna', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F53.png', 'name': 'Allison', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F54.png', 'name': 'Brooke', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F55.png', 'name': 'Alexis', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F56.png', 'name': 'Carly', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F57.png', 'name': 'Jamie', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F58.png', 'name': 'Reese', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F59.png', 'name': 'Skylar', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}, {'face': 'children/F60.png', 'name': 'Kate', 'interest1': None, 'interest1_img': None, 'interest2': None, 'interest2_img': None, 'interest3': None, 'interest3_img': None}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="5" valType="num"/>
+      <Param name="name" updates="None" val="trials" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
     <Routine name="ChoiceRoutine_1"/>
     <Routine name="Player1_1"/>
     <Routine name="topyesp1"/>
     <Routine name="Player2_1"/>
     <Routine name="topyesp2"/>
+    <LoopTerminator name="trials"/>
     <Routine name="wait"/>
   </Flow>
 </PsychoPy2experiment>
