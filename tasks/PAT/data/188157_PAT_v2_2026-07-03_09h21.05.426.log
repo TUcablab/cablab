@@ -1,0 +1,18 @@
+7.6217 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001F1C4953310>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001F1C49532B0>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001F1C4953100>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001F1C4D0EDF0>, multiSample=False, name='window1', numSamples=2, pos=(0, 0), screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+7.6218 	EXP 	window1: mouseVisible = True
+7.6218 	EXP 	window1: backgroundImage = ''
+7.6218 	EXP 	window1: backgroundFit = 'none'
+7.6231 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+7.6231 	EXP 	window1: recordFrameIntervals = False
+7.7881 	EXP 	window1: recordFrameIntervals = True
+7.9716 	EXP 	Screen (0) actual frame rate measured at 59.95Hz
+7.9717 	EXP 	window1: recordFrameIntervals = False
+7.9718 	EXP 	window1: mouseVisible = False
+9.9761 	EXP 	PAT_v2: status = STARTED
+9.9765 	EXP 	window1: mouseVisible = True
+10.0585 	EXP 	Created welcome = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='welcome', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=2.0)
+0.0084 	EXP 	welcome: autoDraw = True
+1.0811 	DATA 	Keypress: space
+1.0961 	EXP 	welcome: autoDraw = False
+1.0961 	EXP 	PAT_v2: status = STOPPED
+1.2225 	EXP 	window1: mouseVisible = True
