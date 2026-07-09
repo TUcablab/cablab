@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on July 09, 2026, at 11:06
+    on July 09, 2026, at 11:46
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -457,7 +457,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "Player1_1" ---
     polygon_6 = visual.Rect(
         win=win, name='polygon_6',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(-0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -671,7 +671,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "Player2_1" ---
     polygon_7 = visual.Rect(
         win=win, name='polygon_7',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
