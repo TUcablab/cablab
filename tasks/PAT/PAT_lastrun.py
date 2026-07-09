@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on July 09, 2026, at 12:01
+    on July 09, 2026, at 12:18
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -748,7 +748,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "topyesp2" ---
     polygon_4 = visual.Rect(
         win=win, name='polygon_4',
-        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
+        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -1030,7 +1030,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "Play1_2" ---
     polygon_8 = visual.Rect(
         win=win, name='polygon_8',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(-0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -1817,7 +1817,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "player2_3" ---
     polygon_11 = visual.Rect(
         win=win, name='polygon_11',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -1894,7 +1894,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "topnsp2" ---
     polygon_36 = visual.Rect(
         win=win, name='polygon_36',
-        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4039, -0.3725, -0.3569], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -2176,7 +2176,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "player1_4" ---
     polygon_16 = visual.Rect(
         win=win, name='polygon_16',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(-0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -2253,7 +2253,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "topyesp1_2" ---
     polygon_17 = visual.Rect(
         win=win, name='polygon_17',
-        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -2390,7 +2390,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "Player2_3" ---
     polygon_18 = visual.Rect(
         win=win, name='polygon_18',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -2467,7 +2467,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "topyesp2_2" ---
     polygon_19 = visual.Rect(
         win=win, name='polygon_19',
-        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -2749,7 +2749,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "Play1_4" ---
     polygon_20 = visual.Rect(
         win=win, name='polygon_20',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(-0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -2826,7 +2826,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "topnop1_2" ---
     polygon_21 = visual.Rect(
         win=win, name='polygon_21',
-        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -2963,7 +2963,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "play2_4" ---
     polygon_22 = visual.Rect(
         win=win, name='polygon_22',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -3040,7 +3040,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "topnop2_2" ---
     polygon_23 = visual.Rect(
         win=win, name='polygon_23',
-        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -3322,7 +3322,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "player1_5" ---
     polygon_27 = visual.Rect(
         win=win, name='polygon_27',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(-0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -3399,7 +3399,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "topnsp1_2" ---
     polygon_37 = visual.Rect(
         win=win, name='polygon_37',
-        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4039, -0.3725, -0.3569], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -3536,7 +3536,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "player2_5" ---
     polygon_28 = visual.Rect(
         win=win, name='polygon_28',
-        width=(0.4, 0.4)[0], height=(0.4, 0.4)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.4,0.13), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-1.0000, 0.0039, -1.0000], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
@@ -3613,7 +3613,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "topnsp2_2" ---
     polygon_32 = visual.Rect(
         win=win, name='polygon_32',
-        width=(0.3, 0.3)[0], height=(0.3, 0.3)[1],
+        width=(0.5, 0.5)[0], height=(0.5, 0.5)[1],
         ori=0.0, pos=(0.0,-0.073), anchor='center',
         lineWidth=5.0,     colorSpace='rgb',  lineColor=[-0.4039, -0.3725, -0.3569], fillColor=[0.0000, 0.0000, 0.0000],
         opacity=None, depth=0.0, interpolate=True)
