@@ -1,0 +1,19 @@
+17.1051 	WARNING 	User requested fullscreen with size [1024  768], but screen is actually [1920, 1080]. Using actual size
+18.7727 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001AC53A7C100>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001AC53A7C0A0>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001AC53A67F40>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001AC53E21BE0>, multiSample=False, name='window1', numSamples=2, pos=(0, 0), screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+18.7728 	EXP 	window1: mouseVisible = True
+18.7728 	EXP 	window1: backgroundImage = ''
+18.7728 	EXP 	window1: backgroundFit = 'none'
+18.7741 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+18.7741 	EXP 	window1: recordFrameIntervals = False
+18.9393 	EXP 	window1: recordFrameIntervals = True
+19.1222 	EXP 	Screen (0) actual frame rate measured at 60.15Hz
+19.1223 	EXP 	window1: recordFrameIntervals = False
+19.1224 	EXP 	window1: mouseVisible = False
+21.3376 	EXP 	untitledTEST: status = STARTED
+21.3390 	EXP 	window1: mouseVisible = True
+21.3620 	EXP 	Created image = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, image='default.png', interpolate=True, mask=None, maskParams=None, name='image', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+0.0097 	EXP 	Imported icons.xlsx as conditions, 28 conditions, 2 params
+0.0110 	EXP 	Created sequence: sequential, trialTypes=28, nReps=1, seed=None
+0.0112 	EXP 	New trial (rep=0, index=0): {'icon': 'animals', 'icon_img': 'stimuli/icons/animals.png'}
+0.0117 	DEPRECATION 	Couldn't find image stimuli/icons/animals.png; check path? (tried: C:\Users\Public\Documents\cablab\tasks\PAT\stimuli\stimuli\icons\animals.png)
+0.2228 	EXP 	window1: mouseVisible = True
