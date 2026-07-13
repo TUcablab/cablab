@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on July 13, 2026, at 14:37
+    on July 13, 2026, at 14:46
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -2370,6 +2370,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                # is it time to end the Routine? (based on local clock)
+                if tThisFlip > 3.0-frameTolerance:
+                    continueRoutine = False
                 
                 # *polygon_7* updates
                 
@@ -2631,6 +2634,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                # is it time to end the Routine? (based on local clock)
+                if tThisFlip > 3.0-frameTolerance:
+                    continueRoutine = False
                 
                 # *polygon_4* updates
                 
