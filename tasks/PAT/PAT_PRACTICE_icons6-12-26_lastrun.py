@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on July 13, 2026, at 14:46
+    on July 13, 2026, at 15:11
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -361,15 +361,15 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-1.0);
-    text_2 = visual.TextStim(win=win, name='text_2',
-        text='Player-1\n',
+    name_1 = visual.TextStim(win=win, name='name_1',
+        text='',
         font='Consolas',
         pos=(-0.4,0.3), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-2.0);
-    text_3 = visual.TextStim(win=win, name='text_3',
-        text='Player-2\n',
+    name_2 = visual.TextStim(win=win, name='name_2',
+        text='',
         font='Consolas',
         pos=(0.4,0.3), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -543,8 +543,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-7.0);
-    leftplayert = visual.TextStim(win=win, name='leftplayert',
-        text='Player-1\n',
+    selection_name_1 = visual.TextStim(win=win, name='selection_name_1',
+        text='',
         font='Consolas',
         pos=(-0.4,0.3), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -619,8 +619,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-7.0);
-    toppeername = visual.TextStim(win=win, name='toppeername',
-        text='Player-1\n',
+    toppeer_name1 = visual.TextStim(win=win, name='toppeer_name1',
+        text='',
         font='Consolas',
         pos=(0.0,0.45), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -764,8 +764,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-8.0)
-    text_14 = visual.TextStim(win=win, name='text_14',
-        text='Player-2\n',
+    selection_name_2 = visual.TextStim(win=win, name='selection_name_2',
+        text='',
         font='Consolas',
         pos=(0.4,0.3), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -832,8 +832,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-7.0);
-    p1_4 = visual.TextStim(win=win, name='p1_4',
-        text='Player-2\n\n',
+    toppeer_name_2 = visual.TextStim(win=win, name='toppeer_name_2',
+        text='',
         font='Consolas',
         pos=(0.0,0.45), height=0.03, wrapWidth=None, ori=0.0, 
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
@@ -1084,7 +1084,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         continueRoutine = True
         # update component parameters for each repeat
         thisExp.addData('ChoiceRoutine_1.started', globalClock.getTime())
-        # Run 'Begin Routine' code from load_images
+        # Run 'Begin Routine' code from images_and_names
         # Step 4: pick a gender pool for this pair (participant's gender doesn't matter,
         # only that the two peers match each other)
         genderPool = random.choice(['female', 'male'])
@@ -1113,15 +1113,23 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         peer1_row = peerRows[0]
         peer2_row = peerRows[1]
         
+        nameCol = 3  # column D (0-indexed position, since D is the 4th column)
+        
         image1 = 'stimuli/' + str(conditions_df.loc[peer1_row, ageColumn])
+        name1 = str(conditions_df.iloc[peer1_row, nameCol])
+        
         image2 = 'stimuli/' + str(conditions_df.loc[peer2_row, ageColumn])
+        name2 = str(conditions_df.iloc[peer2_row, nameCol])
+        name_1.setText(name1
+        )
+        name_2.setText(name2)
         Player1demo.setImage(image1)
         Player2demo.setImage(image2)
         key_resp.keys = []
         key_resp.rt = []
         _key_resp_allKeys = []
         # keep track of which components have finished
-        ChoiceRoutine_1Components = [Who, text_2, text_3, Player1demo, Player2demo, cooking, text_4, movies, text_5, dancing, text_6, fashion, text_7, movie, text_8, writing, text_9, key_resp]
+        ChoiceRoutine_1Components = [Who, name_1, name_2, Player1demo, Player2demo, cooking, text_4, movies, text_5, dancing, text_6, fashion, text_7, movie, text_8, writing, text_9, key_resp]
         for thisComponent in ChoiceRoutine_1Components:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -1164,43 +1172,43 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 # update params
                 pass
             
-            # *text_2* updates
+            # *name_1* updates
             
-            # if text_2 is starting this frame...
-            if text_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # if name_1 is starting this frame...
+            if name_1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                text_2.frameNStart = frameN  # exact frame index
-                text_2.tStart = t  # local t and not account for scr refresh
-                text_2.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(text_2, 'tStartRefresh')  # time at next scr refresh
+                name_1.frameNStart = frameN  # exact frame index
+                name_1.tStart = t  # local t and not account for scr refresh
+                name_1.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(name_1, 'tStartRefresh')  # time at next scr refresh
                 # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'text_2.started')
+                thisExp.timestampOnFlip(win, 'name_1.started')
                 # update status
-                text_2.status = STARTED
-                text_2.setAutoDraw(True)
+                name_1.status = STARTED
+                name_1.setAutoDraw(True)
             
-            # if text_2 is active this frame...
-            if text_2.status == STARTED:
+            # if name_1 is active this frame...
+            if name_1.status == STARTED:
                 # update params
                 pass
             
-            # *text_3* updates
+            # *name_2* updates
             
-            # if text_3 is starting this frame...
-            if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # if name_2 is starting this frame...
+            if name_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                text_3.frameNStart = frameN  # exact frame index
-                text_3.tStart = t  # local t and not account for scr refresh
-                text_3.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(text_3, 'tStartRefresh')  # time at next scr refresh
+                name_2.frameNStart = frameN  # exact frame index
+                name_2.tStart = t  # local t and not account for scr refresh
+                name_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(name_2, 'tStartRefresh')  # time at next scr refresh
                 # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'text_3.started')
+                thisExp.timestampOnFlip(win, 'name_2.started')
                 # update status
-                text_3.status = STARTED
-                text_3.setAutoDraw(True)
+                name_2.status = STARTED
+                name_2.setAutoDraw(True)
             
-            # if text_3 is active this frame...
-            if text_3.status == STARTED:
+            # if name_2 is active this frame...
+            if name_2.status == STARTED:
                 # update params
                 pass
             
@@ -1591,8 +1599,10 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             thisExp.addData('Player1_1.started', globalClock.getTime())
             leftplayer.setImage(image1)
+            selection_name_1.setText(name1
+            )
             # keep track of which components have finished
-            Player1_1Components = [polygon_6, leftplayer, icon7, ison7t, icon8, icon8t, icon9, int9, leftplayert, yes1]
+            Player1_1Components = [polygon_6, leftplayer, icon7, ison7t, icon8, icon8t, icon9, int9, selection_name_1, yes1]
             for thisComponent in Player1_1Components:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1778,23 +1788,23 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     # update params
                     pass
                 
-                # *leftplayert* updates
+                # *selection_name_1* updates
                 
-                # if leftplayert is starting this frame...
-                if leftplayert.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # if selection_name_1 is starting this frame...
+                if selection_name_1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
-                    leftplayert.frameNStart = frameN  # exact frame index
-                    leftplayert.tStart = t  # local t and not account for scr refresh
-                    leftplayert.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(leftplayert, 'tStartRefresh')  # time at next scr refresh
+                    selection_name_1.frameNStart = frameN  # exact frame index
+                    selection_name_1.tStart = t  # local t and not account for scr refresh
+                    selection_name_1.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(selection_name_1, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'leftplayert.started')
+                    thisExp.timestampOnFlip(win, 'selection_name_1.started')
                     # update status
-                    leftplayert.status = STARTED
-                    leftplayert.setAutoDraw(True)
+                    selection_name_1.status = STARTED
+                    selection_name_1.setAutoDraw(True)
                 
-                # if leftplayert is active this frame...
-                if leftplayert.status == STARTED:
+                # if selection_name_1 is active this frame...
+                if selection_name_1.status == STARTED:
                     # update params
                     pass
                 
@@ -1852,11 +1862,13 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             thisExp.addData('topyesp1.started', globalClock.getTime())
             topleftpeerchoice.setImage(image1)
+            toppeer_name1.setText(name1
+            )
             key_resp_4.keys = []
             key_resp_4.rt = []
             _key_resp_4_allKeys = []
             # keep track of which components have finished
-            topyesp1Components = [polygon_5, topleftpeerchoice, icon10, int10, icon11, int111, icon12, int12, toppeername, you, icon13, int13, icon14, int14, icon15, int15, participantpic, yess, key_resp_4]
+            topyesp1Components = [polygon_5, topleftpeerchoice, icon10, int10, icon11, int111, icon12, int12, toppeer_name1, you, icon13, int13, icon14, int14, icon15, int15, participantpic, yess, key_resp_4]
             for thisComponent in topyesp1Components:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -2042,23 +2054,23 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     # update params
                     pass
                 
-                # *toppeername* updates
+                # *toppeer_name1* updates
                 
-                # if toppeername is starting this frame...
-                if toppeername.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # if toppeer_name1 is starting this frame...
+                if toppeer_name1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
-                    toppeername.frameNStart = frameN  # exact frame index
-                    toppeername.tStart = t  # local t and not account for scr refresh
-                    toppeername.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(toppeername, 'tStartRefresh')  # time at next scr refresh
+                    toppeer_name1.frameNStart = frameN  # exact frame index
+                    toppeer_name1.tStart = t  # local t and not account for scr refresh
+                    toppeer_name1.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(toppeer_name1, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'toppeername.started')
+                    thisExp.timestampOnFlip(win, 'toppeer_name1.started')
                     # update status
-                    toppeername.status = STARTED
-                    toppeername.setAutoDraw(True)
+                    toppeer_name1.status = STARTED
+                    toppeer_name1.setAutoDraw(True)
                 
-                # if toppeername is active this frame...
-                if toppeername.status == STARTED:
+                # if toppeer_name1 is active this frame...
+                if toppeer_name1.status == STARTED:
                     # update params
                     pass
                 
@@ -2347,8 +2359,10 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             thisExp.addData('Player2_1.started', globalClock.getTime())
             rightpeerchoice.setImage(image2)
+            selection_name_2.setText(name2
+            )
             # keep track of which components have finished
-            Player2_1Components = [polygon_7, rightpeerchoice, icon16, int16, icon17, text_11, icon19, text_12, yes1_2, text_14]
+            Player2_1Components = [polygon_7, rightpeerchoice, icon16, int16, icon17, text_11, icon19, text_12, yes1_2, selection_name_2]
             for thisComponent in Player2_1Components:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -2554,23 +2568,23 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     # update params
                     pass
                 
-                # *text_14* updates
+                # *selection_name_2* updates
                 
-                # if text_14 is starting this frame...
-                if text_14.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # if selection_name_2 is starting this frame...
+                if selection_name_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
-                    text_14.frameNStart = frameN  # exact frame index
-                    text_14.tStart = t  # local t and not account for scr refresh
-                    text_14.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(text_14, 'tStartRefresh')  # time at next scr refresh
+                    selection_name_2.frameNStart = frameN  # exact frame index
+                    selection_name_2.tStart = t  # local t and not account for scr refresh
+                    selection_name_2.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(selection_name_2, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'text_14.started')
+                    thisExp.timestampOnFlip(win, 'selection_name_2.started')
                     # update status
-                    text_14.status = STARTED
-                    text_14.setAutoDraw(True)
+                    selection_name_2.status = STARTED
+                    selection_name_2.setAutoDraw(True)
                 
-                # if text_14 is active this frame...
-                if text_14.status == STARTED:
+                # if selection_name_2 is active this frame...
+                if selection_name_2.status == STARTED:
                     # update params
                     pass
                 
@@ -2608,11 +2622,12 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             thisExp.addData('topyesp2.started', globalClock.getTime())
             toprightpeer.setImage(image2)
+            toppeer_name_2.setText(name2)
             key_resp_6.keys = []
             key_resp_6.rt = []
             _key_resp_6_allKeys = []
             # keep track of which components have finished
-            topyesp2Components = [polygon_4, toprightpeer, icon20, var_2, icon21, var_7, icon22, text_31, p1_4, you_2, icon23, chat_2, icon24, sport_2, icon25, participantpic_5, beach_txt_2, yes, key_resp_6]
+            topyesp2Components = [polygon_4, toprightpeer, icon20, var_2, icon21, var_7, icon22, text_31, toppeer_name_2, you_2, icon23, chat_2, icon24, sport_2, icon25, participantpic_5, beach_txt_2, yes, key_resp_6]
             for thisComponent in topyesp2Components:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -2798,23 +2813,23 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     # update params
                     pass
                 
-                # *p1_4* updates
+                # *toppeer_name_2* updates
                 
-                # if p1_4 is starting this frame...
-                if p1_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # if toppeer_name_2 is starting this frame...
+                if toppeer_name_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
-                    p1_4.frameNStart = frameN  # exact frame index
-                    p1_4.tStart = t  # local t and not account for scr refresh
-                    p1_4.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(p1_4, 'tStartRefresh')  # time at next scr refresh
+                    toppeer_name_2.frameNStart = frameN  # exact frame index
+                    toppeer_name_2.tStart = t  # local t and not account for scr refresh
+                    toppeer_name_2.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(toppeer_name_2, 'tStartRefresh')  # time at next scr refresh
                     # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'p1_4.started')
+                    thisExp.timestampOnFlip(win, 'toppeer_name_2.started')
                     # update status
-                    p1_4.status = STARTED
-                    p1_4.setAutoDraw(True)
+                    toppeer_name_2.status = STARTED
+                    toppeer_name_2.setAutoDraw(True)
                 
-                # if p1_4 is active this frame...
-                if p1_4.status == STARTED:
+                # if toppeer_name_2 is active this frame...
+                if toppeer_name_2.status == STARTED:
                     # update params
                     pass
                 

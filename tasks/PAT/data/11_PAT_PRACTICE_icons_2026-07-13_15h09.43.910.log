@@ -1,0 +1,14 @@
+11.7829 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000024D88882070>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000024D8886C670>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000024D8886CEB0>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000024D88C09C10>, multiSample=False, name='window1', numSamples=2, pos=(0, 0), screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+11.7829 	EXP 	window1: mouseVisible = True
+11.7829 	EXP 	window1: backgroundImage = ''
+11.7830 	EXP 	window1: backgroundFit = 'none'
+11.7843 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+11.7843 	EXP 	window1: recordFrameIntervals = False
+11.9491 	EXP 	window1: recordFrameIntervals = True
+12.1326 	EXP 	Screen (0) actual frame rate measured at 59.99Hz
+12.1327 	EXP 	window1: recordFrameIntervals = False
+12.1327 	EXP 	window1: mouseVisible = False
+13.9665 	EXP 	PAT_PRACTICE_icons: status = STARTED
+13.9669 	EXP 	window1: mouseVisible = True
+14.0400 	EXP 	Created wel = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([-1., -1., -1.]), colorSpace='rgb', contrast=1.0, depth=0.0, draggable=False, flipHoriz=False, flipVert=False, font='Consolas', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='wel', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=2.0)
+14.2809 	EXP 	window1: mouseVisible = True
