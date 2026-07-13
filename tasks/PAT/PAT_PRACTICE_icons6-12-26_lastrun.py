@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.2.3),
-    on July 13, 2026, at 14:12
+    on July 13, 2026, at 14:37
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -324,7 +324,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=0.0);
     key_resp_2 = keyboard.Keyboard()
-    # Run 'Begin Experiment' code from code_2
+    # Run 'Begin Experiment' code from initialize_variables
     import pandas as pd
     import random
     
@@ -558,7 +558,6 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-9.0)
-    key_resp_3 = keyboard.Keyboard()
     
     # --- Initialize components for Routine "topyesp1" ---
     polygon_5 = visual.Rect(
@@ -772,7 +771,6 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         color=[-1.0000, -1.0000, -1.0000], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-9.0);
-    key_resp_5 = keyboard.Keyboard()
     
     # --- Initialize components for Routine "topyesp2" ---
     polygon_4 = visual.Rect(
@@ -1086,7 +1084,7 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
         continueRoutine = True
         # update component parameters for each repeat
         thisExp.addData('ChoiceRoutine_1.started', globalClock.getTime())
-        # Run 'Begin Routine' code from codexL
+        # Run 'Begin Routine' code from load_images
         # Step 4: pick a gender pool for this pair (participant's gender doesn't matter,
         # only that the two peers match each other)
         genderPool = random.choice(['female', 'male'])
@@ -1593,11 +1591,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             thisExp.addData('Player1_1.started', globalClock.getTime())
             leftplayer.setImage(image1)
-            key_resp_3.keys = []
-            key_resp_3.rt = []
-            _key_resp_3_allKeys = []
             # keep track of which components have finished
-            Player1_1Components = [polygon_6, leftplayer, icon7, ison7t, icon8, icon8t, icon9, int9, leftplayert, yes1, key_resp_3]
+            Player1_1Components = [polygon_6, leftplayer, icon7, ison7t, icon8, icon8t, icon9, int9, leftplayert, yes1]
             for thisComponent in Player1_1Components:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1619,6 +1614,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                # is it time to end the Routine? (based on local clock)
+                if tThisFlip > 3.0-frameTolerance:
+                    continueRoutine = False
                 
                 # *polygon_6* updates
                 
@@ -1820,34 +1818,6 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     # update params
                     pass
                 
-                # *key_resp_3* updates
-                waitOnFlip = False
-                
-                # if key_resp_3 is starting this frame...
-                if key_resp_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    key_resp_3.frameNStart = frameN  # exact frame index
-                    key_resp_3.tStart = t  # local t and not account for scr refresh
-                    key_resp_3.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(key_resp_3, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'key_resp_3.started')
-                    # update status
-                    key_resp_3.status = STARTED
-                    # keyboard checking is just starting
-                    waitOnFlip = True
-                    win.callOnFlip(key_resp_3.clock.reset)  # t=0 on next screen flip
-                    win.callOnFlip(key_resp_3.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                if key_resp_3.status == STARTED and not waitOnFlip:
-                    theseKeys = key_resp_3.getKeys(keyList=['y','n','left','right','space'], ignoreKeys=["escape"], waitRelease=False)
-                    _key_resp_3_allKeys.extend(theseKeys)
-                    if len(_key_resp_3_allKeys):
-                        key_resp_3.keys = _key_resp_3_allKeys[-1].name  # just the last key pressed
-                        key_resp_3.rt = _key_resp_3_allKeys[-1].rt
-                        key_resp_3.duration = _key_resp_3_allKeys[-1].duration
-                        # a response ends the routine
-                        continueRoutine = False
-                
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
                     thisExp.status = FINISHED
@@ -1874,13 +1844,6 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
             thisExp.addData('Player1_1.stopped', globalClock.getTime())
-            # check responses
-            if key_resp_3.keys in ['', [], None]:  # No response was made
-                key_resp_3.keys = None
-            trials.addData('key_resp_3.keys',key_resp_3.keys)
-            if key_resp_3.keys != None:  # we had a response
-                trials.addData('key_resp_3.rt', key_resp_3.rt)
-                trials.addData('key_resp_3.duration', key_resp_3.duration)
             # the Routine "Player1_1" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -1915,6 +1878,9 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                # is it time to end the Routine? (based on local clock)
+                if tThisFlip > 3.0-frameTolerance:
+                    continueRoutine = False
                 
                 # *polygon_5* updates
                 
@@ -2381,11 +2347,8 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             thisExp.addData('Player2_1.started', globalClock.getTime())
             rightpeerchoice.setImage(image2)
-            key_resp_5.keys = []
-            key_resp_5.rt = []
-            _key_resp_5_allKeys = []
             # keep track of which components have finished
-            Player2_1Components = [polygon_7, rightpeerchoice, icon16, int16, icon17, text_11, icon19, text_12, yes1_2, text_14, key_resp_5]
+            Player2_1Components = [polygon_7, rightpeerchoice, icon16, int16, icon17, text_11, icon19, text_12, yes1_2, text_14]
             for thisComponent in Player2_1Components:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -2608,34 +2571,6 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                     # update params
                     pass
                 
-                # *key_resp_5* updates
-                waitOnFlip = False
-                
-                # if key_resp_5 is starting this frame...
-                if key_resp_5.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                    # keep track of start time/frame for later
-                    key_resp_5.frameNStart = frameN  # exact frame index
-                    key_resp_5.tStart = t  # local t and not account for scr refresh
-                    key_resp_5.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(key_resp_5, 'tStartRefresh')  # time at next scr refresh
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'key_resp_5.started')
-                    # update status
-                    key_resp_5.status = STARTED
-                    # keyboard checking is just starting
-                    waitOnFlip = True
-                    win.callOnFlip(key_resp_5.clock.reset)  # t=0 on next screen flip
-                    win.callOnFlip(key_resp_5.clearEvents, eventType='keyboard')  # clear events on next screen flip
-                if key_resp_5.status == STARTED and not waitOnFlip:
-                    theseKeys = key_resp_5.getKeys(keyList=['y','n','left','right','space'], ignoreKeys=["escape"], waitRelease=False)
-                    _key_resp_5_allKeys.extend(theseKeys)
-                    if len(_key_resp_5_allKeys):
-                        key_resp_5.keys = _key_resp_5_allKeys[-1].name  # just the last key pressed
-                        key_resp_5.rt = _key_resp_5_allKeys[-1].rt
-                        key_resp_5.duration = _key_resp_5_allKeys[-1].duration
-                        # a response ends the routine
-                        continueRoutine = False
-                
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
                     thisExp.status = FINISHED
@@ -2662,13 +2597,6 @@ def run(expInfo, thisExp, win, inputs, globalClock=None, thisSession=None):
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
             thisExp.addData('Player2_1.stopped', globalClock.getTime())
-            # check responses
-            if key_resp_5.keys in ['', [], None]:  # No response was made
-                key_resp_5.keys = None
-            trials_2.addData('key_resp_5.keys',key_resp_5.keys)
-            if key_resp_5.keys != None:  # we had a response
-                trials_2.addData('key_resp_5.rt', key_resp_5.rt)
-                trials_2.addData('key_resp_5.duration', key_resp_5.duration)
             # the Routine "Player2_1" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
